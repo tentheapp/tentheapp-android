@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+        "outputFile": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -372,7 +372,7 @@
                     "endOffset": 1388
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -391,7 +391,7 @@
                     "endOffset": 1445
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -410,7 +410,7 @@
                     "endOffset": 1499
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -581,7 +581,7 @@
                     "endOffset": 2186
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -600,7 +600,7 @@
                     "endOffset": 2233
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -619,7 +619,7 @@
                     "endOffset": 2284
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -828,7 +828,7 @@
                     "endOffset": 3100
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -847,7 +847,7 @@
                     "endOffset": 3147
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -1246,7 +1246,7 @@
                     "endOffset": 4468
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -1379,7 +1379,7 @@
                     "endOffset": 4928
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -1474,7 +1474,7 @@
                     "endOffset": 5254
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\colors.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -2880,7 +2880,7 @@
                     "endOffset": 29629
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\dimens.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\dimens.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -3013,7 +3013,7 @@
                     "endOffset": 30131
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\dimens.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\dimens.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -3887,7 +3887,7 @@
                     "endOffset": 33152
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 1,
                         "startColumn": 4,
@@ -3906,7 +3906,7 @@
                     "endOffset": 33192
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -3925,7 +3925,7 @@
                     "endOffset": 33232
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -3944,7 +3944,7 @@
                     "endOffset": 33270
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -3963,7 +3963,7 @@
                     "endOffset": 33316
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -4078,7 +4078,7 @@
                     "endOffset": 34058
                 },
                 "from": {
-                    "file": "D:\\AndroidStudioWorkspace\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\styles.xml",
+                    "file": "D:\\AndroidStudioWorkspace\\Ten\\TenTheApp\\k4l-video-trimmer\\src\\main\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
