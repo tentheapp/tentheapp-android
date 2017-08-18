@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#018e0e</color>
+    <color name="colorPrimaryDark">#018e0e</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+    <color name="orange">#ff9900</color>
+    <color name="line_color">#a3a3a3</color>
+    <color name="white_color">#ffffff</color>
+    <color name="loginGreen">#018e0e</color>
+    <color name="loginButtonColor">#80000000</color>
+    <color name="tenBlue">#338a9e</color>
+
+    <color name="toolBarBottomLineColor">#CECECE</color>
+    <color name="lightGray">#F5F5F5</color>
+    <color name="gray">#757575</color>
+    <color name="black">#000000</color>
+    <color name="blacktransparent">#C4000000</color>
+    <color name="whitetransparent">#E6FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="light_grey">#DCDCDC</color>
+    <color name="light_grey_">#f3f3f3</color>
+    <color name="red_color">#ff0000</color>
+    <color name="green_color">#339933</color>
+    <color name="yellow_color">#ffcc00</color>
+</resources>

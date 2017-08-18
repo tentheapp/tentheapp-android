@@ -1,0 +1,220 @@
+package com.nvcomputers.ten.views.profile;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.FollowersAdapter;
+import com.nvcomputers.ten.model.output.FollowingResponse;
+import com.nvcomputers.ten.presenter.FollowersPresenter;
+import com.nvcomputers.ten.utils.ProgressUtility;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+import java.util.ArrayList;
+
+public class FollowersFragment extends BaseFragment implements View.OnClickListener, FollowersPresenter.FollowersCallback {
+
+    private RecyclerView mFollowersRecyclerView;
+    private String mUserId;
+    private FollowersPresenter mFollowersPresenter;
+    private String mFollowers, mUserName;
+    private TextView mFollowersTitleTextView, mNameTitleTextView;
+    private String count, offset;
+    private LinearLayoutManager manager;
+    int lastSavedPosition = 0;
+    boolean noMoreData = false;
+    int currentPageNumber = 1;
+    private ArrayList<FollowingResponse.Users> followersList;
+    private FollowersAdapter followersAdapter;
+
+    @Override
+    protected void getDataFromBundle(Bundle bundle) {
+        super.getDataFromBundle(bundle);
+        if (bundle != null) {
+            mUserId = bundle.getString("user_id");
+            mFollowers = bundle.getString("followers");
+            mUserName = bundle.getString("name");
+        }
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_followers;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        findViewById(R.id.frame_layout_followers);
+        mNameTitleTextView = (TextView) findViewById(R.id.text_view_name_followers);
+        mFollowersTitleTextView = (TextView) findViewById(R.id.text_view_title_followers);
+        if (mFollowers != null && mFollowers.equals("1")) { // following
+            mFollowersTitleTextView.setText("Following");
+        } else {
+            mFollowersTitleTextView.setText("Followers");
+        }
+
+        mNameTitleTextView.setOnClickListener(this);
+
+        mFollowersRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_followers);
+
+        manager = new LinearLayoutManager(mContext);
+        mFollowersRecyclerView.setLayoutManager(manager);
+
+        view.findViewById(R.id.text_view_name_followers).setOnClickListener(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!Utilities.checkInternet(getActivity())) {
+            showToast(R.string.no_internet_msg);
+        } else {
+//            //showDialog();
+//            if (mFollowersPresenter == null)
+//                mFollowersPresenter = new FollowersPresenter(this, getBaseActivity());
+//
+//            if (mFollowers.equals("1")) {
+//                mFollowersPresenter.getFollowingResponse(mUserId,offset,count);
+//            } else {
+//                mFollowersPresenter.getFollowersResponse(mUserId,offset,count);
+//            }
+
+
+            loadPaginationData(0);
+        }
+    }
+
+
+    public void loadPaginationData(int listCount) {
+        if (listCount == 0) {
+            currentPageNumber = 1;
+            lastSavedPosition = 0;
+            noMoreData = false;
+            followersList = new ArrayList<>();
+            hitApi(listCount);
+        } else {
+            lastSavedPosition = listCount - 1;
+            if (listCount >= 10 && !noMoreData && listCount % 10 == 0) {
+                int value = listCount / 10;
+                currentPageNumber = value + 1;
+                hitApi(listCount);
+            } else {
+                ProgressUtility.dismissProgress();
+            }
+        }
+    }
+
+    boolean isLoading = false;
+
+    private void hitApi(int listCount) {
+        if (!Utilities.checkInternet(this.getActivity())) {
+            showToast(R.string.no_internet_msg);
+        } else {
+            if (!isLoading) {
+                isLoading = true;
+                if (mFollowersPresenter == null)
+                    mFollowersPresenter = new FollowersPresenter(this, getBaseActivity());
+
+                if (mFollowers.equals("1")) {
+                    mFollowersPresenter.getFollowingResponse(mUserId, listCount + "", "10");
+                } else {
+                    mFollowersPresenter.getFollowersResponse(mUserId, listCount + "", "10");
+                }
+
+                //  NewFeedPresenter presenter = new NewFeedPresenter(this, this);
+                //presenter.hitApi(listCount + "");
+            }
+        }
+    }
+
+
+    @Override
+    public void setAdapter(RecyclerView recyclerView, ArrayList<?> mList) {
+        //super.setAdapter(recyclerView, mList);
+        FollowersAdapter followersAdapter = new FollowersAdapter(this, mList);
+        recyclerView.setAdapter(followersAdapter);
+    }
+
+
+    @Override
+    public boolean onBackPressed() {
+        Fragment fragment = getParentFragment();
+        if (fragment instanceof NewProfileFragment) {
+            NewProfileFragment NewProfileFragment = (NewProfileFragment) fragment;
+            NewProfileFragment.getProfileApi();
+        }
+        //   manualBackPressed();
+        return super.onBackPressed();
+    }
+
+    @Override
+    public void dispose() {
+        if (mFollowersPresenter != null)
+            mFollowersPresenter = null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        Fragment fragment;
+        switch (view.getId()) {
+
+            case R.id.text_view_name_followers:
+                fragment = getParentFragment();
+                if (fragment instanceof NewProfileFragment) {
+                    NewProfileFragment NewProfileFragment = (NewProfileFragment) fragment;
+                    NewProfileFragment.getProfileApi();
+                }
+                manualBackPressed();
+                break;
+
+        }
+
+
+    }
+
+    @Override
+    public void onFollowersSuccess(FollowingResponse followingResponse) {
+        ArrayList<FollowingResponse.Users> users = followingResponse.getUsers();
+//        swipeRefreshLayout.setRefreshing(false);
+        isLoading = false;
+        if (followingResponse != null) {
+            if (followersList == null) {
+                followersList = new ArrayList<>();
+            }
+            if (users != null && users.size() > 0) {
+                followersList.addAll(users);
+                //newsFeedOutput = posts;
+                //user_badge_layout.setVisibility(View.GONE);
+                // swipeRefreshLayout.setVisibility(View.VISIBLE);
+                followersAdapter = new FollowersAdapter(this, followersList);
+                mFollowersRecyclerView.setAdapter(followersAdapter);
+
+                //mrecylerV.setAdapter(followersAdapter);
+
+                // adapter = new NewsPostAdapter(this, newsFeedOutput, R.id.home_frame_layout, manager);
+                // adapter.isOnline(isOnline);
+                //recyclerViewPosts.setAdapter(adapter);
+                mFollowersRecyclerView.scrollToPosition(lastSavedPosition);
+            } else {
+                noMoreData = true;
+                //user_badge_layout.setVisibility(View.VISIBLE);
+                //swipeRefreshLayout.setVisibility(View.GONE);
+            }
+        }
+
+
+        if (followingResponse.getUsers() != null && followingResponse.getUsers().size() > 0) {
+            // setAdapter(mFollowersRecyclerView, followingResponse.getUsers());
+        }
+    }
+
+    @Override
+    public void onFollowingError(Throwable t) {
+        showToast(t.getMessage());
+    }
+}

@@ -1,0 +1,830 @@
+[
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_profile.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_overlays.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_overlays.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_create_password.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_create_password.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_invite_ten_users.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_invite_ten_users.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_web_view.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_web_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_timed_post.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_timed_post.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sign_up_policy.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_sign_up_policy.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_main_toolbar.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_main_toolbar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_sdk_dropdown.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_sdk_dropdown.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_gallery_item_view.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_gallery_item_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_camera.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_camera.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_crop.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_crop.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_phone_otp_verify.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_phone_otp_verify.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_container_fragment.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_container_fragment.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_forget_password_phone.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_forget_password_phone.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_timers.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_timers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\contacts_list_view.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\contacts_list_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_crop_item_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_crop_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_draw.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_draw.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_detail_preview_sticker.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_detail_preview_sticker.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\country_code_listview.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\country_code_listview.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_feedback_dialog_dislike.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_feedback_dialog_dislike.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\contacts_list_item.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\contacts_list_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_stickers.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_stickers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_spot_draw.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_spot_draw.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_enhance.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_enhance.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\toolbar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_frames_item_recent_pack.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_frames_item_recent_pack.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_text.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_text.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_profile.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_profile.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_focus.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_focus.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_policy_web_view.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_policy_web_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_perspective.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_perspective.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_edit_profile.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_edit_profile.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragments_contacts.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragments_contacts.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_seekbar.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_seekbar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_modal_progress_view.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_modal_progress_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_detail_banner.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_detail_banner.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_settings.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_notification.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_notification.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_feedback_dialog_report_bug.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_feedback_dialog_report_bug.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_text.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_text.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_promo_message_dialog.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_promo_message_dialog.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_seekbar.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_seekbar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_carousel.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_carousel.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_feedback_item_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_feedback_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tooltip_textview.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\658221e9ab596728334b263e1f9585c4b296fdb1\\output\\res\\layout\\tooltip_textview.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_ten_users.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_ten_users.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_selected_post_view.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_selected_post_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_lens_button_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_lens_button_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_listview.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_listview.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_detail_fragment.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_detail_fragment.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\forgot_password_email.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\forgot_password_email.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_frames_item_external_pack.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_frames_item_external_pack.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_thank_you_dialog.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_thank_you_dialog.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_notification_layout.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_notification_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\selected_post_view_layout.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\selected_post_view_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_detail_layout_previews.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_detail_layout_previews.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_popular_timers.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_popular_timers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_zoom_image.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_zoom_image.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_frames_item_header_pack.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_frames_item_header_pack.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_alert_dialog_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_tutoria_overlay_close_button.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_tutoria_overlay_close_button.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_content_frames.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_content_frames.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_profile.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_stickers_item_internal_pack.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_stickers_item_internal_pack.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_spot.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_spot.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_search.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_layout_choose_picker.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\custom_layout_choose_picker.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_stickers_item_single.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_stickers_item_single.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adobe_csdk_ux_auth_activity_container_view.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\04b68a7779b718d8837ba530a51b0e044eda7ff9\\output\\res\\layout\\adobe_csdk_ux_auth_activity_container_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_effects_item_content_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_effects_item_content_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adobe_csdk_common_errorview.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\04b68a7779b718d8837ba530a51b0e044eda7ff9\\output\\res\\layout\\adobe_csdk_common_errorview.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_listview_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_listview_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_timer.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_timer.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_contacts.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_contacts.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_slider_tooltip.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_slider_tooltip.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adobe_csdk_common_dialog_fragment.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\04b68a7779b718d8837ba530a51b0e044eda7ff9\\output\\res\\layout\\adobe_csdk_common_dialog_fragment.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adobe_csdk_ux_auth_dialog_proxy_credentials.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\04b68a7779b718d8837ba530a51b0e044eda7ff9\\output\\res\\layout\\adobe_csdk_ux_auth_dialog_proxy_credentials.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\country_code_custom_inner_layout.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\country_code_custom_inner_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_frames_item_supplies.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_frames_item_supplies.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_frames.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_frames.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_signed_dropdown.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_signed_dropdown.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_followers.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_followers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_camera_fragment.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_camera_fragment.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_timers.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_timers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_disabled_status_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_disabled_status_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_modal_progress_dialog.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_modal_progress_dialog.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\include_user_badge_layout.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\include_user_badge_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_adjust.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_adjust.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\timed_post_animation2.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\timed_post_animation2.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_tool_item_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_tool_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_blemish.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_blemish.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_timed_post.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_timed_post.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_orientation.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_orientation.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adobe_csdk_ux_auth_fragment_view.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\04b68a7779b718d8837ba530a51b0e044eda7ff9\\output\\res\\layout\\adobe_csdk_ux_auth_fragment_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register_password.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_register_password.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_list_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_list_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_main_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_main_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_store_detail_preview_effect.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_store_detail_preview_effect.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_user_profile.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_user_profile.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_stickers.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_stickers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_popular.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_popular.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_orientation.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_orientation.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_toolbar_title_textview.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_toolbar_title_textview.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash2.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_splash2.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_following.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_following.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_feedback_web_view.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_feedback_web_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register_otp.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_register_otp.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adobe_csdk_common_popup_bannerview.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\04b68a7779b718d8837ba530a51b0e044eda7ff9\\output\\res\\layout\\adobe_csdk_common_popup_bannerview.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_feedback_dialog_new.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_feedback_dialog_new.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_request_list.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_request_list.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_follow_request.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_follow_request.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_focus.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_focus.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_landing.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_landing.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sign_up.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_terms_web_view.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_terms_web_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_change_password.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_change_password.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_report_web_view.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_report_web_view.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_meme.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_meme.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register_email.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_register_email.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_slider_tooltip_only.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_slider_tooltip_only.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_forgot_password.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_forgot_password.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_editor_content_vignette.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_editor_content_vignette.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_item_adjust.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_item_adjust.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_contacts_list.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_contacts_list.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\timed_post_animation.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\timed_post_animation.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_news_feed_layout.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_news_feed_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_recyclerfragment.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_recyclerfragment.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register_phoneno.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_register_phoneno.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_popular_tab.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_popular_tab.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_progress_small_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_progress_small_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_comment_list.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_comment_list.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_demo.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_demo.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_followers.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_followers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_main_bottombar.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_main_bottombar.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_login_dialog.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_login_dialog.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_otp_verify.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_otp_verify.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adobe_csdk_ux_auth_dialog_proxy_title.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\04b68a7779b718d8837ba530a51b0e044eda7ff9\\output\\res\\layout\\adobe_csdk_ux_auth_dialog_proxy_title.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_add_post.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_add_post.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_content_frames_item_content_item.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_content_frames_item_content_item.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\row_search_ten_users.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\row_search_ten_users.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_bottombar_panel_meme.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_bottombar_panel_meme.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register_username.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_register_username.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_alert_dialog_buttonbar_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_alert_dialog_buttonbar_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_auth_profile_button.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_auth_profile_button.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_main_view_loader.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_main_view_loader.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_auth_dropdown.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_auth_dropdown.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_adobe_image_panel_colorsplash.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\layout\\com_adobe_image_panel_colorsplash.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_post_list.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\layout\\fragment_post_list.xml"
+    }
+]

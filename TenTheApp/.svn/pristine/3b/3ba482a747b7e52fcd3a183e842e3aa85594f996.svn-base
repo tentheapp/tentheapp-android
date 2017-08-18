@@ -1,0 +1,900 @@
+package com.nvcomputers.ten.views.home;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.VideoView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.SelectedPostCommentAdapter;
+import com.nvcomputers.ten.adapter.SuggestionFollowingAdapter;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.interfaces.DoubleClickListener;
+import com.nvcomputers.ten.model.output.DeletePostResponse;
+import com.nvcomputers.ten.model.output.GetAllPostCommentOutput;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.model.output.PostCommentOutput;
+import com.nvcomputers.ten.model.output.PostCountResponse;
+import com.nvcomputers.ten.model.output.RepostPostResponse;
+import com.nvcomputers.ten.model.output.SearchFollowingUserResponse;
+import com.nvcomputers.ten.model.output.UnFollowResponse;
+import com.nvcomputers.ten.presenter.DeletePostPresenter;
+import com.nvcomputers.ten.presenter.GetCommentListPresenter;
+import com.nvcomputers.ten.presenter.LikeCommentsCountsPresenter;
+import com.nvcomputers.ten.presenter.PostCommentPresenter;
+import com.nvcomputers.ten.presenter.RepostPostPresenter;
+import com.nvcomputers.ten.presenter.SearchFollowingPresenter;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.ProgressUtility;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+import com.nvcomputers.ten.views.profile.ProfileFragment;
+import com.nvcomputers.ten.views.profile.ZoomImageActivity;
+import com.nvcomputers.ten.views.search.SearchFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+public class SelectedPostViewFragment extends BaseFragment implements AppCommonCallback, LikeCommentsCountsPresenter.LikeCommentsCallback,
+        PopupMenu.OnMenuItemClickListener, GetCommentListPresenter.CommentsCallback,
+        PostCommentPresenter.CommentCallback,
+        View.OnClickListener, DeletePostPresenter.DeletePostCallback, RepostPostPresenter.RepostCallback, TextWatcher, SearchFollowingPresenter.SearchFollowingCallback {
+
+
+    private ImageView PostImage, UserImage, ClockImageView, LikeImage, RepostImage, CommentImage;
+    private TextView UsernameTextView, TimeRemainingTextView, TimeElapasedTextView, RepostedTextView;
+    private RelativeLayout videoRelative, pofileRelativeLayout;
+    public String userId, postId, likedPostStatus, remainingTime, expirationTime, mUserId;
+    private ImageView commentImage;
+    private String username;
+    private RecyclerView mCommentsRecyclerView;
+    private ArrayList<GetAllPostCommentOutput.Comments> getlist;
+    private ArrayList<GetAllPostCommentOutput.Comments> getcommentList;
+    private TextView text;
+    private ImageView imageBack;
+    private ImageView action;
+    private PopupMenu popup;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private ProgressBar progressBar;
+    private Timer timer;
+    NewsFeedOutput.Posts singlePost;
+    private ImageView playBtn;
+    private TextView likeCount, repostCount, commentCount;
+    private SelectedPostCommentAdapter adapter;
+    private LikeCommentsCountsPresenter likeCommentsCountsPresenter;
+    private String backText;
+    private AlertDialog.Builder suggestionsView;
+    private SuggestionFollowingAdapter followingListAdapter;
+    private RecyclerView suggestionRV;
+    private TextView captionText;
+    private String postCaption;
+    private String followingUser;
+    private VideoView videoView;
+    private RelativeLayout swipeBtnslayout;
+    private ImageView leftBtn, topBtn, rightBtn, bottomBtn;
+    private Button leftScrollBtn, rightScrollBtn;
+
+
+    public SelectedPostViewFragment() {
+    }
+
+    protected void getDataFromBundle() {
+        sharedPrefsHelper = new SharedPrefsHelper(getActivity());
+        Bundle bundle = getArguments();
+        singlePost = bundle.getParcelable("post_data");
+        userId = bundle.getString("userId");
+        postId = bundle.getString("postId");
+        postCaption = bundle.getString("postCaption");
+        likedPostStatus = bundle.getString("likedValue");
+        remainingTime = bundle.getString("remainingTime");
+        expirationTime = bundle.getString("expirationTime");
+        username = bundle.getString("username");
+        backText = bundle.getString("Back", "");
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_selected_post_view;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        getDataFromBundle();
+        sharedPrefsHelper = new SharedPrefsHelper(getBaseActivity());
+        mUserId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID);
+        followingUser = sharedPrefsHelper.get(PreferenceKeys.PREF_FOLLOWING_LIST, "");
+        //        swipe btns
+        RelativeLayout titleLayout = (RelativeLayout) findViewById(R.id.title_layout);
+        titleLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //nothing to do
+            }
+        });
+        swipeBtnslayout = (RelativeLayout) findViewById(R.id.swipeBtns);
+        leftBtn = (ImageView) findViewById(R.id.lefttbtn);
+        topBtn = (ImageView) findViewById(R.id.topbtn);
+        rightBtn = (ImageView) findViewById(R.id.rightbtn);
+        bottomBtn = (ImageView) findViewById(R.id.bottombtn);
+        leftScrollBtn = (Button) findViewById(R.id.swipeLeftBtn);
+        rightScrollBtn = (Button) findViewById(R.id.swipeRightBtn);
+        leftBtn.setOnClickListener(this);
+        rightBtn.setOnClickListener(this);
+        topBtn.setOnClickListener(this);
+        bottomBtn.setOnClickListener(this);
+        leftScrollBtn.setOnClickListener(this);
+        rightScrollBtn.setOnClickListener(this);
+        //other Components
+        ImageView commentUserImage = (ImageView) findViewById(R.id.post_user_image);
+        String localUser = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        Glide.with(SelectedPostViewFragment.this)
+                .load(HttpUtils.getProfileImageURL(localUser))
+                .bitmapTransform(new RoundedCornersTransformation(getBaseActivity(), 15, 15))
+                .error(R.drawable.myprofilelarge)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(commentUserImage);
+        mCommentsRecyclerView = (RecyclerView) findViewById(R.id.comment_list);
+        pofileRelativeLayout = (RelativeLayout) findViewById(R.id.pofileRelativeLayout);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        PostImage = (ImageView) findViewById(R.id.postimage);
+        playBtn = (ImageView) findViewById(R.id.playBtn1);
+        text = (TextView) findViewById(R.id.text);
+        UserImage = (ImageView) findViewById(R.id.post_userimage);
+        commentImage = (ImageView) findViewById(R.id.comment_image);
+        imageBack = (ImageView) findViewById(R.id.image_back);
+        action = (ImageView) findViewById(R.id.action);
+        edit_text_comment = (EditText) findViewById(R.id.edit_text_comment);
+        edit_text_comment.addTextChangedListener(this);
+        captionText = (TextView) findViewById(R.id.captionText);
+        SpannableString styledString = new SpannableString(postCaption);
+        if (postCaption != null && postCaption.length() > 0) {
+            if (followingUser != null && followingUser.length() > 0) {
+                String[] parts = followingUser.split(",");
+                for (int i = 0; i < parts.length; i++) {
+                    final String taggedName = parts[i];
+                    if (postCaption.contains(taggedName)) {
+
+                        // clickable text
+                        ClickableSpan clickableSpan = new ClickableSpan() {
+                            @Override
+                            public void onClick(View widget) {
+                                // Toast.makeText(baseActivity, "Clicked", Toast.LENGTH_SHORT).show();
+                                Bundle bundle = new Bundle();
+                                bundle.putString("username", taggedName);
+                                replaceChildFragment(R.id.single_post_layout, new ProfileFragment(), bundle);
+                                //getFragmentManager().beginTransaction().replace(R.id.single_post_layout, new ProfileFragment()).addToBackStack("").commit();
+                            }
+                        };
+                        int startIndex = postCaption.indexOf(taggedName);
+                        int endIndex = startIndex + taggedName.length();
+                        styledString.setSpan(clickableSpan, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
+                }
+            }
+        }
+        //set style for hashtag--
+        if (postCaption.contains("#")) {
+            String[] allToken = postCaption.split(" ");
+            if (allToken != null) {
+                for (int i = 0; i < allToken.length; i++) {
+                    String spaceToken = allToken[i];
+                    if (spaceToken.contains("#")) {
+                        StringTokenizer st = new StringTokenizer(spaceToken, "#");
+                        while (st.hasMoreTokens()) {
+                            final String hashToken = st.nextToken().trim();
+                            if (hashToken.length() > 0) {
+                                ClickableSpan clickableSpan = new ClickableSpan() {
+
+                                    @Override
+                                    public void onClick(View widget) {
+                                        //Toast.makeText(baseActivity, "Clicked", Toast.LENGTH_SHORT).show();
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("hashTag", hashToken);
+                                        replaceChildFragment(R.id.single_post_layout, new SearchFragment(),
+                                                bundle);
+                                    }
+                                };
+                                int startIndex = postCaption.indexOf("#" + hashToken);
+                                int endIndex = startIndex + hashToken.length() + 1;
+                                styledString.setSpan(clickableSpan, startIndex, endIndex, 0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        captionText.setText(styledString);
+        captionText.setMovementMethod(LinkMovementMethod.getInstance());
+
+        edit_text_comment.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    if (mSuggestionDialog == null)
+                        showSuggestionDialog();
+                }
+            }
+        });
+        UsernameTextView = (TextView) findViewById(R.id.username);
+        TimeRemainingTextView = (TextView) findViewById(R.id.timeremaining);
+        TimeElapasedTextView = (TextView) findViewById(R.id.timeelapsed);
+        RepostedTextView = (TextView) findViewById(R.id.repostlabel);
+        ClockImageView = (ImageView) findViewById(R.id.clock);
+        LikeImage = (ImageView) findViewById(R.id.like);
+        RepostImage = (ImageView) findViewById(R.id.repost);
+        likeCount = (TextView) findViewById(R.id.post_like_count);
+        repostCount = (TextView) findViewById(R.id.repost_count);
+        commentCount = (TextView) findViewById(R.id.comment_count);
+        RepostImage.setOnClickListener(this);
+        CommentImage = (ImageView) findViewById(R.id.comment);
+        videoRelative = (RelativeLayout) findViewById(R.id.videorelative);
+        videoView = (VideoView) findViewById(R.id.postvideo);
+        commentImage.setOnClickListener(this);
+        imageBack.setOnClickListener(this);
+        // back_text.setOnClickListener(this);
+        action.setOnClickListener(this);
+        UsernameTextView.setOnClickListener(this);
+        LikeImage.setOnClickListener(this);
+        playBtn.setOnClickListener(this);
+
+        TimeRemainingTextView.setOnClickListener(this);
+        findViewById(R.id.clock).setOnClickListener(this);
+        likeCommentsCountsPresenter = new LikeCommentsCountsPresenter(SelectedPostViewFragment.this, SelectedPostViewFragment.this);
+
+        PostImage.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Intent intent = new Intent(getBaseActivity(), ZoomImageActivity.class);
+                intent.putExtra("image", HttpUtils.getProfileImageURL(username));
+                getBaseActivity().startActivity(intent);
+                return false;
+            }
+        });
+
+
+        PostImage.setOnClickListener(new DoubleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+
+            }
+
+            @Override
+            public void onDoubleClick(View v) {
+                if (!mUserId.equals(userId)) {
+                    if (!Utilities.checkInternet(getBaseActivity())) {
+                        showToast(R.string.no_internet_msg);
+                    } else {
+                        if (!singlePost.getLiked())
+                            likePost(postId);
+                    }
+                }
+            }
+        });
+
+
+        UsernameTextView.setText(username);
+        Glide.with(SelectedPostViewFragment.this)
+                .load(HttpUtils.getPostImageURL(postId))
+                .into(PostImage);
+        //String url = HttpUtils.getProfileImageURL(username);
+        Glide.with(getBaseActivity())
+                .load(HttpUtils.getProfileImageURL(username))
+                .bitmapTransform(new RoundedCornersTransformation(getBaseActivity(), 15, 15))
+                .error(R.drawable.myprofilelarge)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(UserImage);
+
+        hitCommentsApi();
+
+        checkPostExpiration();
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        checkPostExpiration();
+                    }
+                });
+            }
+        }, 0, 15000);
+        if (singlePost != null) {
+            updatePostData();
+        }
+
+    }
+
+    public void hitCommentsApi() {
+        GetCommentListPresenter presenter = new GetCommentListPresenter(this);
+        presenter.responseCheck(postId);
+    }
+
+
+    private void updatePostData() {
+        if (singlePost.getHasImage()) {
+            playBtn.setVisibility(View.INVISIBLE);//Visibility = ViewStates.Invisible;
+            progressBar.setVisibility(View.VISIBLE);//Visibility = ViewStates.Visible;
+            PostImage.setVisibility(View.VISIBLE);//Visibility = ViewStates.Visible;
+            pofileRelativeLayout.setVisibility(View.VISIBLE);
+            Glide.with(mContext)
+                    .load(HttpUtils.getPostImageURL(singlePost.getIdPost()))
+                    .bitmapTransform(new RoundedCornersTransformation(mContext, 20, 15))
+                    .into(PostImage);
+            if (singlePost.getVideoUrl() != null && !singlePost.getVideoUrl().equals("") && !singlePost.equals("null")) {
+                playBtn.setVisibility(View.VISIBLE);
+                videoRelative.setVisibility(View.GONE);
+            }
+        } else {
+            playBtn.setVisibility(View.GONE);//Visibility = ViewStates.Invisible;
+            progressBar.setVisibility(View.GONE);//Visibility = ViewStates.Gone;
+            PostImage.setVisibility(View.GONE);//Visibility = ViewStates.Gone;
+            pofileRelativeLayout.setVisibility(View.GONE);
+        }
+        String commentCounts = String.valueOf(singlePost.getCommentCount());
+        String repostCounts = String.valueOf(singlePost.getRepostCount());
+        String likeCounts = String.valueOf(singlePost.getLikeCount());
+        if (likeCounts.equals("0"))
+            likeCounts = "";
+        if (repostCounts.equals("0"))
+            repostCounts = "";
+        if (commentCounts.equals("0"))
+            commentCounts = "";
+
+        commentCount.setText(commentCounts);
+        repostCount.setText(repostCounts);
+        likeCount.setText(likeCounts);
+        if (singlePost.getUserReposter() != null) {
+            RepostedTextView.setVisibility(View.VISIBLE);
+            if (singlePost.getUserReposter().getIdUser().equals(userId)) {
+                RepostedTextView.setText("by you");// = "by you";
+            } else {
+                RepostedTextView.setText("by " + singlePost.getUserReposter().getUsername());//Text = "by " + post.userReposter.username;
+            }
+        } else {
+            RepostedTextView.setVisibility(View.INVISIBLE);
+            RepostedTextView.setText("");
+        }
+
+        if (singlePost.getIsReposted()) {
+            RepostImage.setImageResource(R.drawable.repost_selected);
+        } else {
+            RepostImage.setImageResource(R.drawable.repost);
+        }
+        if (singlePost.getLiked() == true) {
+            LikeImage.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.likeselected));
+        } else {
+            LikeImage.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.like));
+        }
+        if (singlePost.getCommented()) {
+            commentImage.setImageResource(R.drawable.commentselected);
+
+        } else {
+            commentImage.setImageResource(R.drawable.comment);
+        }
+    }
+
+    private void cancelTimer() {
+        if (timer != null) {
+            try {
+                timer.cancel();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cancelTimer();
+    }
+
+    private void checkPostExpiration() {
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
+        if (DateTimeUtil.checkExpiration(expirationTime)) {
+            TimeRemainingTextView.setText("11m");
+            ClockImageView.setVisibility(View.GONE);
+            TimeRemainingTextView.setBackground(ContextCompat.getDrawable(mContext, R.drawable.rounded_btn_black_filled));
+            TimeRemainingTextView.setTextColor(ContextCompat.getColor(mContext, R.color.white));
+        } else {
+            //update time
+            String expTime = DateTimeUtil.getRemainingTimeInMinutes(expirationTime);
+            if (expTime.equals("Exp")) {
+                TimeRemainingTextView.setText("11m");
+                ClockImageView.setVisibility(View.GONE);
+                TimeRemainingTextView.setBackground(ContextCompat.getDrawable(mContext, R.drawable.rounded_btn_black_filled));
+                TimeRemainingTextView.setTextColor(ContextCompat.getColor(mContext, R.color.white));
+            } else {
+                TimeRemainingTextView.setText(expTime);
+                String xTime = expTime.substring(0, expTime.length() - 1);
+                int intTime = Integer.parseInt(xTime);
+                if (expTime.contains("s") || intTime < 5) {
+                    TimeRemainingTextView.setTextColor(ContextCompat.getColor(mContext, R.color.red_color));
+                } else if (intTime < 7) {
+                    TimeRemainingTextView.setTextColor(ContextCompat.getColor(mContext, R.color.yellow_color));
+                } else {
+                    TimeRemainingTextView.setTextColor(ContextCompat.getColor(mContext, R.color.green_color));
+                }
+            }
+        }
+        TimeElapasedTextView.setText(DateTimeUtil.getElapseTimeInMinutes(remainingTime));
+
+    }
+
+    private void likePost(String idPost) {
+        Call<UnFollowResponse> response = GetRestAdapter.getRestAdapter(true).likePost(idPost);
+        response.enqueue(new Callback<UnFollowResponse>() {
+            @Override
+            public void onResponse(Call<UnFollowResponse> call,
+                                   retrofit2.Response<UnFollowResponse> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        singlePost.setLiked(true);
+                        LikeImage.setBackground(getBaseActivity().getResources().getDrawable(R.drawable.likeselected));
+                        likeCommentsCountsPresenter.countsApi(0, postId);
+                    } else {
+                        showToast(response.message());
+                    }
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<UnFollowResponse> call, Throwable t) {
+                showToast(t.getMessage());
+            }
+        });
+    }
+
+
+    public void showPopup(View v) {
+        popup = new PopupMenu(getActivity(), v);
+        popup.setOnMenuItemClickListener(this);
+        MenuInflater inflater = popup.getMenuInflater();
+        if (userId.equals(mUserId)) {
+            inflater.inflate(R.menu.sameuser_menu, popup.getMenu());
+        } else {
+            inflater.inflate(R.menu.other_user_post_menu, popup.getMenu());
+        }
+        popup.show();
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        //  inflater.inflate(R.menu.menu_main2, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        String commentText = edit_text_comment.getText().toString();
+        switch (v.getId()) {
+            case R.id.clock:
+                Bundle bundles = new Bundle();
+                bundles.putString("postId", postId);
+                break;
+            case R.id.timeremaining:
+                Bundle bundless = new Bundle();
+                bundless.putString("postId", postId);
+                break;
+
+            case R.id.username:
+                if (!mUserId.equals(userId)) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("username", username);
+                    //replaceChildFragment(R.id.single_post_layout, new ProfileFragment(), bundle);
+                }
+                break;
+            case R.id.comment_image:
+                Utilities.hideKeypad(v);
+                if (!Utilities.checkInternet(getBaseActivity())) {
+                    showToast(R.string.no_internet_msg);
+                } else if (DateTimeUtil.checkExpiration(expirationTime)) {
+                    showToast("You can't add comment on expired post.");
+                } else {
+                    if (!TextUtils.isEmpty(commentText)) {
+                        edit_text_comment.setText("");
+                        PostCommentPresenter presenter = new PostCommentPresenter(SelectedPostViewFragment.this);
+                        presenter.responseCheck(postId, commentText);
+                    }
+                }
+                break;
+            case R.id.postimage:
+                Intent i = new Intent(getActivity(), ZoomImageActivity.class);
+                i.putExtra("image", HttpUtils.getProfileImageURL(username));
+                i.putExtra("username", username);
+                startActivity(i);
+                break;
+            case R.id.image_back:
+                manualBackPressed();
+                break;
+            case R.id.action:
+                showPopup(v);
+                break;
+            case R.id.like:
+                if (!userId.equals(mUserId)) {
+                    if (!Utilities.checkInternet(getBaseActivity())) {
+                        showToast(R.string.no_internet_msg);
+                    } else {
+                        if (!singlePost.getLiked())
+                            likePost(postId);
+                    }
+                }
+                break;
+            case R.id.repost:
+                if (singlePost.getUserPoster().getIdUser().equals(userId)) {
+                    return;
+                }
+                if (singlePost.getIsReposted()) {
+                    return;
+                }
+                new AlertDialog.Builder(getBaseActivity()).setTitle("Repost?").setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            RepostImage.setImageResource(R.drawable.refresh);
+                            //post.isReposted = await TenServices.RepostPost(post);
+                            repostPost(singlePost.getIdPost());
+                        } catch (Exception eee) {
+                            eee.printStackTrace();
+                        } finally {
+                            if (!singlePost.getIsReposted()) {
+                                RepostImage.setImageResource(R.drawable.repost);
+                            }
+                        }
+                    }
+                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (singlePost.getUserPoster().getIdUser().equals(userId)) {
+                            Utilities.showlongToast(getBaseActivity(), "You can't re-post your own post.");
+                            return;
+                        }
+                        if (singlePost.getIsReposted()) {
+                            Utilities.showlongToast(getBaseActivity(), "You already re-post this post.");
+                            return;
+                        }
+                        new AlertDialog.Builder(getBaseActivity()).setTitle("Ten").setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    RepostImage.setImageResource(R.drawable.refresh);
+                                    //post.isReposted = await TenServices.RepostPost(post);
+                                } catch (Exception eee) {
+                                    eee.printStackTrace();
+                                } finally {
+                                    if (!singlePost.getIsReposted()) {
+                                        RepostImage.setImageResource(R.drawable.repost);
+                                    }
+                                }
+                            }
+                        }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+                    }
+                }).show();
+                break;
+            case R.id.playBtn1:
+                playVideo(singlePost.getVideoUrl());
+                break;
+        }
+    }
+
+    private void repostPost(String postId) {
+        RepostPostPresenter repostPostPresenter = new RepostPostPresenter(this, this);
+        repostPostPresenter.responseCheck(postId);
+    }
+
+    private void playVideo(String url) {
+        videoRelative.setVisibility(View.VISIBLE);//;Visibility = ViewStates.Visible;
+        videoView.setVisibility(View.VISIBLE);
+        playBtn.setVisibility(View.GONE);
+
+        videoView.setVideoPath(url);
+        videoView.requestFocus();
+        videoView.start();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                videoView.setVisibility(View.GONE);//Visibility = ViewStates.Gone;
+                videoRelative.setVisibility(View.GONE);
+                playBtn.setVisibility(View.VISIBLE);
+                videoView = null;
+            }
+        });
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void dispose() {
+        if (mSuggestionDialog != null)
+            mSuggestionDialog = null;
+    }
+
+    @Override
+    public void postCommmentError(Call<PostCommentOutput> call, Throwable t) {
+        showToast(t.getMessage());
+    }
+
+    @Override
+    public void postCommmentSuccess(Response<PostCommentOutput> response) {
+        ProgressUtility.dismissProgress();
+        if (response != null && response.body() != null) {
+            if (response.code() == 200) {
+                singlePost.setCommented(true);
+                edit_text_comment.setText("");
+                GetCommentListPresenter presenter = new GetCommentListPresenter(this);
+                presenter.responseCheck(postId);
+                likeCommentsCountsPresenter.countsApi(0, postId);
+            } else {
+                showToast(R.string.no_data_found_msg);
+            }
+        } else {
+            showToast(R.string.server_error_msg);
+        }
+    }
+
+    @Override
+    public void setAdapter(RecyclerView recyclerView, ArrayList<?> mList) {
+        super.setAdapter(recyclerView, mList);
+        adapter = new SelectedPostCommentAdapter(SelectedPostViewFragment.this, SelectedPostViewFragment.this, mList);
+        mCommentsRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void getCommentListError(Call<GetAllPostCommentOutput> call, Throwable t) {
+        showToast(t.getMessage());
+    }
+
+
+    @Override
+    public void getCommentListSuccess(Response<GetAllPostCommentOutput> response) {
+        if (response != null) {
+            GetAllPostCommentOutput body = response.body();
+            if (body != null) {
+                getlist = body.getComments();
+                if (getlist != null && getlist.size() > 0) {
+                    getcommentList = getlist;
+                    setAdapter(mCommentsRecyclerView, getlist);
+                    text.setVisibility(View.GONE);
+                } else {
+                    text.setVisibility(View.VISIBLE);
+                }
+            } else {
+                showToast(R.string.server_error_msg);
+            }
+        } else {
+            showToast(R.string.server_error_msg);
+        }
+    }
+
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.deletePost:
+                hitDeleteApi();
+                break;
+            case R.id.cancel:
+                popup.dismiss();
+                break;
+            case R.id.report_post:
+                showToast("Coming Soon");
+                break;
+        }
+        popup.show();//showing popup menu
+        return false;
+    }
+
+    private void hitDeleteApi() {
+        DeletePostPresenter deletePostPresenter = new DeletePostPresenter(this, this);
+        deletePostPresenter.responseCheck(postId);
+    }
+
+    @Override
+    public void deletePostError(Call<DeletePostResponse> call, Throwable t) {
+        Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onDeletePostSuccess(Response<DeletePostResponse> response) {
+        DeletePostResponse body = response.body();
+        if (body != null) {
+            String status = body.getSuccess();
+            if (status.equals("true")) {
+                Utilities.showSmallToast(getActivity(), "Post deleted successfully");
+                //replaceChildFragment(R.id.singlepostLayout, new PostListFragment(), null);
+                manualBackPressed();
+            } else {
+                Utilities.showMessage(getActivity(), body.getMessage());
+            }
+        } else {
+            Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+        }
+    }
+
+    @Override
+    public void repostError(Call<RepostPostResponse> call, Throwable t) {
+        showToast(R.string.server_error_msg);
+    }
+
+    @Override
+    public void onRepostSuccess(Response<RepostPostResponse> response) {
+        if (response != null && response.body() != null) {
+            singlePost.setIsReposted(true);
+            likeCommentsCountsPresenter.countsApi(0, postId);
+        } else {
+            Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+        }
+    }
+
+    @Override
+    public void getCounts(int pos, PostCountResponse postCountResponse) {
+
+        if (singlePost != null) {
+            singlePost.setRepostCount(postCountResponse.getPost().getRepostCount());
+            singlePost.setLikeCount(postCountResponse.getPost().getLikeCount());
+            singlePost.setCommentCount(postCountResponse.getPost().getCommentCount());
+            updatePostData();
+        } else {
+            likeCount.setText(postCountResponse.getPost().getLikeCount() + "");
+            commentCount.setText(postCountResponse.getPost().getCommentCount() + "");
+            repostCount.setText(postCountResponse.getPost().getRepostCount() + "");
+        }
+    }
+
+    @Override
+    public void countsError(String error) {
+
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        String comment = edit_text_comment.getText().toString().trim();
+        if (!TextUtils.isEmpty(comment)) {
+            if (comment.contains("@")) {
+
+                if (comment.length() > 1) {
+                    int index = comment.indexOf("@");
+                    Log.e("index--", index + "");
+                    StringTokenizer stringTokenizer = new StringTokenizer(comment, "@");
+                    if (index == 0) {
+                        if (stringTokenizer.hasMoreTokens()) {
+                            String first = stringTokenizer.nextToken();
+                            Log.e("first--", first);
+                            hitFollowingSuggestionsApi(first, index);
+                        }
+                    } else {
+                        if (stringTokenizer.hasMoreTokens()) {
+                            String first = stringTokenizer.nextToken();
+                            Log.e("first--", first);
+                        }
+                        if (stringTokenizer.hasMoreTokens()) {
+                            String last = stringTokenizer.nextToken();
+                            hitFollowingSuggestionsApi(last, index);
+                            Log.e("last--", last);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
+
+    private void hitFollowingSuggestionsApi(String suggestion, int index) {
+        Log.e("suggesstion--", suggestion);
+        if (Utilities.checkInternet(getBaseActivity())) {
+            SearchFollowingPresenter searchFollowingPresenter = new SearchFollowingPresenter(this, this);
+            searchFollowingPresenter.responseCheck(mUserId, suggestion);
+        } else {
+            showToast(R.string.no_internet_msg);
+        }
+    }
+
+    private void showSuggestionDialog() {
+        mSuggestionDialog = new Dialog(getActivity());
+        mSuggestionDialog.setContentView(R.layout.suggestion_name_layout);
+        // set the custom dialog components - text, image and button
+        suggestionRV = (RecyclerView) mSuggestionDialog.findViewById(R.id.suggestionRV);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        suggestionRV.setLayoutManager(mLayoutManager);
+    }
+
+    @Override
+    public void searchFollowingnError(Call<SearchFollowingUserResponse> call, Throwable t) {
+        Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onSearchFollowingSuccess(Response<SearchFollowingUserResponse> response) {
+        SearchFollowingUserResponse body = response.body();
+        if (body != null) {
+            List<SearchFollowingUserResponse.Users> usersDataList = body.getUsers();
+            if (mSuggestionDialog == null)
+                showSuggestionDialog();
+
+            if (usersDataList == null || usersDataList.size() == 0) {
+                mSuggestionDialog.dismiss();
+                return;
+            }
+            mSuggestionDialog.dismiss();
+            mSuggestionDialog.show();
+            followingListAdapter = new SuggestionFollowingAdapter(this, usersDataList);
+            suggestionRV.setAdapter(followingListAdapter);
+        } else {
+            Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+        }
+    }
+
+}
+

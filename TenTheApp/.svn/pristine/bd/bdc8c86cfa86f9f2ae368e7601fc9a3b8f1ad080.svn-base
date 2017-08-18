@@ -1,0 +1,146 @@
+package com.nvcomputers.ten.adapter;
+
+import android.content.Context;
+import android.graphics.Typeface;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.ContactsApi;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.model.input.InviteFriendInput;
+import com.nvcomputers.ten.model.output.InviteFriendResponse;
+import com.nvcomputers.ten.model.output.TenUsersResponse;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+
+/**
+ * This class is used to show ten users  adapter
+ *
+ * @author jindaldipanshu
+ * @version 1.0
+ */
+
+public class InviteTenUsersAdapter extends RecyclerView.Adapter<InviteTenUsersAdapter.ViewHolder> {
+
+    private final ContactsApi.UsersCallback callback;
+    Context context;
+    ArrayList<TenUsersResponse.User> mList;
+
+    private final LayoutInflater mInflator;
+
+    private Typeface regular_fonts;
+    private BaseActivity mActivity;
+
+    public InviteTenUsersAdapter(BaseActivity context, ArrayList<?> mList, ContactsApi.UsersCallback callback) {
+        this.mList = (ArrayList<TenUsersResponse.User>) mList;
+        this.mActivity = context;
+        this.callback=callback;
+        mInflator = LayoutInflater.from(mActivity);
+
+    }
+
+    @Override
+    public InviteTenUsersAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View itemLayoutView = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.row_invite_ten_users, null);
+        // create ViewHolder
+        InviteTenUsersAdapter.ViewHolder viewHolder = new InviteTenUsersAdapter.ViewHolder(itemLayoutView);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(InviteTenUsersAdapter.ViewHolder viewHolder, int position) {
+        String contactName = mList.get(position).getUsername();
+        String phone = mList.get(position).getPhone();
+        viewHolder.mUserNameTextView.setText(contactName);
+        viewHolder.mContactNameTextView.setText(phone);
+
+        if (mList.get(position).getStatus().equals("1")) {
+            viewHolder.mInviteTextView.setText("Invited");
+            viewHolder.mInviteTextView.setTextColor(mActivity.getResources().getColor(R.color.tenBlue));
+            viewHolder.mInviteTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_blue));
+        } else {
+            viewHolder.mInviteTextView.setText("Invite");
+            viewHolder.mInviteTextView.setTextColor(mActivity.getResources().getColor(android.R.color.black));
+            viewHolder.mInviteTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_black));
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return mList == null ? 0 : mList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private TextView mUserNameTextView, mContactNameTextView, mInviteTextView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            mUserNameTextView = (TextView) itemView.findViewById(R.id.text_view_user);
+            mContactNameTextView = (TextView) itemView.findViewById(R.id.text_view_phone);
+            mInviteTextView = (TextView) itemView.findViewById(R.id.text_view_invite);
+            mInviteTextView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getLayoutPosition();
+            switch (view.getId()) {
+                case R.id.text_view_invite:
+                    if (!mList.get(position).getStatus().equals("1")) {
+                        if (!Utilities.checkInternet(mActivity)) {
+                            mActivity.showToast(R.string.no_internet_msg);
+                        } else {
+                            SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(mActivity);
+                            String userId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID);
+                            InviteFriendInput inviteFriendInput = new InviteFriendInput();
+                            inviteFriendInput.setIdUserFriend(mList.get(position).getIdUser());
+                            inviteFriendInput.setIdUser(userId);
+                            inviteFriendResponse(inviteFriendInput, position);
+                        }
+                    }
+                    break;
+            }
+        }
+    }
+
+    private void inviteFriendResponse(InviteFriendInput inviteFriendInput, final int position) {
+
+        Call<InviteFriendResponse> response = GetRestAdapter.getRestAdapter(true).inviteFriend(inviteFriendInput);
+        response.enqueue(new Callback<InviteFriendResponse>() {
+            @Override
+            public void onResponse(Call<InviteFriendResponse> call,
+                                   retrofit2.Response<InviteFriendResponse> response) {
+                if (response != null && response.body() != null && response.body().getResponse() != null &&
+                        response.body().getResponse().getCode() != null) {
+                    String code = response.body().getResponse().getCode();
+                    String message = response.body().getResponse().getMessage();
+                    if (code.equals("201") || message.contains("Invitation sent successfully")) {
+                        mList.get(position).setStatus("1");
+                        callback.notifyInviteList(position);
+                        notifyDataSetChanged();
+                    }
+                } else {
+                    mActivity.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<InviteFriendResponse> call, Throwable t) {
+                mActivity.showToast(t.getMessage());
+            }
+        });
+    }
+}

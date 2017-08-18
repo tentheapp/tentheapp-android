@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingMode="stack"
+    tools:targetApi="lollipop">
+
+    <item android:id="@+id/background">
+        <color android:color="@color/com_adobe_image_black_semi_transparent2" />
+    </item>
+
+    <item android:id="@+id/foreground">
+        <bitmap android:src="@drawable/com_adobe_image_effects_intensity" />
+    </item>
+
+</layer-list>

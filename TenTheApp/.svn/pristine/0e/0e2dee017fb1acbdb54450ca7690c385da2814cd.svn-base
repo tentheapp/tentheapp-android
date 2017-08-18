@@ -1,0 +1,230 @@
+[
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_arrow_up.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_arrow_up.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_search.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_search.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\refresh.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\refresh.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\status.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\status.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\white_backicon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\white_backicon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\actions.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\actions.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar4selected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar4selected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_arrow_right.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_arrow_right.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\white_upicon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\white_upicon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar0selected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar0selected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\white_forwordicon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\white_forwordicon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\down_arrow_black.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\down_arrow_black.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\search.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\search.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\like.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\like.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\react.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\react.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_videocam.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_videocam.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\refreshnew.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\refreshnew.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\forword_arrow_gray.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\forword_arrow_gray.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\commentselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\commentselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\up_arrow_black.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\up_arrow_black.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\white_downicon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\white_downicon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\repost.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\repost.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\crop__ic_done.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\crop__ic_done.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\repost_selected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\repost_selected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_refresh.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_refresh.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_mute.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_mute.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\check_box.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\check_box.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar3.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar3.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\reactselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\reactselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\play_video_btn.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\play_video_btn.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\back.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\back.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\likeselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\likeselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\crop__ic_cancel.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\crop__ic_cancel.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\clock_icon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\clock_icon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar3selected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar3selected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar0.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar0.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_check_black_24dp.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_check_black_24dp.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\checkboxtick.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\checkboxtick.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_volume.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_volume.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar1selected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar1selected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_unmute.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_unmute.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\play_video_icon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\play_video_icon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\comment.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\comment.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\myprofilelarge.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\myprofilelarge.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar1.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar1.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar4.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar4.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\settings.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\settings.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_back_arrow_.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_back_arrow_.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\back_arrow_black.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\back_arrow_black.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\friendrequest.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\friendrequest.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\forword_arrow_black.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\forword_arrow_black.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\back_icon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\back_icon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tabbar2.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\tabbar2.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_arrow_down.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_arrow_down.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_arrow_left.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_arrow_left.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\crop__divider.9.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable-hdpi\\crop__divider.9.png"
+    }
+]

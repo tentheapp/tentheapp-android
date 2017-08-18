@@ -1,0 +1,100 @@
+package com.nvcomputers.ten.adapter;
+
+import android.app.Activity;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.model.output.RequestListResponse;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.views.notification.RequestListFragment;
+
+import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
+/**
+ * Created by Thaparsneh on 5/15/2017.
+ */
+
+public class RequestListAdapter extends RecyclerView.Adapter<RequestListAdapter.RequestListViewHolder> {
+    private final Activity mActivity;
+    private final List<RequestListResponse.Users> requestList;
+    RequestListFragment landingScreen;
+    private int listCount;
+
+    public RequestListAdapter(RequestListFragment landingScreen, List<RequestListResponse.Users> arrayList) {
+        this.mActivity = landingScreen.getActivity();
+        this.landingScreen = landingScreen;
+        this.requestList = arrayList;
+        if (requestList != null) {
+            listCount = requestList.size();
+        }
+    }
+
+    @Override
+    public RequestListAdapter.RequestListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.
+                from(parent.getContext()).
+                inflate(R.layout.row_follow_request, parent, false);
+        return new RequestListAdapter.RequestListViewHolder(itemView);
+    }
+
+
+    @Override
+    public void onBindViewHolder(RequestListAdapter.RequestListViewHolder holder, int position) {
+        RequestListResponse.Users data = requestList.get(position);
+        String user_name = data.getUsername();
+        holder.userName.setText(user_name);
+        Glide.with(mActivity)
+                .load(HttpUtils.getProfileImageURL(data.getUsername()))
+                .bitmapTransform(new RoundedCornersTransformation(mActivity, 15, 15))
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(holder.userImage);
+    }
+
+    @Override
+    public int getItemCount() {
+        return requestList.size();
+    }
+
+    public class RequestListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private final TextView userName;
+        private ImageView userImage;
+        private Button yesBtn, noBtn;
+
+        public RequestListViewHolder(View itemView) {
+            super(itemView);
+            userName = (TextView) itemView.findViewById(R.id.request_userName);
+            userImage = (ImageView) itemView.findViewById(R.id.request_userImage);
+            yesBtn = (Button) itemView.findViewById(R.id.accept_btn);
+            noBtn = (Button) itemView.findViewById(R.id.no_btn);
+            yesBtn.setOnClickListener(this);
+            noBtn.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getLayoutPosition();
+            String userid = requestList.get(clickedPosition).getIdUser();
+            switch (view.getId()) {
+                case R.id.accept_btn:
+                    landingScreen.acceptRequestApi(userid);
+                    break;
+                case R.id.no_btn:
+                    landingScreen.rejectRequestApi(userid);
+                    break;
+            }
+        }
+
+    }
+}

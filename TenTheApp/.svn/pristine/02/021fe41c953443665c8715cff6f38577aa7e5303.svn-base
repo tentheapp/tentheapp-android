@@ -1,0 +1,303 @@
+package com.nvcomputers.ten.api;
+
+
+import com.nvcomputers.ten.model.input.ChangePasswordInput;
+import com.nvcomputers.ten.model.input.ContactsSyncInput;
+import com.nvcomputers.ten.model.input.EditProfileInput;
+import com.nvcomputers.ten.model.input.EmailSignUpUserInput;
+import com.nvcomputers.ten.model.input.EmailVerificationInput;
+import com.nvcomputers.ten.model.input.ForgotPasswordEmailInput;
+import com.nvcomputers.ten.model.input.ForgotPasswordPhoneInput;
+import com.nvcomputers.ten.model.input.InviteFriendInput;
+import com.nvcomputers.ten.model.input.OtpEmailVerifyInput;
+import com.nvcomputers.ten.model.input.PhoneOtpVerifyInput;
+import com.nvcomputers.ten.model.input.PhoneSignUpUserInput;
+import com.nvcomputers.ten.model.input.PhoneVerifyInput;
+import com.nvcomputers.ten.model.input.RegisterUsernameInput;
+import com.nvcomputers.ten.model.input.ResendEmailOtpInput;
+import com.nvcomputers.ten.model.input.ResendPhoneOtpInput;
+import com.nvcomputers.ten.model.input.ResetForgotPassEmailInput;
+import com.nvcomputers.ten.model.input.ResetForgotPassPhoneInput;
+import com.nvcomputers.ten.model.input.TenUsersInput;
+import com.nvcomputers.ten.model.output.AcceptRequestResponse;
+import com.nvcomputers.ten.model.output.BlockUserOutput;
+import com.nvcomputers.ten.model.output.ChangePasswordResponse;
+import com.nvcomputers.ten.model.output.ContactsSyncResponse;
+import com.nvcomputers.ten.model.output.CountryCodeOutput;
+import com.nvcomputers.ten.model.output.DeleteCommentResponse;
+import com.nvcomputers.ten.model.output.DeletePostResponse;
+import com.nvcomputers.ten.model.output.EditProfileResponse;
+import com.nvcomputers.ten.model.output.EmailVerificationResponse;
+import com.nvcomputers.ten.model.output.EnableDisableResponse;
+import com.nvcomputers.ten.model.output.FollowingResponse;
+import com.nvcomputers.ten.model.output.ForgotPasswordResponse;
+import com.nvcomputers.ten.model.output.GetAllPostCommentOutput;
+import com.nvcomputers.ten.model.output.GetUserStatusResponse;
+import com.nvcomputers.ten.model.output.InviteFriendResponse;
+import com.nvcomputers.ten.model.output.LoginResponse;
+import com.nvcomputers.ten.model.output.LogoutResponse;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.model.output.NotificationLitResponse;
+import com.nvcomputers.ten.model.output.OtpEmailVerifyResponse;
+import com.nvcomputers.ten.model.output.PhoneOtpVerifyResponse;
+import com.nvcomputers.ten.model.output.PhoneVerifyResponse;
+import com.nvcomputers.ten.model.output.PopularTimersResponse;
+import com.nvcomputers.ten.model.output.PostCommentOutput;
+import com.nvcomputers.ten.model.output.PostCountResponse;
+import com.nvcomputers.ten.model.output.ProfileResponse;
+import com.nvcomputers.ten.model.output.ReadNotificationResponse;
+import com.nvcomputers.ten.model.output.RegisterUsernameOutput;
+import com.nvcomputers.ten.model.output.RejectRequestResponse;
+import com.nvcomputers.ten.model.output.RepostPostResponse;
+import com.nvcomputers.ten.model.output.RequestListResponse;
+import com.nvcomputers.ten.model.output.ResendEmailOtpResponse;
+import com.nvcomputers.ten.model.output.ResendPhoneOtpResponse;
+import com.nvcomputers.ten.model.output.ResetForgotPasswordResponse;
+import com.nvcomputers.ten.model.output.SearchFollowingUserResponse;
+import com.nvcomputers.ten.model.output.SearchUsersResponse;
+import com.nvcomputers.ten.model.output.SignUpUserResponse;
+import com.nvcomputers.ten.model.output.TenUsersResponse;
+import com.nvcomputers.ten.model.output.TimersResponse;
+import com.nvcomputers.ten.model.output.TopLikersResponse;
+import com.nvcomputers.ten.model.output.UnFollowResponse;
+import com.nvcomputers.ten.model.output.UpdateTokenResponse;
+//import com.nvcomputers.ten.model.output.VideoUpload;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.DELETE;
+import retrofit2.http.GET;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+
+/**
+ * Created by KaurGurleen on 11/28/2016.
+ */
+
+public interface GitHubService {
+    @DELETE("post/{idPost}/comment/{idComment}")
+    Call<DeleteCommentResponse> deleteComment(@Path("idPost") String idPost, @Path("idComment") String idComment);
+
+    @GET("profile/{username}/post/active")
+    Call<NewsFeedOutput> activePosts(@Path("username") String username);
+
+    @GET("profile/{idUser}/following/search/{username}")
+    Call<SearchFollowingUserResponse> searchFollowings(@Path("idUser") String idUser, @Path("username") String username);
+
+    @GET("token")
+    Call<UpdateTokenResponse> updateToken(@Query("token") String token, @Query("type") String type);
+
+    @PUT("action/{idUser}/approve")
+    Call<AcceptRequestResponse> acceptRequest(@Path("idUser") String idUser);
+
+    @PUT("action/{idUser}/reject")
+    Call<RejectRequestResponse> rejectResquest(@Path("idUser") String idUser);
+
+    @GET("action/pending")
+    Call<RequestListResponse> requestList(@Query("user") String userName, @Query("password") String password);
+
+    @DELETE("post/{idPost}")
+    Call<DeletePostResponse> deletePost(@Path("idPost") String idPost);
+
+    @GET("status")
+    Call<GetUserStatusResponse> userStatus(@Query("user") String userName, @Query("password") String password, @Query("offset") String offset, @Query("count") String count);
+
+    @POST("action/resetPassword")
+    Call<ResetForgotPasswordResponse> resetforgotPassPhone(@Body ResetForgotPassPhoneInput resetForgotPassPhoneInput);
+
+
+    @POST("action/resetPassword")
+    Call<ResetForgotPasswordResponse> resetforgotPassEmail(@Body ResetForgotPassEmailInput resetForgotPassEmailInput);
+
+    @POST("action/forgotPassword")
+    Call<ForgotPasswordResponse> emailforgotPassword(@Body ForgotPasswordEmailInput forgotPasswordEmailInput);
+
+    @POST("action/forgotPassword")
+    Call<ForgotPasswordResponse> phoneforgotPassword(@Body ForgotPasswordPhoneInput forgotPasswordPhoneInput);
+
+    @PUT("profile/pass")
+    Call<ChangePasswordResponse> changePassword(@Body ChangePasswordInput changePasswordInput);
+
+    @GET("logout")
+//ungregister
+    Call<LogoutResponse> logoutUser();
+
+    @PUT("notification/{idNotification}")
+    Call<ReadNotificationResponse> readNotification(@Path("idNotification") String idNotification);
+
+    @GET("notification")
+    Call<NotificationLitResponse> notificationList(@Query("user") String userName, @Query("password") String password, @Query("offset") String offset, @Query("count") String count);
+
+    @POST("register")
+    Call<SignUpUserResponse> phoneSignUpUser(@Body PhoneSignUpUserInput signUpUserInput);
+
+    @POST("register")
+    Call<SignUpUserResponse> emailSignUpUser(@Body EmailSignUpUserInput signUpUserInput);
+
+    @POST("otp/resend/phone")
+    Call<ResendPhoneOtpResponse> resendPhoneOtp(@Body ResendPhoneOtpInput resendPhoneOtpInput);
+
+    @POST("otp/verify/phone")
+    Call<PhoneOtpVerifyResponse> phoneOtpVerify(@Body PhoneOtpVerifyInput phoneOtpVerifyInput);
+
+    @POST("verify/phone")
+    Call<PhoneVerifyResponse> phoneVerify(@Body PhoneVerifyInput phoneVerifyInput);
+
+    @POST("otp/resend/email")
+    Call<ResendEmailOtpResponse> resendEmailOtp(@Body ResendEmailOtpInput resendEmailOtpInput);
+
+    @POST("otp/verify/email")
+    Call<OtpEmailVerifyResponse> emailOtp(@Body OtpEmailVerifyInput otpEmailVerifyInput);
+
+    @POST("verify/email")
+    Call<EmailVerificationResponse> verifyEmail(@Body EmailVerificationInput emailVerificationInput);
+
+    @POST("verify/username")
+    Call<RegisterUsernameOutput> verifyUserName(@Body RegisterUsernameInput registerUsernameInput);
+
+    @GET("country/codes")
+    Call<CountryCodeOutput> getCountryCode();
+
+
+    @GET("login")
+    Call<LoginResponse> loginUser(@Query("user") String userName, @Query("password") String password);
+
+
+    @GET("newsfeed")
+    Call<NewsFeedOutput> newsFeed(@Query("offset") String offset, @Query("count") String count);//();
+
+
+    //popular posts api
+    @GET("/popular/{tabValue}/{type}")
+    Call<NewsFeedOutput> popularPostsTimed(@Path("tabValue") String tabValue, @Path("type") String type);
+
+    //popular timers api
+    @GET("/popular/{tabValue}/{type}")
+    Call<PopularTimersResponse> popularTimers(@Path("tabValue") String tabValue, @Path("type") String type);
+
+    @POST("action/synchronize")
+    Call<ContactsSyncResponse> synContacts(@Body ContactsSyncInput input);
+
+
+    @POST("users")
+    Call<TenUsersResponse> tenUsers(@Body TenUsersInput input);
+
+    @POST("contacts")
+    Call<TenUsersResponse> notTenUsers(@Body TenUsersInput input);
+
+    @POST("action/invite/friend")
+    Call<InviteFriendResponse> inviteFriend(@Body InviteFriendInput input);
+
+    @DELETE("action/{idUser}/unfollow")
+    Call<UnFollowResponse> unfollowUser(@Path("idUser") String idUser);
+
+
+    @PUT("action/{idUser}/follow")
+    Call<UnFollowResponse> followUser(@Path("idUser") String idUser);
+
+
+    @GET("profile/{username}")
+    Call<ProfileResponse> userProfile(@Path("username") String user);
+
+    @GET("profile/{username}/like/top")
+    Call<TopLikersResponse> likeResponse(@Path("username") String user);
+
+    @GET("profile/{idUser}/followers")
+    Call<FollowingResponse> getFollowersList(@Path("idUser") String idUser);
+
+    @GET("profile/{idUser}/following")
+    Call<FollowingResponse> getFollowingList(@Path("idUser") String idUser);
+
+
+    @PUT("post/{idPost}/like")
+    Call<UnFollowResponse> likePost(@Path("idPost") String idPost);
+
+    @Multipart
+    @POST(" post/{idPost}/comment")
+    Call<PostCommentOutput> commentPost(@Path("idPost") String idPost, @Part("text") RequestBody commentBody);
+
+    @Multipart
+    @POST(" post/{idPost}/comment")
+    Call<PostCommentOutput> commentImagePost(@Path("idPost") String idPost, @Part("text") RequestBody description, @Part MultipartBody.Part imageFile);
+
+    @Multipart
+    @POST(" post/{idPost}/comment")
+    Call<PostCommentOutput> commentVideoPost(@Path("idPost") String idPost, @Part("text") RequestBody description, @Part MultipartBody.Part videoPosterFile, @Part MultipartBody.Part videoFile);
+
+
+    @DELETE("  post/{idPost}/comment/{idComment")
+    Call<UnFollowResponse> postDeleteComment(@Path("idPost") String idPost);
+
+    @GET("post/{idPost}/comment")
+    Call<GetAllPostCommentOutput> getAllCommentList(@Path("idPost") String idPost);
+
+    @PUT("profile")
+    Call<EditProfileResponse> updateProfile(@Body EditProfileInput editProfileInput);
+
+    @PUT("action/{idUser}/block")
+    Call<BlockUserOutput> blockUser(@Path("idUser") String idUser);
+
+
+    @DELETE("action/{idUser}/unblock")
+    Call<BlockUserOutput> unblockUser(@Path("idUser") String idUser);
+
+
+    @PUT("post/{idPost}/repost")
+    Call<RepostPostResponse> repost(@Path("idPost") String idPost);
+
+    @Multipart
+    @POST("profile/image")
+    Call<EditProfileResponse> uploadProfileImage(@Part MultipartBody.Part file);
+
+    @GET("search/user/{username}")
+    Call<SearchUsersResponse> searchUser(@Path("username") String username);
+
+    @GET("search/post/{hashtag}")
+    Call<NewsFeedOutput> hashtagUser(@Path("hashtag") String hashtag);
+
+    @Multipart
+    @POST("post")
+    Call<EditProfileResponse> uploadImagePost(@Part("text") RequestBody description, @Part MultipartBody.Part file);
+
+    @Multipart
+    @POST("post")
+    Call<EditProfileResponse> uploadTextPost(@Part("text") RequestBody description);
+
+
+   /* @Multipart
+    @POST("post1")
+    Call<VideoUpload> uploadVideo(@Part MultipartBody.Part videoFile);*/
+
+    @Multipart
+    @POST("post/video")
+    Call<EditProfileResponse> uploadVideoOnly( @Part MultipartBody.Part videoPosterFile, @Part MultipartBody.Part videoFile);
+
+    @Multipart
+    @POST("post")
+    Call<EditProfileResponse> uploadVideoPost(@Part("text") RequestBody descriptoin, @Part MultipartBody.Part videoPosterFile, @Part MultipartBody.Part videoFile);
+
+    @GET("profile/{username}/post")
+    Call<NewsFeedOutput> userPosts(@Path("username") String username);
+
+    @GET("profile/{username}/post")
+    Call<NewsFeedOutput> userPagePosts(@Path("username") String username, @Query("offset") String offset, @Query("count") String count);
+
+    //
+    @GET("profile/notify")
+    Call<EnableDisableResponse> enableDisableFollow();
+
+    @GET("post/{idPost}/like")
+    Call<TimersResponse> getTimers(@Path("idPost") String tabValue);
+
+
+    @GET("post/{idPost}/count")
+    Call<PostCountResponse> getPostsCount(@Path("idPost") String idPost);
+
+
+}

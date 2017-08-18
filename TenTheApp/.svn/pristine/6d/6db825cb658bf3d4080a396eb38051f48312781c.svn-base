@@ -1,0 +1,47 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.ReadNotificationResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 4/26/2017.
+ */
+
+public class ReadNotificationPresenter {
+    private ReadNotificationCallback readNotificationCallback;
+    private AppCommonCallback screen;
+
+    public ReadNotificationPresenter(AppCommonCallback callback, ReadNotificationCallback readNotificationCallback) {
+        this.screen = callback;
+        this.readNotificationCallback = readNotificationCallback;
+    }
+
+    public interface ReadNotificationCallback {
+        void readNotificationError(Call<ReadNotificationResponse> call, Throwable t);
+
+        void onReadNotificationSuccess(Response<ReadNotificationResponse> response);
+    }
+
+    public void responseCheck(String idNotification) {
+        //screen.setProgressBar();
+        Call<ReadNotificationResponse> response = GetRestAdapter.getRestAdapter(true).readNotification(idNotification);
+        response.enqueue(new Callback<ReadNotificationResponse>() {
+            @Override
+            public void onResponse(Call<ReadNotificationResponse> call, retrofit2.Response<ReadNotificationResponse> response) {
+                //screen.dismiss();
+                readNotificationCallback.onReadNotificationSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<ReadNotificationResponse> call, Throwable t) {
+                //screen.dismiss();
+                readNotificationCallback.readNotificationError(call, t);
+            }
+        });
+    }
+}

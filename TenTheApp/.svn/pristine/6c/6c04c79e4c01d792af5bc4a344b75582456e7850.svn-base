@@ -1,0 +1,11 @@
+package com.nvcomputers.ten.views.home;
+
+import android.support.v4.app.Fragment;
+
+/**
+ * Created by rkumar4 on 7/5/2017.
+ */
+
+public class PostDetailPagerItem extends Fragment{
+
+}

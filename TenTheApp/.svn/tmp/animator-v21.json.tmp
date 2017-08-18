@@ -1,0 +1,11 @@
+[
+    {
+<<<<<<< .mine
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\design_appbar_state_list_animator.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ed6b27be2ae9b90ae528b8465a023f3de07d761a\\output\\res\\animator-v21\\design_appbar_state_list_animator.xml"
+=======
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\design_appbar_state_list_animator.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\animator-v21\\design_appbar_state_list_animator.xml"
+>>>>>>> .r2952
+    }
+]

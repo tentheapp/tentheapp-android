@@ -1,0 +1,268 @@
+package com.nvcomputers.ten.views.core;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.interfaces.Core;
+import com.nvcomputers.ten.interfaces.Disposable;
+import com.nvcomputers.ten.utils.ProgressUtility;
+
+import java.util.ArrayList;
+
+
+/**
+ * This class is used to
+ * To initialize Toolbar,views and set ToolBar title
+ *
+ * @author jindaldipanshu
+ * @version 1.0
+ */
+
+public abstract class BaseActivity extends AppCompatActivity implements Disposable, Core, AppCommonCallback {
+    private ProgressDialog mDialog;
+    private InputMethodManager inputMethodManager;
+    public FrameLayout mFrameLayout, mSearchFramelayout;
+    protected RelativeLayout mPagerLayout;
+    public TextView mTitleTextView;
+    protected AppBarLayout.OnOffsetChangedListener onOffsetChangedListener;
+    public ImageButton mSearchBtn;
+    public Typeface regular_fonts, light_fonts, semibold_fonts;
+    private int currentPageNumber;
+    private int lastSavedPosition;
+    public boolean noMoreData;
+    protected boolean isLoading;
+    public Fragment mCurrentFragment;
+    public BaseActivity baseActivity;
+    public Bundle mSavedInstanceState;
+    public LinearLayoutManager linearLayoutManager;
+    public Context mContext;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //getWindow().setBackgroundDrawable(null);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.tenBlue));
+        }
+        super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        mSavedInstanceState = savedInstanceState;
+        onCreate();
+        baseActivity = this;
+        mContext = this;
+    }
+
+    /**
+     * This method is used to hide keyboard
+     */
+    protected void hideKeyboard() {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    /**
+     * This method is used to get string value from strings file
+     *
+     * @param resId :resource id
+     * @return string
+     */
+    public String getStringMessage(int resId) {
+        return getResources().getString(resId);
+    }
+
+
+   /* @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        dispose();
+    }*/
+
+    @Override
+    public void showDialog() {
+        try {
+            if (!isFinishing())
+                ProgressUtility.showProgress(this, getStringValue(R.string.please_wait_meassge));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void hideDialog() {
+        ProgressUtility.dismissProgress();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    protected void onCreate() {
+        initViews();
+    }
+
+    @Override
+    public void showToast(int resId) {
+        Toast.makeText(getApplicationContext(), getResources().getString(resId), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    public String getStringValue(int resId) {
+        return getResources().getString(resId);
+    }
+
+    /**
+     * To get Layout
+     *
+     * @return integer
+     */
+    protected abstract int getLayoutId();
+
+    /**
+     * To initialize Views
+     */
+    protected abstract void initViews();
+
+
+    /**
+     * @return toolbar title name
+     */
+    //  protected abstract String getHeaderTitle();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            dispose();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        inputMethodManager = null;
+        mDialog = null;
+    }
+
+    /**
+     * To get android phone id
+     *
+     * @return String
+     */
+    protected String getDeviceId() {
+        String deviceId = Settings.Secure.getString(this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+        return deviceId;
+    }
+
+
+    public void notifyList(int position) {
+    }
+
+    /**
+     * This method is used to replace fragment .
+     *
+     * @param newFragment :replace an existing fragment with new fragment.
+     * @param args        :pass bundle data fron one fragment to another fragment
+     */
+    public void replaceFragment(int frameLayout, Fragment newFragment, Bundle args) {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.popBackStack();
+        if (args != null)
+            newFragment.setArguments(args);
+        FragmentTransaction transaction = manager.beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(frameLayout, newFragment);
+        transaction.addToBackStack(null);
+        // Commit the transaction
+        transaction.commit();
+    }
+
+    public void replaceFragment(int frameLayout, Fragment carouselFragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(frameLayout, carouselFragment)
+                .commit();
+    }
+
+    /**
+     * This method is used to replace fragment .
+     *
+     * @param newFragment :replace an existing fragment with new fragment.
+     * @param args        :pass bundle data fron one fragment to another fragment
+     */
+    public void addFragment(int frameLayout, Fragment newFragment, Bundle args) {
+        FragmentManager manager = getSupportFragmentManager();
+        // manager.popBackStack();
+        if (args != null)
+            newFragment.setArguments(args);
+        FragmentTransaction transaction = manager.beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(frameLayout, newFragment);
+        transaction.addToBackStack(null);
+        // Commit the transaction
+        transaction.commit();
+    }
+
+
+    /**
+     * This method is used to set toolbar header title
+     *
+     * @param title:title of tool bar
+     */
+    public void setHeaderTitle(String title) {
+        mTitleTextView = (TextView) findViewById(R.id.tool_bar_title);
+        mTitleTextView.setText(title);
+    }
+
+
+    public void setAdapter(RecyclerView recyclerView, ArrayList<?> mList) {
+        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+    }
+
+    public Fragment getmCurrentFragment() {
+        return mCurrentFragment;
+    }
+
+    public void setmCurrentFragment(Fragment mCurrentFragment) {
+        this.mCurrentFragment = mCurrentFragment;
+    }
+
+    public void reLoadList() {
+
+    }
+
+    public  void refreshList(int count){
+
+    }
+}

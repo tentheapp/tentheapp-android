@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:background="#ffffff">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/done_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:background="@null"
+            android:layout_alignParentRight="true"
+            android:textSize="16sp"
+            android:textColor="#338A9E" />
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <jp.co.cyberagent.android.gpuimage.GPUImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/imageFilter" />
+    </FrameLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:visibility="visible">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="15">
+            <LinearLayout
+                android:id="@+id/f1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter1"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Sepia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sepia"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter2"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Hue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hue"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter3"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Gamma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gamma"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:scaleType="centerCrop"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter4"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f5"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Emboss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emboss"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/filter5"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Opacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opacity"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/filter6"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f7"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Chrome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chrome"
+                    android:gravity="center"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/filter7"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Contrast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contrast"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter8"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Invert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Invert"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter9"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Pixel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pixel"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/filter10"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gray"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter11"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Sharpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sharpen"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter12"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f13"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Convolution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Convolution"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/filter13"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f14"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Posterize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Posterize"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/filter14"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/f15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/Saturation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saturation"
+                    android:textColor="#656565" />
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/filter15"
+                    android:layout_margin="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/com_adobe_image_flat_button_lightgray_transparent_outline" />
+    <item android:drawable="@drawable/com_adobe_image_flat_button_lightgray_transparent_outline_pressed"
+        android:state_pressed="true" />
+</selector>

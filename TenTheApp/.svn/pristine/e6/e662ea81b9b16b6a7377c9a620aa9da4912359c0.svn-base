@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\interpolator-v21\\com_adobe_image_trim_start_interpolator.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\interpolator-v21\\com_adobe_image_trim_start_interpolator.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\interpolator-v21\\com_adobe_image_trim_end_interpolator.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\interpolator-v21\\com_adobe_image_trim_end_interpolator.xml"
+    }
+]

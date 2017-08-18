@@ -1,0 +1,315 @@
+package com.nvcomputers.ten.views.home;
+
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.SelectedPostCommentAdapter;
+import com.nvcomputers.ten.adapter.SuggestionActivityAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.GetAllPostCommentOutput;
+import com.nvcomputers.ten.model.output.PostCommentOutput;
+import com.nvcomputers.ten.model.output.SearchFollowingUserResponse;
+import com.nvcomputers.ten.presenter.GetCommentListPresenter;
+import com.nvcomputers.ten.presenter.PostCommentPresenter;
+import com.nvcomputers.ten.presenter.SearchFollowingPresenter;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.ProgressUtility;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class CommentsActivity extends BaseActivity implements View.OnClickListener, GetCommentListPresenter.CommentsCallback, TextWatcher, AppCommonCallback, SearchFollowingPresenter.SearchFollowingCallback, PostCommentPresenter.CommentCallback, View.OnLongClickListener {
+
+    private static final int VIDEO_CODE = 676;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private RecyclerView mCommentsRecyclerView;
+    private ImageView closeBtn;
+    private LinearLayoutManager mLayoutManager;
+    private Intent intent;
+    private String postId;
+    private ArrayList<GetAllPostCommentOutput.Comments> getlist;
+    private TextView noCommenttext;
+    public EditText edit_text_comment;
+    private String mUserId;
+    public Dialog mSuggestionDialog;
+    private SuggestionActivityAdapter followingListAdapter;
+    private RecyclerView suggestionRV;
+    private ImageView postCommentBtn;
+    private String expirationTime;
+    private boolean isMyPost;
+    private SelectedPostCommentAdapter adapter;
+    private ProgressBar progressBar;
+    private String mVideoPath = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addFlags(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_comments;
+    }
+
+    @Override
+    protected void initViews() {
+        intent = getIntent();
+        postId = intent.getStringExtra("postId");
+        expirationTime = intent.getStringExtra("expirationTime");
+        isMyPost = intent.getBooleanExtra("isMyPost", false);
+        sharedPrefsHelper = new SharedPrefsHelper(this);
+        mUserId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID);
+        closeBtn = (ImageView) findViewById(R.id.closeBtn);
+        noCommenttext = (TextView) findViewById(R.id.text);
+        closeBtn.setOnClickListener(this);
+        mCommentsRecyclerView = (RecyclerView) findViewById(R.id.commentsRV);
+        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mCommentsRecyclerView.setLayoutManager(mLayoutManager);
+        ImageView commentUserImage = (ImageView) findViewById(R.id.post_user_image);
+        String localUser = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        Glide.with(this)
+                .load(HttpUtils.getProfileImageURL(localUser))
+                .bitmapTransform(new RoundedCornersTransformation(this, 15, 15))
+                .error(R.drawable.myprofilelarge)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(commentUserImage);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        edit_text_comment = (EditText) findViewById(R.id.edit_text_comment);
+        edit_text_comment.addTextChangedListener(this);
+        postCommentBtn = (ImageView) findViewById(R.id.comment_image);
+        postCommentBtn.setOnClickListener(this);
+        postCommentBtn.setOnLongClickListener(this);
+        hitCommentApi();
+    }
+
+    public void hitCommentApi() {
+        GetCommentListPresenter presenter = new GetCommentListPresenter(this);
+        presenter.responseCheck(postId);
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        String commentText = edit_text_comment.getText().toString();
+        switch (view.getId()) {
+
+            case R.id.closeBtn:
+                finish();
+                break;
+            case R.id.comment_image:
+                Utilities.hideKeypad(postCommentBtn);
+                if (!Utilities.checkInternet(this)) {
+                    showToast(R.string.no_internet_msg);
+                } else if (DateTimeUtil.checkExpiration(expirationTime)) {
+                    showToast("You can't add comment on expired post.");
+                } else {
+                    if (!TextUtils.isEmpty(commentText)) {
+                        edit_text_comment.setText("");
+                        ProgressUtility.showProgress(CommentsActivity.this, getString(R.string.please_wait_meassge));
+                        PostCommentPresenter presenter = new PostCommentPresenter(this);
+                        presenter.responseCheck(postId, commentText, null);
+                    }
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void getCommentListError(Call<GetAllPostCommentOutput> call, Throwable t) {
+        showToast(t.getMessage());
+    }
+
+    @Override
+    public void getCommentListSuccess(Response<GetAllPostCommentOutput> response) {
+        if (response != null) {
+            GetAllPostCommentOutput body = response.body();
+            if (body != null) {
+                getlist = body.getComments();
+                if (getlist != null && getlist.size() > 0) {
+                    mCommentsRecyclerView.setVisibility(View.VISIBLE);
+                    adapter = new SelectedPostCommentAdapter(CommentsActivity.this, getlist, postId, isMyPost);
+                    mCommentsRecyclerView.setAdapter(adapter);
+                    noCommenttext.setVisibility(View.GONE);
+                } else {
+                    noCommenttext.setVisibility(View.VISIBLE);
+                    mCommentsRecyclerView.setVisibility(View.GONE);
+                }
+            } else {
+                showToast(R.string.server_error_msg);
+            }
+        } else {
+            showToast(R.string.server_error_msg);
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        String comment = edit_text_comment.getText().toString();
+        if (!TextUtils.isEmpty(comment)) {
+            if (comment.contains("@")) {
+                if (comment.length() > 1) {
+                    int index = comment.indexOf("@");
+                    Log.e("index--", index + "");
+                    StringTokenizer stringTokenizer = new StringTokenizer(comment, "@");
+                    String token = null;
+                    while (stringTokenizer.hasMoreTokens()) {
+                        token = stringTokenizer.nextToken();
+                        Log.e("first--", token);
+                    }
+                    if (!token.contains(" ")) {
+                        hitFollowingSuggestionsApi(token, index);
+                        Log.e("last--", token);
+                    }
+                }
+            }
+        }
+    }
+
+    private void hitFollowingSuggestionsApi(String suggestion, int index) {
+        Log.e("suggesstion--", suggestion);
+        if (Utilities.checkInternet(this)) {
+            SearchFollowingPresenter searchFollowingPresenter = new SearchFollowingPresenter(this, this);
+            searchFollowingPresenter.responseCheck(mUserId, suggestion);
+        } else {
+            showToast(R.string.no_internet_msg);
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void searchFollowingnError(Call<SearchFollowingUserResponse> call, Throwable t) {
+        Utilities.showMessage(this, getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onSearchFollowingSuccess(Response<SearchFollowingUserResponse> response) {
+        SearchFollowingUserResponse body = response.body();
+        if (body != null) {
+            List<SearchFollowingUserResponse.Users> usersDataList = body.getUsers();
+            if (mSuggestionDialog == null)
+                showSuggestionDialog();
+
+            if (usersDataList == null || usersDataList.size() == 0) {
+                mSuggestionDialog.dismiss();
+                return;
+            }
+            mSuggestionDialog.dismiss();
+            mSuggestionDialog.show();
+            followingListAdapter = new SuggestionActivityAdapter(this, usersDataList);
+            suggestionRV.setAdapter(followingListAdapter);
+        } else {
+            Utilities.showMessage(this, getString(R.string.server_error_msg));
+        }
+    }
+
+    private void showSuggestionDialog() {
+        mSuggestionDialog = new Dialog(this);
+        mSuggestionDialog.setContentView(R.layout.suggestion_name_layout);
+        // set the custom dialog components - text, image and button
+        suggestionRV = (RecyclerView) mSuggestionDialog.findViewById(R.id.suggestionRV);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        suggestionRV.setLayoutManager(mLayoutManager);
+    }
+
+    @Override
+    public void postCommmentError(Call<PostCommentOutput> call, Throwable t) {
+        Utilities.showMessage(this, getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void postCommmentSuccess(Response<PostCommentOutput> response) {
+        ProgressUtility.dismissProgress();
+        if (response != null && response.body() != null) {
+            if (response.code() == 200) {
+                //singlePost.setCommented(true);
+                edit_text_comment.setText("");
+                GetCommentListPresenter presenter = new GetCommentListPresenter(this);
+                presenter.responseCheck(postId);
+                //likeCommentsCountsPresenter.countsApi(0, postId);
+            } else {
+                showToast(R.string.no_data_found_msg);
+            }
+        } else {
+            showToast(R.string.server_error_msg);
+        }
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        switch (view.getId()) {
+            case R.id.comment_image:
+
+                Intent intent = new Intent(CommentsActivity.this, CameraForVideoCommentsActivity.class);
+                startActivityForResult(intent, VIDEO_CODE);
+
+                break;
+        }
+        return false;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == VIDEO_CODE) {
+            if (data != null) {
+                mVideoPath = data.getStringExtra("recordedPath");
+                ProgressUtility.showProgress(CommentsActivity.this, getString(R.string.please_wait_meassge));
+                PostCommentPresenter presenter = new PostCommentPresenter(this);
+                presenter.responseCheck(postId, "Video Comment", mVideoPath);
+            }
+        }
+    }
+}

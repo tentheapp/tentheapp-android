@@ -1,0 +1,482 @@
+package com.nvcomputers.ten.views.profile;
+
+import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.UserProfileAdapter;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.BlockUserOutput;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.model.output.ProfileResponse;
+import com.nvcomputers.ten.model.output.TopLikersResponse;
+import com.nvcomputers.ten.presenter.GetUserProfilePresenter;
+import com.nvcomputers.ten.presenter.ProfilePresenter;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.ProgressUtility;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 7/5/2017.
+ */
+
+public class NewProfileFragment extends BaseFragment implements View.OnClickListener, ProfilePresenter.UsersProfileCallback,
+        GetUserProfilePresenter.GetUserProfileCallback, AppCommonCallback, PopupMenu.OnMenuItemClickListener/*, GetActivePostsPresenter.ActivePostCallback,ProfilePostsPresenter.ProfilePostsCallback*/
+        /*ProfileApi.ProfileCallbacks,*/ {
+    private RecyclerView mPostsRecyclerView;
+    private LinearLayoutManager mLayoutManager;
+    private TextView mImageBackIcon;
+    private TextView mUserNmTextView;
+    private ImageView mSettingsImageView;
+    private ImageView mReportImagView;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private String mUserName, mBlocked;
+    public String mScreen;
+    private ProgressBar mPostsProgressBar;
+    private ProfilePresenter mProfilePresenter;
+    private TextView mNoPostTextView;
+    private ProfileResponse.Profile profileData;
+    private UserProfileAdapter profileAdapter;
+    int lastSavedPosition = 0;
+    boolean noMoreData = false;
+    int currentPageNumber = 1;
+    private ArrayList<NewsFeedOutput.Posts> mPosts;
+    private String mIsPrivate;
+    private String mNickName;
+    private String mNotify;
+    private String mDescription;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private PopupMenu popup;
+    private String mUserId;
+    private boolean blocked;
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_profile;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        mNoPostTextView = (TextView) findViewById(R.id.text_view_no_post);
+        mPostsProgressBar = (ProgressBar) findViewById(R.id.pro_bar_profile_posts);
+        mImageBackIcon = (TextView) findViewById(R.id.image_back);
+        mUserNmTextView = (TextView) findViewById(R.id.text_view_title);
+        mSettingsImageView = (ImageView) findViewById(R.id.image_view_settings);
+        mReportImagView = (ImageView) findViewById(R.id.image_view_report);
+        mPostsRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_posts);
+        mLayoutManager = new LinearLayoutManager(getBaseActivity());
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mPostsRecyclerView.setLayoutManager(mLayoutManager);
+        mImageBackIcon.setOnClickListener(this);
+        mSettingsImageView.setOnClickListener(this);
+        mReportImagView.setOnClickListener(this);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getPostsApi();
+                getTopLiker();
+
+            }
+        });
+        sharedPrefsHelper = new SharedPrefsHelper(getBaseActivity());
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            mUserName = bundle.getString("username");
+            mImageBackIcon.setVisibility(View.VISIBLE);
+            mReportImagView.setVisibility(View.VISIBLE);
+            mSettingsImageView.setVisibility(View.GONE);
+
+        } else {
+            mUserName = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+            mUserNmTextView.setText(mUserName);
+            mBlocked = "false";
+            mScreen = "1";
+            mImageBackIcon.setVisibility(View.INVISIBLE);
+            mSettingsImageView.setVisibility(View.VISIBLE);
+            mReportImagView.setVisibility(View.GONE);
+        }
+        getProfileApi();
+    }
+
+    public void getProfileApi() {
+        if (Utilities.checkInternet(mContext)) {
+            GetUserProfilePresenter getUserProfilePresenter = new GetUserProfilePresenter(getBaseActivity(), this);
+            getUserProfilePresenter.responseCheck(mUserName);
+        } else {
+            Utilities.showMessage(mContext, getString(R.string.no_internet_msg));
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main2, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    public void showPopup(View v) {
+        popup = new PopupMenu(getBaseActivity(), v);
+        popup.setOnMenuItemClickListener(this);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_main2, popup.getMenu());
+    }
+
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        if (Utilities.checkInternet(mContext)) {
+            switch (id) {
+                case R.id.report_user:
+                    showToast("coming soon");
+                    break;
+
+                case R.id.block:
+                    if (mBlocked.equals("true")) {
+                        //  menuItem.setTitle("Block");
+                        unblockUser(mUserId);
+                    } else {
+                        // menuItem.setTitle("Unblock");
+                        blockUser(mUserId);
+                        mBlocked = String.valueOf(true);
+                    }
+                    break;
+                case R.id.cancel:
+                    popup.dismiss();
+                    break;
+            }
+        } else {
+            Utilities.showMessage(mContext, mContext.getString(R.string.no_internet_msg));
+        }
+
+        popup.show();//showing popup menu
+        return false;
+        //216 test user
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.image_view_report:
+                popup.show();
+                break;
+            case R.id.image_view_settings:
+                Bundle bundle = new Bundle();
+                bundle.putString("username", mUserName);
+                bundle.putString("nick_name", mNickName);
+                bundle.putString("description", mDescription);
+                bundle.putString("isnotify", mNotify);
+                bundle.putString("isPrivate", mIsPrivate);
+                replaceChildFragment(R.id.profile_frame_layout, new SettingsFragment(), bundle);
+                break;
+        }
+    }
+
+
+    @Override
+    public void userProfileError(Call<ProfileResponse> call, Throwable t) {
+
+    }
+
+    @Override
+    public void onUserProfileSuccess(Response<ProfileResponse> response) {
+        ProfileResponse body = response.body();
+        if (body != null) {
+            showPopup(mReportImagView);
+            profileData = body.getProfile();
+            if (profileData != null) {
+                mUserId = profileData.getUser().getIdUser();
+                mIsPrivate = profileData.getUser().getIsPrivate();
+                mNickName = profileData.getUser().getWebsite();
+                mNotify = profileData.getUser().getIsNotify();
+                mBlocked = profileData.getUser().getBlocked();
+                mDescription = profileData.getUser().getDescription();
+                profileAdapter = new UserProfileAdapter(this, profileData, R.id.profile_frame_layout, mScreen);
+                mPostsRecyclerView.setAdapter(profileAdapter);
+                mBlocked = profileData.getUser().getBlocked();
+                if (mBlocked.contains("false")) {
+                    getPostsApi();
+                    getTopLiker();
+                }
+            } else {
+                Utilities.showMessage(mContext, "User Not Found");
+            }
+        } else {
+            Utilities.showMessage(mContext, getString(R.string.server_error_msg));
+        }
+    }
+
+    private void getTopLiker() {
+        if (mProfilePresenter == null) {
+            mProfilePresenter = new ProfilePresenter(getBaseActivity(), this);
+        }
+        mProfilePresenter.getTopProfilesResponse(mUserName);
+    }
+
+    @Override
+    public void setHorizontalAdapter(ArrayList<TopLikersResponse.Users> profileResponse) {
+        if (profileResponse != null && profileResponse.size() > 0) {
+            profileAdapter.updateTopTimer(profileResponse);
+        } else {
+            profileAdapter.updateTopTimer(new ArrayList<TopLikersResponse.Users>());
+        }
+    }
+
+    @Override
+    public void setUsersError(String error) {
+        profileAdapter.updateTopTimer(new ArrayList<TopLikersResponse.Users>());
+    }
+
+    @Override
+    public void setPostsAdapter(Response<NewsFeedOutput> response) {
+        swipeRefreshLayout.setRefreshing(false);
+        if (response != null) {
+            NewsFeedOutput body = response.body();
+            if (body != null) {
+                String localUsername = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+                if (!mUserName.equals(localUsername)) {
+                    return;
+                }
+                if (mPosts == null) {
+                    mPosts = new ArrayList<>();
+                }
+                ArrayList<NewsFeedOutput.Posts> posts = body.getPosts();
+                ArrayList<NewsFeedOutput.Posts> ownPosts = new ArrayList<>();
+                if (posts != null && posts.size() > 0) {
+                    for (int i = 0; i < posts.size(); i++) {
+                        boolean isReposted = posts.get(i).getIsReposted();
+                        if (isReposted) {
+                            String expireTime = posts.get(i).getExpiration();
+                            if (!DateTimeUtil.checkExpiration(expireTime)) {
+                                ownPosts.add(posts.get(i));
+                            }
+                        } else {
+                            ownPosts.add(posts.get(i));
+                        }
+                    }
+                    mPosts.addAll(ownPosts);
+                    if (profileAdapter == null) {
+                        profileAdapter = new UserProfileAdapter(this, profileData, R.id.profile_frame_layout, mScreen);
+                        mPostsRecyclerView.setAdapter(profileAdapter);
+                    }
+                    profileAdapter.updatePostList(mPosts);
+                } else {
+                    noMoreData = true;
+                    if (mPosts == null || mPosts.size() == 0) {
+                        mNoPostTextView.setVisibility(View.VISIBLE);
+                        mNoPostTextView.setText("No Post Found");
+                    }
+                }
+                mPostsProgressBar.setVisibility(View.INVISIBLE);
+            } else {
+                mNoPostTextView.setVisibility(View.VISIBLE);
+                mNoPostTextView.setText("No Post Found");
+                mPostsProgressBar.setVisibility(View.INVISIBLE);
+            }
+            loading = false;
+        } else {
+            mNoPostTextView.setVisibility(View.VISIBLE);
+            mNoPostTextView.setText("No Post Found");
+            mPostsProgressBar.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @Override
+    public void setPostsError(String error) {
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onActivePostError(Call<NewsFeedOutput> call, Throwable t) {
+        hideDialog();
+
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onActivePostSuccess(Response<NewsFeedOutput> response) {
+        swipeRefreshLayout.setRefreshing(false);
+        hideDialog();
+        if (response != null) {
+            NewsFeedOutput body = response.body();
+            if (body != null) {
+                ArrayList<NewsFeedOutput.Posts> posts = body.getPosts();
+                //setAdapter(mPostsRecyclerView, posts);
+                if (posts == null || posts.size() == 0) {
+                    mNoPostTextView.setVisibility(View.VISIBLE);
+                    mNoPostTextView.setText("No Active Posts");
+                    mPostsProgressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getBaseActivity(), "No Active post.", Toast.LENGTH_LONG).show();
+                } else {
+                    mNoPostTextView.setVisibility(View.GONE);
+                    mPostsProgressBar.setVisibility(View.VISIBLE);
+                    if (profileAdapter == null) {
+                        profileAdapter = new UserProfileAdapter(this, profileData, R.id.profile_frame_layout, mScreen);
+                        mPostsRecyclerView.setAdapter(profileAdapter);
+                    }
+                    profileAdapter.updatePostList(posts);
+                }
+            } else {
+                mNoPostTextView.setVisibility(View.VISIBLE);
+                mNoPostTextView.setText("No Active Posts");
+                mPostsProgressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getBaseActivity(), "No Active post.", Toast.LENGTH_LONG).show();
+                //setHeight(200);
+            }
+        } else {
+            mPostsProgressBar.setVisibility(View.INVISIBLE);
+            showToast(R.string.no_data_found_msg);
+        }
+    }
+
+
+    private void getPostsApi() {
+        if (mUserName.equals(sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, ""))) {
+            loadPaginationData(0);
+        } else {
+            /*GetActivePostsPresenter getActivePostsPresenter = new GetActivePostsPresenter(this, this);
+            getActivePostsPresenter.hitApi(mUserName);*/
+            if (mProfilePresenter == null) {
+                mProfilePresenter = new ProfilePresenter(getBaseActivity(), this);
+            }
+            mProfilePresenter.getActivePost(mUserName);
+        }
+    }
+
+    @Override
+    public void setProgressBar() {
+
+    }
+
+    @Override
+    public void dismiss() {
+
+    }
+
+
+    public void scrollUp() {
+        if (profileAdapter != null && profileAdapter.getItemCount() > 0) {
+            mPostsRecyclerView.smoothScrollToPosition(0);
+        }
+    }
+
+    boolean loading = false;
+
+    public void loadPaginationData(int listCount) {
+        String localUsername = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        if (!mUserName.equals(localUsername)) {
+            return;
+        }
+        if (mProfilePresenter == null) {
+            mProfilePresenter = new ProfilePresenter(getBaseActivity(), this);
+        }
+        if (listCount == 0) {
+            currentPageNumber = 1;
+            lastSavedPosition = 0;
+            noMoreData = false;
+            mPosts = new ArrayList<>();
+            mPosts.clear();
+            mProfilePresenter.getPosts(mUserName, listCount + "");
+           /* ProfilePostsPresenter profilePostsPresenter = new ProfilePostsPresenter(getBaseActivity(), this);
+            profilePostsPresenter.responseCheck(mUserName, listCount + "");*/
+        } else {
+            lastSavedPosition = listCount - 1;
+            if (/*listCount >= 10 &&*/ !noMoreData && !loading/*&& listCount % 10 == 0*/) {
+                loading = true;
+                int value = listCount / 10;
+                currentPageNumber = value + 1;
+               /* ProfilePostsPresenter profilePostsPresenter = new ProfilePostsPresenter(getBaseActivity(), this);
+                profilePostsPresenter.responseCheck(mUserName, listCount + "");*/
+                mProfilePresenter.getPosts(mUserName, listCount + "");
+            } else {
+                ProgressUtility.dismissProgress();
+            }
+        }
+    }
+
+    private void unblockUser(String idUser) {
+        Call<BlockUserOutput> response = GetRestAdapter.getRestAdapter(true).unblockUser(idUser);
+        response.enqueue(new Callback<BlockUserOutput>() {
+            @Override
+            public void onResponse(Call<BlockUserOutput> call,
+                                   retrofit2.Response<BlockUserOutput> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        mBlocked = String.valueOf(false);
+                        popup.getMenu().getItem(1).setTitle("Block");
+                        //Toast.makeText(activity, "Unblock", Toast.LENGTH_SHORT).show();
+                        getProfileApi();
+                    }
+                } else {
+                    showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BlockUserOutput> call, Throwable t) {
+                showToast(t.getMessage());
+            }
+        });
+    }
+
+    public void blockUser(final String idUser) {
+        Call<BlockUserOutput> response = GetRestAdapter.getRestAdapter(true).blockUser(idUser);
+        response.enqueue(new Callback<BlockUserOutput>() {
+            @Override
+            public void onResponse(Call<BlockUserOutput> call,
+                                   retrofit2.Response<BlockUserOutput> response) {
+                if (response != null && response.body() != null) {
+
+                    if (response.body().getSuccess().contains("true")) {
+
+                        //   Toast.makeText(activity, "BLock", Toast.LENGTH_SHORT).show();
+                        popup.getMenu().getItem(1).setTitle("Unblock");
+                        //  Toast.makeText(activity, "BLock", Toast.LENGTH_SHORT).show();
+                        blocked = true;
+                        //TODO--setEmptyDataOnUi();
+                        mBlocked = String.valueOf(true);
+                        // unblockUser(idUser);
+
+                    } else {
+                        mBlocked = String.valueOf(false);
+                    }
+                    // mActivity.showToast(response.body().getSuccess());
+                } else {
+                    showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BlockUserOutput> call, Throwable t) {
+                showToast(t.getMessage());
+            }
+        });
+    }
+}

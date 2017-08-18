@@ -1,0 +1,752 @@
+package com.nvcomputers.ten.views.post;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.SurfaceTexture;
+import android.hardware.Camera;
+import android.media.CamcorderProfile;
+import android.media.MediaRecorder;
+import android.media.ThumbnailUtils;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.TextureView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
+
+import com.adobe.creativesdk.aviary.AdobeImageIntent;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.model.output.EditProfileResponse;
+import com.nvcomputers.ten.utils.FileUtils;
+import com.nvcomputers.ten.utils.ProgressUtility;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.TTApplication;
+import com.nvcomputers.ten.views.core.BaseActivity;
+import com.nvcomputers.ten.views.home.LandingActivity;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import static android.hardware.Camera.CameraInfo.CAMERA_FACING_BACK;
+import static android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT;
+
+public class CameraUploadActivity extends BaseActivity implements View.OnClickListener, TextureView.SurfaceTextureListener,
+        View.OnTouchListener, Camera.PictureCallback {
+
+    private static final int IMAGE_EDITER = 155;
+    SurfaceTexture surfaceTexture;
+    ImageView mCapturedImgView, closeBtn, dot1, dot2, dot3, dot4, flipImageView, directPostImageView, flashImageView, takePictureImageView;
+    TextureView textureView;
+    Camera camera;
+    Context mContext;
+    public static Uri editedImageUri = null;
+    File imageFile;
+    Boolean imageCaptured;
+    boolean cameraStarted = false, cameraIsFront = false;
+    String tempFileName, PictureFilePath = null, btnMode = "camera";
+    private int frontCamera = -1;
+    private int rearCamera = -1;
+    private int currentCamera = 0;
+    private String picturePath;
+    private boolean isImageCaptured, isFilterStarted, isUploadStarted;
+    private ProgressBar photo_saving_progress;
+    private boolean upCalled;
+    private Timer captureTimer;
+    private int count_time;
+    //private String video_name;
+    private MediaRecorder media_recorder;
+    private boolean isVideoRecording;
+    private Timer timer;
+    private TextView timerTextView;
+    private VideoView videoPlayer;
+    private boolean uploadAttemped;
+    //public static boolean DIRECTLY_UPLOADED_SUCEESS;
+
+    @Override
+    public void dispose() {
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_camera;
+    }
+
+    @Override
+    protected void initViews() {
+        //DIRECTLY_UPLOADED_SUCEESS = false;
+        closeBtn = (ImageView) findViewById(R.id.close);
+        closeBtn.setOnClickListener(this);
+        dot1 = (ImageView) findViewById(R.id.dot1);
+        dot2 = (ImageView) findViewById(R.id.dot2);
+        dot3 = (ImageView) findViewById(R.id.dot3);
+        dot4 = (ImageView) findViewById(R.id.dot4);
+        videoPlayer = (VideoView) findViewById(R.id.videoPlayer);
+        photo_saving_progress = (ProgressBar) findViewById(R.id.photo_saving_progress);
+        mCapturedImgView = (ImageView) findViewById(R.id.image_view_captured);
+        mCapturedImgView.setVisibility(View.GONE);
+        takePictureImageView = (ImageView) findViewById(R.id.picture);
+        takePictureImageView.setOnClickListener(this);
+        flipImageView = (ImageView) findViewById(R.id.flip);
+        flipImageView.setImageResource(R.drawable.flipcamera);
+        flashImageView = (ImageView) findViewById(R.id.flash);
+        /*  if (camera == null)
+            camera = Camera.open(0);
+        camera.setDisplayOrientation(90);*/
+        timerTextView = (TextView) findViewById(R.id.timer);
+        textureView = (TextureView) findViewById(R.id.textureView);
+        textureView.setSurfaceTextureListener(this);
+        directPostImageView = (ImageView) findViewById(R.id.comment);
+        directPostImageView.setOnClickListener(this);
+        takePictureImageView.setOnTouchListener(this);
+        flashImageView.setOnClickListener(this);
+        flipImageView.setOnClickListener(this);
+    }
+
+
+    private void goToPostPage() {
+        if (btnMode.equals("player")) {
+            showToast("Coming Soon");
+        } else {
+            if (uploadAttemped) {
+                return;
+            }
+            Intent intent = new Intent();
+            intent.putExtra("path", PictureFilePath);
+            intent.putExtra("selfie", (currentCamera == frontCamera) + "");
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+    }
+
+    private void changeFlashMode() {
+        Camera.Parameters parameters = camera.getParameters();
+
+        /*if (ExifInterface.Flash.euals(android.hardware.Camera.Parameters.FlashModeOff, StringComparison.InvariantCultureIgnoreCase))
+        {
+            //Flash = android.hardware.Camera.Parameters.FlashModeOn;
+            flashImageView.setImageResource(R.drawable.flash);
+        }
+        else {
+            //Flash = android.hardware.Camera.Parameters.FlashModeOff;
+            flashImageView.setImageResource(R.drawable.noflash);
+        }
+        parameters.FlashMode = Flash;*/
+        camera.setParameters(parameters);
+    }
+
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+        surfaceTexture = surface;
+
+        Camera.CameraInfo camInfo = new Camera.CameraInfo();
+        for (int camId = 0; camId < Camera.getNumberOfCameras(); camId++) {
+            Camera.getCameraInfo(camId, camInfo);
+            if (camInfo.facing == CAMERA_FACING_FRONT) {
+                frontCamera = camId;
+            }
+            if (camInfo.facing == CAMERA_FACING_BACK) {
+                rearCamera = camId;
+            }
+        }
+        currentCamera = rearCamera;
+        camera = Camera.open(currentCamera);
+        //camera.open(0);
+        //if (isPreviewRunning) {
+        try {
+            camera.stopPreview();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //}
+        FileUtils.setCameraDisplayOrientation(this, currentCamera, camera);
+        textureView.setLayoutParams(new RelativeLayout.LayoutParams(width, height));
+        startPreview();
+    }
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        if (camera != null) {
+            camera.stopPreview();
+            camera.release();
+            camera = null;
+        }
+        return true;
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+
+    }
+
+    private void flipCamera() {
+        if (currentCamera == frontCamera && rearCamera != -1) {
+            if (camera != null) {
+                camera.stopPreview();
+                camera.release();
+                camera = null;
+            }
+            camera = Camera.open(rearCamera);
+            currentCamera = rearCamera;
+            FileUtils.setCameraDisplayOrientation(this, currentCamera, camera);//setCameraOrientation(mWidth, mHeight);
+            //textureView.setLayoutParams(new RelativeLayout.LayoutParams(mWidth, mHeight));
+            startPreview();
+        } else if (frontCamera != -1) {
+            if (camera != null) {
+                camera.stopPreview();
+                camera.release();
+                camera = null;
+            }
+            camera = Camera.open(frontCamera);
+            currentCamera = frontCamera;
+            FileUtils.setCameraDisplayOrientation(this, currentCamera, camera);//setCameraOrientation(mWidth, mHeight);
+            //textureView.setLayoutParams(new RelativeLayout.LayoutParams(mWidth, mHeight));
+            startPreview();
+        }
+    }
+
+    private void startPreview() {
+        try {
+            btnMode = "camera";
+            if (camera == null) {
+                camera = Camera.open(currentCamera);
+                FileUtils.setCameraDisplayOrientation(this, currentCamera, camera);//setCameraOrientation(mWidth, mHeight);// setCameraOrientation(mWidth, mHeight);
+                //textureView.setLayoutParams(new RelativeLayout.LayoutParams(mWidth, mHeight));
+                //camera.setDisplayOrientation(90);
+            }
+            // camera.unlock();
+            camera.setPreviewTexture(surfaceTexture);
+            camera.startPreview();
+            if (videoPlayer.isPlaying()) {
+                videoPlayer.stopPlayback();
+            }
+            takePictureImageView.setImageResource(R.drawable.ic_camerabutton);
+            flipImageView.setImageResource(R.drawable.flipcamera);
+            flipImageView.setVisibility(View.VISIBLE);
+            mCapturedImgView.setVisibility(View.INVISIBLE);
+            directPostImageView.setVisibility(View.INVISIBLE);
+            flashImageView.setVisibility(View.INVISIBLE);
+            dot1.setVisibility(View.INVISIBLE);
+            dot2.setVisibility(View.INVISIBLE);
+            dot3.setVisibility(View.INVISIBLE);
+            dot4.setVisibility(View.INVISIBLE);
+            cameraStarted = true;
+            isImageCaptured = false;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.close:
+                if (isImageCaptured) {
+                    startPreview();
+                    /*if (videoPlayer.IsPlaying)
+                    {
+                        videoPlayer.StopPlayback();
+                    }*/
+                    //videoPlayer.Visibility = ViewStates.Gone;
+                } else {
+                    finish();
+                }
+                break;
+            case R.id.flash:
+                if (cameraStarted) {
+                    changeFlashMode();
+                }
+                break;
+            case R.id.flip:
+                flipCamera();
+                break;
+            case R.id.comment:
+                if (!cameraStarted) {
+                    goToPostPage();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Float dx = 0.0f;
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_UP:
+                v.animate().translationX(0).setDuration(100).start();
+                upCalled = true;
+                if (isVideoRecording && pressed_count < 2) {
+                    stopTimer();
+                }
+                break;
+
+            case MotionEvent.ACTION_DOWN:
+                /*if (!isImageCaptured) {
+                    capureImage();
+                }*/
+                if (btnMode.equals("player")) {
+                    if (TTApplication.recordedVideoPath != "" && TTApplication.recordedVideoPath != null) {
+                        playVideo();
+                    }
+                } else if (btnMode.equals("camera")) {
+                    upCalled = false;
+                    setCaptureTiming();
+                }
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Float change = event.getRawX() + dx - takePictureImageView.getLayoutParams().width / 2;
+                if (change > flipImageView.getX()) {
+                    //direct upload
+                    if (!isUploadStarted) {
+                        isUploadStarted = true;
+                        if (TTApplication.recordedVideoPath == null || TTApplication.recordedVideoPath.equals("")) {
+                            uploadImageVideoDirectly(false);
+                        } else {
+                            uploadImageVideoDirectly(true);
+                        }
+                    }
+                } else if (change < directPostImageView.getX()) {
+                    if (!isFilterStarted) {
+                        // filter
+                        isFilterStarted = true;
+                        if (TTApplication.recordedVideoPath == null || TTApplication.recordedVideoPath.equals("")) {
+                            Uri mSelectedImageUri = Uri.fromFile(imageFile);
+                            Intent imageEditorIntent = new AdobeImageIntent.Builder(this)
+                                    .setData(mSelectedImageUri)
+                                    .build();
+                            startActivityForResult(imageEditorIntent, IMAGE_EDITER);
+                        } else {
+                            Intent intent = new Intent(this, VideoTrimmerActivity.class);
+                            intent.putExtra("REAL_VIDEO_PATH", TTApplication.recordedVideoPath);
+                            startActivity(intent);
+                        }
+                    }
+                } else {
+                    v.animate().x(change).setDuration(0).start();
+                }
+
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                Toast.makeText(this, "action cancel", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
+    }
+
+    private void stopTimer() {
+        try {
+            timer.cancel();
+            timer = null;
+            if (count_time <= 2) {
+                timerTextView.setText("00:00");
+                stopVideoRecording(false);
+            }
+            if (count_time >= 3) {
+                stopVideoRecording(true);
+            }
+        } catch (Exception e) {
+            //UtilitiesClass.showLogDeatails("Add Video Screen Exception", e.ToString());
+            e.printStackTrace();
+        }
+    }
+
+
+    int pressed_count = 0;
+
+    private void setCaptureTiming() {
+        try {
+            if (captureTimer == null) {
+                pressed_count = 0;
+                captureTimer = new Timer();
+                captureTimer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        pressed_count++;
+                        if (pressed_count == 1) {
+                            captureTimer.cancel();
+                            captureTimer = null;
+                            //Remember to do it on UI thread
+                            CameraUploadActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (upCalled) {
+                                        capureImage();//TakePicture();
+                                    } else {
+                                        try {
+                                            recordVideo();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                            Log.d("", "" + e.getMessage());
+                                        }
+                                    }
+                                    pressed_count = 0;
+                                    count_time = 0;
+                                    upCalled = false;
+                                }
+                            });
+                        }
+                    }
+                }, 500, 1000);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void recordVideo() throws IOException {
+        createDirInSdCard();
+        media_recorder = new MediaRecorder();
+        camera.unlock();
+        media_recorder.setCamera(camera);
+        // set for record voice as well as music player voice
+        media_recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION);
+        //set for record voice
+        //media_recorder.SetAudioSource(AudioSource.Camcorder);
+        media_recorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+        CamcorderProfile cpLow = CamcorderProfile.get(CamcorderProfile.QUALITY_480P);
+        media_recorder.setProfile(cpLow);
+        if (TTApplication.recordedVideoPath == null || TTApplication.recordedVideoPath.equals("")) {
+            return;
+        }
+        media_recorder.setOutputFile(TTApplication.recordedVideoPath);
+        if (currentCamera == frontCamera) {
+            media_recorder.setOrientationHint(270);
+        } else {
+            media_recorder.setOrientationHint(90);
+        }
+
+        media_recorder.setMaxDuration(10000);
+        //media_recorder.setPreviewDisplay(textureView.getSurfaceTexture());//SetPreviewDisplay(surface.Holder.Surface);
+        media_recorder.prepare();
+        media_recorder.start();
+        setTiming();
+        isVideoRecording = true;
+        takePictureImageView.setImageResource(R.drawable.play_video_icon);
+        closeBtn.setVisibility(View.INVISIBLE);
+        flipImageView.setVisibility(View.INVISIBLE);
+        flashImageView.setVisibility(View.INVISIBLE);
+        cameraStarted = false;
+    }
+
+    private void setTiming() {
+        try {
+            if (timer == null) {
+                timerTextView.setVisibility(View.VISIBLE);
+                timerTextView.setText("00:00");
+                count_time = 0;
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        count_time++;
+                        CameraUploadActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (count_time == 10) {
+                                    timerTextView.setText("00:" + count_time);
+                                    timer.cancel();
+                                    timer = null;
+                                    stopVideoRecording(true);
+                                } else {
+                                    timerTextView.setText("00:0" + count_time);
+                                }
+                            }
+                        });
+                    }
+                }, 0, 1000);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void stopVideoRecording(boolean flag) {
+        try {
+            count_time = 0;
+            if (flag == false) {
+                Utilities.showlongToast(CameraUploadActivity.this, "Video length should be between 2-10 seconds");
+                media_recorder.stop();
+                media_recorder.release();
+                timerTextView.setVisibility(View.GONE);
+                takePictureImageView.setImageResource(R.drawable.ic_camerabutton);
+                File file = new File(TTApplication.recordedVideoPath);
+                boolean deleted = file.delete();
+                TTApplication.recordedVideoPath = "";
+                //Camera.Lock();
+                flashImageView.setVisibility(View.VISIBLE);
+                closeBtn.setVisibility(View.VISIBLE);
+                flipImageView.setVisibility(View.VISIBLE);
+            } else {
+                if (media_recorder != null)//&& isVideoRecording == true)
+                {
+                    media_recorder.stop();
+                    media_recorder.release();
+                    media_recorder = null;
+                    //isVideoRecording = false;
+                    btnMode = "player";
+                    takePictureImageView.setImageResource(R.drawable.ic_camerabutton);
+                    playVideo();
+                    //saveThumbnailLocally();
+                }
+            }
+        } catch (Exception e) {
+            //System.Console.WriteLine("EXCEPTION...." + e);
+            e.printStackTrace();
+        }
+    }
+
+    public void playVideo() {
+        cameraStarted = false;
+        dot1.setVisibility(View.VISIBLE);
+        dot2.setVisibility(View.VISIBLE);
+        dot3.setVisibility(View.VISIBLE);
+        dot4.setVisibility(View.VISIBLE);
+        flipImageView.setVisibility(View.VISIBLE);
+        timerTextView.setVisibility(View.GONE);
+        //commentImageView.Visibility = ViewStates.Visible;
+        directPostImageView.setVisibility(View.VISIBLE);
+        takePictureImageView.setImageResource(R.drawable.play_video_btn);
+        flipImageView.setImageResource(R.drawable.homewhite);
+        videoPlayer.setVisibility(View.VISIBLE);
+        closeBtn.setVisibility(View.VISIBLE);
+
+        if (videoPlayer.isPlaying()) {
+            videoPlayer.stopPlayback();
+            videoPlayer.setVideoPath(TTApplication.recordedVideoPath);
+            videoPlayer.start();
+        } else {
+            videoPlayer.setVideoPath(TTApplication.recordedVideoPath);
+            videoPlayer.start();
+        }
+
+    }
+
+    /*private void saveThumbnailLocally() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bmp = null;
+                try {
+                    Bitmap thumbnailImg = ThumbnailUtils.createVideoThumbnail((TTApplication.recordedVideoPath), MediaStore.Images.Thumbnails.MINI_KIND);
+                    byte[] videoThumbImageByteArray = convertThumbBitmapToByteArray(thumbnailImg);
+                    saveToSdcard(videoThumbImageByteArray, new File(TTApplication.recordedVideoThumbPath));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+    }*/
+
+    private void createDirInSdCard() {
+        // making folder to store videos (Directory)
+        File rootPath = Environment.getExternalStorageDirectory();
+        File savingFile = new File(rootPath + "/Android/data/com.Android.Ten/Videos/");
+        if (!savingFile.exists()) {
+            savingFile.mkdir();
+        }
+
+        String date_time = System.currentTimeMillis() + "";// UtilitiesClass.GetCurrentMilliseconds().ToString();
+        //video_name = "Video_" + date_time;
+        //image_name = "Image_" + date_time;
+        tempFileName = "tempid" + "_" + date_time;
+
+        TTApplication.recordedVideoPath = savingFile + "/" + tempFileName + ".mp4";
+        //TTApplication.recordedVideoThumbPath = savingFile + "/" + tempFileName + ".jpeg";
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == IMAGE_EDITER) {
+            editedImageUri = data.getParcelableExtra(AdobeImageIntent.EXTRA_OUTPUT_URI);
+            //  picturePath =  (getRealPathFromURI(this,editedImageUri));
+            finish();
+
+        }
+    }
+
+    private void capureImage() {
+        btnMode = "camera";
+        try {
+            camera.takePicture(null, this, this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    @Override
+    public void onPictureTaken(byte[] data, Camera camera) {
+
+        if (data == null) {
+            return;
+        }
+        isImageCaptured = true;
+        isFilterStarted = false;
+        isUploadStarted = false;
+        // startCameraPreview();
+        Random rndm = new Random();
+        int rndomNumber = rndm.nextInt();
+        imageFile = new File(getExternalFilesDir(null), rndomNumber + ".jpeg");
+        picturePath = imageFile.getAbsolutePath();
+        // Glide.with(this).load(file).into(mCapturedImgView);
+        ///textureView.setba
+        saveImageLocally(data);
+        btnMode = "image";
+    }
+
+    private void saveImageLocally(final byte[] data) {
+        mCapturedImgView.setVisibility(View.VISIBLE);
+        photo_saving_progress.setVisibility(View.VISIBLE);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bmp = null;
+                try {
+                    saveToSdcard(data, imageFile);
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
+                    bmp = FileUtils.modifyOrientation(CameraUploadActivity.this, myBitmap, picturePath, currentCamera);
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    bmp.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+                    byte[] rotateddata = stream.toByteArray();
+                    saveToSdcard(rotateddata, imageFile);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                final Bitmap finalBmp = bmp;
+                CameraUploadActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mCapturedImgView.setImageBitmap(finalBmp);
+                        photo_saving_progress.setVisibility(View.GONE);
+                        dot1.setVisibility(View.VISIBLE);
+                        dot2.setVisibility(View.VISIBLE);
+                        dot3.setVisibility(View.VISIBLE);
+                        dot4.setVisibility(View.VISIBLE);
+                        directPostImageView.setVisibility(View.VISIBLE);
+                        flipImageView.setVisibility(View.VISIBLE);
+                        flipImageView.setImageResource(R.drawable.homewhite);
+                    }
+                });
+            }
+        });
+        thread.start();
+    }
+
+    private void saveToSdcard(byte[] data, File file) {
+        try {
+            FileOutputStream outStream = new FileOutputStream(file);
+            outStream.write(data);
+            outStream.close();
+            outStream = null;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void uploadImageVideoDirectly(boolean isVideo) {
+        if (uploadAttemped) {
+            return;
+        }
+        uploadAttemped = true;
+        ProgressUtility.showProgress(this, getString(R.string.please_wait_meassge));
+        RequestBody description = RequestBody.create(MultipartBody.FORM, "");
+        Call<EditProfileResponse> response = null;
+        if (isVideo) {
+            Bitmap thumbnailImg = ThumbnailUtils.createVideoThumbnail((TTApplication.recordedVideoPath), MediaStore.Images.Thumbnails.MINI_KIND);
+            byte[] videoThumbImageByteArray = convertThumbBitmapToByteArray(thumbnailImg);
+            RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpeg"), videoThumbImageByteArray);
+            MultipartBody.Part imageFilePart = MultipartBody.Part.createFormData("videoPoster", "videoThumb.jpeg", requestBody);
+            File videoFile = new File(TTApplication.recordedVideoPath);
+            RequestBody videoRequestBody = RequestBody.create(MediaType.parse("video/mp4"), videoFile);
+            MultipartBody.Part videoFilePart = MultipartBody.Part.createFormData("imageFile", videoFile.getName(), videoRequestBody);
+            response = GetRestAdapter.getRestAdapter(true).uploadVideoPost(description, imageFilePart, videoFilePart);
+        } else {
+            RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpeg"), imageFile);
+            MultipartBody.Part imageFilePart = MultipartBody.Part.createFormData("imageFile", imageFile.getName(), requestBody);
+            response = GetRestAdapter.getRestAdapter(true).uploadImagePost(description, imageFilePart);
+        }
+        response.enqueue(new Callback<EditProfileResponse>() {
+            @Override
+            public void onResponse(Call<EditProfileResponse> call, retrofit2.Response<EditProfileResponse> response) {
+                ProgressUtility.dismissProgress();
+                TTApplication.recordedVideoPath = null;
+                if (response.code() == 200) {
+                    //DIRECTLY_UPLOADED_SUCEESS = true;
+                    showToast("Post Uploaded Successfully");
+                    if (imageFile != null && imageFile.exists()) {
+                        imageFile.delete();
+                    }
+                    imageFile = null;
+                } else {
+                    showToast("" + response.message());
+                }
+                uploadAttemped = false;
+                Intent intent = new Intent(CameraUploadActivity.this, LandingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<EditProfileResponse> call, Throwable t) {
+                ProgressUtility.dismissProgress();
+                showToast(t.getMessage());
+                uploadAttemped = false;
+                TTApplication.recordedVideoPath = null;
+            }
+        });
+    }
+
+    private byte[] convertThumbBitmapToByteArray(Bitmap thumbnailImg) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        thumbnailImg.compress(Bitmap.CompressFormat.JPEG, 80, stream);
+        byte[] myByteArray = stream.toByteArray();
+        return myByteArray;
+    }
+
+   /* public Bitmap rotateBitmap(Bitmap bmpBow, float angle) {
+        Matrix matrix = new Matrix();
+        matrix.setRotate(angle);
+        Bitmap bmpBowRotated = Bitmap.createBitmap(bmpBow, 0, 0, bmpBow.getWidth(), bmpBow.getHeight(), matrix, false);
+        return bmpBowRotated;
+    }*/
+
+}

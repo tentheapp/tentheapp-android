@@ -1,0 +1,309 @@
+package com.nvcomputers.ten.adapter;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.StringSignature;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.model.input.InviteFriendInput;
+import com.nvcomputers.ten.model.output.InviteFriendResponse;
+import com.nvcomputers.ten.model.output.TenUsersResponse;
+import com.nvcomputers.ten.model.output.UnFollowResponse;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseActivity;
+import com.nvcomputers.ten.views.core.BaseFragment;
+import com.nvcomputers.ten.views.profile.ProfileActivity;
+import com.nvcomputers.ten.views.profile.NewProfileFragment;
+
+import java.util.ArrayList;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+/**
+ * This class is used to show ten users  adapter
+ *
+ * @author jindaldipanshu
+ * @version 1.0
+ */
+
+public class SearchTenUsersAdapter extends RecyclerView.Adapter<SearchTenUsersAdapter.ViewHolder> {
+    private SharedPrefsHelper sharedPref;
+    ArrayList<TenUsersResponse.User> mList;
+    private BaseActivity mActivity;
+    private BaseFragment baseFragment;
+
+    public SearchTenUsersAdapter(BaseActivity context, ArrayList<?> mList) {
+        this.mList = (ArrayList<TenUsersResponse.User>) mList;
+        this.mActivity = context;
+        sharedPref = new SharedPrefsHelper(context);
+    }
+
+    public SearchTenUsersAdapter(BaseFragment baseFragment, ArrayList<?> mList) {
+        this.baseFragment = baseFragment;
+        this.mList = (ArrayList<TenUsersResponse.User>) mList;
+        this.mActivity = baseFragment.getBaseActivity();
+        sharedPref = new SharedPrefsHelper(mActivity);
+    }
+
+    @Override
+    public SearchTenUsersAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View itemLayoutView = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.row_search_ten_users, null);
+        // create ViewHolder
+        SearchTenUsersAdapter.ViewHolder viewHolder = new SearchTenUsersAdapter.ViewHolder(itemLayoutView);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(SearchTenUsersAdapter.ViewHolder viewHolder, int position) {
+
+        if (TextUtils.isEmpty(mList.get(position).getFriended())) {  //invite Users
+            viewHolder.mInviteTextView.setVisibility(View.VISIBLE);
+            viewHolder.mFollowingTextView.setVisibility(View.GONE);
+            String contactName = mList.get(position).getUsername();
+            String phone = mList.get(position).getPhone();
+            viewHolder.mUserNameTextView.setText(contactName);
+            viewHolder.mContactNameTextView.setText(phone);
+
+            if (mList.get(position).getStatus().equals("1")) {
+                viewHolder.mInviteTextView.setText("Invited");
+                viewHolder.mInviteTextView.setTextColor(mActivity.getResources().getColor(R.color.tenBlue));
+                viewHolder.mInviteTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_blue));
+            } else {
+                viewHolder.mInviteTextView.setText("Invite");
+                viewHolder.mInviteTextView.setTextColor(mActivity.getResources().getColor(android.R.color.black));
+                viewHolder.mInviteTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_black));
+            }
+        } else {
+            String image = HttpUtils.getProfileImageURL(mList.get(position).getUsername());
+
+            String imageTag = sharedPref.get(PreferenceKeys.PREF_IMAGE_TAG, "");
+            Glide.with(mActivity)
+                    .load(image)
+                    .error(mActivity.getResources().getDrawable(R.drawable.myprofilelarge))
+                    .bitmapTransform(new RoundedCornersTransformation(mActivity, 20, 15))
+                    .placeholder(R.drawable.myprofilelarge)
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                    .signature(new StringSignature(imageTag))
+                    .into(viewHolder.mUserImagView);
+
+            viewHolder.mFollowingTextView.setVisibility(View.VISIBLE);
+            viewHolder.mInviteTextView.setVisibility(View.GONE);
+            String userName = mList.get(position).getUsername();
+            String contactName = mList.get(position).getContactName();
+            String phone = mList.get(position).getPhone();
+            if (TextUtils.isEmpty(userName)) {
+                viewHolder.mUserNameTextView.setText("N/A");
+            } else
+                viewHolder.mUserNameTextView.setText(userName);
+            viewHolder.mContactNameTextView.setText(contactName + " - " + phone);
+
+            String friendId = mList.get(position).getFriended();
+            if (TextUtils.isEmpty(friendId)) {
+                viewHolder.mFollowingTextView.setText("Follow");
+                viewHolder.mFollowingTextView.setTextColor(mActivity.getResources().getColor(R.color.colorPrimary));
+                viewHolder.mFollowingTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_white));
+            } else if (friendId.contains(mActivity.getString(R.string.friended_friended))) {
+                viewHolder.mFollowingTextView.setText("Following");
+                viewHolder.mFollowingTextView.setTextColor(mActivity.getResources().getColor(android.R.color.white));
+                viewHolder.mFollowingTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_green));
+            } else if (friendId.contains(mActivity.getString(R.string.friended_pending))) {
+                viewHolder.mFollowingTextView.setText("Requested");
+                viewHolder.mFollowingTextView.setTextColor(mActivity.getResources().getColor(android.R.color.white));
+                viewHolder.mFollowingTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_black_filled));
+            } else if (friendId.contains(mActivity.getString(R.string.friended_rejected)) ||
+                    friendId.contains(mActivity.getString(R.string.friended_none))
+                    ) {
+                viewHolder.mFollowingTextView.setText("Follow");
+                viewHolder.mFollowingTextView.setTextColor(mActivity.getResources().getColor(R.color.colorPrimary));
+                viewHolder.mFollowingTextView.setBackground(mActivity.getResources().getDrawable(R.drawable.rounded_btn_white));
+            }
+        }
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return mList == null ? 0 : mList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private TextView mUserNameTextView, mContactNameTextView, mInviteTextView;
+        private ImageView mUserImagView;
+        private TextView mFollowingTextView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            mUserImagView = (ImageView) itemView.findViewById(R.id.image_view_ten_user);
+            mUserNameTextView = (TextView) itemView.findViewById(R.id.text_view_usernm_ten_user);
+            mContactNameTextView = (TextView) itemView.findViewById(R.id.text_view_contact_nm_ten_user);
+            mFollowingTextView = (TextView) itemView.findViewById(R.id.image_view_following);
+            mInviteTextView = (TextView) itemView.findViewById(R.id.text_view_invite);
+            mInviteTextView.setOnClickListener(this);
+            mFollowingTextView.setOnClickListener(this);
+            itemView.findViewById(R.id.rl_row_search_ten).setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (Utilities.checkInternet(mActivity)) {
+                int position = getLayoutPosition();
+                switch (view.getId()) {
+                    case R.id.rl_row_search_ten:
+                        if (!TextUtils.isEmpty(mList.get(position).getFriended())) {
+                            if (baseFragment == null) {
+                                Intent intent = new Intent(mActivity, ProfileActivity.class);
+                                intent.putExtra("username", mList.get(position).getUsername());
+                                mActivity.startActivity(intent);
+                            } else {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("username", mList.get(position).getUsername());
+                                baseFragment.replaceChildFragment(R.id.frame_layout_contacts, new NewProfileFragment(), bundle);
+                            }
+                        }
+                        break;
+                    case R.id.image_view_following:
+                        String friendId = mList.get(position).getFriended();
+                        if (!Utilities.checkInternet(mActivity)) {
+                            mActivity.showToast(R.string.no_internet_msg);
+                        } else {
+                            if (friendId.contains(mActivity.getString(R.string.friended_friended))) {
+                                unFollowResponse(position, mList.get(position).getIdUser());
+                            } else if (friendId.contains(mActivity.getString(R.string.friended_pending))) {
+                                unFollowResponse(position, mList.get(position).getIdUser());
+                            } else if (friendId.contains(mActivity.getString(R.string.friended_rejected)) ||
+                                    friendId.contains(mActivity.getString(R.string.friended_none))
+                                    ) {
+                                followResponse(position, mList.get(position).getIdUser());
+                            }
+                        }
+
+                        break;
+                    case R.id.text_view_invite:
+                        if (!mList.get(position).getStatus().equals("1")) {
+                            if (!Utilities.checkInternet(mActivity)) {
+                                mActivity.showToast(R.string.no_internet_msg);
+                            } else {
+                                SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(mActivity);
+                                String userId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID);
+                                InviteFriendInput inviteFriendInput = new InviteFriendInput();
+                                inviteFriendInput.setIdUserFriend(mList.get(position).getIdUser());
+                                inviteFriendInput.setIdUser(userId);
+                                inviteFriendResponse(inviteFriendInput, position);
+                            }
+                        }
+                        break;
+                }
+
+            } else
+                Utilities.showMessage(mActivity, mActivity.getString(R.string.no_internet_msg));
+            {
+
+            }
+        }
+    }
+
+    private void inviteFriendResponse(InviteFriendInput inviteFriendInput, final int position) {
+
+        Call<InviteFriendResponse> response = GetRestAdapter.getRestAdapter(true).inviteFriend(inviteFriendInput);
+        response.enqueue(new Callback<InviteFriendResponse>() {
+            @Override
+            public void onResponse(Call<InviteFriendResponse> call,
+                                   retrofit2.Response<InviteFriendResponse> response) {
+                if (response != null && response.body() != null && response.body().getResponse() != null &&
+                        response.body().getResponse().getCode() != null) {
+                    String code = response.body().getResponse().getCode();
+                    String message = response.body().getResponse().getMessage();
+                    if (code.equals("201") || message.contains("Invitation sent successfully")) {
+                        mList.get(position).setStatus("1");
+                        notifyDataSetChanged();
+                    }
+                } else {
+                    mActivity.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<InviteFriendResponse> call, Throwable t) {
+                mActivity.showToast(t.getMessage());
+            }
+        });
+    }
+
+
+    private void unFollowResponse(final int position, String idUser) {
+        Call<UnFollowResponse> response = GetRestAdapter.getRestAdapter(true).unfollowUser(idUser);
+        response.enqueue(new Callback<UnFollowResponse>() {
+            @Override
+            public void onResponse(Call<UnFollowResponse> call,
+                                   retrofit2.Response<UnFollowResponse> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        mList.get(position).setFriended(mActivity.getString(R.string.friended_none));
+                        notifyDataSetChanged();
+                    }
+                } else {
+                    mActivity.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UnFollowResponse> call, Throwable t) {
+                mActivity.showToast(t.getMessage());
+            }
+        });
+    }
+
+
+    private void followResponse(final int position, String idUser) {
+        Call<UnFollowResponse> response = GetRestAdapter.getRestAdapter(true).followUser(idUser);
+        response.enqueue(new Callback<UnFollowResponse>() {
+            @Override
+            public void onResponse(Call<UnFollowResponse> call,
+                                   retrofit2.Response<UnFollowResponse> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        if (mList.get(position).getIsPrivate() == null) {
+                            mList.get(position).setFriended(mActivity.getString(R.string.friended_friended));
+                            notifyDataSetChanged();
+                        } else if (mList.get(position).getIsPrivate().equals("true")) {
+                            mList.get(position).setFriended(mActivity.getString(R.string.friended_pending));
+                            notifyDataSetChanged();
+                        } else {
+                            mList.get(position).setFriended(mActivity.getString(R.string.friended_friended));
+                            notifyDataSetChanged();
+                        }
+                    } else {
+                        mActivity.showToast(response.body().getSuccess());
+                    }
+                } else {
+                    mActivity.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UnFollowResponse> call, Throwable t) {
+                mActivity.showToast(t.getMessage());
+            }
+        });
+    }
+
+
+}

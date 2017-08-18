@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sameuser_menu.xml",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\menu\\sameuser_menu.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main2.xml",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\menu\\menu_main2.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\other_user_post_menu.xml",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\menu\\other_user_post_menu.xml"
+    }
+]

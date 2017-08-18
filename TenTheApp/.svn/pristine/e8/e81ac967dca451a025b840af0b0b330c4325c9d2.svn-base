@@ -1,0 +1,46 @@
+package com.nvcomputers.ten.model.output;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 7/4/2017.
+ */
+
+public class GroupedRepostResponse {
+    private GroupedRepostCallback groupedRepostCallback;
+    private AppCommonCallback screen;
+
+    public GroupedRepostResponse(AppCommonCallback callback, GroupedRepostCallback groupedRepostCallback) {
+        this.screen = callback;
+        this.groupedRepostCallback = groupedRepostCallback;
+    }
+
+    public interface GroupedRepostCallback {
+        void groupedRepostError(Call<GroupedRepostResponse> call, Throwable t);
+
+        void onGroupedRepostSuccess(Response<GroupedRepostResponse> response);
+    }
+
+    public void responseCheck(String userName, String password, String offset, String count) {
+        screen.setProgressBar();
+        Call<GroupedRepostResponse> response = GetRestAdapter.getRestAdapter(true).groupedRepost(userName, password);
+        response.enqueue(new Callback<GroupedRepostResponse>() {
+            @Override
+            public void onResponse(Call<GroupedRepostResponse> call, retrofit2.Response<GroupedRepostResponse> response) {
+                screen.dismiss();
+                groupedRepostCallback.onGroupedRepostSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<GroupedRepostResponse> call, Throwable t) {
+                screen.dismiss();
+                groupedRepostCallback.groupedRepostError(call, t);
+            }
+        });
+    }
+}

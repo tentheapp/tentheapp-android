@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parentView"
+    android:background="@color/tenBlue">
+    <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/loginGreen"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:elevation="4dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/text_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What's your number ?"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="50dp"
+            android:textSize="18sp"
+            android:paddingLeft="10dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:id="@+id/code"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:hint="+1"
+                android:text="+1"
+                android:background="@null"
+                android:textColorHint="@android:color/white"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:singleLine="true" />
+            <View
+                android:id="@+id/vcode"
+                android:layout_width="60dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/code"
+                android:background="@android:color/white" />
+            <EditText
+                android:id="@+id/phonenum"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:background="@null"
+                android:textColorHint="@android:color/white"
+                android:textSize="15sp"
+                android:imeOptions="actionDone"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="true"
+                android:layout_toRightOf="@+id/code"
+                android:textColor="@android:color/white"
+                android:singleLine="true"
+                android:layout_marginRight="2dp" />
+            <View
+                android:layout_width="260dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/phonenum"
+                android:layout_toRightOf="@+id/vcode"
+                android:background="@android:color/white" />
+            <ImageView
+                android:id="@+id/imageview_phonenum"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/like"
+                android:tag="0"
+                android:layout_toRightOf="@+id/phonenum"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.5"
+                android:visibility="gone" />
+        </RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/landing_button"
+            android:text="Next"
+            android:layout_marginTop="10dp"
+            android:id="@+id/next"
+            android:layout_gravity="right"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+</LinearLayout>

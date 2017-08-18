@@ -1,0 +1,48 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.model.output.PostCommentOutput;
+import com.nvcomputers.ten.utils.ProgressUtility;
+
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by KaurGurleen on 5/3/2017.
+ */
+
+public class PostCommentPresenter {
+    CommentCallback commentCallback;
+
+    public PostCommentPresenter(CommentCallback commentCallback) {
+        this.commentCallback = commentCallback;
+
+    }
+
+    public interface CommentCallback {
+        void postCommmentError(Call<PostCommentOutput> call, Throwable t);
+
+        void postCommmentSuccess(Response<PostCommentOutput> response);
+    }
+
+    public void responseCheck(String postId, String commentStr) {
+        RequestBody description = RequestBody.create(okhttp3.MultipartBody.FORM, commentStr);
+        Call<PostCommentOutput> response = GetRestAdapter.getRestAdapter(true).commentPost(postId, description);
+        response.enqueue(new Callback<PostCommentOutput>() {
+            @Override
+            public void onResponse(Call<PostCommentOutput> call, retrofit2.Response<PostCommentOutput> response) {
+                commentCallback.postCommmentSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<PostCommentOutput> call, Throwable t) {
+                ProgressUtility.dismissProgress();
+                commentCallback.postCommmentError(call,t);
+            }
+        });
+    }
+
+
+}

@@ -1,0 +1,246 @@
+package com.nvcomputers.ten.adapter;
+
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.VideoView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.StringSignature;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.model.output.UnFollowResponse;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.home.PostDetailFragment;
+import com.nvcomputers.ten.views.popular.PopularFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+/**
+ * Created by KaurGurleen on 4/21/2017.
+ */
+
+public class PopularPostAdapter extends RecyclerView.Adapter<PopularPostAdapter.ViewHolder> {
+
+
+    private final String userId;
+    Context context;
+    ArrayList<NewsFeedOutput.Posts> mList;
+    PopularFragment popularPostListFragment;
+    private SharedPrefsHelper sharedPrefsHelper;
+
+    public PopularPostAdapter(PopularFragment context, ArrayList<NewsFeedOutput.Posts>  mList) {
+        this.mList = mList;
+        this.popularPostListFragment = context;
+        this.context = context.getActivity();
+        sharedPrefsHelper = new SharedPrefsHelper(this.context);
+        userId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID, "");
+
+    }
+
+    @Override
+    public PopularPostAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View itemLayoutView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_news_feed_layout, null);
+        // create ViewHolder
+        ViewHolder viewHolder = new ViewHolder(itemLayoutView, mList);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(PopularPostAdapter.ViewHolder viewHolder, int position) {
+        //set data
+        NewsFeedOutput.Posts postData = mList.get(position); 
+
+        viewHolder.mUserNameTextView.setText(postData.getUserPoster().getUsername());
+        viewHolder.CaptionTextView.setText(postData.getText());
+        viewHolder.TimeRemainingTextView.setText(DateTimeUtil.getRemainingTimeInMinutes(postData.getExpiration()));
+
+        if (postData.getLiked()) {
+            viewHolder.LikeImage.setImageDrawable(context.getResources().getDrawable(R.drawable.likeselected));
+        } else {
+            viewHolder.LikeImage.setImageDrawable(context.getResources().getDrawable(R.drawable.like));
+        }
+        if (postData.getCommented()) {
+            viewHolder.CommentImage.setImageDrawable(context.getResources().getDrawable(R.drawable.commentselected));
+        } else {
+            viewHolder.CommentImage.setImageDrawable(context.getResources().getDrawable(R.drawable.comment));
+        }
+
+
+        if (userId == postData.getUserPoster().getIdUser()) {
+            viewHolder.CommentImage.setVisibility(View.INVISIBLE);
+            viewHolder.RepostImage.setVisibility(View.INVISIBLE);
+
+            viewHolder.LikeImage.setVisibility(View.INVISIBLE);
+        } else {
+            viewHolder.CommentImage.setVisibility(View.VISIBLE);
+            viewHolder.RepostImage.setVisibility(View.VISIBLE);
+            viewHolder.LikeImage.setVisibility(View.VISIBLE);
+        }
+
+        viewHolder.PostImage.setVisibility(View.VISIBLE);
+        String imageTag=sharedPrefsHelper.get(PreferenceKeys.PREF_IMAGE_TAG,"");
+        Glide.with(context)
+                .load(HttpUtils.getProfileImageURL(postData.getUserPoster().getUsername()))
+                .bitmapTransform(new RoundedCornersTransformation(context, 15, 15))
+                .placeholder(R.drawable.myprofilelarge)
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                .signature(new StringSignature(imageTag))
+                .into(viewHolder.mUserImagView);
+
+        Glide.with(context)
+                .load(HttpUtils.getPostImageURL(postData.getIdPost()))
+                //.bitmapTransform(new RoundedCornersTransformation(context, 10, 15))
+                .into(viewHolder.PostImage);
+
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mList == null ? 0 : mList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private TextView mUserNameTextView, mContactNameTextView, mFollowingTextView;
+        private ImageView mUserImagView;
+        private ImageView playBtn;
+        private ProgressBar progressBar;
+        private ImageView PostImage;
+        private ImageView UserImage;
+        private VideoView postVideo;
+        private TextView UsernameTextView;
+        private TextView TimeRemainingTextView;
+        private TextView TimeElapasedTextView;
+        private TextView RepostedTextView;
+        private RelativeLayout videoRelative;
+        private RelativeLayout mainRelate;
+        private TextView CaptionTextView;
+        private ImageView ClockImageView;
+        private ImageView LikeImage;
+        private ImageView RepostImage;
+        private ImageView CommentImage;
+
+        public ViewHolder(View convertView, final List<NewsFeedOutput.Posts>  mList) {
+            super(convertView);
+            mUserImagView = (ImageView) convertView.findViewById(R.id.userimage);
+            mUserNameTextView = (TextView) convertView.findViewById(R.id.username);
+
+            playBtn = (ImageView) convertView.findViewById(R.id.playBtn1);
+            playBtn.setTag(getLayoutPosition());
+            playBtn.setVisibility(View.GONE);
+
+            progressBar = (ProgressBar) convertView.findViewById(R.id.progressBar);
+            PostImage = (ImageView) convertView.findViewById(R.id.postimage);
+            postVideo = (VideoView) convertView.findViewById(R.id.postvideo);
+            postVideo.setVisibility(View.GONE);
+            UserImage = (ImageView) convertView.findViewById(R.id.userimage);
+            UsernameTextView = (TextView) convertView.findViewById(R.id.username);
+            CaptionTextView = (TextView) convertView.findViewById(R.id.caption);
+            TimeRemainingTextView = (TextView) convertView.findViewById(R.id.timeremaining);
+            TimeElapasedTextView = (TextView) convertView.findViewById(R.id.timeelapsed);
+            RepostedTextView = (TextView) convertView.findViewById(R.id.repostlabel);
+            ClockImageView = (ImageView) convertView.findViewById(R.id.clock);
+            LikeImage = (ImageView) convertView.findViewById(R.id.like);
+            RepostImage = (ImageView) convertView.findViewById(R.id.repost);
+            CommentImage = (ImageView) convertView.findViewById(R.id.comment);
+            videoRelative = (RelativeLayout) convertView.findViewById(R.id.videorelative);
+            mainRelate = (RelativeLayout) convertView.findViewById(R.id.relate_main);
+
+            mainRelate.setOnClickListener(this);
+            LikeImage.setOnClickListener(this);
+            CommentImage.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getLayoutPosition();
+            switch (v.getId()) {
+                case R.id.like:
+                    if (!Utilities.checkInternet(context)) {
+                        popularPostListFragment.showToast(R.string.no_internet_msg);
+                    } else {
+                        if (mList.get(position).getLiked()) {
+
+                        } else {
+                            likePost(position, mList.get(position).getIdPost());
+                        }
+
+                    }
+                    break;
+
+                case R.id.comment:
+
+                    break;
+                case R.id.relate_main:
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("userName", mList.get(position).getUserPoster().getUsername());
+//                    //bundle.putString("userImage", HttpUtils.getProfileImageURL(mList.get(position).getUserPoster().getUsername()));
+//                    //bundle.putString("postImage", HttpUtils.getPostImageURL(mList.get(position).getIdPost()));
+//                    bundle.putString("postCaption", mList.get(position).getText());
+//                    bundle.putString("userId", mList.get(position).getUserPoster().getIdUser());
+//                    bundle.putString("postId", mList.get(position).getIdPost());
+//                    bundle.putString("likedValue", mList.get(position).getUserPoster().getIdUser());
+//                    bundle.putString("remainingTime", mList.get(position).getDatestamp());
+//                    bundle.putString("expirationTime", mList.get(position).getExpiration());
+//                    bundle.putParcelable("post_data",mList.get(position));
+                    Bundle bundle=new Bundle();
+                    bundle.putParcelableArrayList(PreferenceKeys.PREF_HOME_PAGE_DATA, mList);
+                    bundle.putInt("position",position);
+
+                    popularPostListFragment.replaceChildFragment(R.id.popularLayout, new PostDetailFragment(), bundle);
+
+                    break;
+            }
+        }
+
+    }
+
+    private void likePost(final int position, String idPost) {
+        Call<UnFollowResponse> response = GetRestAdapter.getRestAdapter(true).likePost(idPost);
+        response.enqueue(new Callback<UnFollowResponse>() {
+            @Override
+            public void onResponse(Call<UnFollowResponse> call,
+                                   retrofit2.Response<UnFollowResponse> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        mList.get(position).setLiked(true);
+                        //to-do
+                        MediaPlayer mp = MediaPlayer.create(context, R.raw.ticksound);
+                        mp.start();
+                        // popularPostListFragment.notifyList(position);
+                        notifyDataSetChanged();
+                    } else {
+                        popularPostListFragment.showToast(response.message());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UnFollowResponse> call, Throwable t) {
+                popularPostListFragment.showToast(t.getMessage());
+            }
+        });
+    }
+
+
+}

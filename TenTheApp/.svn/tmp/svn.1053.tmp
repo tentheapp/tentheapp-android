@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\repost.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\mipmap-mdpi\\repost.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\repost_selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\mipmap-mdpi\\repost_selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\iclauncher.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\mipmap-mdpi\\iclauncher.png"
+    }
+]

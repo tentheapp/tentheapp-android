@@ -1,0 +1,98 @@
+package com.nvcomputers.ten.views.profile;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.FollowersAdapter;
+import com.nvcomputers.ten.model.output.FollowingResponse;
+import com.nvcomputers.ten.presenter.FollowersPresenter;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.util.ArrayList;
+
+public class FollowersActivity extends BaseActivity implements View.OnClickListener, FollowersPresenter.FollowersCallback {
+
+    private RecyclerView mFollowersRecyclerView;
+    private String mUserId;
+    private FollowersPresenter mFollowersPresenter;
+    private String mFollowers, mUserName;
+    private TextView mFollowersTitleTextView, mNameTitleTextView;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_followers;
+    }
+
+    @Override
+    protected void initViews() {
+        mUserId = getIntent().getStringExtra("user_id");
+        mFollowers = getIntent().getStringExtra("followers");
+        mUserName = getIntent().getStringExtra("name");
+        mNameTitleTextView = (TextView) findViewById(R.id.text_view_name_followers);
+        mFollowersTitleTextView = (TextView) findViewById(R.id.text_view_title_followers);
+        if (mFollowers.equals("1")) { // following
+            mFollowersTitleTextView.setText("Following");
+        } else {
+            mFollowersTitleTextView.setText("Follow");
+        }
+
+        mFollowersRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_followers);
+        findViewById(R.id.text_view_name_followers).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (!Utilities.checkInternet(this)) {
+            showToast(R.string.no_internet_msg);
+        } else {
+            showDialog();
+            if (mFollowersPresenter == null)
+                mFollowersPresenter = new FollowersPresenter(this, this);
+
+            if (mFollowers.equals("1")) {
+                mFollowersPresenter.getFollowingResponse(mUserId);
+            } else {
+                mFollowersPresenter.getFollowersResponse(mUserId);
+            }
+        }
+    }
+
+
+    @Override
+    public void setAdapter(RecyclerView recyclerView, ArrayList<?> mList) {
+        super.setAdapter(recyclerView, mList);
+        FollowersAdapter followersAdapter = new FollowersAdapter(this, mList);
+        recyclerView.setAdapter(followersAdapter);
+    }
+
+    @Override
+    public void dispose() {
+        if (mFollowersPresenter != null)
+            mFollowersPresenter = null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.text_view_name_followers:
+                finish();
+                break;
+        }
+    }
+
+    @Override
+    public void onFollowersSuccess(FollowingResponse followingResponse) {
+        if (followingResponse.getUsers() != null && followingResponse.getUsers().size() > 0) {
+            setAdapter(mFollowersRecyclerView, followingResponse.getUsers());
+        }
+    }
+
+    @Override
+    public void onFollowingError(Throwable t) {
+        showToast(t.getMessage());
+    }
+}

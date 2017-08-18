@@ -1,0 +1,272 @@
+/*
+package com.tentheapp.views.post;
+
+import android.content.Context;
+import android.hardware.Camera;
+import android.graphics.SurfaceTexture;
+import android.media.MediaRecorder;
+import android.os.Build;
+import android.support.annotation.FloatRange;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.TextureView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
+
+import com.tentheapp.R;
+import com.tentheapp.views.core.BaseActivity;
+
+import java.io.IOException;
+import java.util.Timer;
+
+import static android.hardware.Camera.CameraInfo.CAMERA_FACING_BACK;
+import static android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT;
+/*
+
+public class CameraActivity extends BaseActivity implements TextureView.SurfaceTextureListener,
+        View.OnClickListener, View.OnTouchListener {
+    TextureView textureView;
+    Camera camera;
+     
+    int FrontCamera = -1, rearCamera = -1, currentCamera, rotationotation; 
+    SurfaceTexture surface;
+     
+    ImageView closeBtn;
+     
+    VideoView videoPlayer; 
+
+
+    MediaRecorder video_recorder; 
+    int count_time;      
+    byte[] videoByteArray, videoThumbImageByteArray;
+     
+    TextView timerTextView; 
+    Boolean CameraStarted = false, CameraIsFront = false, UploadAttemped = false,uploadedStarted = false,filterStarted = false; 
+    ImageView Dot1, Dot2, Dot3, Dot4, FlipImageView, CommentImageView, FlashImageView, TakePictureImageView; 
+    String PictureFilePath = null;// Flash = android.hardware.Camera.
+    Timer timer, captureTimer; 
+    String video_name, image_name; 
+    String btnMode = "camera"; 
+    String tempFileName;
+     
+    Boolean imageCaptured;
+    Context mContext;  
+
+    @Override
+    public void dispose() {
+
+
+    }*/
+
+   /* @Override
+    protected int getLayoutId() {
+        return R.layout.activity_camera_fragment;
+    }
+
+    @Override
+    protected void initViews() {
+
+        closeBtn = (ImageView) findViewById(R.id.close); 
+        closeBtn.setOnClickListener(this);  
+        videoPlayer = (VideoView) findViewById(R.id.videoPlayer); 
+        videoPlayer.setVisibility(View.GONE);
+        timerTextView = (TextView) findViewById(R.id.timer); 
+        timerTextView.setVisibility(View.GONE);
+        TakePictureImageView = (ImageView) findViewById(R.id.picture); 
+        TakePictureImageView.setOnTouchListener(this);     
+
+
+        timerTextView.setVisibility(View.GONE);
+        Dot1 = (ImageView) findViewById(R.id.dot1);
+        Dot2 = (ImageView) findViewById(R.id.dot2);
+        Dot3 = (ImageView) findViewById(R.id.dot3);
+        Dot4 = (ImageView) findViewById(R.id.dot4);
+
+        FlashImageView = (ImageView) findViewById(R.id.flash);
+        FlashImageView.setOnClickListener(this);
+
+        FlipImageView = (ImageView) findViewById(R.id.flip);
+        FlipImageView.setOnClickListener(this);
+        FlipImageView.setImageResource(R.drawable.flipcamera);
+
+        CommentImageView = (ImageView) findViewById(R.id.comment);
+        CommentImageView.setOnClickListener(this);
+    }
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+         this.surface = surface; 
+        android.hardware.Camera.CameraInfo cameraInfo = new android.hardware.Camera.CameraInfo(); 
+        for (int camIdx = 0; camIdx < android.hardware.Camera.getNumberOfCameras(); camIdx++) { 
+            android.hardware.Camera.getCameraInfo(camIdx, cameraInfo); 
+
+
+            if (cameraInfo.facing == CAMERA_FACING_FRONT) { FrontCamera = camIdx; 
+            } 
+            if (cameraInfo.facing == CAMERA_FACING_BACK) { rearCamera = camIdx; 
+            } 
+        }  
+        currentCamera = rearCamera; 
+        camera = android.hardware.Camera.open(currentCamera);  
+        textureView.setLayoutParams(new RelativeLayout.LayoutParams(width, height));  
+        StartPreview(); 
+    }
+
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+         if (camera != null) { 
+         camera.stopPreview();
+         camera.release(); 
+            camera.setPreviewCallback(null);
+             camera = null;  			  
+            return true;
+        }
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) { 
+            case R.id.close: 
+                if (CameraStarted) { 
+                    StartPreview(); 
+                } 
+                imageCaptured = false; 
+                break; 
+            case R.id.flash: 
+                if (CameraStarted) { 
+                    //// TODO: 5/4/2017
+                    // ChangeFlashMode(); 
+                } break; 
+
+            case R.id.comment: 
+                if (!CameraStarted) { 
+                    //	ToPostPage ();
+                } break; 
+            case R.id.flip: 
+                if (CameraStarted) { 
+                    FlipCamera(); 
+                } else { 
+                    if (!uploadedStarted) {
+                        uploadedStarted = true;
+                        UploadPicture();
+                    }
+             } break;
+             default: 
+                break;
+                 } 
+    }
+
+    private void UploadPicture() {
+        //// TODO: 5/4/2017  hit web service to upload pic
+    } 
+
+
+    private void FlipCamera() {
+         if (currentCamera == FrontCamera && rearCamera != -1) {
+
+            if (camera != null) 
+            {
+                 camera.stopPreview(); 
+                camera.release();
+                 camera = null; 
+            }
+            camera = android.hardware.Camera.open(rearCamera);
+             currentCamera = rearCamera; 
+            StartPreview();
+        }   
+        else if (FrontCamera != -1) 
+        {
+            if (camera != null) {
+                 camera.stopPreview(); 
+                camera.release();
+                 camera = null;
+             } 
+            camera = android.hardware.Camera.open(FrontCamera);
+             currentCamera = FrontCamera; 
+            StartPreview(); 
+        }
+         
+    } 
+
+
+    private void StartPreview() {
+        {
+         try { 
+            btnMode = "camera";
+         camera.setPreviewTexture(surface);
+          camera.startPreview(); 
+            TakePictureImageView.setImageResource(R.drawable.ic_camerabutton); 
+
+            FlashImageView.setVisibility(View.VISIBLE);
+            //check // TODO: 5/4/2017
+            //   rotationotation = ViewUtils.SetCameraDisplayOrientation(Activity, 0, camera); 
+            CameraStarted = true; 
+            Dot1.setVisibility(View.INVISIBLE);
+            Dot2.setVisibility(View.INVISIBLE);
+            Dot3.setVisibility(View.INVISIBLE);
+            Dot4.setVisibility(View.INVISIBLE);
+            CommentImageView.setVisibility(View.INVISIBLE);
+            FlipImageView.setImageResource(R.drawable.flipcamera); 
+            FlipImageView.setVisibility(View.VISIBLE);
+          } catch (IOException ex) { 
+            Log.d("camera exception: ", ex.getMessage()); } } 
+    }
+
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Float dx = 0.0f;
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                if(!imageCaptured){
+                    //
+                }break;
+            case MotionEvent.ACTION_MOVE:
+                if(!CameraStarted){
+                    Float change = event.getRawX() + dx - TakePictureImageView.getLayoutParams().width / 2;
+                    if(change > FlipImageView.getX()){
+                        v.setOnTouchListener(this);
+                        if(!uploadedStarted){
+                            uploadedStarted = true;
+                            //// TODO: 5/4/2017// upload picture
+                        }
+                    }else if(change < CommentImageView.getX()) {
+                        v.setOnTouchListener(this);
+                        if (!filterStarted) {
+                            filterStarted = true;
+                            //// TODO: 5/4/2017// intent to filters page
+                        }
+                    }
+                    else{
+                        v.animate().x(change).setDuration(0).start();
+                    }
+                }break;
+
+            case MotionEvent.ACTION_UP:
+                v.animate().translationX(0).setDuration(100).start();
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                Toast.makeText(this,"Action Cancel Called",Toast.LENGTH_LONG).show();
+                break;
+        }
+        return true;
+    }*/
+//}
+
+

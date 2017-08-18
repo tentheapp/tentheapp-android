@@ -1,0 +1,157 @@
+package com.nvcomputers.ten.api;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.model.input.ContactsSyncInput;
+import com.nvcomputers.ten.model.input.TenUsersInput;
+import com.nvcomputers.ten.model.output.ContactsSyncResponse;
+import com.nvcomputers.ten.model.output.TenUsersResponse;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+
+/**
+ * Created by jindaldipanshu on 4/24/2017.
+ */
+
+public class ContactsApi {
+
+    private UsersCallback usersCallback;
+    BaseActivity contactsActivity;
+    private String userId;
+
+    public interface UsersCallback {
+
+        void setTenUser(ArrayList<?> tenUser);
+
+        void setInViteUser(ArrayList<?> tenUser);
+
+        void setTenUsersError(String message);
+
+        void setInviteUsersError(String message);
+
+        void notifyInviteList(int position);
+
+        void notifyTenUsersList(int position, int friendid);
+
+    }
+
+    public ContactsApi(BaseActivity contactsActivity, UsersCallback usersCallback) {
+        this.contactsActivity = contactsActivity;
+        this.usersCallback = usersCallback;
+    }
+
+    public void syncContacts(ContactsSyncInput contactsSyncInput) {
+        Call<ContactsSyncResponse> response = GetRestAdapter.getRestAdapter(true).synContacts(contactsSyncInput);
+        response.enqueue(new Callback<ContactsSyncResponse>() {
+            @Override
+            public void onResponse(Call<ContactsSyncResponse> call, retrofit2.Response<ContactsSyncResponse> response) {
+
+                if (response != null && response.body() != null && response.body().getResponse() != null &&
+                        response.body().getResponse().getCode() != null) {
+                    String code = response.body().getResponse().getCode();
+                    String message = response.body().getResponse().getMessage();
+                    getTenUsers();
+                    if (code.equals("201") || message.contains("Already updated")) {
+
+                    } else {
+                        contactsActivity.showToast(response.body().getResponse().getMessage());
+                    }
+                } else {
+                    getTenUsers();
+                  //  contactsActivity.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ContactsSyncResponse> call, Throwable t) {
+                getTenUsers();
+                contactsActivity.hideDialog();
+                contactsActivity.showToast(t.getMessage());
+            }
+        });
+    }
+
+
+    /**
+     * This method is used to get Ten users response
+     */
+    public void getTenUsers() {
+
+        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(contactsActivity);
+        userId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID);
+        TenUsersInput input = new TenUsersInput();
+        input.setIdUser(userId);
+
+        Call<TenUsersResponse> response = GetRestAdapter.getRestAdapter(true).tenUsers(input);
+        response.enqueue(new Callback<TenUsersResponse>() {
+            @Override
+            public void onResponse(Call<TenUsersResponse> call,
+                                   retrofit2.Response<TenUsersResponse> response) {
+                if (response != null && response.body() != null && response.body().getResponse() != null &&
+                        response.body().getResponse().getCode() != null) {
+                    String code = response.body().getResponse().getCode();
+                    String message = response.body().getResponse().getMessage();
+                    if (code.equals("201") ||
+                            message.contains("Already updated")) {
+                        usersCallback.setTenUser(response.body().getResponse().getResult().getUser());
+                        getInviteUsers();
+                    } else {
+                        usersCallback.setTenUsersError("No user found");
+                        getInviteUsers();
+                    }
+                } else {
+
+                    usersCallback.setTenUsersError("");
+                    getInviteUsers();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TenUsersResponse> call, Throwable t) {
+                usersCallback.setTenUsersError(t.getMessage());
+            }
+        });
+    }
+
+
+    /**
+     * This method is used to get Not Ten users response
+     */
+    public void getInviteUsers() {
+
+        TenUsersInput input = new TenUsersInput();
+        input.setIdUser(userId);
+
+        Call<TenUsersResponse> response = GetRestAdapter.getRestAdapter(true).notTenUsers(input);
+        response.enqueue(new Callback<TenUsersResponse>() {
+            @Override
+            public void onResponse(Call<TenUsersResponse> call,
+                                   retrofit2.Response<TenUsersResponse> response) {
+                if (response != null && response.body() != null && response.body().getResponse() != null &&
+                        response.body().getResponse().getCode() != null) {
+                    String code = response.body().getResponse().getCode();
+                    String message = response.body().getResponse().getMessage();
+                    if (code.equals("201") || message.contains("Already updated")) {
+                        usersCallback.setInViteUser(response.body().getResponse().getResult().getUser());
+                    } else {
+                        usersCallback.setInviteUsersError("No contacts found");
+                    }
+                } else {
+                    contactsActivity.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TenUsersResponse> call, Throwable t) {
+                usersCallback.setInviteUsersError(t.getMessage());
+
+            }
+        });
+    }
+
+}

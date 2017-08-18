@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\design_appbar_state_list_animator.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ed6b27be2ae9b90ae528b8465a023f3de07d761a\\output\\res\\animator-v21\\design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\com_adobe_image_button_animation.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\animator-v21\\com_adobe_image_button_animation.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\com_adobe_image_card_animation.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\animator-v21\\com_adobe_image_card_animation.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\animator-v21\\com_adobe_image_progress_indeterminate_rotation_material.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\animator-v21\\com_adobe_image_progress_indeterminate_rotation_material.xml"
+    }
+]

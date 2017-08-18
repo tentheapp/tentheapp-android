@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- default state -->
+    <item android:color="@color/com_adobe_image_text_color_light_lite" android:state_enabled="true" android:state_pressed="false" />
+
+    <!-- pressed state -->
+    <item android:color="@color/com_adobe_image_text_color_light_full" android:state_enabled="true" android:state_pressed="true" />
+
+    <!-- disabled state -->
+    <item android:color="@color/com_adobe_image_text_color_light_lite_disabled" android:state_enabled="false" />
+</selector>

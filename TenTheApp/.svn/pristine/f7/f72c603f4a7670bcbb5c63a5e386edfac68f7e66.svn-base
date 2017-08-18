@@ -1,0 +1,286 @@
+package com.nvcomputers.ten.views.auth;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.interfaces.ResultCallbacks;
+import com.nvcomputers.ten.model.output.LoginResponse;
+import com.nvcomputers.ten.presenter.LoginPresenter;
+import com.nvcomputers.ten.utils.IntentHandler;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.TTApplication;
+import com.nvcomputers.ten.views.contacts.ContactsActivity;
+import com.nvcomputers.ten.views.home.LandingActivity;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, AppCommonCallback, ResultCallbacks.LoginCallback {
+
+    private static final int READ_EXTERNAL_STORAGE_CODE = 5;
+    private EditText userNameEt;
+    private EditText passwordEt;
+    private Button loginBtn;
+    private Button forgotPasswordBtn;
+    private String userName;
+    private String password;
+    private ProgressBar progressBar;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private TextView backBtn;
+    private AlertDialog mSyncdialog;
+    private TextView upperLoginBtn;
+    RelativeLayout mLoginRl;
+    private View mView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        sharedPrefsHelper = new SharedPrefsHelper(LoginActivity.this);
+        initUI();
+    }
+
+
+    private void initUI() {
+        mView = (View) findViewById(R.id.view);
+        mView.setVisibility(View.GONE);
+
+        mView.setOnClickListener(this);
+        mLoginRl = (RelativeLayout) findViewById(R.id.rl_login);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        final RelativeLayout parentlayout = (RelativeLayout) findViewById(R.id.parentView);
+        parentlayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Utilities.hideKeypad(parentlayout);
+                return false;
+            }
+        });
+        userNameEt = (EditText) findViewById(R.id.editText_username);
+        passwordEt = (EditText) findViewById(R.id.editText_password);
+        loginBtn = (Button) findViewById(R.id.button_login);
+        upperLoginBtn = (TextView) findViewById(R.id.loginBtn);
+        forgotPasswordBtn = (Button) findViewById(R.id.forgotpassword);
+        loginBtn.setOnClickListener(this);
+        upperLoginBtn.setOnClickListener(this);
+        forgotPasswordBtn.setOnClickListener(this);
+        backBtn = (TextView) findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Utilities.hideKeypad(backBtn);
+        IntentHandler.switchActivity(LoginActivity.this, Splash2Activity.class);
+        finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.forgotpassword:
+                Utilities.hideKeypad(forgotPasswordBtn);
+                selectRecoverPasswordMethod();
+                break;
+            case R.id.loginBtn:
+                Utilities.hideKeypad(loginBtn);
+                validate();
+                break;
+            case R.id.button_login:
+                Utilities.hideKeypad(loginBtn);
+                validate();
+                break;
+            case R.id.backBtn:
+                Utilities.hideKeypad(backBtn);
+                IntentHandler.switchActivity(LoginActivity.this, Splash2Activity.class);
+                finish();
+                break;
+        }
+    }
+
+    private void validate() {
+        mLoginRl.setClickable(false);
+
+        userName = userNameEt.getText().toString().trim();
+        password = passwordEt.getText().toString().trim();
+        boolean cancel = false;
+        View focusView = null;
+        if (userName.equals(null) || userName.equals("")) {
+            userNameEt.setError("Enter username");
+            focusView = userNameEt;
+            cancel = true;
+        } else if (password.equals(null) || password.equals("")) {
+            passwordEt.setError("Enter password");
+            focusView = passwordEt;
+            cancel = true;
+        } else if (password.length() < 6 || password.length() > 12) {
+            passwordEt.setError("Password limit should be 6 to 15 characters");
+            focusView = passwordEt;
+            cancel = true;
+        }
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            if (Utilities.checkInternet(this)) {
+                TTApplication.userName = userName;
+                TTApplication.password = password;
+                GetRestAdapter.retrofitInterface = null;
+                mView.setVisibility(View.VISIBLE);
+                LoginPresenter loginPresenter = new LoginPresenter(this, this);
+                loginPresenter.responseCheck(userName, password);
+            } else {
+                Toast.makeText(this, getResources().getString(R.string.no_internet_msg), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+   private void selectRecoverPasswordMethod() {
+
+        // Create custom dialog object
+        final Dialog dialouge_view = new Dialog(LoginActivity.this);
+        //  dialouge_view.setTitle("Please choose how you want to reset your password ?");
+        // Include dialog.xml file
+        dialouge_view.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialouge_view.setContentView(R.layout.custom_layout_choose_picker);
+        // Set dialog title
+        //
+        TextView selectEmail = (TextView) dialouge_view.findViewById(R.id.txt_view_via_email);
+        TextView selectPhone = (TextView) dialouge_view.findViewById(R.id.txt_view_via_number);
+        Button cancelBtn = (Button) dialouge_view.findViewById(R.id.cancel);
+        dialouge_view.setCancelable(false);
+        dialouge_view.show();
+        selectEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialouge_view.dismiss();
+                Intent intent = new Intent(LoginActivity.this, EmailVerificationForgetPasswordActivity.class);
+                intent.putExtra("action_for", "forgot_password");
+                startActivity(intent);
+               //finish();
+            }
+        });
+
+
+        selectPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialouge_view.dismiss();
+                Intent intent = new Intent(LoginActivity.this, PhoneVerificationForgetPasswordActivity.class);
+                intent.putExtra("action_for", "forgot_password");
+                startActivity(intent);
+               // finish();
+            }
+        });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialouge_view.dismiss();
+            }
+        });
+    }
+
+    @Override
+    public void onLoginSuccess(Response<LoginResponse> response) {
+        LoginResponse body = response.body();
+        if (body != null) {
+            LoginResponse.User userData = body.getUser();
+            if (userData != null) {
+                String userId = userData.getIdUser();
+                String userName = userData.getUsername();
+                //String userImage = userData.getImageSrc();
+                //String description = userData.getDescription();
+                //String email = userData.getEmail();
+                //String webSite = userData.getWebsite();
+                //String isPrivate = userData.getIsPrivate();
+                //String friended = userData.getFriended();
+                String phoneNumber = userData.getPhone();
+                //String otp = userData.getOtp();
+                //String isUserFriend = userData.getIdUserFriend();
+                // String status = userData.getStatus();
+                //String contactName = userData.getContactName();
+                //String countryId = userData.getCountryId();
+                //String notify = userData.getNotify();
+                //String blocked = userData.getBlocked();
+                sharedPrefsHelper.save(PreferenceKeys.PREF_USER_ID, userId);
+                sharedPrefsHelper.save(PreferenceKeys.PREF_USER_NAME, userName);
+                sharedPrefsHelper.save(PreferenceKeys.PREF_PASSWORD, password);
+                sharedPrefsHelper.save(PreferenceKeys.PREF_USER_PHONE_NUMBER, phoneNumber);
+                showContactsSynDialog();
+                mView.setVisibility(View.GONE);
+            } else {
+                Utilities.showMessage(this, "User not found");
+            }
+        } else {
+            mView.setVisibility(View.GONE);
+            response.code();
+            GetRestAdapter.retrofitInterface = null;
+            if (response.code() == 401) {
+                Utilities.showMessage(this, getString(R.string.unauthorized));
+            } else {
+                Utilities.showMessage(this, getString(R.string.server_error));
+            }
+        }
+    }
+
+    private void showContactsSynDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.sync_contacts));
+        builder.setMessage(getString(R.string.sync_contacts_msg));
+        builder.setPositiveButton(getString(R.string.sync), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mSyncdialog.dismiss();
+                IntentHandler.switchActivity(LoginActivity.this, LandingActivity.class);
+                IntentHandler.switchActivityFinish(LoginActivity.this, ContactsActivity.class);
+            }
+        });
+
+        builder.setNegativeButton(getString(R.string.skip), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mSyncdialog.dismiss();
+                IntentHandler.switchActivityFinish(LoginActivity.this, LandingActivity.class);
+            }
+        });
+
+        mSyncdialog = builder.create();
+        mSyncdialog.show();
+    }
+
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void loginError(Call<LoginResponse> call, Throwable t) {
+        mView.setVisibility(View.GONE);
+        Utilities.showMessage(this, getString(R.string.server_error));
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+}

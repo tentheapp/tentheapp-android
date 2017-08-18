@@ -1,0 +1,180 @@
+package com.nvcomputers.ten.views.profile;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.LogoutResponse;
+import com.nvcomputers.ten.presenter.LogoutPresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.auth.Splash2Activity;
+import com.nvcomputers.ten.views.contacts.ContactsFragment;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class SettingsFragment extends BaseFragment implements View.OnClickListener, LogoutPresenter.LogoutCallback,
+        AppCommonCallback {
+    private TextView backBtn;
+    private RelativeLayout editProfileLayout;
+    private RelativeLayout changePasswordLayout, syncContactLayout, reportLayout;
+    private RelativeLayout feedbackLayout;
+    private RelativeLayout blogLayout;
+    private RelativeLayout policylayout;
+    private RelativeLayout termsLayout;
+    private RelativeLayout signoutLayout;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private ProgressBar progressBar;
+    private Bundle mBundle;
+
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_settings;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        mBundle = getArguments();
+        sharedPrefsHelper = new SharedPrefsHelper(getActivity());
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        backBtn = (TextView) findViewById(R.id.backBtn);
+        editProfileLayout = (RelativeLayout) findViewById(R.id.edit_profile_layout);
+        changePasswordLayout = (RelativeLayout) findViewById(R.id.change_password_layout);
+        syncContactLayout = (RelativeLayout) findViewById(R.id.sync_contact_layout);
+        reportLayout = (RelativeLayout) findViewById(R.id.report_layout);
+        feedbackLayout = (RelativeLayout) findViewById(R.id.feedback_layout);
+        blogLayout = (RelativeLayout) findViewById(R.id.blog_layout);
+        policylayout = (RelativeLayout) findViewById(R.id.policy_layout);
+        termsLayout = (RelativeLayout) findViewById(R.id.terms_layout);
+        signoutLayout = (RelativeLayout) findViewById(R.id.signout_layout);
+        editProfileLayout.setOnClickListener(this);
+        changePasswordLayout.setOnClickListener(this);
+        syncContactLayout.setOnClickListener(this);
+        reportLayout.setOnClickListener(this);
+        feedbackLayout.setOnClickListener(this);
+        blogLayout.setOnClickListener(this);
+        policylayout.setOnClickListener(this);
+        termsLayout.setOnClickListener(this);
+        signoutLayout.setOnClickListener(this);
+        backBtn.setOnClickListener(this);
+        findViewById(R.id.iv_back).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (Utilities.checkInternet(mContext)) {
+            switch (view.getId()) {
+                case R.id.iv_back:
+                    manualBackPressed();
+                    break;
+                case R.id.edit_profile_layout:
+                    replaceChildFragment(R.id.setting_frame_layout, new EditProfileFragment(), mBundle);
+                    break;
+                case R.id.change_password_layout:
+                    replaceChildFragment(R.id.setting_frame_layout, new ChangePasswordFragment(), null);
+                    break;
+                case R.id.sync_contact_layout:
+                    replaceChildFragment(R.id.setting_frame_layout, new ContactsFragment(), null);
+                    break;
+                case R.id.report_layout:
+                    Intent report = new Intent(getActivity(), ReportWebViewActivity.class);
+                    startActivity(report);
+                    break;
+                case R.id.feedback_layout:
+                    Intent feedback = new Intent(getActivity(), FeedbackWebViewActivity.class);
+                    startActivity(feedback);
+                    break;
+                case R.id.blog_layout:
+                    Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.policy_layout:
+                    Intent policy = new Intent(getActivity(), PolicyWebViewActivity.class);
+                    startActivity(policy);
+                    break;
+                case R.id.terms_layout:
+                    Intent terms = new Intent(getActivity(), TermsWebViewActivity.class);
+                    startActivity(terms);
+                    break;
+                case R.id.signout_layout:
+
+                    hitLogoutApi();
+                    break;
+                case R.id.backBtn:
+                    manualBackPressed();
+                    break;
+            }
+        } else {
+            Utilities.showMessage(mContext, getString(R.string.no_internet_msg));
+        }
+
+    }
+
+    private void hitLogoutApi() {
+        sharedPrefsHelper = new SharedPrefsHelper(getBaseActivity());
+        String userName = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        String password = sharedPrefsHelper.get(PreferenceKeys.PREF_PASSWORD, "");
+        if (Utilities.checkInternet(getActivity())) {
+            LogoutPresenter logoutPresenter = new LogoutPresenter(this, this);
+            logoutPresenter.responseCheck(userName, password);
+        } else {
+            showToast(R.string.no_internet_msg);
+        }
+    }
+
+    @Override
+    public void logoutError(Call<LogoutResponse> call, Throwable t) {
+        showToast(R.string.server_error_msg);
+    }
+
+    @Override
+    public void onLogoutSuccess(Response<LogoutResponse> response) {
+        // LogoutResponse body = response.body();
+        //sharedPrefsHelper.clearAll();
+        clearPreferences();
+
+        Intent intent = new Intent(getActivity(), Splash2Activity.class);
+        startActivity(intent);
+        activity.finish();
+    }
+
+    private void clearPreferences() {
+        sharedPrefsHelper.save(PreferenceKeys.PREF_USER_ID, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_COUNTRY_ID, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_USER_PHONE_NUMBER, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_PASSWORD, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_USER_NAME, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_USER_FIRST_NAME, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_EMAIL_ID, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_COUNTRY_ID, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_USER_IMAGE, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_HOME_PAGE_DATA, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_IMAGE_TAG, "");
+        sharedPrefsHelper.save(PreferenceKeys.PREF_PROFILE_PAGE_DATA, "");
+
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+}

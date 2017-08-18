@@ -1,0 +1,275 @@
+package com.nvcomputers.ten.views.auth;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.interfaces.ResultCallbacks;
+import com.nvcomputers.ten.model.input.PhoneOtpVerifyInput;
+import com.nvcomputers.ten.model.input.PhoneSignUpUserInput;
+import com.nvcomputers.ten.model.input.ResendPhoneOtpInput;
+import com.nvcomputers.ten.model.output.PhoneOtpVerifyResponse;
+import com.nvcomputers.ten.model.output.ResendPhoneOtpResponse;
+import com.nvcomputers.ten.model.output.SignUpUserResponse;
+import com.nvcomputers.ten.presenter.PhoneOtpVerifyPresenter;
+import com.nvcomputers.ten.presenter.PhoneSignUpPresenter;
+import com.nvcomputers.ten.presenter.ResendPhoneOtpPresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.contacts.ContactsActivity;
+import com.nvcomputers.ten.views.home.LandingActivity;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class PhoneOtpVerifyActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher, AppCommonCallback, ResultCallbacks.PhoneOtpVerifyCallback, ResultCallbacks.ResendPhoneOtpCallback, PhoneSignUpPresenter.SignupCallback {
+
+    private ProgressBar progressBar;
+    private EditText codeEdtTxt;
+    private Button otpResendBtn;
+    private Button otpSubmitBtn;
+    private Intent intent;
+    private String phoneNumber;
+    private AlertDialog mSyncdialog;
+    private String countryId;
+    private TextView backBtn;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private ImageView mCrossImageView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_phone_otp_verify);
+        sharedPrefsHelper = new SharedPrefsHelper(PhoneOtpVerifyActivity.this);
+        intent = getIntent();
+        phoneNumber = intent.getStringExtra("phone_no");
+        countryId = intent.getStringExtra("phone_code");
+        initUI();
+    }
+
+    private void initUI() {
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        codeEdtTxt = (EditText) findViewById(R.id.phone_otp_code);
+        otpResendBtn = (Button) findViewById(R.id.phoneresendBtn);
+        otpSubmitBtn = (Button) findViewById(R.id.phonesubmitBtn);
+        mCrossImageView = (ImageView) findViewById(R.id.imageview_code);
+        otpResendBtn.setOnClickListener(this);
+        otpSubmitBtn.setOnClickListener(this);
+        backBtn = (TextView) findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
+        codeEdtTxt.addTextChangedListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.phoneresendBtn:
+                Utilities.hideKeypad(otpResendBtn);
+                resendOtpApi();
+                break;
+            case R.id.phonesubmitBtn:
+                Utilities.hideKeypad(otpSubmitBtn);
+                verifyOtpApi();
+                break;
+            case R.id.backBtn:
+                Utilities.hideKeypad(backBtn);
+                finish();
+                break;
+        }
+    }
+
+    private void verifyOtpApi() {
+        String otpCode = codeEdtTxt.getText().toString().trim();
+        if (otpCode.equals(null) || otpCode.equals("")) {
+            Utilities.showSmallToast(this, "Please enter otp code");
+        } else {
+            if (Utilities.checkInternet(PhoneOtpVerifyActivity.this)) {
+                PhoneOtpVerifyInput phoneOtpVerifyInput = new PhoneOtpVerifyInput();
+                phoneOtpVerifyInput.setPhone(phoneNumber);
+                phoneOtpVerifyInput.setOtp(otpCode);
+                PhoneOtpVerifyPresenter phoneOtpVerifyPresenter = new PhoneOtpVerifyPresenter(this, this);
+                phoneOtpVerifyPresenter.responseCheck(phoneOtpVerifyInput);
+            } else {
+                Utilities.showMessage(PhoneOtpVerifyActivity.this, getString(R.string.no_internet_msg));
+            }
+        }
+    }
+
+    private void resendOtpApi() {
+        if (Utilities.checkInternet(PhoneOtpVerifyActivity.this)) {
+            ResendPhoneOtpInput resendPhoneOtpInput = new ResendPhoneOtpInput();
+            resendPhoneOtpInput.setPhone(phoneNumber);
+            resendPhoneOtpInput.setCountryId(countryId);
+            ResendPhoneOtpPresenter resendPhoneOtpPresenter = new ResendPhoneOtpPresenter(this, this);
+            resendPhoneOtpPresenter.responseCheck(resendPhoneOtpInput);
+        } else {
+            Utilities.showMessage(PhoneOtpVerifyActivity.this, getString(R.string.no_internet_msg));
+        }
+    }
+
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void phoneOtpError(Call<PhoneOtpVerifyResponse> call, Throwable t) {
+        Utilities.showMessage(this, getString(R.string.server_error));
+    }
+
+    @Override
+    public void onPhoneOtpSuccess(Response<PhoneOtpVerifyResponse> response) {
+        PhoneOtpVerifyResponse body = response.body();
+        if (body != null) {
+            String code = body.getResponse().getCode();
+            if (code.equals("201")) {
+
+                PhoneSignUpUserInput phoneSignUpUserInput = new PhoneSignUpUserInput();
+                phoneSignUpUserInput.setUsername(sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, ""));
+                phoneSignUpUserInput.setPassword(sharedPrefsHelper.get(PreferenceKeys.PREF_PASSWORD, ""));
+                phoneSignUpUserInput.setPhone(phoneNumber);
+                phoneSignUpUserInput.setCountryId(countryId);
+                PhoneSignUpPresenter signUpPresenter = new PhoneSignUpPresenter(this, this);
+                signUpPresenter.responseCheck(phoneSignUpUserInput);
+
+            } else if (code.equals("400")) {
+                mCrossImageView.setVisibility(View.VISIBLE);
+                mCrossImageView.setImageResource(R.drawable.cross_icon);
+                otpSubmitBtn.setClickable(false);
+                otpSubmitBtn.setEnabled(false);
+                Utilities.showMessage(this, body.getResponse().getMessage());
+            } else {
+
+                Utilities.showMessage(this, body.getResponse().getMessage());
+            }
+        } else {
+            Utilities.showMessage(this, getString(R.string.server_error));
+        }
+    }
+
+    @Override
+    public void resendPhoneOtpError(Call<ResendPhoneOtpResponse> call, Throwable t) {
+        Utilities.showMessage(this, getString(R.string.server_error));
+    }
+
+    @Override
+    public void onResendPhoneOtpSuccess(Response<ResendPhoneOtpResponse> response) {
+        ResendPhoneOtpResponse body = response.body();
+        if (body != null) {
+            String code = body.getResponse().getCode();
+            if (code.equals("201")) {
+                Utilities.showMessage(this, "Otp code is sent to your phone");
+
+            } else {
+                Utilities.showMessage(this, body.getResponse().getMessage());
+            }
+        } else {
+            Utilities.showMessage(this, getString(R.string.server_error));
+        }
+    }
+
+    @Override
+    public void signUpError(Call<SignUpUserResponse> call, Throwable t) {
+        Utilities.showMessage(this, getString(R.string.server_error));
+    }
+
+    @Override
+    public void onSignUpSuccess(Response<SignUpUserResponse> response) {
+        SignUpUserResponse body = response.body();
+        if (body != null) {
+            String code = body.getResponse().getCode();
+            if (code.equals("201")) {
+                Utilities.showSmallToast(this, "Register Successfully.");
+                SignUpUserResponse.Result data = body.getResponse().getResult();
+                sharedPrefsHelper.save(PreferenceKeys.PREF_USER_NAME, data.getUsername());
+                sharedPrefsHelper.save(PreferenceKeys.PREF_USER_ID, data.getIdUser());
+                sharedPrefsHelper.save(PreferenceKeys.PREF_USER_PHONE_NUMBER, data.getPhone());
+                sharedPrefsHelper.save(PreferenceKeys.PREF_COUNTRY_ID, data.getCountryId());
+                contactSyncDialog();
+            } else {
+                Utilities.showMessage(this, body.getResponse().getMessage());
+            }
+        } else {
+            Utilities.showMessage(this, getString(R.string.server_error));
+        }
+    }
+
+    private void contactSyncDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.sync_contacts));
+        builder.setCancelable(false);
+        builder.setMessage(getString(R.string.sync_contacts_msg));
+        builder.setPositiveButton(getString(R.string.sync), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mSyncdialog.dismiss();
+                Intent intent = new Intent(PhoneOtpVerifyActivity.this, ContactsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.putExtra("from_otp", true);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        builder.setNegativeButton(getString(R.string.skip), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                mSyncdialog.dismiss();
+                Intent intent = new Intent(PhoneOtpVerifyActivity.this, LandingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.putExtra("from_otp", true);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        mSyncdialog = builder.create();
+        mSyncdialog.show();
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        if (codeEdtTxt.getText().toString().trim().length() == 4) {
+            mCrossImageView.setVisibility(View.VISIBLE);
+            // imageview_username.Tag = 1;
+            mCrossImageView.setImageResource(R.drawable.check);//check
+            otpSubmitBtn.setClickable(true);
+            otpSubmitBtn.setEnabled(true);
+        } else {
+            mCrossImageView.setVisibility(View.VISIBLE);
+            mCrossImageView.setImageResource(R.drawable.cross_icon);
+            otpSubmitBtn.setClickable(false);
+            otpSubmitBtn.setEnabled(false);//check
+        }
+    }
+}

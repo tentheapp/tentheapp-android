@@ -1,0 +1,275 @@
+package com.nvcomputers.ten.views.notification;
+
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.NotificationListAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.NotificationLitResponse;
+import com.nvcomputers.ten.model.output.ReadNotificationResponse;
+import com.nvcomputers.ten.model.output.RequestListResponse;
+import com.nvcomputers.ten.presenter.NotificationListPresenter;
+import com.nvcomputers.ten.presenter.ReadNotificationPresenter;
+import com.nvcomputers.ten.presenter.RequestListPresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+import com.nvcomputers.ten.views.home.SelectedPostViewFragment;
+import com.nvcomputers.ten.views.profile.ProfileFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class NotificationFragment extends BaseFragment implements AppCommonCallback, NotificationListPresenter.NotificationListCallback, ReadNotificationPresenter.ReadNotificationCallback, View.OnClickListener, RequestListPresenter.RequestListCallback {
+    private ImageView deleteBtn;
+    private RecyclerView notificationRecyclerview;
+    private LinearLayoutManager mLayoutManager;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private ProgressBar progressBar;
+    private NotificationListAdapter notificationListAdapter;
+    private List<NotificationLitResponse.Notifications> mArrayList = new ArrayList<>();
+    private ProgressDialog progress;
+    private int counter = 0;
+    private ImageView requestBtn;
+    private List<RequestListResponse.Users> mRequestList;
+
+    public NotificationFragment() {
+    }
+
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_notification;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        //init views
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        sharedPrefsHelper = new SharedPrefsHelper(mContext);
+        deleteBtn = (ImageView) view.findViewById(R.id.deleteBtn);
+        notificationRecyclerview = (RecyclerView) view.findViewById(R.id.notification_rv);
+        requestBtn = (ImageView) view.findViewById(R.id.requestBtn);
+        //set recycler view orientation & layout
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        notificationRecyclerview.setLayoutManager(mLayoutManager);
+        //set click listeners
+        deleteBtn.setOnClickListener(this);
+        requestBtn.setOnClickListener(this);
+        //set button filter
+        deleteBtn.setColorFilter(R.color.tenBlue);
+        //get list of notificaitons
+        hitNotificationApi();
+        hitRequestListApi();
+
+    }
+
+    private void hitRequestListApi() {
+        String username = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        String password = sharedPrefsHelper.get(PreferenceKeys.PREF_PASSWORD, "");
+        RequestListPresenter requestListPresenter = new RequestListPresenter(this, this);
+        requestListPresenter.responseCheck(username, password);
+    }
+
+    private void hitNotificationApi() {
+        String username = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        String password = sharedPrefsHelper.get(PreferenceKeys.PREF_PASSWORD, "");
+        NotificationListPresenter notificationListPresenter = new NotificationListPresenter(this, this);
+        notificationListPresenter.responseCheck(username, password);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+
+    @Override
+    public void notificationError(Call<NotificationLitResponse> call, Throwable t) {
+        Utilities.showMessage(mContext, getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onNotificationSuccess(Response<NotificationLitResponse> response) {
+        NotificationLitResponse body = response.body();
+        if (body != null) {
+            mArrayList = body.getNotifications();
+            if (mArrayList != null && mArrayList.size() > 0) {
+                deleteBtn.setVisibility(View.VISIBLE);
+                notificationListAdapter = new NotificationListAdapter(this, mArrayList);
+                notificationRecyclerview.setAdapter(notificationListAdapter);
+            } else {
+                deleteBtn.setVisibility(View.GONE);
+                Utilities.showSmallToast(getActivity(), "No notification");
+                mArrayList = new ArrayList<>();
+                notificationListAdapter = new NotificationListAdapter(this, mArrayList);
+                notificationRecyclerview.setAdapter(notificationListAdapter);
+            }
+        } else {
+            Utilities.showMessage(mContext, getString(R.string.server_error_msg));
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.requestBtn:
+                replaceChildFragment(R.id.notification_frame_layout, new RequestListFragment(), null);
+                break;
+            case R.id.deleteBtn:
+                if (Utilities.checkInternet(mContext)) {
+                    if (mArrayList != null && mArrayList.size() > 0) {
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                        builder.setTitle(R.string.clear_notification);
+                        builder.setMessage(R.string.clear_notification_message);
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                markAllDelete();
+                            }
+                        });
+                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        builder.show();
+                    } else {
+                        Utilities.showMessage(getActivity(), "No notification to delete");
+                    }
+
+                } else {
+                    Utilities.showMessage(mContext, getString(R.string.no_internet_msg));
+                }
+                break;
+        }
+
+    }
+
+    private void markAllDelete() {
+        progress = new ProgressDialog(mContext);
+        progress.setIndeterminate(true);
+        // progress.setProgressStyle(Spin);
+        progress.setMessage(getString(R.string.clearAll));
+        progress.setCancelable(false);
+        progress.show();
+        // if (mArrayList != null && mArrayList.size() > 0) {
+        counter = 0;
+        for (int i = 0; i < mArrayList.size(); i++) {
+            String notificationId = mArrayList.get(i).getIdNotification();
+            ReadNotificationPresenter readNotificationPresenter = new ReadNotificationPresenter(this, this);
+            readNotificationPresenter.responseCheck(notificationId);
+        }
+    }
+
+    @Override
+    public void readNotificationError(Call<ReadNotificationResponse> call, Throwable t) {
+        counter++;
+    }
+
+    @Override
+    public void onReadNotificationSuccess(Response<ReadNotificationResponse> response) {
+        counter++;
+        Log.d("--", "-onReadNotificationSuccess-" + counter);
+        if (counter == mArrayList.size()) {
+            try {
+                progress.dismiss();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            mArrayList = new ArrayList<>();
+            notificationListAdapter = new NotificationListAdapter(this, mArrayList);
+            notificationRecyclerview.setAdapter(notificationListAdapter);
+            hitNotificationApi();
+        } else {
+            notificationListAdapter = new NotificationListAdapter(this, mArrayList);
+            notificationRecyclerview.setAdapter(notificationListAdapter);
+            hitNotificationApi();
+        }
+    }
+
+    public void moveToProfile(String username) {
+        Bundle bundle = new Bundle();
+        bundle.putString("username", username);
+        replaceChildFragment(R.id.notification_frame_layout, new ProfileFragment(), bundle);
+    }
+
+    public void screenNaigations(Bundle bundle) {
+        String type = bundle.getString("type");
+        String notificationId = bundle.getString("notificationId");
+        markReadNotification(notificationId);
+        if (type.contains("COMMENT")) {
+            replaceChildFragment(R.id.notification_frame_layout, new SelectedPostViewFragment(), bundle);
+        } else if (type.contains("LIKE")) {
+            replaceChildFragment(R.id.notification_frame_layout, new SelectedPostViewFragment(), bundle);
+        } else if (type.contains("FRIENDREQUEST")) {
+            replaceChildFragment(R.id.notification_frame_layout, new ProfileFragment(), bundle);
+        } else if (type.contains("FOLLWERSPOST")) {
+            replaceChildFragment(R.id.notification_frame_layout, new SelectedPostViewFragment(), bundle);
+        } else if (type.contains("MENTIONPOST")) {
+            replaceChildFragment(R.id.notification_frame_layout, new SelectedPostViewFragment(), bundle);
+        } else {
+            replaceChildFragment(R.id.notification_frame_layout, new ProfileFragment(), bundle);
+        }
+
+    }
+
+    private void markReadNotification(String notificationId) {
+        ReadNotificationPresenter readNotificationPresenter = new ReadNotificationPresenter(this, this);
+        readNotificationPresenter.responseCheck(notificationId);
+    }
+
+    @Override
+    public void requestListError(Call<RequestListResponse> call, Throwable t) {
+
+    }
+
+    @Override
+    public void onRequestListSuccess(Response<RequestListResponse> response) {
+        RequestListResponse body = response.body();
+        if (body != null) {
+            List<RequestListResponse.Users> userData = body.getUsers();
+            if (userData != null || userData.size() >= 0) {
+                mRequestList = userData;
+                if (mRequestList != null && mRequestList.size() > 0) {
+                    requestBtn.setVisibility(View.VISIBLE);
+                } else {
+                    requestBtn.setVisibility(View.GONE);
+                }
+            } else {
+                Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+            }
+        }
+    }
+}

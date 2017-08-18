@@ -1,0 +1,186 @@
+[
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_adjust_slide_in_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_adjust_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_bottombar_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_bottombar_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\anim\\design_fab_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\anim\\design_fab_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\anim\\design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_toolbar_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_toolbar_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_out_left.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_out_left.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_toolbar_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_toolbar_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_adjust_scale_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_adjust_scale_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_in_top.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_out_right_fast.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_out_right_fast.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_in_right_fast.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_in_right_fast.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_in_bottom_preview_effects.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_in_bottom_preview_effects.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_alert_slide_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_alert_slide_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_effect_intensty_animator.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_effect_intensty_animator.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_alert_slide_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_alert_slide_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_fade_in_long.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_fade_in_long.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_fade_out_long.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_fade_out_long.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_out_top.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_store_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_store_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_in_bottom_preview_stickers.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_in_bottom_preview_stickers.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\trans_left_in.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\anim\\trans_left_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_adjust_slide_out_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_adjust_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_store_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_store_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_in_right.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_in_right.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_out_right.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_out_right.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_adjust_scale_in.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_adjust_scale_in.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_out_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_slide_in_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_bottombar_void.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_bottombar_void.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_void_animation.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_void_animation.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\trans_left_out.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\anim\\trans_left_out.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\com_adobe_image_bottombar_out.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59866446d88f11083ce264f4e5b653486608e384\\output\\res\\anim\\com_adobe_image_bottombar_out.xml"
+    }
+]

@@ -1,0 +1,98 @@
+package com.nvcomputers.ten.views.home;
+
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.ReposterListAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.GroupedRepostDetailResponse;
+import com.nvcomputers.ten.presenter.GroupedRepostDetailPresenter;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class RepostedUserListActivity extends BaseActivity implements AppCommonCallback, GroupedRepostDetailPresenter.GroupedRepostDetailCallback {
+
+    private RecyclerView repostersRV;
+    private TextView mNoUsersTextView;
+    private ProgressBar mProgressbar;
+    private String postId;
+    private Bundle bundle;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_reposted_user_list);
+    }
+
+    @Override
+
+    protected int getLayoutId() {
+        return R.layout.activity_reposted_user_list;
+    }
+
+    @Override
+    protected void initViews() {
+
+
+        bundle = getIntent().getExtras();
+        postId = bundle.getString("postId");
+        mProgressbar = (ProgressBar) findViewById(R.id.progress_bar_timers);
+        mNoUsersTextView = (TextView) findViewById(R.id.tv_no_users_found);
+        repostersRV = (RecyclerView) findViewById(R.id.recycler_view_reposters);
+        if (!Utilities.checkInternet(this)) {
+            Utilities.showMessage(this, getString(R.string.no_internet_msg));
+        } else {
+            GroupedRepostDetailPresenter groupedRepostDetailPresenter = new GroupedRepostDetailPresenter(this, this);
+            groupedRepostDetailPresenter.responseCheck(postId);
+        }
+    }
+
+
+    @Override
+    public void setProgressBar() {
+
+    }
+
+    @Override
+    public void dismiss() {
+
+    }
+
+    @Override
+    public void groupedNotificationError(Call<GroupedRepostDetailResponse> call, Throwable t) {
+
+    }
+
+    @Override
+    public void onGroupedNotificationSuccess(Response<GroupedRepostDetailResponse> response) {
+        GroupedRepostDetailResponse body = response.body();
+        if (body != null) {
+            ArrayList<GroupedRepostDetailResponse.Notifications> mList = body.getNotifications();
+            //GroupedRepostDetailResponse.Notifications()[]. mList = body.getNotifications();
+            if (mList != null && mList.size() > 0) {
+                mNoUsersTextView.setVisibility(View.INVISIBLE);
+                ReposterListAdapter timersAdapter = new ReposterListAdapter(this, mList);
+                repostersRV.setAdapter(timersAdapter);
+            } else {
+                mNoUsersTextView.setVisibility(View.VISIBLE);
+            }
+        } else {
+            Utilities.showMessage(this, getString(R.string.server_error_msg));
+        }
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+}

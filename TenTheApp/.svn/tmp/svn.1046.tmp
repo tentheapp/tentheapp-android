@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\iclauncher.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\mipmap-hdpi\\iclauncher.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\repost_selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\mipmap-hdpi\\repost_selected.png"
+    }
+]

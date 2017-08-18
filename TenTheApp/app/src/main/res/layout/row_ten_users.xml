@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_row_ten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+         >
+
+        <ImageView
+            android:id="@+id/image_view_ten_user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tabbar4" />
+
+        <TextView
+            android:id="@+id/image_view_following"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rounded_btn_green"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:text="Following"
+            android:gravity="center"
+             />
+
+        <TextView
+            android:id="@+id/text_view_usernm_ten_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/image_view_ten_user"
+            android:text="megha" />
+
+
+        <TextView
+            android:id="@+id/text_view_contact_nm_ten_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_usernm_ten_user"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/image_view_following"
+            android:layout_toRightOf="@+id/image_view_ten_user"
+            android:text="9465211577" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rl_row_ten"
+        android:background="@color/light_grey"
+        />
+</RelativeLayout>

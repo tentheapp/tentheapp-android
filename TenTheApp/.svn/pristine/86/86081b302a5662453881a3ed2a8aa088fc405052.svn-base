@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/sdk_auth_dropdown_layout"
+    style="@style/AdobeImageWidget.SDKDropdown"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/adobe_logo_white"
+        tools:ignore="ContentDescription" />
+
+    <com.adobe.android.ui.view.AdobeTextView
+        android:id="@+id/sdk_auth_title_textview"
+        style="@style/AdobeImageWidget.TextAppearance.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/feather_unlock_aviary_essentials"
+        app:adobe_fontFamily="?attr/com_adobe_font_regular" />
+
+    <com.adobe.android.ui.view.AdobeTextView
+        android:id="@+id/sdk_auth_signup_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="@style/AdobeImageWidget.TextAppearance.Small"
+        android:textColor="?android:textColorPrimary"
+        app:adobe_fontFamily="?attr/com_adobe_font_regular" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/sdk_auth_signup_btn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feather_signup"
+            android:textAllCaps="true" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/sdk_auth_signin_btn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feather_signin"
+            android:textAllCaps="true" />
+
+    </LinearLayout>
+
+</LinearLayout>

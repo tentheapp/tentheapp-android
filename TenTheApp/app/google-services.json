@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "782579340181",
+    "firebase_url": "https://tentheapp-154703.firebaseio.com",
+    "project_id": "tentheapp-154703",
+    "storage_bucket": "tentheapp-154703.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782579340181:android:337d48e9d538ab96",
+        "android_client_info": {
+          "package_name": "com.nvcomputers.ten"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782579340181-9rotluurrvqg1s3rmb4n1ls5ohbmhv72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkIgZPdGscebd54wy7uAN5VcG8cBCfZQo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

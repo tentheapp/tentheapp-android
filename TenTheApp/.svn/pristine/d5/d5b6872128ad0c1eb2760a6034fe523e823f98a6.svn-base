@@ -1,0 +1,102 @@
+[
+    {
+        "outputFile": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-land-v13\\values-sw600dp-land-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 72,
+                    "endOffset": 123
+                },
+                "from": {
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\values-sw600dp-land-v13\\values-sw600dp-land-v13.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 72,
+                        "endOffset": 123
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 128,
+                    "endColumn": 108,
+                    "endOffset": 232
+                },
+                "from": {
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\values-sw600dp-land-v13\\values-sw600dp-land-v13.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 128,
+                        "endColumn": 108,
+                        "endOffset": 232
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 237,
+                    "endColumn": 60,
+                    "endOffset": 293
+                },
+                "from": {
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\045a1df2e8c32259e7bd2b1dcf848765733e3fea\\output\\res\\values-sw600dp-land-v13\\values-sw600dp-land-v13.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 60,
+                        "endOffset": 111
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 298,
+                    "endColumn": 70,
+                    "endOffset": 364
+                },
+                "from": {
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\values-sw600dp-land-v13\\values-sw600dp-land-v13.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 237,
+                        "endColumn": 70,
+                        "endOffset": 303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 369,
+                    "endColumn": 63,
+                    "endOffset": 428
+                },
+                "from": {
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\values-sw600dp-land-v13\\values-sw600dp-land-v13.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 308,
+                        "endColumn": 63,
+                        "endOffset": 367
+                    }
+                }
+            }
+        ]
+    }
+]

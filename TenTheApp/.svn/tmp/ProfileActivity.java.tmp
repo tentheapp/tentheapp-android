@@ -1,0 +1,578 @@
+package com.nvcomputers.ten.views.profile;
+
+import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.NewsPostAdapter;
+import com.nvcomputers.ten.adapter.ProfileAdapter;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.api.ProfileApi;
+import com.nvcomputers.ten.model.output.BlockUserOutput;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.model.output.ProfileResponse;
+import com.nvcomputers.ten.model.output.TopLikersResponse;
+import com.nvcomputers.ten.model.output.UnFollowResponse;
+import com.nvcomputers.ten.presenter.ProfilePresenter;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class ProfileActivity extends BaseActivity implements View.OnClickListener, ProfileApi.ProfileCallbacks,
+        View.OnLongClickListener, ProfilePresenter.UsersProfileCallback, PopupMenu.OnMenuItemClickListener {
+
+    private ImageView mUserImagView;
+    private TextView mTimeTextView, mPostTextView, mFollowersTextView, mFollowingTextView, mFollowTextView, mStatusTextView;
+    private TextView mUserNmTextView, mTextDescription, mUserBlockedTextView, mNoPostTextView;
+    private RecyclerView mPostsRecyclerView, mTimerRecyclerView;
+    private ProfilePresenter mProfilePresenter;
+    private ImageView mBlockImagView;
+    private String mUserName, mUserId, friendId, mIsPrivate, mScreen, mDescription, mNickName, mNotify, mBlocked;
+    private ProgressBar mPostsProgressBar, mTopTimersProgressView;
+    private NewsPostAdapter adapter;
+    private Timer timer;
+    private ArrayList<NewsFeedOutput.Posts> newsFeedOutput;
+    private boolean blocked;
+    private PopupMenu popup;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_profile;
+    }
+
+    @Override
+    protected void initViews() {
+        mUserName = getIntent().getStringExtra("username");
+        mPostsProgressBar = (ProgressBar) findViewById(R.id.pro_bar_profile_posts);
+        mTopTimersProgressView = (ProgressBar) findViewById(R.id.pro_bar_profile_top_timers);
+        mTextDescription = (TextView) findViewById(R.id.text_description);
+        mUserBlockedTextView = (TextView) findViewById(R.id.text_view_user_blocked);
+        mNoPostTextView = (TextView) findViewById(R.id.text_view_no_post);
+        mUserNmTextView = (TextView) findViewById(R.id.text_view_title);
+        mUserImagView = (ImageView) findViewById(R.id.image_view_profile);
+        mTimeTextView = (TextView) findViewById(R.id.text_view_time);
+        mPostTextView = (TextView) findViewById(R.id.text_view_post);
+        mFollowersTextView = (TextView) findViewById(R.id.text_view_followers);
+        mFollowingTextView = (TextView) findViewById(R.id.text_view_following);
+        mFollowTextView = (TextView) findViewById(R.id.text_view_follow);
+        mBlockImagView = (ImageView) findViewById(R.id.image_view_block);
+        mStatusTextView = (TextView) findViewById(R.id.text_view_status);
+        mPostsRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_posts);
+        mTimerRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_top_timers);
+        mFollowTextView.setOnClickListener(this);
+
+        findViewById(R.id.iv_back).setOnClickListener(this);
+        mFollowersTextView.setOnClickListener(this);
+        mFollowingTextView.setOnClickListener(this);
+        mBlockImagView.setOnClickListener(this);
+        findViewById(R.id.tv_followers).setOnClickListener(this);
+        findViewById(R.id.tv_following).setOnClickListener(this);
+        mUserImagView.setOnLongClickListener(this);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        callProfileApi();
+    }
+
+    private void callProfileApi() {
+        if (!Utilities.checkInternet(this)) {
+            showToast(R.string.no_internet_msg);
+        } else {
+            if (mProfilePresenter == null)
+                mProfilePresenter = new ProfilePresenter(this, this);
+
+            ProfileApi profileApi = new ProfileApi(this, this);
+            try {
+                profileApi.responseCheck(mUserName);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void dispose() {
+        if (mProfilePresenter != null)
+            mProfilePresenter = null;
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        cancelTimer();
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent followersIntent;
+        int id = view.getId();
+        if (id == R.id.iv_back) {
+            finish();
+        } else if (id == R.id.tv_following || id == R.id.text_view_following) {
+            followersIntent = new Intent(ProfileActivity.this, FollowersActivity.class);
+            followersIntent.putExtra("followers", "1");
+            followersIntent.putExtra("user_id", mUserId);
+            followersIntent.putExtra("name", mUserName);
+            startActivity(followersIntent);
+
+        } else if (id == R.id.tv_followers || id == R.id.text_view_followers) {
+            followersIntent = new Intent(ProfileActivity.this, FollowersActivity.class);
+            followersIntent.putExtra("followers", "2");
+            followersIntent.putExtra("user_id", mUserId);
+            followersIntent.putExtra("name", mUserName);
+            startActivity(followersIntent);
+        } else if (id == R.id.text_view_follow) {
+            if (friendId.contains(getString(R.string.friended_friended))) {
+                unFollowResponse(mUserId);
+            } else if (friendId.contains(getString(R.string.friended_pending))) {
+                unFollowResponse(mUserId);
+            } else if (friendId.contains(getString(R.string.friended_rejected)) ||
+                    friendId.contains(getString(R.string.friended_none))
+                    ) {
+                followResponse(mUserId);
+            }
+        } else if (id == R.id.image_view_block) {
+            popup.show();
+        }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main2, menu);
+        return true;
+    }
+
+
+    public void showPopup(View v) {
+        popup = new PopupMenu(this, v);
+        popup.setOnMenuItemClickListener(this);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_main2, popup.getMenu());
+    }
+
+    private void unFollowResponse(String idUser) {
+        Call<UnFollowResponse> response = GetRestAdapter.getRestAdapter(true).unfollowUser(idUser);
+        response.enqueue(new Callback<UnFollowResponse>() {
+            @Override
+            public void onResponse(Call<UnFollowResponse> call,
+                                   retrofit2.Response<UnFollowResponse> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        friendId = getString(R.string.friended_none);
+                        setFriended();
+                        callProfileApi();
+                    }
+                    // mActivity.showToast(response.body().getSuccess());
+                } else {
+                    showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UnFollowResponse> call, Throwable t) {
+                showToast(t.getMessage());
+            }
+        });
+    }
+
+
+    private void followResponse(String idUser) {
+        Call<UnFollowResponse> response = GetRestAdapter.getRestAdapter(true).followUser(idUser);
+        response.enqueue(new Callback<UnFollowResponse>() {
+            @Override
+            public void onResponse(Call<UnFollowResponse> call,
+                                   retrofit2.Response<UnFollowResponse> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        if (TextUtils.isEmpty(mIsPrivate) || mIsPrivate.equals("false")) {
+                            friendId = getString(R.string.friended_friended);
+                        } else {
+                            friendId = getString(R.string.friended_friended);
+                        }
+                        setFriended();
+                        callProfileApi();
+                    } else {
+                        showToast(response.body().getSuccess());
+                    }
+                } else {
+                    showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UnFollowResponse> call, Throwable t) {
+                showToast(t.getMessage());
+            }
+        });
+    }
+
+
+    @Override
+    public void setAdapter(RecyclerView recyclerView, ArrayList<?> posts) {
+        super.setAdapter(recyclerView, posts);
+        mPostsProgressBar.setVisibility(View.INVISIBLE);
+        if (posts != null && posts.size() > 0) {
+            newsFeedOutput = (ArrayList<NewsFeedOutput.Posts>) posts;
+            adapter = new NewsPostAdapter(this, posts);
+            mPostsRecyclerView.setAdapter(adapter);
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    checkPostExpiration();
+                }
+            }, 0, 10000);
+        } else {
+            posts = new ArrayList<>();
+            adapter = new NewsPostAdapter(this, posts);
+            mPostsRecyclerView.setAdapter(adapter);
+            cancelTimer();
+        }
+
+    }
+
+    private void checkPostExpiration() {
+        final ArrayList<NewsFeedOutput.Posts> postList = adapter.getPostList();
+        for (int i = 0; i < postList.size(); i++) {
+            NewsFeedOutput.Posts post = postList.get(i);
+            if (DateTimeUtil.checkExpiration(post.getExpiration())) {
+                //TODO--refresh list  break;
+            }
+        }
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapter.updateList(postList, linearLayoutManager);
+            }
+        });
+
+    }
+
+    private void cancelTimer() {
+        if (timer != null) {
+            try {
+                timer.cancel();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    @Override
+    public void onProfileResponse(ProfileResponse.Profile data) {
+        if (data != null) {
+            showPopup(mBlockImagView);
+            if (data != null) {
+                mUserId = data.getUser().getIdUser();
+                mIsPrivate = data.getUser().getIsPrivate();
+                mNickName = data.getUser().getWebsite();
+                mNotify = data.getUser().getIsNotify();
+                mBlocked = data.getUser().getBlocked();
+                mDescription = data.getUser().getDescription();
+                mUserNmTextView.setText(mUserName);
+                friendId = data.getUser().getFriended();
+                setFriended();
+                Glide.with(this)
+                        .load(HttpUtils.getProfileImageURL(mUserName))
+                        .bitmapTransform(new RoundedCornersTransformation(this, 20, 15))
+                        .error(getResources().getDrawable(R.drawable.myprofilelarge))
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true)
+                        .into(mUserImagView);
+
+                if (mBlocked.contains("false")) {
+                    if (Utilities.checkInternet(this))
+                        mProfilePresenter.getProfileResponse(mUserName);
+                    mProfilePresenter.getPosts(mUserName);
+                    popup.getMenu().getItem(1).setTitle("block");
+                    setDataOnUi(data);
+                } else {
+                    popup.getMenu().getItem(1).setTitle("Unblock");
+                    setEmptyDataOnUi();
+                    dismiss();
+                }
+            }
+        } else {
+            dismiss();
+        }
+    }
+
+    @Override
+    public void reLoadList() {
+        super.reLoadList();
+        if (!Utilities.checkInternet(this)) {
+            showToast(R.string.no_internet_msg);
+        } else {
+            mProfilePresenter.getPosts(mUserName);
+        }
+    }
+
+
+    @Override
+    public void profileError(String t) {
+        showToast(t);
+    }
+
+
+    @Override
+    public void setHorizontalAdapter(ArrayList<TopLikersResponse.Users> mList) {
+        dismiss();
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mTimerRecyclerView.setLayoutManager(linearLayoutManager);
+        ProfileAdapter profileAdapter = new ProfileAdapter(this, mList, 1);
+        mTimerRecyclerView.setAdapter(profileAdapter);
+    }
+
+    @Override
+    public void setUsersError(String error) {
+        mUserBlockedTextView.setVisibility(View.VISIBLE);
+        mUserBlockedTextView.setText("No Users Found");
+    }
+
+    @Override
+    public void setPostsAdapter(Response<NewsFeedOutput> response) {
+        if (response != null) {
+            NewsFeedOutput body = response.body();
+            if (body != null) {
+                ArrayList<NewsFeedOutput.Posts> posts = body.getPosts();
+                setAdapter(mPostsRecyclerView, posts);
+            } else {
+                mPostsProgressBar.setVisibility(View.INVISIBLE);
+            }
+
+        } else {
+            mPostsProgressBar.setVisibility(View.INVISIBLE);
+            showToast(R.string.server_error_msg);
+        }
+    }
+
+
+    /**
+     * This method is used to set Data on ui
+     *
+     * @param data
+     */
+    private void setDataOnUi(ProfileResponse.Profile data) {
+        // mEditProfileTextView.setVisibility(View.VISIBLE);
+        mUserBlockedTextView.setVisibility(View.INVISIBLE);
+        mFollowTextView.setVisibility(View.VISIBLE);
+        if (data.getFollowersCount() != null) {   //show Followers count
+            mFollowersTextView.setText(data.getFollowersCount());
+        } else {
+            mFollowersTextView.setText("0");
+        }
+        if (data.getFollowingCount() != null) {   //show Following count
+            mFollowingTextView.setText(data.getFollowingCount());
+        } else {
+            mFollowingTextView.setText("0");
+        }
+        if (!TextUtils.isEmpty(data.getAllPostCount())) {     //show Allcount
+            mPostTextView.setText(data.getAllPostCount());
+        } else {
+            mPostTextView.setText("0");
+        }
+
+        if (TextUtils.isEmpty(mNickName)) {
+            mStatusTextView.setText("");
+        } else {
+            mStatusTextView.setText(mNickName);
+        }
+        if (TextUtils.isEmpty(mDescription)) {
+            mTextDescription.setText("");
+        } else {
+            mTextDescription.setText(mDescription);
+        }
+    }
+
+    private void setFriended() {
+        if (TextUtils.isEmpty(friendId)) {
+            mFollowTextView.setText("Follow");
+            mFollowTextView.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mFollowTextView.setBackground(getResources().getDrawable(R.drawable.rounded_btn_white));
+        } else if (friendId.contains(getString(R.string.friended_friended))) {
+            mFollowTextView.setText("Following");
+            mFollowTextView.setTextColor(getResources().getColor(android.R.color.white));
+            mFollowTextView.setBackground(getResources().getDrawable(R.drawable.rounded_btn_green));
+        } else if (friendId.contains(getString(R.string.friended_pending))) {
+            mFollowTextView.setText("Requested");
+            mFollowTextView.setTextColor(getResources().getColor(android.R.color.white));
+            mFollowTextView.setBackground(getResources().getDrawable(R.drawable.rounded_btn_black_filled));
+        } else if (friendId.contains(getString(R.string.friended_rejected)) ||
+                friendId.contains(getString(R.string.friended_none))
+                ) {
+            mFollowTextView.setText("Follow");
+            mFollowTextView.setTextColor(getResources().getColor(R.color.colorPrimary));
+            mFollowTextView.setBackground(getResources().getDrawable(R.drawable.rounded_btn_white));
+        }
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        if (view.getId() == R.id.image_view_profile) {
+            Intent intent = new Intent(ProfileActivity.this, ZoomImageActivity.class);
+            intent.putExtra("username", mUserName);
+            startActivity(intent);
+        }
+        return false;
+    }
+
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        switch (id) {
+            case R.id.report_user:
+                showToast("Coming soon");
+                break;
+
+            case R.id.block:
+                if (mBlocked.equals("true")) {
+                    //menuItem.setTitle("Block");
+                    unblockUser(mUserId);
+                } else {
+                    //menuItem.setTitle("Unblock");
+                    blockUser(mUserId);
+                    mBlocked = String.valueOf(true);
+                }
+                break;
+        }
+        return false;
+    }
+
+
+    @Override
+    public void notifyList(int position) {
+        newsFeedOutput.get(position).setLiked(true);
+    }
+
+    public void blockUser(final String idUser) {
+        Call<BlockUserOutput> response = GetRestAdapter.getRestAdapter(true).blockUser(idUser);
+        response.enqueue(new Callback<BlockUserOutput>() {
+            @Override
+            public void onResponse(Call<BlockUserOutput> call,
+                                   retrofit2.Response<BlockUserOutput> response) {
+                if (response != null && response.body() != null) {
+
+                    if (response.body().getSuccess().contains("true")) {
+                        popup.getMenu().getItem(1).setTitle("Unblock");
+                        blocked = true;
+                        setEmptyDataOnUi();
+                        mBlocked = String.valueOf(true);
+                    } else {
+                        mBlocked = String.valueOf(false);
+                    }
+                } else {
+                    showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BlockUserOutput> call, Throwable t) {
+                showToast(t.getMessage());
+            }
+        });
+    }
+
+    private void setEmptyDataOnUi() {
+        //mEditProfileTextView.setVisibility(View.INVISIBLE);
+
+        mUserBlockedTextView.setText("User Is Blocked");
+        mFollowTextView.setVisibility(View.INVISIBLE);
+        mFollowersTextView.setText("");
+        mFollowingTextView.setText("");
+        mTimeTextView.setText("");
+        mPostTextView.setText("");
+        mStatusTextView.setText("");
+        mTextDescription.setText("");
+        //horizontal recycler view
+        ArrayList<TopLikersResponse.Users> mList = null;
+        setHorizontalAdapter(mList);
+
+        mPostsProgressBar.setVisibility(View.INVISIBLE);
+        mUserBlockedTextView.setVisibility(View.VISIBLE);
+        mNoPostTextView.setVisibility(View.VISIBLE);
+        //post recycler view]
+        ArrayList<?> posts = null;
+        adapter = new NewsPostAdapter(this, posts);
+        mPostsRecyclerView.setAdapter(adapter);
+
+    }
+
+
+    private void unblockUser(String idUser) {
+        Call<BlockUserOutput> response = GetRestAdapter.getRestAdapter(true).unblockUser(idUser);
+        response.enqueue(new Callback<BlockUserOutput>() {
+            @Override
+            public void onResponse(Call<BlockUserOutput> call,
+                                   retrofit2.Response<BlockUserOutput> response) {
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().contains("true")) {
+                        mBlocked = String.valueOf(false);
+                        popup.getMenu().getItem(1).setTitle("Block");
+                        //Toast.makeText(activity, "Unblock", Toast.LENGTH_SHORT).show();
+                        callProfileApi();
+                    }
+                } else {
+                    showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BlockUserOutput> call, Throwable t) {
+                showToast(t.getMessage());
+            }
+        });
+    }
+
+
+    private void report(String idPost) {
+
+    }
+
+
+    @Override
+    public void setProgressBar() {
+        mTopTimersProgressView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        mTopTimersProgressView.setVisibility(View.INVISIBLE);
+    }
+}

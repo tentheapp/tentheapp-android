@@ -1,0 +1,168 @@
+package com.nvcomputers.ten.views.notification;
+
+
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.RequestListAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.AcceptRequestResponse;
+import com.nvcomputers.ten.model.output.RejectRequestResponse;
+import com.nvcomputers.ten.model.output.RequestListResponse;
+import com.nvcomputers.ten.presenter.RequestAcceptPresenter;
+import com.nvcomputers.ten.presenter.RequestListPresenter;
+import com.nvcomputers.ten.presenter.RequestRejectPresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class RequestListFragment extends BaseFragment implements AppCommonCallback, RequestListPresenter.RequestListCallback, View.OnClickListener, RequestAcceptPresenter.RequestAcceptCallback, RequestRejectPresenter.RequestRejectCallback {
+
+
+    private RecyclerView requestListRv;
+    private LinearLayoutManager mLayoutManager;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private ProgressBar progressBar;
+    private RequestListAdapter requestListAdapter;
+    private List<RequestListResponse.Users> mArrayList;
+
+    public RequestListFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_request_list;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        sharedPrefsHelper = new SharedPrefsHelper(getActivity());
+        ImageView backBtn = (ImageView) view.findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(this);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        requestListRv = (RecyclerView) view.findViewById(R.id.request_list_rv);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        requestListRv.setLayoutManager(mLayoutManager);
+        hitGetRequestsApi();
+    }
+
+    private void hitGetRequestsApi() {
+        String username = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        String password = sharedPrefsHelper.get(PreferenceKeys.PREF_PASSWORD, "");
+        RequestListPresenter requestListPresenter = new RequestListPresenter(this, this);
+        requestListPresenter.responseCheck(username, password);
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void requestListError(Call<RequestListResponse> call, Throwable t) {
+        Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onRequestListSuccess(Response<RequestListResponse> response) {
+        RequestListResponse body = response.body();
+        if (body != null) {
+            List<RequestListResponse.Users> userData = body.getUsers();
+            if (userData != null || userData.size() >= 0) {
+                mArrayList = userData;
+                if (mArrayList != null && mArrayList.size() > 0) {
+                    requestListAdapter = new RequestListAdapter(this, mArrayList);
+                    requestListRv.setAdapter(requestListAdapter);
+                } else {
+                    Utilities.showMessage(getActivity(), "No Pending Request");
+                }
+            } else {
+                Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+            }
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        manualBackPressed();
+    }
+
+
+    public void acceptRequestApi(String userid) {
+        RequestAcceptPresenter requestAcceptPresenter = new RequestAcceptPresenter(this, this);
+        requestAcceptPresenter.responseCheck(userid);
+    }
+
+    public void rejectRequestApi(String userid) {
+        RequestRejectPresenter requestRejectPresenter = new RequestRejectPresenter(this, this);
+        requestRejectPresenter.responseCheck(userid);
+    }
+
+    @Override
+    public void requestAcceptError(Call<AcceptRequestResponse> call, Throwable t) {
+        Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onRequestAcceptSuccess(Response<AcceptRequestResponse> response) {
+        AcceptRequestResponse body = response.body();
+        if (body != null) {
+            String success = body.getSuccess();
+            if (success.equals("true")) {
+                Utilities.showSmallToast(getActivity(), "success");
+                hitGetRequestsApi();
+            } else {
+                Utilities.showMessage(getActivity(), "Try Again");
+            }
+        } else {
+            Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+        }
+    }
+
+    @Override
+    public void requestRejectError(Call<RejectRequestResponse> call, Throwable t) {
+        Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onRequestRejectSuccess(Response<RejectRequestResponse> response) {
+        RejectRequestResponse body = response.body();
+        if (body != null) {
+            String success = body.getSuccess();
+            if (success.equals("true")) {
+                Utilities.showSmallToast(getActivity(), "success");
+                hitGetRequestsApi();
+            } else {
+                Utilities.showMessage(getActivity(), "Try Again");
+            }
+        } else {
+            Utilities.showMessage(getActivity(), getString(R.string.server_error_msg));
+        }
+    }
+}

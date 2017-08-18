@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\layout-v21\\notification_action.xml"
+    }
+]

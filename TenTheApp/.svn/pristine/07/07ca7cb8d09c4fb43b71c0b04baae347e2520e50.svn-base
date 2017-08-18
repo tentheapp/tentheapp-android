@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\raw\\ticksound.mp3",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\raw\\ticksound.mp3"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\raw\\adobecleanlight.otf",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\045a1df2e8c32259e7bd2b1dcf848765733e3fea\\output\\res\\raw\\adobecleanlight.otf"
+    }
+]

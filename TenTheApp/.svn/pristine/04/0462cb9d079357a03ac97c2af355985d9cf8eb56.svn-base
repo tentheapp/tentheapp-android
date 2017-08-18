@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.AppCompatImageButton android:id="@+id/toolbar_auth_button"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="36dp"
+    android:layout_height="36dp"
+    android:background="@android:color/transparent"
+    android:padding="8dp"
+    android:scaleType="fitCenter"
+    android:src="@drawable/com_adobe_image_ic_profile" />

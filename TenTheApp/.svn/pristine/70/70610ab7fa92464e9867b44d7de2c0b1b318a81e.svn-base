@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "111749192869",
+    "firebase_url": "https://rconnktprovider.firebaseio.com",
+    "project_id": "rconnktprovider",
+    "storage_bucket": "rconnktprovider.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111749192869:android:dce92ec3d4d94d68",
+        "android_client_info": {
+          "package_name": "rconnekt.com.rconnectprovider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111749192869-h5kaabt0825qo7d0jvo760fh4caitisb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx45RhR0RWOKqPczaMz3DmjdZ5axxg8Us"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111749192869:android:588e196d595f07d3",
+        "android_client_info": {
+          "package_name": "com.customer.rconnekt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111749192869-h5kaabt0825qo7d0jvo760fh4caitisb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx45RhR0RWOKqPczaMz3DmjdZ5axxg8Us"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

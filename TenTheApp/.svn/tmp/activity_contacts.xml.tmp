@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_layout_contacts"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context="com.nvcomputers.views.contacts.ContactsActivity">
+
+        <include
+            android:id="@+id/toolbar_address_book"
+            layout="@layout/toolbar" />
+
+        <RelativeLayout
+            android:id="@+id/rl_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_address_book">
+
+            <TextView
+                android:id="@+id/text_view_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="@string/search"
+                android:textSize="15sp" />
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/search_view_Address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/text_view_search" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/search_view_Address"
+<<<<<<< .mine
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_grey"></View>
+=======
+                android:background="@color/light_grey"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                ></View>
+
+
+
+>>>>>>> .r4323
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_ten"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_a"
+            android:layout_margin="10dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/text_view_ten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+<<<<<<< .mine
+                android:layout_alignParentLeft="true"
+=======
+>>>>>>> .r4323
+                android:text="Ten Users in your contacts"
+                android:textColor="@color/tenBlue"
+<<<<<<< .mine
+                android:textSize="18sp" />
+=======
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                />
+>>>>>>> .r4323
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_ten_users"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/text_view_ten"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_ten_users"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_ten"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/text_view_ten_not"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recycler_view_ten_users"
+                android:layout_marginTop="10dp"
+                android:text="Invite to Ten"
+                android:textColor="@color/tenBlue"
+                android:textSize="18sp" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_not_ten_users"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/text_view_ten_not"
+                android:layout_marginTop="10dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_not_ten_users"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_ten_not"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_ten" />
+
+
+    </RelativeLayout>
+</FrameLayout>

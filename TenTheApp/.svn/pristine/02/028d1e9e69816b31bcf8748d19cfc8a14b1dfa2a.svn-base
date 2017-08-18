@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tenBlue">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:background="@color/loginGreen">
+
+        <TextView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/back_icon"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Back"
+            android:textColor="@color/whitetransparent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/regText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Trim Video"
+            android:textColor="@color/whitetransparent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+   <RelativeLayout
+       android:layout_below="@+id/title_layout"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <life.knowledge4.videotrimmer.K4LVideoTrimmer
+           android:id="@+id/timeLine"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"></life.knowledge4.videotrimmer.K4LVideoTrimmer>
+
+
+   </RelativeLayout>
+
+
+
+
+</RelativeLayout>
+
+
+

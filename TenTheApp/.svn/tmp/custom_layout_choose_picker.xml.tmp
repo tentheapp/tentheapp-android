@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_light"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+<<<<<<< .mine
+    <TextView
+=======
+    android:id="@+id/layout">
+
+    <TextView
+>>>>>>> .r4323
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#3d7d8b"
+        android:gravity="center"
+        android:padding="11dp"
+        android:singleLine="false"
+        android:text="Please choose how you want to reset your password?"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txt_view_via_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/via_email"
+        android:textColor="#4d4d4d"
+        android:textSize="12sp" />
+
+    <View
+        android:id="@+id/underline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/txt_view_via_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+<<<<<<< .mine
+        android:padding="10dp"
+        android:text="@string/via_number"
+        android:textColor="#4d4d4d"
+        android:textSize="12sp" />
+
+    <TextView
+=======
+        android:layout_gravity="center"
+        android:textColor="#4d4d4d" />
+    <TextView
+>>>>>>> .r4323
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+<<<<<<< .mine
+=======
+        android:textSize="14sp"
+>>>>>>> .r4323
+        android:layout_marginTop="6dp"
+        android:background="#3d7d8b"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Cancel"
+        android:textColor="@android:color/white"
+<<<<<<< .mine
+        android:textSize="14sp" />
+=======
+        android:text="Cancel" />
+>>>>>>> .r4323
+</LinearLayout>

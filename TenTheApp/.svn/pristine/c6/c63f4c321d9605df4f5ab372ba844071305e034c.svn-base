@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Store Preview card layout for the effect item -->
+<LinearLayout style="@style/AdobeImageWidget.GridCard.WithElevation"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="0dip">
+
+    <ImageView
+        android:id="@+id/ImageView02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dip"
+        android:scaleType="fitXY"
+        android:src="@android:color/white" />
+
+    <com.adobe.android.ui.view.AdobeTextView
+        android:id="@+id/AdobeTextView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:paddingBottom="5dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingTop="5dip"
+        android:textAppearance="@style/AdobeImageWidget.TextAppearance.Body1"
+        android:textColor="?android:attr/textColorTertiary"
+        app:adobe_fontFamily="?attr/com_adobe_font_regular" />
+
+</LinearLayout>

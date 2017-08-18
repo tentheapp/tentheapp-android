@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_change"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:background="@color/whitetransparent">
+
+            <TextView
+                android:id="@+id/backBtn"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/back_icon"
+                android:drawablePadding="5dp"
+                android:backgroundTint="@color/tenBlue"
+                android:gravity="center"
+                android:padding="10dp"
+
+                android:textColor="@color/tenBlue"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/password_save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Save"
+                android:textColor="@color/tenBlue"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/title_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/title_layout"
+            android:background="@color/gray" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_line"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:background="#F4F4F6"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/oldPasswordLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/oldPasswordtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="Current Password"
+                        android:textColor="@color/blacktransparent"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/oldPasswordEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/oldPasswordtext"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_edittext_with_border_white"
+                        android:gravity="center"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:textColor="@color/blacktransparent"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/newPasswordLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/oldPasswordLayout"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/newPasswordtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="New Password"
+                        android:textColor="@color/blacktransparent"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/newPasswordEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/oldPasswordtext"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_edittext_with_border_white"
+                        android:gravity="center"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:textColor="@color/blacktransparent"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/confirmPasswordLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newPasswordLayout"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/confirmPasswordtext"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="Confirm Password"
+                        android:textColor="@color/blacktransparent"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/confirmPasswordEt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/oldPasswordtext"
+                        android:layout_weight="1"
+                        android:background="@drawable/round_edittext_with_border_white"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:textColor="@color/blacktransparent"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

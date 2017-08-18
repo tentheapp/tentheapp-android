@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.adobe.creativesdk.aviary.widget.AdobeGridLinesView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animationDuration="200"
+    app:adobe_numLines="7"
+    app:adobe_strokeColor="#AAFFFFFF"
+    app:adobe_strokeColorInternal="#99FFFFFF"
+    app:adobe_strokeSize="1.5dp"
+    app:adobe_strokeSizeInternal="0.4dp">
+
+
+</com.adobe.creativesdk.aviary.widget.AdobeGridLinesView>

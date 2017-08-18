@@ -1,0 +1,203 @@
+package com.nvcomputers.ten.views.auth;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.input.ResetForgotPassEmailInput;
+import com.nvcomputers.ten.model.input.ResetForgotPassPhoneInput;
+import com.nvcomputers.ten.model.output.ResetForgotPasswordResponse;
+import com.nvcomputers.ten.presenter.ResetForgotPassEmailPresenter;
+import com.nvcomputers.ten.presenter.ResetForgotPassPhonePresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.home.LandingActivity;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener, AppCommonCallback, ResetForgotPassPhonePresenter.ResetForgotPassPhoneCallback, ResetForgotPassEmailPresenter.ResetForgotPassEmailCallback {
+
+    private EditText codeText;
+    private EditText newPasswordText, confirmPasswordText;
+    private Button sendBtn;
+    private Intent intent;
+    private String actionWith;
+    private String phoneNumber, phoneCode, emailId;
+    private ProgressBar progressBar;
+    private SharedPrefsHelper sharedPrefsHelper;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_forgot_password);
+        sharedPrefsHelper = new SharedPrefsHelper(this);
+        intent = getIntent();
+        actionWith = intent.getStringExtra("action_with");
+        if (actionWith.equals("phone_number")) {
+            phoneNumber = intent.getStringExtra("phone_number");
+            phoneCode = intent.getStringExtra("phone_code");
+        } else {
+            emailId = intent.getStringExtra("email_id");
+        }
+        initUI();
+    }
+
+    private void initUI() {
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        codeText = (EditText) findViewById(R.id.code_et);
+        newPasswordText = (EditText) findViewById(R.id.new_password_et);
+        confirmPasswordText = (EditText) findViewById(R.id.confirm_password_et);
+        sendBtn = (Button) findViewById(R.id.sendbtn);
+        sendBtn.setOnClickListener(this);
+        findViewById(R.id.text_view_back).setOnClickListener(this);
+        findViewById(R.id.parentView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Utilities.hideKeypad(v);
+
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        String code = codeText.getText().toString().trim();
+        String newPassword = newPasswordText.getText().toString().trim();
+        String confirmPassword = confirmPasswordText.getText().toString().trim();
+        boolean cancel = false;
+        View focusView = null;
+        if (view.getId() == R.id.text_view_back) {
+            Utilities.hideKeypad(view);
+            finish();
+        } else if (code.equals(null) || code.equals("")) {
+            codeText.setError("Enter Code");
+            focusView = codeText;
+            cancel = true;
+        } else if (newPassword.equals(null) || newPassword.equals("")) {
+            newPasswordText.setError("Enter password");
+            focusView = newPasswordText;
+            cancel = true;
+        } else if (newPassword.length() < 5 || newPassword.length() > 12) {
+            newPasswordText.setError("Password limit should be 5 to 12 characters");
+            focusView = newPasswordText;
+            cancel = true;
+        } else if (confirmPassword.equals(null) || confirmPassword.equals("")) {
+            confirmPasswordText.setError("Confirm your password");
+            focusView = confirmPasswordText;
+            cancel = true;
+        } else if (!newPassword.equals(confirmPassword)) {
+            confirmPasswordText.setError("Password does not match");
+            focusView = confirmPasswordText;
+            cancel = true;
+        }
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            if (Utilities.checkInternet(this)) {
+                progressBar.setVisibility(View.VISIBLE);
+                if (actionWith.equals("phone_number")) {
+                    ResetForgotPassPhoneInput resetForgotPassPhoneInput = new ResetForgotPassPhoneInput();
+                    resetForgotPassPhoneInput.setPhone(phoneNumber);
+                    resetForgotPassPhoneInput.setCountryId(phoneCode);
+                    resetForgotPassPhoneInput.setToken(code);
+                    resetForgotPassPhoneInput.setPassword(newPassword);
+                    ResetForgotPassPhonePresenter resetForgotPassPhonePresenter = new ResetForgotPassPhonePresenter(this, this);
+                    resetForgotPassPhonePresenter.responseCheck(resetForgotPassPhoneInput);
+                } else {
+                    ResetForgotPassEmailInput resetForgotPassEmailInput = new ResetForgotPassEmailInput();
+                    resetForgotPassEmailInput.setEmail(emailId);
+                    resetForgotPassEmailInput.setToken(code);
+                    resetForgotPassEmailInput.setPassword(newPassword);
+                    ResetForgotPassEmailPresenter resetForgotPassEmailPresenter = new ResetForgotPassEmailPresenter(this, this);
+                    resetForgotPassEmailPresenter.responseCheck(resetForgotPassEmailInput);
+                }
+            } else {
+                Utilities.showMessage(ForgotPasswordActivity.this, getString(R.string.no_internet_msg));
+            }
+        }
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void resetPasswordPhoneError(Call<ResetForgotPasswordResponse> call, Throwable t) {
+        Utilities.showMessage(this, getString(R.string.server_error_msg));
+        dismiss();
+    }
+
+    @Override
+    public void onResetPasswordPhoneSuccess(Response<ResetForgotPasswordResponse> response) {
+        ResetForgotPasswordResponse body = response.body();
+        dismiss();
+        if (body != null) {
+            String userName = body.getUsername();
+            String userId = body.getIdUser();
+            String imageUrl = body.getImageSrc();
+            String userPrivate = body.getIsPrivate();
+            sharedPrefsHelper.save(PreferenceKeys.PREF_USER_NAME, userName);
+            sharedPrefsHelper.save(PreferenceKeys.PREF_USER_ID, userId);
+            sharedPrefsHelper.save(PreferenceKeys.PREF_USER_IMAGE, imageUrl);
+
+            Intent intent = new Intent(ForgotPasswordActivity.this, LandingActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        } else {
+            Utilities.showMessage(this, "Invalid code");
+        }
+    }
+
+    @Override
+    public void resetPasswordEmailError(Call<ResetForgotPasswordResponse> call, Throwable t) {
+        Utilities.showMessage(this, getString(R.string.server_error_msg));
+        dismiss();
+    }
+
+    @Override
+    public void onResetPasswordEmailSuccess(Response<ResetForgotPasswordResponse> response) {
+        ResetForgotPasswordResponse body = response.body();
+        dismiss();
+        if (body != null) {
+            String userName = body.getUsername();
+            String userId = body.getIdUser();
+            String imageUrl = body.getImageSrc();
+            String userPrivate = body.getIsPrivate();
+            sharedPrefsHelper.save(PreferenceKeys.PREF_USER_NAME, userName);
+            sharedPrefsHelper.save(PreferenceKeys.PREF_USER_ID, userId);
+            sharedPrefsHelper.save(PreferenceKeys.PREF_USER_IMAGE, imageUrl);
+
+            Intent intent = new Intent(ForgotPasswordActivity.this, LandingActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+
+        } else {
+            Utilities.showMessage(this, "Invalid code");
+        }
+    }
+}
+

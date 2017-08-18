@@ -1,0 +1,47 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.RequestListResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 5/15/2017.
+ */
+
+public class RequestListPresenter {
+    private final RequestListCallback requestListCallback;
+    private AppCommonCallback screen;
+
+    public RequestListPresenter(AppCommonCallback callback, RequestListCallback requestListCallback) {
+        this.screen = callback;
+        this.requestListCallback = requestListCallback;
+    }
+
+    public interface RequestListCallback {
+        void requestListError(Call<RequestListResponse> call, Throwable t);
+
+        void onRequestListSuccess(Response<RequestListResponse> response);
+    }
+
+    public void responseCheck(String user, String password) {//input body-User LoginInput loginInput
+        screen.setProgressBar();
+        Call<RequestListResponse> response = GetRestAdapter.getRestAdapter(true).requestList(user, password);
+        response.enqueue(new Callback<RequestListResponse>() {
+            @Override
+            public void onResponse(Call<RequestListResponse> call, Response<RequestListResponse> response) {
+                screen.dismiss();
+                requestListCallback.onRequestListSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<RequestListResponse> call, Throwable t) {
+                screen.dismiss();
+                requestListCallback.requestListError(call, t);
+            }
+        });
+    }
+}

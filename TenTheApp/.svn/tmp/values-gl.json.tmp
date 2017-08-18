@@ -1,0 +1,398 @@
+[
+    {
+        "outputFile": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-gl\\values-gl.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 107,
+                    "endOffset": 208
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 283,
+                        "endColumn": 103,
+                        "endOffset": 386
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 213,
+                    "endColumn": 194,
+                    "endOffset": 403
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 0,
+                        "startOffset": 387,
+                        "endColumn": 194,
+                        "endOffset": 581
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 408,
+                    "endColumn": 130,
+                    "endOffset": 534
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 0,
+                        "startOffset": 582,
+                        "endColumn": 126,
+                        "endOffset": 708
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 539,
+                    "endColumn": 109,
+                    "endOffset": 644
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 0,
+                        "startOffset": 709,
+                        "endColumn": 105,
+                        "endOffset": 814
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 649,
+                    "endColumn": 217,
+                    "endOffset": 862
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 0,
+                        "startOffset": 815,
+                        "endColumn": 217,
+                        "endOffset": 1032
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 867,
+                    "endColumn": 133,
+                    "endOffset": 996
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 0,
+                        "startOffset": 1033,
+                        "endColumn": 129,
+                        "endOffset": 1162
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 1001,
+                    "endColumn": 137,
+                    "endOffset": 1134
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 0,
+                        "startOffset": 1163,
+                        "endColumn": 133,
+                        "endOffset": 1296
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 1139,
+                    "endColumn": 192,
+                    "endOffset": 1327
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\58595cc6ec553083fdac9442154962e710f63b34\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\a80c871d2200b44ee97416bcc2a13945c419cd8f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 285,
+                        "endColumn": 192,
+                        "endOffset": 477
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 1332,
+                    "endColumn": 229,
+                    "endOffset": 1557
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 0,
+                        "startOffset": 1297,
+                        "endColumn": 229,
+                        "endOffset": 1526
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1562,
+                    "endColumn": 110,
+                    "endOffset": 1668
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 0,
+                        "startOffset": 1527,
+                        "endColumn": 106,
+                        "endOffset": 1633
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1673,
+                    "endColumn": 199,
+                    "endOffset": 1868
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 0,
+                        "startOffset": 1634,
+                        "endColumn": 199,
+                        "endOffset": 1833
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1873,
+                    "endColumn": 136,
+                    "endOffset": 2005
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 0,
+                        "startOffset": 1834,
+                        "endColumn": 132,
+                        "endOffset": 1966
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 2010,
+                    "endColumn": 223,
+                    "endOffset": 2229
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 0,
+                        "startOffset": 1967,
+                        "endColumn": 223,
+                        "endOffset": 2190
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 2234,
+                    "endColumn": 181,
+                    "endOffset": 2411
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 0,
+                        "startOffset": 2191,
+                        "endColumn": 177,
+                        "endOffset": 2368
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 2416,
+                    "endColumn": 96,
+                    "endOffset": 2508
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 0,
+                        "startOffset": 2369,
+                        "endColumn": 92,
+                        "endOffset": 2461
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 2513,
+                    "endColumn": 98,
+                    "endOffset": 2607
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 0,
+                        "startOffset": 2462,
+                        "endColumn": 94,
+                        "endOffset": 2556
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 2612,
+                    "endColumn": 113,
+                    "endOffset": 2721
+                },
+                "from": {
+<<<<<<< .mine
+                    "file": "C:\\Users\\rkumar4\\.android\\build-cache\\d61c2aeaf77957716283cc0820ee13c35f7b0a09\\output\\res\\values-gl\\values.xml",
+=======
+                    "file": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\values-gl\\values.xml",
+>>>>>>> .r2387
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 0,
+                        "startOffset": 2557,
+                        "endColumn": 109,
+                        "endOffset": 2666
+                    }
+                }
+            }
+        ]
+    }
+]

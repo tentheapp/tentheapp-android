@@ -1,0 +1,176 @@
+package com.nvcomputers.ten.adapter;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.model.output.NotificationLitResponse;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.views.notification.NotificationFragment;
+
+import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
+/**
+ * Created by Thaparsneh on 4/26/2017.
+ */
+
+public class NotificationListAdapter extends RecyclerView.Adapter<NotificationListAdapter.NotificationViewHolder> {
+    private final Activity mActivity;
+    private final List<NotificationLitResponse.Notifications> notificationList;
+    NotificationFragment notificationFragment;
+    private int listCount;
+
+    public NotificationListAdapter(NotificationFragment landingScreen, List<NotificationLitResponse.Notifications> arrayList) {
+        this.mActivity = landingScreen.getActivity();
+        this.notificationFragment = landingScreen;
+        this.notificationList = arrayList;
+        if (notificationList != null) {
+            listCount = notificationList.size();
+        }
+    }
+
+    @Override
+    public NotificationListAdapter.NotificationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.
+                from(parent.getContext()).
+                inflate(R.layout.row_notification_layout, parent, false);
+        return new NotificationListAdapter.NotificationViewHolder(itemView);
+    }
+
+
+    @Override
+    public void onBindViewHolder(NotificationListAdapter.NotificationViewHolder holder, int position) {
+        NotificationLitResponse.Notifications data = notificationList.get(position);
+        String user_name = data.getUser().getUsername();
+        holder.userName.setText(user_name);
+        String noti_type = data.getType();
+        if (noti_type.contains("COMMENT")) {
+            holder.typeIcon.setImageResource(R.drawable.commentselected);
+        } else if (noti_type.contains("LIKE")) {
+            holder.typeIcon.setImageResource(R.drawable.likeselected);
+        } else {
+            holder.typeIcon.setImageResource(R.drawable.tabbar4selected);
+        }
+        NewsFeedOutput.Posts postData = data.getPost();//NotificationLitResponse.Post
+        if (postData != null) {
+            String post_time = data.getPost().getExpiration();
+            if (post_time != null) {
+                if (DateTimeUtil.checkExpiration(post_time)) {
+                    holder.postTime.setText(DateTimeUtil.getTopTime(post_time, data.getPost().getDatestamp()));
+                } else {
+                    holder.postTime.setText(DateTimeUtil.getRemainingTimeInMinutes(post_time));
+                }
+            }
+
+            String post_img = data.getPost().getImage();
+            Glide.with(mActivity)
+                    .load(HttpUtils.getPostImageURL(data.getPost().getIdPost()))
+                    .bitmapTransform(new RoundedCornersTransformation(mActivity, 20, 15))
+                    .into(holder.postIcon);
+
+        }
+
+        String noti_msg = data.getMessage();
+        holder.notiMsg.setText(noti_msg);
+        holder.notiTime.setText(DateTimeUtil.getElapseTimeInMinutes(data.getDatestamp()));
+
+        Glide.with(mActivity)
+                .load(HttpUtils.getProfileImageURL(data.getUser().getUsername()))
+                .override(90, 90)
+                .bitmapTransform(new RoundedCornersTransformation(mActivity, 15, 15))
+                .into(holder.userImage);
+
+        if (position == listCount - 1) {
+            notificationFragment.loadData(listCount);
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return notificationList.size();
+    }
+
+    public class NotificationViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+
+        private final TextView userName;
+        private final ImageView userImage;
+        private final TextView postTime;
+        private final ImageView postIcon;
+        private final ImageView typeIcon;
+        private final TextView notiMsg;
+        private final TextView notiTime;
+        private final RelativeLayout notiRow;
+
+        public NotificationViewHolder(View itemView) {
+            super(itemView);
+            notiRow = (RelativeLayout) itemView.findViewById(R.id.notification_row);
+            notiRow.setOnClickListener(this);
+            userName = (TextView) itemView.findViewById(R.id.user_name);
+            userImage = (ImageView) itemView.findViewById(R.id.user_img);
+            userImage.setOnClickListener(this);
+            postTime = (TextView) itemView.findViewById(R.id.post_time);
+            postIcon = (ImageView) itemView.findViewById(R.id.postIcon);
+            typeIcon = (ImageView) itemView.findViewById(R.id.action_img);
+            notiMsg = (TextView) itemView.findViewById(R.id.action_txt);
+            notiTime = (TextView) itemView.findViewById(R.id.noti_tym);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getLayoutPosition();
+
+            switch (view.getId()) {
+                case R.id.user_name:
+                    notificationFragment.moveToProfile(notificationList.get(clickedPosition).getUser().getUsername());
+                    break;
+                case R.id.user_img:
+                    notificationFragment.moveToProfile(notificationList.get(clickedPosition).getUser().getUsername());
+                    break;
+                case R.id.notification_row:
+                    String type = notificationList.get(clickedPosition).getType();
+                    String userName = notificationList.get(clickedPosition).getUser().getUsername();
+                    String userId = notificationList.get(clickedPosition).getUser().getIdUser();
+                    NewsFeedOutput.Posts postData = notificationList.get(clickedPosition).getPost();// NotificationLitResponse.Post
+                    String postId = "", likedValues = "";
+                    String expirationTime = "", dateStamp = "", postCaption = "";
+                    if (postData != null) {
+                        postId = notificationList.get(clickedPosition).getPost().getIdPost();
+                        likedValues = notificationList.get(clickedPosition).getPost().getLikeCount() + "";
+                        expirationTime = notificationList.get(clickedPosition).getPost().getExpiration();
+                        dateStamp = notificationList.get(clickedPosition).getPost().getDatestamp();
+                        postCaption = notificationList.get(clickedPosition).getPost().getText();
+                    }
+                    String notificationId = notificationList.get(clickedPosition).getIdNotification();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("type", type);
+                    bundle.putString("postCaption", postCaption);
+                    bundle.putString("username", userName);
+                    bundle.putString("userId", userId);
+                    bundle.putString("postId", postId);
+                    bundle.putString("likedValues", likedValues);
+                    bundle.putString("expirationTime", expirationTime);
+                    bundle.putString("remainingTime", dateStamp);
+                    bundle.putString("Back", "Notification");
+                    bundle.putString("notificationId", notificationId);
+                    bundle.putParcelable("post_data", notificationList.get(clickedPosition).getPost());
+                    notificationFragment.screenNaigations(bundle);
+                    break;
+            }
+        }
+
+    }
+}

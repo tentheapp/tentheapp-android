@@ -1,0 +1,494 @@
+[
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\right_segmented_control.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\right_segmented_control.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_focused.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\local.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\local.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\closed.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\closed.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\right_segmented_control_selected.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\right_segmented_control_selected.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_camerabutton.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\ic_camerabutton.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\drawable\\design_password_eye.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\myprofilelarge.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\myprofilelarge.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\clock.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\clock.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\comment.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\comment.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\crop__texture.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\crop__texture.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo_white.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\logo_white.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_focused.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\left_segmented_control.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\left_segmented_control.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\round_black_fillno_border.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\round_black_fillno_border.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ten.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\ten.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\roundedcorners10.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\roundedcorners10.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\drawable\\design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tabbackground.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\tabbackground.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\round_edit_text.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\round_edit_text.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\repostlabel.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\repostlabel.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\retakepicture.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\retakepicture.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\back_icon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\back_icon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\delete.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\delete.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\round_edittext_with_border.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\round_edittext_with_border.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mention.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\mention.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\crop__selectable_background.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\crop__selectable_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\noflash.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\noflash.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\drawable\\navigation_empty_icon.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\iclauncher_notification.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\iclauncher_notification.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\homewhite.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\homewhite.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\like.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\like.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\iconsmall.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\iconsmall.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_focused.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\localselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\localselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_btn_blue.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\rounded_btn_blue.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cross_icon.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\cross_icon.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_btn_black_filled.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\rounded_btn_black_filled.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\roundcorner.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\roundcorner.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tabbar1selector.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\tabbar1selector.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tabbar3selector.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\tabbar3selector.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\landing_button.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\landing_button.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_btn_white.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\rounded_btn_white.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\following.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\following.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_et_background.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\login_et_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\postselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\postselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\global.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\global.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\follow.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\follow.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\flash.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\flash.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\x.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\x.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\camerabuttonpressed.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\camerabuttonpressed.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\play_button.xml",
+        "source": "D:\\Workspace\\TenTheApp\\k4l-video-trimmer\\build\\intermediates\\bundles\\default\\res\\drawable\\play_button.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\repost.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\repost.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cameratrail.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\cameratrail.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\library.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\library.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\requested.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\requested.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_btn_green.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\rounded_btn_green.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light_focused.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\\output\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\commentselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\commentselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\commentwhite.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\commentwhite.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_btn_black.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\rounded_btn_black.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_cornergreen.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\rounded_cornergreen.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\globalselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\globalselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bubble.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\notification_bubble.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\round_edit_text_white_border.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\round_edit_text_white_border.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\drawable\\design_fab_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\localwhite.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\localwhite.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\black_button_background.xml",
+        "source": "D:\\Workspace\\TenTheApp\\k4l-video-trimmer\\build\\intermediates\\bundles\\default\\res\\drawable\\black_button_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\repost_selected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\repost_selected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\camera.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\camera.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tabbar4selector.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\tabbar4selector.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_btn.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\login_btn.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\likeselected.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\likeselected.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\flipcamera.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\flipcamera.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\check.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\check.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_corners_black.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\rounded_corners_black.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\left_segmented_control_selected.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\left_segmented_control_selected.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\round_edittext_with_border_white.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\round_edittext_with_border_white.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\post.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\post.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tabbar0selector.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\drawable\\tabbar0selector.xml"
+    }
+]

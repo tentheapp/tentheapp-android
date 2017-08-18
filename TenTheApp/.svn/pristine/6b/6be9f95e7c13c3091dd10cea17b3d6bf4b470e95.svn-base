@@ -1,0 +1,29 @@
+package com.nvcomputers.ten.views.home;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.model.output.GetAllPostCommentOutput;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.presenter.SelectedPostPresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.Timer;
+
+/**
+ * Created by jindaldipanshu on 6/7/2017.
+ */
+/*
+public class PostDetailBaseFragment extends BaseFragment {
+
+
+}*/

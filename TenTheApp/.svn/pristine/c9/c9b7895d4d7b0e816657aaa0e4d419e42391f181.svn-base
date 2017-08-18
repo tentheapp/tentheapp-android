@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="android-exif-extended-1.0.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/502e0dc6983bc3b2120f7ac20705b76d36ac940b/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/502e0dc6983bc3b2120f7ac20705b76d36ac940b/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

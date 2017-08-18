@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:padding="10dp"
+
+    android:background="@android:color/background_light"
+
+
+    android:id="@+id/layout">
+
+    <TextView
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#3d7d8b"
+        android:gravity="center"
+        android:padding="11dp"
+        android:singleLine="false"
+        android:text="Please choose how you want to reset your password?"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txt_view_via_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#4d4d4d"
+        android:text="@string/via_email"
+        android:textSize="12sp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="6dp" />
+    <View
+        android:id="@+id/underline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/gray"
+         />
+    <TextView
+        android:id="@+id/txt_view_via_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/via_number"
+        android:textSize="12sp"
+        android:padding="10dp"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="#4d4d4d" />
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="14sp"
+        android:layout_marginTop="6dp"
+        android:background="#3d7d8b"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="Cancel" />
+</LinearLayout>

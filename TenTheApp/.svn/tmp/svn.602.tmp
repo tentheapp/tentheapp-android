@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_default.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_tint_default.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_text_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\design_tint_password_toggle.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\color-v23\\design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\33c95d4db2409702245a7b0cb489041a8487d7eb\\output\\res\\color-v23\\abc_color_highlight_material.xml"
+    }
+]

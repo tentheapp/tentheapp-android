@@ -1,0 +1,39 @@
+package com.nvcomputers.ten.interfaces;
+
+import android.os.CountDownTimer;
+import android.view.View;
+
+/**
+ * Created by jindaldipanshu on 5/8/2017.
+ */
+
+public abstract class DoubleClickListener implements View.OnClickListener {
+    int count = 0;
+
+    @Override
+    public void onClick(final View v) {
+        count++;
+        CountDownTimer countDownTimer = new CountDownTimer(300, 1000) {
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                if (count >= 2) {
+                    onDoubleClick(v);
+                    count = 0;
+                } else if (count == 1) {
+                    onSingleClick(v);
+                    count = 0;
+                }
+
+            }
+        }.start();
+    }
+
+    public abstract void onSingleClick(View v);
+
+    public abstract void onDoubleClick(View v);
+}

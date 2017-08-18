@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/sdk_signed_dropdown"
+    style="@style/AdobeImageWidget.SDKDropdown"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/sdk_signed_profile_pic_imageview"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:scaleType="centerCrop"
+        app:civ_border_color="#88ffffff"
+        app:civ_border_overlay="false"
+        app:civ_border_width="2dp" />
+
+    <com.adobe.android.ui.view.AdobeTextView
+        android:id="@+id/sdk_signed_adobeid_label_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/sdk_signed_profile_pic_imageview"
+        android:layout_toRightOf="@id/sdk_signed_profile_pic_imageview"
+        android:text="@string/feather_adobe_id"
+        android:textAppearance="@style/AdobeImageWidget.TextAppearance.Medium"
+        app:adobe_fontFamily="?attr/com_adobe_font_regular" />
+
+    <com.adobe.android.ui.view.AdobeTextView
+        android:id="@+id/sdk_signed_email_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sdk_signed_adobeid_label_textview"
+        android:layout_toEndOf="@id/sdk_signed_profile_pic_imageview"
+        android:layout_toRightOf="@id/sdk_signed_profile_pic_imageview"
+        android:textAppearance="@style/AdobeImageWidget.TextAppearance.Small"
+        app:adobe_fontFamily="?attr/com_adobe_font_regular" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/sdk_auth_logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/sdk_signed_email_textview"
+        android:layout_marginTop="48dp"
+        android:background="@android:color/transparent"
+        android:text="@string/feather_logout" />
+
+</RelativeLayout>

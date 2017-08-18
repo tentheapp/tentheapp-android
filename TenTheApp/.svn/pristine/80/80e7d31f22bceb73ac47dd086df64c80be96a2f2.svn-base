@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Visa startsidan"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Navigera uppåt"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Fler alternativ"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Klart"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Visa alla"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Välj en app"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"AV"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"PÅ"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Sök …"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Ta bort frågan"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Sökfråga"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Sök"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Skicka fråga"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Röstsökning"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Dela med"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Dela med %s"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Komprimera"</string>
+    <string name="adobe_aviary_client_id_required">Klient-id krävs</string>
+    <string name="adobe_aviary_client_secret_required">Klienthemlighet krävs</string>
+    <string name="adobe_aviary_device_id_required">Enhets-id krävs</string>
+    <string name="adobe_aviary_invalid_argument">Ogiltigt argument</string>
+    <string name="adobe_aviary_module_not_initialized">Modulen har inte initierats</string>
+    <string name="adobe_aviary_unknown_error">Okänt fel</string>
+    <string name="adobe_aviary_user_cancelled">Användare avbröts</string>
+    <string name="adobe_aviary_user_interaction_required">Användarinteraktion krävs</string>
+    <string name="adobe_aviary_username_password_required">Användarnamn och lösenord krävs</string>
+    <string name="adobe_csdk_cloud_not_reachable_retry">FÖRSÖK IGEN</string>
+    <string name="com_adobe_image_recent">Senaste</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Aktivera"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> fungerar inte om du inte aktiverar Google Play-tjänster."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Aktivera Google Play-tjänster"</string>
+    <string msgid="7118643132557593940" name="common_google_play_services_install_button">"Hämta Google Play-tjänster"</string>
+    <string msgid="1666261992894286769" name="common_google_play_services_install_text_phone">"Du måste installera Google Play-tjänster för att kunna köra <ns1:g id="APP_NAME">%1$s</ns1:g> på mobilen."</string>
+    <string msgid="1701766622451829291" name="common_google_play_services_install_text_tablet">"Du måste installera Google Play-tjänster för att kunna köra <ns1:g id="APP_NAME">%1$s</ns1:g> på surfplattan."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Hämta Google Play-tjänster"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Fel på Google Play-tjänster"</string>
+    <string msgid="9089562800660647919" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> har problem med Google Play-tjänster. Om problemet kvarstår kontaktar du utvecklaren."</string>
+    <string msgid="1064791666906610763" name="common_google_play_services_unsupported_text">"För <ns1:g id="APP_NAME">%1$s</ns1:g> krävs Google Play-tjänster, och dessa stöds inte på enheten. Kontakta tillverkaren om du vill ha hjälp."</string>
+    <string msgid="539866123733096737" name="common_google_play_services_unsupported_title">"Google Play-tjänster"</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"Uppdatera"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> kan inte köras om du inte uppdaterar Google Play-tjänsterna."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Uppdatera Google Play-tjänster"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> kan inte köras utan Google Play-tjänster, och dessa uppdateras för närvarande."</string>
+    <string msgid="2270671469198016014" name="common_google_play_services_updating_title">"Google Play-tjänster uppdateras"</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"En ny version av Google Play-tjänster krävs. Den uppdateras automatiskt inom kort."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"Öppna på mobilen"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"Logga in"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Logga in med Google"</string>
+    <string name="feather_acc_a_sticker">En dekal</string>
+    <string name="feather_acc_color">Färg</string>
+    <string name="feather_acc_flip_h">Vänd horisontellt</string>
+    <string name="feather_acc_flip_v">Vänd vertikalt</string>
+    <string name="feather_acc_lens_toggle">Växla zoom</string>
+    <string name="feather_acc_rotate_ccw">Rotera motsols</string>
+    <string name="feather_acc_rotate_cw">Rotera medsols</string>
+    <string name="feather_acc_size">Storlek</string>
+    <string name="feather_activate">Aktivera</string>
+    <string name="feather_activity_not_found">Det finns ingen app på din enhet som kan hantera den här åtgärden. Vill du ladda ned den nu?</string>
+    <string name="feather_adjust">Orientering</string>
+    <string name="feather_adobe_id">Adobe ID:</string>
+    <string name="feather_an_error_occurred">Ett fel har inträffat</string>
+    <string name="feather_applied_recipe">Använda recept</string>
+    <string name="feather_apply">Använd</string>
+    <string name="feather_applying_actions">Utför åtgärder...</string>
+    <string name="feather_applying_edits">Tillämpar ändringar...</string>
+    <string name="feather_ask_to_login_before_restore">Om du redan tidigare har loggat in med ett Adobe ID loggar du in nu för att återställa synkroniserade uppsättningar</string>
+    <string name="feather_attention">Varning!</string>
+    <string name="feather_blemish">Fläckar</string>
+    <string name="feather_blemish_tool_tip">Bara tryck</string>
+    <string name="feather_blur">Oskärpa</string>
+    <string name="feather_borders">Ramar</string>
+    <string name="feather_borders_dialog_first_time">Installera Aviarys kostnadsfria paket med vackra högupplösta ramar för att komma i gång.</string>
+    <string name="feather_brightness">Intensitet</string>
+    <string name="feather_cant_undo_anymore">Åtgärden kan inte ångras fler gånger</string>
+    <string name="feather_capture">Inspelning</string>
+    <string name="feather_circle" ns2:ignore="UnusedResources">Cirkel</string>
+    <string name="feather_close">Stäng</string>
+    <string name="feather_color">Färg</string>
+    <string name="feather_colorfix">Färgfixaren</string>
+    <string name="feather_colorsplash_eraser">Suddgummi</string>
+    <string name="feather_colorsplash_free">Valfri färg</string>
+    <string name="feather_colorsplash_smart">Smart färg</string>
+    <string name="feather_contrast">Kontrast</string>
+    <string name="feather_create_custom_stickers_with_adobe_capture">Skapa egna dekaler med Adobe Capture</string>
+    <string name="feather_crop">Beskär</string>
+    <string name="feather_custom">Egen</string>
+    <string name="feather_delete">Ta bort</string>
+    <string name="feather_details" ns2:ignore="UnusedResources">Detaljer</string>
+    <string name="feather_discard">Ignorera</string>
+    <string name="feather_discard_edits">Ignorera redigering?</string>
+    <string name="feather_download">Ladda ned</string>
+    <string name="feather_download_start_failed">Det gick inte att starta nedladdningen. Försök igen senare</string>
+    <string name="feather_draw">Rita</string>
+    <string name="feather_edit_bottom_text">Redigera text nedan</string>
+    <string name="feather_edit_top_text">Redigera text ovan</string>
+    <string name="feather_edit_your_photo">Fotoredigerare</string>
+    <string name="feather_effect_intensity_tooltip">Justera intensiteten genom att svepa uppåt eller nedåt</string>
+    <string name="feather_effect_loading_message">Tillämpar effekter</string>
+    <string name="feather_effects">Effekter</string>
+    <string name="feather_email_email_invalid">Ogiltig e-postadress</string>
+    <string name="feather_email_feedback_empty">Feedback kan inte vara tom</string>
+    <string name="feather_email_hint">E-post (för supportkommunikation)</string>
+    <string name="feather_enhance">Förbättra</string>
+    <string name="feather_enhance_effect_food">Mat</string>
+    <string name="feather_enhance_effect_hidef">Högupplöst</string>
+    <string name="feather_enhance_effect_night">Natt</string>
+    <string name="feather_enhance_effect_portrait">Stående</string>
+    <string name="feather_enhance_effect_scenery">Landskap</string>
+    <string name="feather_enter_text_here">Skriv in text här</string>
+    <string name="feather_error_download_image_message">Ett fel uppstod vid nedladdningen av bilden. Försök igen senare.</string>
+    <string name="feather_error_saving_image">Hoppsan, ett fel uppstod när bilden skulle sparas.</string>
+    <string name="feather_error_validating_adobe_id">Vi har problem att validera ditt Adobe ID.  Logga ut och logga in igen.   Skicka ett e-postmeddelande till support@aviary.com om problemet kvarstår</string>
+    <string name="feather_essentials">Aviary Essentials</string>
+    <string name="feather_featured">Aktuellt</string>
+    <string name="feather_featured_effects">Aktuella effekter</string>
+    <string name="feather_featured_frames">Aktuella ramar</string>
+    <string name="feather_featured_overlays">Aktuella övertäckningar</string>
+    <string name="feather_featured_stickers">Aktuella dekaler</string>
+    <string name="feather_feedback">Feedback</string>
+    <string name="feather_feedback_dialog_message" ns2:ignore="UnusedResources">Hur kan vi förbättra den här fotoredigeraren? Ge oss gärna tips på förbättringar.</string>
+    <string name="feather_feedback_dislike">Berätta för oss vad du inte gillar</string>
+    <string name="feather_feedback_hint">Skriv din feedback</string>
+    <string name="feather_feedback_love">Berätta för oss vad du gillar</string>
+    <string name="feather_feedback_posted_failure">Det gick inte att skicka feedback</string>
+    <string name="feather_feedback_posted_success">Feedback har skickats</string>
+    <string name="feather_feedback_title">Feedback</string>
+    <string name="feather_filters">Filter</string>
+    <string name="feather_flip">Vänd</string>
+    <string name="feather_free">Kostnadsfri</string>
+    <string name="feather_generic_error_title">Fel</string>
+    <string name="feather_get_more">Uppsättningar</string>
+    <string name="feather_got_it">OK!</string>
+    <string name="feather_have_an_adobe_id">Har du redan ett Adobe ID?</string>
+    <string name="feather_horizontal">Vågrät</string>
+    <string name="feather_iap_download">Kostnadsfri</string>
+    <string name="feather_iap_download_failed">Nedladdningen misslyckades</string>
+    <string name="feather_iap_failed_download_informations">Det gick inte att ladda ned den nödvändiga informationen</string>
+    <string name="feather_iap_install">Installera</string>
+    <string name="feather_iap_installing">Installerar</string>
+    <string name="feather_iap_notification_installed_summary">Plugin-programmet har installerats</string>
+    <string name="feather_iap_owned">Installerad</string>
+    <string name="feather_iap_pack_installed">Installerad</string>
+    <string name="feather_iap_premium">Premium</string>
+    <string name="feather_iap_restore">Återställ</string>
+    <string name="feather_iap_restore_all">Återställ alla</string>
+    <string name="feather_iap_restore_all_failed">Återställ alla misslyckade</string>
+    <string name="feather_iap_restore_all_in_progress">Återställ alla pågående</string>
+    <string name="feather_iap_retry">Försök igen</string>
+    <string name="feather_iap_unavailable">Inte tillgänglig</string>
+    <string name="feather_iap_uninstall">Avinstallera</string>
+    <string name="feather_illuminate" ns2:ignore="UnusedResources">Belys</string>
+    <string name="feather_item_does_not_exists">Det begärda objektet finns inte</string>
+    <string name="feather_item_not_found">Det gick inte att hitta objektet</string>
+    <string name="feather_learn_more">Lär dig mer</string>
+    <string name="feather_linear">Linjär</string>
+    <string name="feather_loading_image">Läser in bild...</string>
+    <string name="feather_loading_title">Läser in…</string>
+    <string name="feather_login_capture_text">Du får även:&lt;br />&lt;br />
+• Aviary Essentials med 16 av våra mest populära fotoredigeringsresurser GRATIS&lt;br />&lt;br />
+• Synka och återställ resurser med Creative Cloud</string>
+    <string name="feather_login_capture_title">Skapa egna dekaler med Adobe Capture</string>
+    <string name="feather_login_typekit_title">Använda vackra typsnitt med Adobe Typekit</string>
+    <string name="feather_logout">Logga ut</string>
+    <string name="feather_looking_for_straighten">Vill du räta upp bilden? Använd omformningsverktyget.</string>
+    <string name="feather_meme">Meme</string>
+    <string name="feather_message_button_no">Nej tack.</string>
+    <string name="feather_message_button_yes">Ok!</string>
+    <string name="feather_my_account">Konto</string>
+    <string name="feather_network_error_try">Ett nätverksfel inträffade. Försök igen senare.</string>
+    <string name="feather_network_offline">Ingen internetanslutning</string>
+    <string name="feather_new_text">Ny text</string>
+    <string name="feather_no_thanks">Nej tack</string>
+    <string name="feather_notification_n_items_cant_be_restored">Det gick inte att återställa %1$s objekt</string>
+    <string name="feather_notification_no_items_to_restore">Inga objekt behöver återställas</string>
+    <string name="feather_notification_plugins_installed_count">%1$d plugin-program installerade</string>
+    <string name="feather_notification_plus_more">%1$d till</string>
+    <string name="feather_notification_restore_all_completed">Återställ alla slutförda</string>
+    <string name="feather_notification_some_items_cant_be_restored">Det gick inte att återställa vissa objekt</string>
+    <string name="feather_ops_error_download_image">Vi har anslutningsproblem :(</string>
+    <string name="feather_original">Original</string>
+    <string name="feather_overlay_blemish_close_text">Kolla in det nya verktyget &lt;b>Oskärpa&lt;/b>!</string>
+    <string name="feather_overlay_blemish_tap_text">Tryck på defekterna för att ta bort dem.</string>
+    <string name="feather_overlay_stickers_text">Installera det här kostnadsfria paketet för att komma i gång!</string>
+    <string name="feather_overlay_tap_title">Tryck</string>
+    <string name="feather_overlay_undo_title">Svep för att ångra eller göra om redigeringar</string>
+    <string name="feather_overlay_zoom_text">Du kan även nypa för att zooma!</string>
+    <string name="feather_overlay_zoom_title">Zooma</string>
+    <string name="feather_overlays">Övertäckningar</string>
+    <string name="feather_owned">Ägt</string>
+    <string name="feather_passport">Aviary Passport</string>
+    <string name="feather_pinch_to_zoom">Nyp för att zooma!</string>
+    <string name="feather_please_try_again_later">Försök igen senare</string>
+    <string name="feather_powered_by_aviary">Med stöd av Aviary.com</string>
+    <string name="feather_premium">Premium</string>
+    <string name="feather_premium_content_description">Mer än 1 000 &lt;b>effekter, dekaler, övertäckningar och ramar&lt;/b> som du kan förbättra dina foton med</string>
+    <string name="feather_premium_days_left">%d dagar kvar med Premium</string>
+    <string name="feather_premium_description">30 dagars åtkomst till vår ständigt växande samling fotoredigeringsresurser för bara %s</string>
+    <string name="feather_premium_error_no_internet">Kontrollera att du är ansluten till Internet om du vill aktivera Premium-tjänsten</string>
+    <string name="feather_premium_expired_message">Din åtkomst till Aviary Premium har upphört. Vill du aktivera för 30 dagar för %s?</string>
+    <string name="feather_premium_expired_title">Åtkomst har upphört</string>
+    <string name="feather_premium_get_price_error">Det gick inte att kontakta Google Play. Försök igen senare</string>
+    <string name="feather_premium_sign_in">&lt;u>Har du ett Adobe ID? Logga in&lt;/u></string>
+    <string name="feather_premium_subscribe">Aktivera</string>
+    <string name="feather_premium_sync">Dina uppsättningar säkerhetskopieras permanent med ditt Adobe ID</string>
+    <string name="feather_premium_thank_you_message">Nu har du under 30 dagar tillgång till den fullständiga samlingen fotoredigeringsresurser i Aviary.</string>
+    <string name="feather_premium_title">Aviary Premium</string>
+    <string name="feather_promo_text1">• Få våra mest populära fotoredigeringsresurser &lt;b>GRATIS&lt;/b>&lt;br />&lt;br />
+• Synka och återställ resurser med Creative Cloud&lt;br />&lt;br />
+• Exklusiv tillgång till kommande funktioner</string>
+    <string name="feather_promo_title1">Tack!</string>
+    <string name="feather_promo_title_with_promo">Lås upp Aviary Essentials med Adobe ID</string>
+    <string name="feather_radial">Radiell</string>
+    <string name="feather_recipe">Recept</string>
+    <string name="feather_rectangle">Rektangel</string>
+    <string name="feather_red_eye">Röda ögon</string>
+    <string name="feather_redo">Gör om</string>
+    <string name="feather_refresh">Uppdatera</string>
+    <string name="feather_report_bug">Rapportera ett fel</string>
+    <string name="feather_report_bug_message">Information om enhetens tillstånd samlas in och sammanställs i ett e-postmeddelande. Det tar lite tid från starten av felrapporten till dess att meddelandet är färdigt att skickas. Vänta.</string>
+    <string name="feather_restore_all_request_sent">Förfrågan har skickats. Mer information visas i meddelandeområdet på din enhet</string>
+    <string name="feather_rotate">Rotera</string>
+    <string name="feather_saturation">Mättnad</string>
+    <string name="feather_save">Klar</string>
+    <string name="feather_save_progress">Sparar...</string>
+    <string name="feather_see_more">Se mer</string>
+    <string name="feather_send">Skicka</string>
+    <string name="feather_send_feedback">Skicka feedback</string>
+    <string name="feather_settings_join_beta_description">Få tidig tillgång till nya funktioner och hjälp till att göra Aviary bättre!</string>
+    <string name="feather_settings_join_beta_title">Gå med i Aviary Beta</string>
+    <string name="feather_sharpen">Skärpa</string>
+    <string name="feather_signin">Logga in</string>
+    <string name="feather_signup">Registrera dig</string>
+    <string name="feather_square">Fyrkant</string>
+    <string name="feather_sticker_flip_tooltip">Tryck för att vända den här dekalen</string>
+    <string name="feather_stickers">Dekaler</string>
+    <string name="feather_store_ask_uninstall_free_body" ns2:ignore="UnusedResources">Det här är en kostnadsfri begränsad utgåva. Om du avinstallerar den kan du kanske inte återställa den igen senare.</string>
+    <string name="feather_store_checking_additional_packs">Söker efter ytterligare paket...</string>
+    <string name="feather_store_connection_problem">Ett problem uppstod när Google Play Butik kontaktades. Försök igen.</string>
+    <string name="feather_store_monthly">Månadsvis</string>
+    <string name="feather_store_my_stuff" ns2:ignore="UnusedResources">Mina uppsättningar</string>
+    <string name="feather_store_passport_banner_text">Skaffa Aviary Passport till en låg kostnad och hämta det här paketet och massor av andra Aviary-effekter! Klicka här för att få mer information.</string>
+    <string name="feather_store_passport_cancelled">Avbruten</string>
+    <string name="feather_store_passport_unknown">Okänt</string>
+    <string name="feather_store_purchase_date">Inköpsdatum</string>
+    <string name="feather_store_title">Aviary Supply Shop</string>
+    <string name="feather_straighten">Räta upp</string>
+    <string name="feather_take_survey">Ny enkät är tillgänglig!</string>
+    <string name="feather_tell_us_what_you_think">Berätta för oss vad du tycker</string>
+    <string name="feather_text">Text</string>
+    <string name="feather_tool" ns2:ignore="UnusedResources">Verktyg</string>
+    <string name="feather_tool_color">Färg</string>
+    <string name="feather_tool_colorsplash">Splash</string>
+    <string name="feather_tool_consolidation_adjust">Ställ in</string>
+    <string name="feather_tool_exposure">Exponering</string>
+    <string name="feather_tool_fade">Tona</string>
+    <string name="feather_tool_highlight">Högdagrar</string>
+    <string name="feather_tool_lighting">Ljus</string>
+    <string name="feather_tool_perspective">Omforma</string>
+    <string name="feather_tool_shadow">Skuggor</string>
+    <string name="feather_tool_temperature">Värme</string>
+    <string name="feather_tool_tiltshift">Fokus</string>
+    <string name="feather_tool_tint">Färgton</string>
+    <string name="feather_tool_vibrance">Lyster</string>
+    <string name="feather_tooltip_adjust_intro">Nu kan du redigera intensitet, kontrast, värme och mättnad!</string>
+    <string name="feather_try_again">Försök igen</string>
+    <string name="feather_try_again_connected">Anslut och försök igen</string>
+    <string name="feather_typekit_font_selected">Typsnitt är valt. Använd det till att skapa en ny text.</string>
+    <string name="feather_undo">Ångra</string>
+    <string name="feather_undo_overlay_text">Dra åt höger för att ångra eller åt vänster för att göra om.</string>
+    <string name="feather_unlock_aviary_essentials">Lås upp Aviary Essentials</string>
+    <string name="feather_update">Uppdatera</string>
+    <string name="feather_vertical">Lodrät</string>
+    <string name="feather_vignette">Vinjett</string>
+    <string name="feather_want_it_free">Vill du få den kostnadsfritt?</string>
+    <string name="feather_warning">Varning!</string>
+    <string name="feather_welcome_to_frames">Välkommen till Ramar!</string>
+    <string name="feather_welcome_to_frames_tooltip">Välkommen till %1$s! Installera det kostnadsfria paketet och kom igång.</string>
+    <string name="feather_welcome_to_stickers">Välkommen till Dekaler!</string>
+    <string name="feather_whiten">Gör vitare</string>
+    <string name="feather_zoom_mode">Zoomläge</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Sök"</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">">999"</string>
+</resources>

@@ -1,0 +1,250 @@
+package com.nvcomputers.ten.adapter;
+
+import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.daimajia.swipe.SwipeLayout;
+import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.DeleteCommentResponse;
+import com.nvcomputers.ten.model.output.GetAllPostCommentOutput;
+import com.nvcomputers.ten.presenter.DeleteCommentPresenter;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseActivity;
+import com.nvcomputers.ten.views.core.BaseFragment;
+import com.nvcomputers.ten.views.home.SelectedPostViewActivity;
+import com.nvcomputers.ten.views.home.SelectedPostViewFragment;
+import com.nvcomputers.ten.views.profile.ProfileFragment;
+
+import java.util.ArrayList;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import retrofit2.Call;
+import retrofit2.Response;
+
+/**
+ * Created by KaurGurleen on 5/3/2017.
+ */
+
+public class SelectedPostCommentAdapter extends RecyclerSwipeAdapter<SelectedPostCommentAdapter.ViewHolder> {
+    private ArrayList<GetAllPostCommentOutput.Comments> mList;
+    private BaseFragment baseFragment;
+    private BaseActivity mContext;
+    public TextView text_visibility;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private SelectedPostViewFragment selectedPostViewFragment;
+    private SelectedPostViewActivity selectedPostViewActivity;
+
+    public SelectedPostCommentAdapter(BaseActivity baseActivity, ArrayList<?> list, SelectedPostViewActivity selectedPostViewActivity) {
+        this.mList = (ArrayList<GetAllPostCommentOutput.Comments>) list;
+        mContext = baseActivity;
+        this.selectedPostViewActivity = selectedPostViewActivity;
+
+    }
+
+
+    public SelectedPostCommentAdapter(BaseFragment baseFragment, SelectedPostViewFragment selectedPostViewFragment, ArrayList<?> list) {
+        this.baseFragment = baseFragment;
+        this.mList = (ArrayList<GetAllPostCommentOutput.Comments>) list;
+        mContext = baseFragment.getBaseActivity();
+        this.selectedPostViewFragment = selectedPostViewFragment;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemLayoutView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.row_comment_list, null);
+        SelectedPostCommentAdapter.ViewHolder viewHolder = new SelectedPostCommentAdapter.ViewHolder(itemLayoutView);
+        return viewHolder;
+    }
+
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
+        // Drag From Right
+        holder.swipeLayout.addDrag(SwipeLayout.DragEdge.Right, holder.swipeLayout.findViewById(R.id.bottom_wrapper));
+        // Handling different events when swiping
+        holder.swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
+            @Override
+            public void onClose(SwipeLayout layout) {
+                //when the SurfaceView totally cover the BottomView.
+            }
+
+            @Override
+            public void onUpdate(SwipeLayout layout, int leftOffset, int topOffset) {
+                //you are swiping.
+            }
+
+            @Override
+            public void onStartOpen(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onOpen(SwipeLayout layout) {
+                //when the BottomView totally show.
+            }
+
+            @Override
+            public void onStartClose(SwipeLayout layout) {
+
+            }
+
+            @Override
+            public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
+                //when user's hand released.
+            }
+        });
+        sharedPrefsHelper = new SharedPrefsHelper(mContext);
+        holder.user_name.setText(mList.get(position).getUser().getUsername());
+        String commentText = mList.get(position).getText();
+        String followingUser = sharedPrefsHelper.get(PreferenceKeys.PREF_FOLLOWING_LIST, "");
+        if (commentText != null || commentText.length() > 0) {
+            // captionText.setText(commentText);
+            if (followingUser != null && followingUser.length() > 0) {
+                SpannableString styledString = new SpannableString(commentText);
+                String[] parts = followingUser.split(",");
+                for (int i = 0; i < parts.length; i++) {
+                    final String taggedName = parts[i];
+                    if (commentText.contains(taggedName)) {
+                        //
+                        // clickable text
+                        ClickableSpan clickableSpan = new ClickableSpan() {
+                            @Override
+                            public void onClick(View widget) {
+                                // Toast.makeText(baseActivity, "Clicked", Toast.LENGTH_SHORT).show();
+                                Bundle bundle = new Bundle();
+                                bundle.putString("username", taggedName);
+                                baseFragment.replaceChildFragment(R.id.single_post_layout, new ProfileFragment(), bundle);
+                                //getFragmentManager().beginTransaction().replace(R.id.single_post_layout, new ProfileFragment()).addToBackStack("").commit();
+                            }
+                        };
+                        int startIndex = commentText.indexOf(taggedName);
+                        int endIndex = startIndex + taggedName.length();
+                        styledString.setSpan(clickableSpan, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        holder.comment.setText(styledString);
+                        holder.comment.setMovementMethod(LinkMovementMethod.getInstance());
+                    } else {
+                        holder.comment.setText(commentText);
+                    }
+                }
+            } else {
+                holder.comment.setText(commentText);
+            }
+        }
+
+        // holder.comment.setText(mList.get(position).getText());
+        holder.time.setText(DateTimeUtil.getElapseTimeInMinutes(mList.get(position).getDatestamp()));
+        //holder.profile_image.mList.get(position).getUser().getImageSrc()
+        Glide.with(mContext)
+                .load(HttpUtils.getProfileImageURL(mList.get(position).getUser().getUsername()))
+                .bitmapTransform(new RoundedCornersTransformation(mContext, 20, 15))
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(holder.profile_image);
+    }
+
+    @Override
+    public int getItemCount() {
+        if (mList != null) {
+            return mList == null ? 0 : mList.size();
+        } else {
+            return 0;
+
+        }
+
+
+    }
+
+    @Override
+    public int getSwipeLayoutResourceId(int position) {
+        return R.id.swipe;
+    }
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, AppCommonCallback, DeleteCommentPresenter.DeleteCommentCallback {
+
+        private final SwipeLayout swipeLayout;
+        private final Button mDeleteBtn;
+        private ImageView profile_image;
+        private TextView user_name;
+        private TextView comment;
+        private TextView time;
+
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
+            profile_image = (ImageView) itemView.findViewById(R.id.profile_image);
+            user_name = (TextView) itemView.findViewById(R.id.user_name);
+            comment = (TextView) itemView.findViewById(R.id.comment);
+            time = (TextView) itemView.findViewById(R.id.time);
+            //text_visibility = (TextView) itemView.findViewById(R.id.text_visibility);
+            mDeleteBtn = (Button) itemView.findViewById(R.id.btn_delete_comment);
+            mDeleteBtn.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getLayoutPosition();
+            String commentId = mList.get(clickedPosition).getIdComment();
+            String userId=mList.get(clickedPosition).getUser().getIdUser();
+            String postId = "";
+            if (selectedPostViewFragment != null) {
+                postId = selectedPostViewFragment.postId;
+            } else {
+                postId = selectedPostViewActivity.postId;
+            }
+            DeleteCommentPresenter deleteCommentPresenter = new DeleteCommentPresenter(this, this);
+            deleteCommentPresenter.responseCheck(postId, commentId);
+        }
+
+        @Override
+        public void setProgressBar() {
+
+        }
+
+        @Override
+        public void dismiss() {
+
+        }
+
+        @Override
+        public void deleteCommentError(Call<DeleteCommentResponse> call, Throwable t) {
+            Utilities.showMessage(mContext, mContext.getString(R.string.server_error_msg));
+        }
+
+        @Override
+        public void onDeleteCommentSuccess(Response<DeleteCommentResponse> response) {
+            DeleteCommentResponse body = response.body();
+            if (body != null) {
+                String success = body.getSuccess();
+                if (success.equals("true")) {
+                    //selectedPostViewFragment.hitCommentsApi();
+                } else {
+                    Utilities.showMessage(mContext, mContext.getString(R.string.server_error_msg));
+                }
+            } else {
+                Utilities.showMessage(mContext, mContext.getString(R.string.server_error_msg));
+            }
+        }
+    }
+}

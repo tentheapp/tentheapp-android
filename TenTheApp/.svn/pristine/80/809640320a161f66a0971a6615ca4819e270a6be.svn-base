@@ -1,0 +1,47 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.GetUserStatusResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 5/5/2017.
+ */
+
+public class GetUserStatusPresenter {
+    private GetUserStatusCallback getUserStatusCallback;
+    private AppCommonCallback screen;
+
+    public GetUserStatusPresenter(AppCommonCallback callback, GetUserStatusCallback getUserStatusCallback) {
+        this.screen = callback;
+        this.getUserStatusCallback = getUserStatusCallback;
+    }
+
+    public interface GetUserStatusCallback {
+        void userStatusError(Call<GetUserStatusResponse> call, Throwable t);
+
+        void onUserStatusSuccess(Response<GetUserStatusResponse> response);
+    }
+
+    public void responseCheck(String userName, String password, String offset, String count) {
+        //screen.setProgressBar();
+        Call<GetUserStatusResponse> response = GetRestAdapter.getRestAdapter(true).userStatus(userName, password, offset, count);
+        response.enqueue(new Callback<GetUserStatusResponse>() {
+            @Override
+            public void onResponse(Call<GetUserStatusResponse> call, Response<GetUserStatusResponse> response) {
+                //screen.dismiss();
+                getUserStatusCallback.onUserStatusSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<GetUserStatusResponse> call, Throwable t) {
+                //screen.dismiss();
+                getUserStatusCallback.userStatusError(call, t);
+            }
+        });
+    }
+}

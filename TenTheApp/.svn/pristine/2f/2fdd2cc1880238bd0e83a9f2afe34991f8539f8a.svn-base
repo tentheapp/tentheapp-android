@@ -1,0 +1,47 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.GroupedRepostDetailResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 7/4/2017.
+ */
+
+public class GroupedRepostDetailPresenter {
+    private GroupedRepostDetailCallback groupedRepostDetailCallback;
+    private AppCommonCallback screen;
+
+    public GroupedRepostDetailPresenter(AppCommonCallback callback, GroupedRepostDetailCallback groupedRepostDetailCallback) {
+        this.screen = callback;
+        this.groupedRepostDetailCallback = groupedRepostDetailCallback;
+    }
+
+    public interface GroupedRepostDetailCallback {
+        void groupedNotificationError(Call<GroupedRepostDetailResponse> call, Throwable t);
+
+        void onGroupedNotificationSuccess(Response<GroupedRepostDetailResponse> response);
+    }
+
+    public void responseCheck(String postId) {
+        screen.setProgressBar();
+        Call<GroupedRepostDetailResponse> response = GetRestAdapter.getRestAdapter(true).groupedRepostDetail( postId);
+        response.enqueue(new Callback<GroupedRepostDetailResponse>() {
+            @Override
+            public void onResponse(Call<GroupedRepostDetailResponse> call, retrofit2.Response<GroupedRepostDetailResponse> response) {
+                screen.dismiss();
+                groupedRepostDetailCallback.onGroupedNotificationSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<GroupedRepostDetailResponse> call, Throwable t) {
+                screen.dismiss();
+                groupedRepostDetailCallback.groupedNotificationError(call, t);
+            }
+        });
+    }
+}

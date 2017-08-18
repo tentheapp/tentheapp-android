@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\play_video_icon.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\play_video_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar0selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar0selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\refresh.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\refresh.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar1selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar1selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\actions.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\actions.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar3.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar3.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar4selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar4selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar1.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar1.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\friendrequest.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\friendrequest.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\search.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\search.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\status.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\status.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_launcher.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\back.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\back.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\settings.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\settings.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar4.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar4.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\play_video_btn.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\play_video_btn.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar2.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar2.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\forword_arrow_gray.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\forword_arrow_gray.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar3selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar3selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\tabbar0.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-mdpi\\tabbar0.png"
+    }
+]

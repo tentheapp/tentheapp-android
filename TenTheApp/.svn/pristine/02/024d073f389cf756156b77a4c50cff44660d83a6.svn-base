@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/com_adobe_image_transparentColorHighlight">
+
+
+    <!--<item>-->
+    <!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!--&lt;!&ndash; default state &ndash;&gt;-->
+
+    <!--<item-->
+    <!--android:drawable="@drawable/com_adobe_image_flat_button_blue_transparent_shape_enabled"-->
+    <!--android:state_enabled="true"-->
+    <!--android:state_pressed="false" />-->
+
+    <!--&lt;!&ndash; pressed state &ndash;&gt;-->
+    <!--<item-->
+    <!--android:drawable="@drawable/com_adobe_image_flat_button_blue_transparent_shape_pressed"-->
+    <!--android:state_enabled="true"-->
+    <!--android:state_pressed="true" />-->
+
+    <!--&lt;!&ndash;disabled state &ndash;&gt;-->
+    <!--<item-->
+    <!--android:drawable="@drawable/com_adobe_image_flat_button_blue_transparent_shape_disabled"-->
+    <!--android:state_enabled="false" />-->
+    <!--</selector>-->
+    <!--</item>-->
+</ripple>

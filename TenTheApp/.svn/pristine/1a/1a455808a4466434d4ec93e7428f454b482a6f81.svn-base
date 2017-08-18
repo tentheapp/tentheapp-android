@@ -1,0 +1,180 @@
+package com.nvcomputers.ten.views.post;
+
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.support.v4.content.ContextCompat;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.io.File;
+
+import life.knowledge4.videotrimmer.K4LVideoTrimmer;
+import life.knowledge4.videotrimmer.interfaces.OnK4LVideoListener;
+import life.knowledge4.videotrimmer.interfaces.OnTrimVideoListener;
+
+
+public class VideoTrimmerActivity extends BaseActivity implements OnTrimVideoListener, OnK4LVideoListener, View.OnClickListener {
+
+    private K4LVideoTrimmer mVideoTrimmer;
+    private TextView backBtn;
+    private ProgressDialog mProgressDialog;
+    String path = "";
+    private Uri originalUri;
+    private TextView trimTextView;
+    private TextView coverTextView;
+    private View trimLine;
+    private View coverLine;
+    private TextView done_crop_txt;
+    public ImageView mPlayView;
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_video_trimmer;
+    }
+
+    @Override
+    protected void initViews() {
+        backBtn = (TextView) findViewById(R.id.backBtn);
+        mPlayView = ((ImageView) findViewById(R.id.icon_video_play));
+        mVideoTrimmer = ((K4LVideoTrimmer) findViewById(R.id.timeLine));
+        done_crop_txt = (TextView) findViewById(R.id.done_crop_txt);
+        done_crop_txt.setOnClickListener(this);
+        trimTextView = (TextView) findViewById(R.id.trim_textview);
+        coverTextView = (TextView) findViewById(R.id.cover_textview);
+        trimTextView.setOnClickListener(this);
+        coverTextView.setOnClickListener(this);
+        trimLine = (View) findViewById(R.id.trim_view);
+        coverLine = (View) findViewById(R.id.cover_view);
+
+        Intent extraIntent = getIntent();
+        if (extraIntent != null) {
+            path = extraIntent.getStringExtra("REAL_VIDEO_PATH");
+        }
+        //setting progressbar
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setMessage("Trimming Video..");
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View v) {
+                                           finish();
+                                       }
+                                   }
+        );
+        if (mVideoTrimmer != null) {
+            mVideoTrimmer.setPlayView(mPlayView);
+            mVideoTrimmer.setMaxDuration(10);
+            mVideoTrimmer.setOnTrimVideoListener(this);
+            mVideoTrimmer.setOnK4LVideoListener(this);
+            File rootPath = Environment.getExternalStorageDirectory();
+            mVideoTrimmer.setDestinationPath(rootPath + "/Android/data/com.Android.Ten/Videos/");
+            originalUri = Uri.parse(path);
+            mVideoTrimmer.setVideoURI(originalUri);
+            mVideoTrimmer.setVideoInformationVisibility(true);
+
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
+    public void onTrimStarted() {
+        mProgressDialog.show();
+    }
+
+    @Override
+    public void getResult(final Uri uri, final int currentPosition) {
+        mProgressDialog.cancel();
+
+       /* runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (uri != null) {
+                    Toast.makeText(VideoTrimmerActivity.this, currentPosition + "==video path -" + uri.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });*/
+      /*  MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+        mediaMetadataRetriever.setDataSource(VideoTrimmerActivity.this, originalUri);
+        Bitmap bitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
+        Log.d("","===>"+bitmap);*/
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.setDataAndType(uri, "video/mp4");
+        intent.putExtra("position", currentPosition);
+        //startActivity(intent);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+
+    @Override
+    public void cancelAction() {
+        mProgressDialog.cancel();
+        mVideoTrimmer.destroy();
+        finish();
+    }
+
+    @Override
+    public void onError(final String message) {
+        mProgressDialog.cancel();
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(VideoTrimmerActivity.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onVideoPrepared() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //  Toast.makeText(VideoTrimmerActivity.this, "onVideoPrepared", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.trim_textview:
+                trimLine.setBackgroundColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.gray));
+                coverLine.setBackgroundColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.light_grey));
+                trimTextView.setTextColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.black));
+                coverTextView.setTextColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.gray));
+                // mVideoTrimmer.setVideoTrimView();
+                break;
+            case R.id.cover_textview:
+                trimLine.setBackgroundColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.light_grey));
+                coverLine.setBackgroundColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.gray));
+                trimTextView.setTextColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.gray));
+                coverTextView.setTextColor(ContextCompat.getColor(VideoTrimmerActivity.this, R.color.black));
+                //   mVideoTrimmer.setCoverTrimView();
+                break;
+            case R.id.done_crop_txt:
+                //    mVideoTrimmer.onSaveClicked();
+                break;
+        }
+    }
+
+
+}

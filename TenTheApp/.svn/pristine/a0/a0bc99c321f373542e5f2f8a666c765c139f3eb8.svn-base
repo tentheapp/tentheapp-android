@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\androidffmpeglibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\ffmpeg",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\androidffmpeglibrary\\build\\intermediates\\bundles\\debug\\res\\raw\\ffmpeg"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\androidffmpeglibrary\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\sox",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\androidffmpeglibrary\\build\\intermediates\\bundles\\debug\\res\\raw\\sox"
+    }
+]

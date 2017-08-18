@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/popularLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_color">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/white">
+
+        <RelativeLayout
+            android:id="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/status_bar_color">
+
+            <TextView
+                android:id="@+id/text_popular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Popular"
+                android:textColor="@color/white_color"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/local"
+                android:layout_width="12dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/localselected" />
+
+            <ImageButton
+                android:id="@+id/global"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/global" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@+id/toolbarLayout"
+            android:background="@color/gray" />
+
+
+        <!--  <include
+              android:id="@+id/toolbarLayout"
+              layout="@layout/toolbar" />-->
+
+        <LinearLayout
+            android:id="@+id/page_buttons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbarLayout"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/timed"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/toolbarLayout"
+                android:layout_marginBottom="0dip"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="0dip"
+                android:layout_marginTop="5dip"
+                android:layout_weight=".5"
+                android:background="@drawable/left_segmented_control_selected"
+                android:gravity="center"
+                android:text="Top Timed"
+                android:textAllCaps="false"
+                android:textColor="@color/white_color"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/timers"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/toolbarLayout"
+                android:layout_marginBottom="0dip"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="0dip"
+                android:layout_marginTop="5dip"
+                android:layout_toRightOf="@id/timed"
+                android:layout_weight=".5"
+                android:background="@drawable/right_segmented_control"
+                android:gravity="center"
+                android:text="Top Timer"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <ProgressBar
+            android:id="@+id/popular_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/page_buttons"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" />
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/page_buttons"
+            android:layout_margin="5dp">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <GridView
+                android:id="@+id/gridViewFeeds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:horizontalSpacing="3dp"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp"
+                android:visibility="gone" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewPosts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/gridViewFeeds"
+                android:scrollbars="vertical"
+                android:visibility="visible" />
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

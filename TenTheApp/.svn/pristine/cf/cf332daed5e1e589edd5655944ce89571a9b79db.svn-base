@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="android-shared-0.0.9">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/5f26d1de80b0b8659510fe1c14bcd86bb91b3f9d/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/5f26d1de80b0b8659510fe1c14bcd86bb91b3f9d/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

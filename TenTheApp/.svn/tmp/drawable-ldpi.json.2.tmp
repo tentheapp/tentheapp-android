@@ -1,0 +1,84 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_unmute.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_unmute.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_arrow_up.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_arrow_up.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_arrow_left.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_arrow_left.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_arrow_down.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_arrow_down.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\back.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\back.png"
+    },
+    {
+<<<<<<< .mine
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_volume.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_volume.png"
+=======
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_search.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_search.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_back_arrow_.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_back_arrow_.png"
+>>>>>>> .r4323
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_back_arrow_.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_back_arrow_.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_videocam.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_videocam.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_arrow_right.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_arrow_right.png"
+    },
+    {
+<<<<<<< .mine
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_mute.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_mute.png"
+=======
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_refresh.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_refresh.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_unmute.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_unmute.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_arrow_down.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_arrow_down.png"
+>>>>>>> .r4323
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_search.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_search.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_check_black_24dp.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_check_black_24dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_refresh.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_refresh.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_volume.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_volume.png"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_mute.png",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_mute.png"
+    }
+]

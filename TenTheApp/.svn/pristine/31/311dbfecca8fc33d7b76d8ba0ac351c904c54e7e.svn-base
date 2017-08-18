@@ -1,0 +1,125 @@
+package com.nvcomputers.ten.views.profile;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.FollowersAdapter;
+import com.nvcomputers.ten.model.output.FollowingResponse;
+import com.nvcomputers.ten.presenter.FollowersPresenter;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+import java.util.ArrayList;
+
+public class FollowersFragment extends BaseFragment implements View.OnClickListener, FollowersPresenter.FollowersCallback {
+
+    private RecyclerView mFollowersRecyclerView;
+    private String mUserId;
+    private FollowersPresenter mFollowersPresenter;
+    private String mFollowers, mUserName;
+    private TextView mFollowersTitleTextView, mNameTitleTextView;
+
+    @Override
+    protected void getDataFromBundle(Bundle bundle) {
+        super.getDataFromBundle(bundle);
+        if (bundle != null) {
+            mUserId = bundle.getString("user_id");
+            mFollowers = bundle.getString("followers");
+            mUserName = bundle.getString("name");
+        }
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_followers;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        findViewById(R.id.frame_layout_followers);
+        mNameTitleTextView = (TextView) findViewById(R.id.text_view_name_followers);
+        mFollowersTitleTextView = (TextView) findViewById(R.id.text_view_title_followers);
+        if (mFollowers != null && mFollowers.equals("1")) { // following
+            mFollowersTitleTextView.setText("Following");
+        } else {
+            mFollowersTitleTextView.setText("Follow");
+        }
+        mNameTitleTextView.setText(mUserName);
+        mNameTitleTextView.setOnClickListener(this);
+
+        mFollowersRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_followers);
+        findViewById(R.id.image_view_back_arrow).setOnClickListener(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!Utilities.checkInternet(getActivity())) {
+            showToast(R.string.no_internet_msg);
+        } else {
+            showDialog();
+            if (mFollowersPresenter == null)
+                mFollowersPresenter = new FollowersPresenter(this, getBaseActivity());
+
+            if (mFollowers.equals("1")) {
+                mFollowersPresenter.getFollowingResponse(mUserId);
+            } else {
+                mFollowersPresenter.getFollowersResponse(mUserId);
+            }
+        }
+    }
+
+    @Override
+    public void setAdapter(RecyclerView recyclerView, ArrayList<?> mList) {
+        super.setAdapter(recyclerView, mList);
+        FollowersAdapter followersAdapter = new FollowersAdapter(this, mList);
+        recyclerView.setAdapter(followersAdapter);
+    }
+
+
+    @Override
+    public boolean onBackPressed() {
+        Fragment fragment = getParentFragment();
+        if (fragment instanceof ProfileFragment) {
+            ProfileFragment profileFragment = (ProfileFragment) fragment;
+            profileFragment.callProfileApi();
+        }
+     //   manualBackPressed();
+        return super.onBackPressed();
+    }
+
+    @Override
+    public void dispose() {
+        if (mFollowersPresenter != null)
+            mFollowersPresenter = null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.image_view_back_arrow || id == R.id.text_view_name_followers) {
+            Fragment fragment = getParentFragment();
+            if (fragment instanceof ProfileFragment) {
+                ProfileFragment profileFragment = (ProfileFragment) fragment;
+                profileFragment.callProfileApi();
+            }
+            manualBackPressed();
+        }
+    }
+
+    @Override
+    public void onFollowersSuccess(FollowingResponse followingResponse) {
+        if (followingResponse.getUsers() != null && followingResponse.getUsers().size() > 0) {
+            setAdapter(mFollowersRecyclerView, followingResponse.getUsers());
+        }
+    }
+
+    @Override
+    public void onFollowingError(Throwable t) {
+        showToast(t.getMessage());
+    }
+}

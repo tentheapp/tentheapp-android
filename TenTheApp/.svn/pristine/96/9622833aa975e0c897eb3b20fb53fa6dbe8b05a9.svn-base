@@ -1,0 +1,288 @@
+package com.nvcomputers.ten.utils;
+
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+/**
+ * Created by rkumar4 on 12/19/2016.
+ */
+
+public class DateTimeUtil {
+
+    public static String changeFormat(String inputValue) {
+        String outputValue = "";
+        //mm/dd/yyyy
+        String[] aray = null;
+        if (inputValue.contains("/")) {
+            aray = inputValue.split("/");
+        } else if (inputValue.contains("-")) {
+            aray = inputValue.split("-");
+        }
+        try {
+            int month = Integer.parseInt(aray[0]) - 1;
+            int day = Integer.parseInt(aray[1]);
+            int year = Integer.parseInt(aray[2]);
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(year, month, day);
+            outputValue = getFormattedDate(calendar);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            outputValue = inputValue;
+        }
+        /*SimpleDateFormat inputFormat = new SimpleDateFormat(dateFormat);
+        Date date = null;
+        try {
+            date = inputFormat.parse(inputValue);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        try {
+            SimpleDateFormat displayFormat = new SimpleDateFormat("dd MMMM, yyyy");
+            outputValue = displayFormat.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+        return outputValue;
+    }
+
+
+    public static String getFormattedDate(Calendar selectedCalendar) {
+        String monthText = new DateFormatSymbols(Locale.getDefault()).getMonths()[selectedCalendar.get(Calendar.MONTH)];
+        monthText = monthText.substring(0, 1).toUpperCase() + monthText.subSequence(1, monthText.length());
+        // String dayText = selectedCalendar.get(Calendar.DAY_OF_MONTH);
+        //dateText = dateText.substring(0, 3);//get only first three character
+        String dayMonthYear = String.format("%s %s, %s", selectedCalendar.get(Calendar.DAY_OF_MONTH), monthText, selectedCalendar.get(Calendar.YEAR));
+        return dayMonthYear;
+    }
+
+
+    public static String getTwelveHourFormat(String inputValue) {
+        String outputValue = "";
+
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+        Date date = null;
+        try {
+            date = inputFormat.parse("2010-10-10 " + inputValue);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        try {
+            SimpleDateFormat displayFormat = new SimpleDateFormat("hh:mm a");
+            outputValue = displayFormat.format(date);
+            if (outputValue.contains("m.")) {
+                outputValue = outputValue.replace("a.m.", "AM");
+                outputValue = outputValue.replace("p.m.", "PM");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return outputValue;
+    }
+
+    public static String getTwentyFourHourFormat(String inputValue) {
+        String outputValue = "";
+        SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm a");
+        Date date = null;
+        try {
+            date = inputFormat.parse("2010-10-10 " + inputValue);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            if (inputValue.contains("M")) {
+                inputValue = inputValue.replace("AM", "a.m.");
+                inputValue = inputValue.replace("PM", "p.m.");
+                date = getOtherDeviceUtcSupport(inputValue);
+            }
+
+        }
+        try {
+            outputValue = displayFormat.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return outputValue;
+    }
+
+    private static Date getOtherDeviceUtcSupport(String inputValue) {
+        //SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm a");
+        Date date = null;
+        try {
+            date = inputFormat.parse("2010-10-10 " + inputValue);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public static boolean checkTimePresence(int startTime, int startMin, Calendar selectedCalendar) {
+        Calendar calendar = Calendar.getInstance();
+        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+        int minutes = calendar.get(Calendar.MINUTE);
+        boolean isToday = checkToday(calendar, selectedCalendar);
+        if (isToday && (startTime < hours || (startTime == hours && startMin < minutes))) {
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean checkToday(Calendar now, Calendar mSelectedCalender) {
+        if (mSelectedCalender.getTime().getTime() > now.getTime().getTime()) {
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean checkPastDay(Calendar now, Calendar selectedCalendar) {
+        if (selectedCalendar.getTime().getTime() < now.getTime().getTime() && selectedCalendar.get(Calendar.DAY_OF_MONTH) < now.get(Calendar.DAY_OF_MONTH)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isTimePast(int startHour, int startMin, Calendar selectedCalendar) {
+        Calendar calendar = Calendar.getInstance();
+        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+        int minutes = calendar.get(Calendar.MINUTE);
+
+        //boolean isPastDays = checkPastDay(calendar, selectedCalendar);
+        boolean isPastDay = checkPastDay(calendar, selectedCalendar);
+        if (isPastDay) {
+            return true;
+        }
+        boolean isToday = checkToday(calendar, selectedCalendar);
+        if (isToday && (startHour < hours || (startHour == hours && startMin < minutes))) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public static String getRemainingTimeInMinutes(String expiration) {
+        long expireTimeStamp = 0L;
+        try {
+            expireTimeStamp = Long.parseLong(expiration);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return "";
+        }
+        Date start = new Date(); // JANUARY_1_2007
+        Date end = new Date(expireTimeStamp); // APRIL_1_2007
+        if (start.getTime() < end.getTime()) {
+            long diffInSeconds = (end.getTime() - start.getTime()) / 1000;
+            if (diffInSeconds < 60) {
+                return String.format("%ds", diffInSeconds);// return secs
+            } else if (diffInSeconds < 3600) {
+                return String.format("%dm", (int)Math.floor((double) diffInSeconds / 60));//return mins
+            } else if (diffInSeconds < 86400) {
+                return String.format("%dh", (int)Math.floor((double) diffInSeconds / 3600));//return mins
+            } else if (diffInSeconds < 604800) {
+                return String.format("%dd", (int)Math.floor((double) diffInSeconds / 86400));//return mins
+            } else if (diffInSeconds < 2628000) {
+                return String.format("%dw", (int)Math.floor((double) diffInSeconds / 604800));//return mins
+            }
+        } else {
+            return "Exp";
+        }
+        return "Exp";
+
+    }
+
+    public static String getElapseTimeInMinutes(String dateStamp) {
+        long postTimeStamp = 0L;
+        try {
+            postTimeStamp = Long.parseLong(dateStamp);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return "10m";
+        }
+
+        Date postDate = new Date(postTimeStamp); // APRIL_1_2007
+        Date now = new Date(); // JANUARY_1_2007
+        long diffInSeconds = (now.getTime() - postDate.getTime()) / 1000;
+
+        if (diffInSeconds < 60) {
+            return String.format("%ds", diffInSeconds);// return secs
+        } else if (diffInSeconds < 3600) {
+            return String.format("%dm", (int) Math.floor((double) diffInSeconds / 60));//return mins
+        } else if (diffInSeconds < 86400) {
+            return String.format("%dh", (int) Math.floor((double) diffInSeconds / 3600));//return mins
+        } else if (diffInSeconds < 604800) {
+            return String.format("%dd", (int) Math.floor((double) diffInSeconds / 86400));//return mins
+        } else if (diffInSeconds < 2628000) {
+            return String.format("%dw", (int) Math.floor((double) diffInSeconds / 604800));//return mins
+        }
+        return "Exp";
+
+    }
+
+
+    public static boolean checkExpiration(String expiration) {
+        try {
+            long expirationTimeStamp = Long.parseLong(expiration);
+            Date current = new Date();
+            if (current.getTime() > expirationTimeStamp) {
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static String getTopTime(String expiration, String dateStamp) {
+        if (expiration == null || dateStamp == null) {
+            return "10m";
+        }
+        Date expirationDate = new Date(Long.parseLong(expiration));
+        Date timeStampDate = new Date(Long.parseLong(dateStamp));
+        double diffInSeconds = (expirationDate.getTime() - timeStampDate.getTime()) / 1000;
+        try {
+            if (diffInSeconds < 60) {
+                return String.format("%ds", diffInSeconds);// return secs
+            } else if (diffInSeconds < 3600) {
+                return String.format("%dm", (int) Math.floor((double) diffInSeconds / 60));//return mins
+            } else if (diffInSeconds < 86400) {
+                return String.format("%dh", (int) Math.floor((double) diffInSeconds / 3600));//return mins
+            } else if (diffInSeconds < 604800) {
+                return String.format("%dd", (int) Math.floor((double) diffInSeconds / 86400));//return mins
+            } else if (diffInSeconds < 2628000) {
+                return String.format("%dw", (int) Math.floor((double) diffInSeconds / 604800));//return mins
+            }
+        } catch (Exception e) {
+
+        }
+
+       /* long diff[] = new long[]{0, 0, 0, 0};
+        diff[3] = (diffInSeconds >= 60 ? diffInSeconds % 60 : diffInSeconds);*//* sec *//*
+        diff[2] = (diffInSeconds = (diffInSeconds / 60)) >= 60 ? diffInSeconds % 60 : diffInSeconds; *//* min *//*
+        //diff[1] = (diffInSeconds = (diffInSeconds / 60)) >= 24 ? diffInSeconds % 24 : diffInSeconds;*//* hours *//*
+        //diff[0] = (diffInSeconds = (diffInSeconds / 24)); *//* days *//*
+        if (diff[2] > 0) {
+            return String.format("%dm", diff[2]);//return mins
+        } else if (diff[3] > 0) {
+            return String.format("%ds", diff[3]);// return secs
+        }*/
+
+       /* DateTime expiration = new DateTime(1970, 1, 1).AddMilliseconds(double.Parse(post.expiration.ToString()));
+        DateTime datestamp = new DateTime(1970, 1, 1).AddMilliseconds(double.Parse(post.datestamp.ToString()));
+        TimeSpan span = expiration.Subtract(datestamp);
+
+        var sb = new StringBuilder();
+        if (span.Days > 365)
+            sb.AppendFormat("{0}y", span.Days - 365);
+        else if (span.Days > 0)
+            sb.AppendFormat("{0}d", span.Days);
+        else if (span.Hours > 0)
+            sb.AppendFormat("{0}h", span.Hours);
+        else if (span.Minutes > 0) {
+            sb.AppendFormat("{0}m", span.Minutes);
+        }*/
+        return "10m";
+    }
+}

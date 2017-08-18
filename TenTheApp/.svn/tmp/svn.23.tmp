@@ -1,0 +1,554 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_delete_knob_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_delete_knob_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_text.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_text.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_saturation.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_saturation.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_night.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_night.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_redeye.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_redeye.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_typekit_disabled.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_typekit_disabled.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_focus_linear.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_focus_linear.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_frames.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_frames.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_orientation_knob_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_orientation_knob_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_lens.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_lens.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_color.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_color.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective_straighten.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective_straighten.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_survey.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_survey.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_editor_feedback_dislike.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_editor_feedback_dislike.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_apply_mark_disabled.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_apply_mark_disabled.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_store_card_background_enabled_light.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_store_card_background_enabled_light.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_flip_horizontal.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_flip_horizontal.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_text_color_disabled.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_text_color_disabled.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_meme_clear_button_background.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_meme_clear_button_background.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_crop_knob.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_crop_knob.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_colorsplash.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_colorsplash.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_hidef.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_hidef.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_fade.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_fade.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_crop_item_invert_inverted.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_crop_item_invert_inverted.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_content_recents.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_content_recents.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_warmth.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_warmth.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_editor_feedback_main.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_editor_feedback_main.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_opacity_knob.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_opacity_knob.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_promo_header_banner_logged.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_promo_header_banner_logged.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_add_text.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_add_text.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_blur.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_blur.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_shadow.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_shadow.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_flip_vertical.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_flip_vertical.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ok_mark.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ok_mark.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_scenery.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_scenery.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_meme.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_meme.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_vignette.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_vignette.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_wave_dot.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_wave_dot.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_36dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_food.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_food.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_orientation.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_orientation.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_bug.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_bug.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_notification_item_installed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_notification_item_installed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_exposure.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_exposure.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_apply_mark_enabled.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_apply_mark_enabled.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_enhance.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_enhance.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_vibrance.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_vibrance.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_effects.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_effects.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_x.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_x.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_stickers.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_stickers.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_text_color_enabled.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_text_color_enabled.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_blemish.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_blemish.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\design_ic_visibility_off.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ed6b27be2ae9b90ae528b8465a023f3de07d761a\\output\\res\\drawable-xxxhdpi-v4\\design_ic_visibility_off.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_orientation_knob.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_orientation_knob.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_tint.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_tint.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_profile.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_profile.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_contrast.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_contrast.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_arrow_back_white_24dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\ic_arrow_back_white_24dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_colorsplash_erase.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_colorsplash_erase.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective_vertical.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective_vertical.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\fab_bg_normal.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f3a568aad22a9e60953bfb1b0433342e821fa211\\output\\res\\drawable-xxxhdpi-v4\\fab_bg_normal.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_crop_knob_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_crop_knob_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_portrait.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_enhance_portrait.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_whiten.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_whiten.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\design_ic_visibility.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ed6b27be2ae9b90ae528b8465a023f3de07d761a\\output\\res\\drawable-xxxhdpi-v4\\design_ic_visibility.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_store_card_background_pressed_light.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_store_card_background_pressed_light.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_shadow.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_shadow.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_feedback.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_feedback.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_list_divider_mtrl_alpha_dark.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\abc_list_divider_mtrl_alpha_dark.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_crop.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_crop.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_lens_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_lens_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\ic_check_black_24dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\ic_check_black_24dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_brightness.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_brightness.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_check.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_check.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_focus_radial.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_focus_radial.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_free_logo_button.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_free_logo_button.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_opacity_knob_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_opacity_knob_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_colorsplash_smart.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_colorsplash_smart.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_lighting.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_lighting.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\fab_bg_mini.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f3a568aad22a9e60953bfb1b0433342e821fa211\\output\\res\\drawable-xxxhdpi-v4\\fab_bg_mini.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_flip_knob.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_flip_knob.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_adjust.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_adjust.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_sad_face.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_sad_face.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_flip_knob_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_flip_knob_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_overlay.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_overlay.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_colorsplash_free.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_colorsplash_free.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_lens_checked.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_lens_checked.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_editor_feedback_bug.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_editor_feedback_bug.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_promo_image_packs.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_promo_image_packs.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_cancel_mark.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_cancel_mark.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_content_frame_item_image_checked.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_content_frame_item_image_checked.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_crop_item_invert.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_crop_item_invert.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_highlight.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_highlight.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_rotate_right.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_rotate_right.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_content_supplies.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_content_supplies.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_typekit_enabled.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_typekit_enabled.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective_horizontal.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_perspective_horizontal.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_16dp.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_focus.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_focus.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_delete_knob.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_delete_knob.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_draw.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_draw.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_sharpen.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_tool_ic_sharpen.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_heart.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_editor_ic_heart.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\adobe_logo_white.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\adobe_logo_white.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_gallery_eraser.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_gallery_eraser.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_meme_clear_button_background_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_meme_clear_button_background_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_resize_knob_pressed.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_resize_knob_pressed.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_promo_image.jpg",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_promo_image.jpg"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_effects_intensity.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_effects_intensity.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_ic_rotate_left.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_ic_rotate_left.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_resize_knob.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_resize_knob.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_branding.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_bottombar_branding.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\com_adobe_image_free_logo_button_invisible.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xxxhdpi-v4\\com_adobe_image_free_logo_button_invisible.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\f1339426f40540f3d0e12c487cf3cf95a1c1a1ad\\output\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    }
+]

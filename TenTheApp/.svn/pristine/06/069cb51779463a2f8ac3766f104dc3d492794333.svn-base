@@ -1,0 +1,261 @@
+package com.nvcomputers.ten.views.home;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Handler;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.UpdateTokenResponse;
+import com.nvcomputers.ten.presenter.UpdateTokenPresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.views.TTApplication;
+import com.nvcomputers.ten.views.core.BaseActivity;
+import com.nvcomputers.ten.views.core.CarouselPagerFragment;
+import com.nvcomputers.ten.views.notification.GCMRegistrationIntentService;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+
+public class LandingActivity extends BaseActivity implements View.OnClickListener, AppCommonCallback, UpdateTokenPresenter.UpdateTokenCallback {
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 700;
+    private TextView text_tab1, text_tab2, text_tab3, text_tab4, text_tab5;
+    private SharedPrefsHelper mPrefHelper;
+    private CarouselPagerFragment carouselFragment;
+    private boolean doubleBackToExitPressedOnce = false;
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
+    private boolean isReceiverRegistered;
+    private String TAG = "LandingActivity";
+
+    //Unregistering receiver on activity paused
+  /*  @Override
+    protected void onPause() {
+        super.onPause();
+        Log.w("MainActivity", "onPause");
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
+        isReceiverRegistered = false;
+    }*/
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
+        isReceiverRegistered = false;
+
+    }
+//Registering receiver on activity resume
+  /*  @Override
+    protected void onResume() {
+        super.onResume();
+        Log.w("MainActivity", "onResume");
+        registerReceiver();
+        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
+                new IntentFilter(GCMRegistrationIntentService.REGISTRATION_SUCCESS));
+    }*/
+
+    @Override
+    public void onBackPressed() {
+        if (!carouselFragment.onBackPressed()) {
+            // container Fragment or its associates couldn't handle the back pressed task
+            // delegating the task to super class
+            //super.onBackPressed();
+            // ---it will finish home activity----
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        } else {
+            // carousel handled the back pressed task
+            // do not call super
+            // --- child fragment will pop here---
+        }
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_landing;
+    }
+
+    @Override
+    protected void initViews() {
+
+        mPrefHelper = new SharedPrefsHelper(this);
+        TTApplication.userName = mPrefHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        TTApplication.password = mPrefHelper.get(PreferenceKeys.PREF_PASSWORD, "");
+        GetRestAdapter.retrofitInterface = null;
+
+        text_tab1 = (TextView) findViewById(R.id.text_tab1);
+        text_tab2 = (TextView) findViewById(R.id.text_tab2);
+        text_tab3 = (TextView) findViewById(R.id.text_tab3);
+        text_tab4 = (TextView) findViewById(R.id.text_tab4);
+        text_tab5 = (TextView) findViewById(R.id.text_tab5);
+
+        text_tab1.setOnClickListener(this);
+        text_tab2.setOnClickListener(this);
+        text_tab3.setOnClickListener(this);
+        text_tab4.setOnClickListener(this);
+        text_tab5.setOnClickListener(this);
+
+        text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0selected, 0, 0);
+        if (mSavedInstanceState == null) {
+            // withholding the previously created fragment from being created again
+            // On orientation change, it will prevent fragment recreation
+            // its necessary to reserving the fragment stack inside each tab
+            carouselFragment = new CarouselPagerFragment();
+            replaceFragment(R.id.main_frame_layout, carouselFragment);
+        } else {
+            // restoring the previously created fragment
+            // and getting the reference
+            carouselFragment = (CarouselPagerFragment) getSupportFragmentManager().getFragments().get(0);
+        }
+        //Initializing our broadcast receiver
+        mRegistrationBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                //If the broadcast has received with success
+                if (intent.getAction().equals(GCMRegistrationIntentService.REGISTRATION_SUCCESS)) {
+                    String gcmDeviceToken = intent.getStringExtra("token");
+                    //TODO--updatetoken--params: token-""   type-"android"
+                    UpdateTokenPresenter updateTokenPresenter = new UpdateTokenPresenter(LandingActivity.this, LandingActivity.this);
+                    updateTokenPresenter.responseCheck(gcmDeviceToken, "android");
+
+                }
+            }
+        };
+        // Registering BroadcastReceiver
+        registerReceiver();
+        //Checking play service is available or not
+        if (checkPlayServices()) {
+            // Start IntentService to register this application with GCM.
+            Intent intent = new Intent(this, GCMRegistrationIntentService.class);
+            startService(intent);
+        }
+    }
+
+    private void registerReceiver() {
+        if (!isReceiverRegistered) {
+            LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver, new IntentFilter(GCMRegistrationIntentService.REGISTRATION_SUCCESS));
+            isReceiverRegistered = true;
+        }
+    }
+
+    /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog that allows users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(TAG, "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        setDeaultValues();
+        switch (v.getId()) {
+
+
+            case R.id.text_tab1:
+                text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0selected, 0, 0);
+                carouselFragment.updatePage(0);
+                break;
+
+            case R.id.text_tab2:
+                text_tab2.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar1selected, 0, 0);
+                carouselFragment.updatePage(1);
+                break;
+
+            case R.id.text_tab3:
+                carouselFragment.updatePage(2);
+                break;
+
+            case R.id.text_tab4:
+                text_tab4.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar3selected, 0, 0);
+                carouselFragment.updatePage(3);
+                break;
+
+            case R.id.text_tab5:
+                text_tab5.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar4selected, 0, 0);
+                // IntentHandler.switchActivity(LandingActivity.this, SettingsActivity.class);
+               /* SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this);
+                String mUserName = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+                Bundle bundle = new Bundle();
+                bundle.putString("username", mUserName);
+                bundle.putString("screen", "1");
+                addFragment(R.id.main_frame_layout, new ProfileFragment(), bundle);*/
+                carouselFragment.updatePage(4);
+                break;
+        }
+
+    }
+
+    private void setDeaultValues() {
+        text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0, 0, 0);
+        text_tab2.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar1, 0, 0);
+        text_tab4.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar3, 0, 0);
+        text_tab5.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar4, 0, 0);
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    public void setHomePage() {
+        text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0selected, 0, 0);
+    }
+
+    @Override
+    public void setProgressBar() {
+
+    }
+
+    @Override
+    public void dismiss() {
+
+    }
+
+    @Override
+    public void updateTokenError(Call<UpdateTokenResponse> call, Throwable t) {
+
+    }
+
+    @Override
+    public void onUpdateTokenSuccess(Response<UpdateTokenResponse> response) {
+
+    }
+}

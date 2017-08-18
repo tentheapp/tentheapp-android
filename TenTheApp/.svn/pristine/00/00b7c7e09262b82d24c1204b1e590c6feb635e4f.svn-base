@@ -1,0 +1,554 @@
+package com.nvcomputers.ten.views.profile;
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.imagechooser.api.ChooserType;
+import com.nvcomputers.ten.imagechooser.api.ChosenImage;
+import com.nvcomputers.ten.imagechooser.api.ChosenImages;
+import com.nvcomputers.ten.imagechooser.api.ChosenVideo;
+import com.nvcomputers.ten.imagechooser.api.ChosenVideos;
+import com.nvcomputers.ten.imagechooser.api.ImageChooserListener;
+import com.nvcomputers.ten.imagechooser.api.ImageChooserManager;
+import com.nvcomputers.ten.model.input.EditProfileInput;
+import com.nvcomputers.ten.model.output.EditProfileResponse;
+import com.nvcomputers.ten.model.output.EnableDisableResponse;
+import com.nvcomputers.ten.presenter.EditProfilePresenter;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.core.BaseFragment;
+import com.nvcomputers.ten.views.post.CameraUploadActivity;
+import com.nvcomputers.ten.views.post.GpuImageFiltersActivity;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import static android.app.Activity.RESULT_OK;
+
+/**
+ * This class is used to edit user profile
+ *
+ * @author jindaldipanshu
+ * @version 1.0
+ */
+
+public class EditProfileFragment extends BaseFragment implements View.OnClickListener, ImageChooserListener,
+        EditProfilePresenter.EditProfileCallbacks {
+
+    private static final int READ_EXTERNAL_STORAGE_CODE = 25;
+    private static final int IMAGE_EDITER = 125;
+    private int chooserType;
+    private ImageChooserManager imageChooserManager;
+    private String filePath;
+    private ImageView mUserImageView;
+    private TextView mUserNameTextView;
+    private CheckBox mEditProfileCheckBox;
+    private Switch mEditSwitch;
+    private EditText mNickNameEditText;
+    private boolean isPrivate;
+
+    private String mUserName, mDescription, mNickName, mIsNotify, mIsPrivate;
+    private EditText mTextDescription;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_edit_profile;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        Bundle bundle = getArguments();
+        mUserName = bundle.getString("username");
+        mDescription = bundle.getString("description");
+        mNickName = bundle.getString("nick_name");
+        mIsNotify = bundle.getString("isnotify");
+        mIsPrivate = bundle.getString("isPrivate");
+
+        mUserImageView = (ImageView) findViewById(R.id.image_view_profile);
+        mUserNameTextView = (TextView) findViewById(R.id.tv_usernm);
+        mEditSwitch = (Switch) findViewById(R.id.switch_edit_profile);
+        mTextDescription = (EditText) findViewById(R.id.edit_text_description);
+        mEditProfileCheckBox = (CheckBox) findViewById(R.id.check_box_edit);
+        mNickNameEditText = (EditText) findViewById(R.id.edit_txt_nick_name);
+        mUserNameTextView.setText(mUserName);
+        if (TextUtils.isEmpty(mNickName)) {
+            mNickNameEditText.setText("");
+        } else {
+            mNickNameEditText.setText(mNickName);
+        }
+
+        if (TextUtils.isEmpty(mDescription)) {
+            mTextDescription.setText("");
+        } else {
+            mTextDescription.setText(mDescription);
+        }
+        if (TextUtils.isEmpty(mIsNotify) || mIsNotify.contains("false")) {
+            mEditProfileCheckBox.setChecked(false);
+        } else {
+            mEditProfileCheckBox.setChecked(true);
+        }
+
+
+        findViewById(R.id.text_view_save).setOnClickListener(this);
+        findViewById(R.id.image_view_back).setOnClickListener(this);
+        findViewById(R.id.text_view_usernm_back).setOnClickListener(this);
+        findViewById(R.id.text_view_edit).setOnClickListener(this);
+        Glide.with(mContext)
+                .load(HttpUtils.getProfileImageURL(mUserName))
+                .bitmapTransform(new RoundedCornersTransformation(mContext, 20, 15))
+                .error(getBaseActivity().getResources().getDrawable(R.drawable.myprofilelarge))
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(mUserImageView);
+        mEditSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                isPrivate = b;
+            }
+        });
+
+        if (mIsPrivate.equals("false")) {
+            mEditSwitch.setChecked(false);
+        } else {
+            mEditSwitch.setChecked(true);
+        }
+
+
+        mEditProfileCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                enableDisable(!isChecked);
+            }
+        });
+
+    }
+
+    private void enableDisable(boolean isChecked) {
+        if (!Utilities.checkInternet(getBaseActivity())) {
+            showToast(R.string.no_internet_msg);
+            mEditProfileCheckBox.setChecked(isChecked);
+        } else {
+            Call<EnableDisableResponse> response = GetRestAdapter.getRestAdapter(true).enableDisableFollow();
+            response.enqueue(new Callback<EnableDisableResponse>() {
+                @Override
+                public void onResponse(Call<EnableDisableResponse> call, retrofit2.Response<EnableDisableResponse> response) {
+                    hideDialog();
+                    if (response != null && response.body() != null) {
+                        if (response.body().getStatus().equals("enabled")) {
+                            mEditProfileCheckBox.setChecked(true);
+                        } else {
+                            mEditProfileCheckBox.setChecked(false);
+                        }
+                    } else {
+                        showToast(getActivity().getString(R.string.server_error_msg));
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<EnableDisableResponse> call, Throwable t) {
+                    hideDialog();
+                    showToast(t.getMessage());
+                }
+            });
+        }
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.text_view_save) {
+            Utilities.hideKeypad(view);
+            updateProfile();
+        } else if (id == R.id.image_view_back || id == R.id.text_view_usernm_back) {
+            update();
+        } else if (id == R.id.text_view_edit) {
+            checkPhotoRunTimePermission();
+        }
+    }
+
+
+    private void updateProfile() {
+        String nickName = mNickNameEditText.getText().toString();
+        String description = mTextDescription.getText().toString();
+        if (!Utilities.checkInternet(getActivity())) {
+            showToast(R.string.no_internet_msg);
+        } else {
+            SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(getBaseActivity());
+            String userName = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME);
+            String pass = sharedPrefsHelper.get(PreferenceKeys.PREF_PASSWORD);
+
+            EditProfileInput editProfileInput = new EditProfileInput();
+            editProfileInput.setWebsite(nickName);
+            editProfileInput.setUsername(userName);
+            editProfileInput.setPassword(pass);
+            editProfileInput.setIsPrivate(isPrivate + "");
+            editProfileInput.setDescription(description);
+            EditProfilePresenter editProfilePresenter = new EditProfilePresenter(this, this);
+            editProfilePresenter.updateProfile(editProfileInput);
+        }
+    }
+
+
+    private void checkPhotoRunTimePermission() {
+        int currentAPIVersion = Build.VERSION.SDK_INT;
+        if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(getActivity(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        READ_EXTERNAL_STORAGE_CODE);
+            } else {
+                chooseImage();
+            }
+        } else {
+            chooseImage();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case READ_EXTERNAL_STORAGE_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    chooseImage();
+                } else {
+                    //code for deny
+                    showToast("Please allow permissions to access gallery");
+                }
+                break;
+        }
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+
+            Log.i(TAG, "File Path : " + filePath);
+            Log.i(TAG, "Chooser Type: " + chooserType);
+
+            if (requestCode == ChooserType.REQUEST_CAPTURE_PICTURE ||
+                    requestCode == ChooserType.REQUEST_PICK_PICTURE) {
+
+                if (data != null && data.getData() != null) {
+                    Uri uri = data.getData();
+                    handleUri(uri);
+                } else {
+                    Uri uri = Uri.fromFile(new File(filePath));
+                    if (uri != null) {
+                        handleUri(uri);
+                    } else {
+                        if (imageChooserManager == null) {
+                            reinitializeImageChooser();
+                        }
+                        imageChooserManager.submit(requestCode, data);
+                    }
+                }
+            } /*else if (requestCode == IMAGE_EDITER) {
+
+                Uri editedImageUri = data.getParcelableExtra(AdobeImageIntent.EXTRA_OUTPUT_URI);
+                String path = com.nvcomputers.ten.utils.FileUtils.getPath(mContext, editedImageUri);
+                if (path != null) {
+                    imageFile = new File(path);
+                }
+                //editedImageUri = data.getData();
+                Glide.with(EditProfileFragment.this)
+                        .load(editedImageUri)
+                        .bitmapTransform(new RoundedCornersTransformation(mContext, 15, 15))
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true)
+                        .into(mUserImageView);
+                Glide.with(EditProfileFragment.this)
+                        .load(editedImageUri)
+                        .asBitmap()
+                        .into(target);
+
+            }*/
+        }
+    }
+
+
+    private File imageFile;
+    private SimpleTarget target = new SimpleTarget<Bitmap>() {
+        @Override
+        public void onResourceReady(final Bitmap bitmap, GlideAnimation glideAnimation) {
+            // do something with the bitmap
+            // for demonstration purposes, let's just set it to an ImageView
+            //mUserImageView.setImageBitmap(bitmap);
+            final Bitmap scaledBitmap = com.nvcomputers.ten.utils.FileUtils.getCropedBitmap(bitmap);
+            mUserImageView.setImageBitmap(scaledBitmap);
+            if (imageFile != null && imageFile.exists() && imageFile.length() > 0) {
+                callApi(imageFile, scaledBitmap);
+            } else {
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        FileOutputStream out = null;
+                        try {
+                            String path = Environment.getExternalStorageDirectory().toString();
+                            imageFile = new File(path, "TenUser_" + mUserName + ".jpeg");
+                            out = new FileOutputStream(imageFile);
+                            scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 60, out); // bmp is your Bitmap instance
+                            // PNG is a lossless format, the compression factor (100) is ignored
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            try {
+                                if (out != null) {
+                                    out.close();
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            activity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    callApi(imageFile, scaledBitmap);
+                                }
+                            });
+                        }
+                    }
+                });
+                thread.start();
+            }
+
+        }
+    };
+
+
+    private void chooseImage() {
+        chooserType = ChooserType.REQUEST_PICK_PICTURE;
+        imageChooserManager = new ImageChooserManager(this,
+                ChooserType.REQUEST_PICK_PICTURE, "myfolder", true) {
+            @Override
+            public void onProcessedVideo(ChosenVideo video) {
+
+            }
+
+            @Override
+            public void onProcessedVideos(ChosenVideos videos) {
+
+            }
+        };
+        imageChooserManager.setImageChooserListener((ImageChooserListener) this);
+        try {
+            filePath = imageChooserManager.choose();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public void onImageChosen(final ChosenImage image) {
+        getActivity().runOnUiThread(new Runnable() {
+
+            public void run() {
+                if (image != null) {
+                    String imagePath = image.getFileThumbnail();
+                    Bitmap thumbnailBitmap = BitmapFactory.decodeFile(imagePath);
+                    mUserImageView.setImageBitmap(thumbnailBitmap);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onError(final String reason) {
+        getActivity().runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                //pbar.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), reason,
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    @Override
+    public void onImagesChosen(final ChosenImages images) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (images != null) {
+                    String imagePath = images.getFileThumbnail();
+                    Bitmap thumbnailBitmap = BitmapFactory.decodeFile(imagePath);
+                    mUserImageView.setImageBitmap(thumbnailBitmap);
+                    //callApi(imagePath);
+                    //Uri uri = Uri.parse(imagePath);
+                    //handleUri(uri);
+                }
+            }
+        });
+    }
+
+    private void handleUri(Uri mSelectedImageUri) {
+        if (mSelectedImageUri == null) {
+            Log.i("MainActivity", "imageUri is null");
+        }
+       /* Intent imageEditorIntent = new AdobeImageIntent.Builder(this.getActivity())
+                .setData(mSelectedImageUri)
+                .build();
+        startActivityForResult(imageEditorIntent, 125);*/
+        Intent intent1 = new Intent(getBaseActivity(), GpuImageFiltersActivity.class);
+        intent1.putExtra("SelectedImagePath", imageFile.getPath());
+        intent1.putExtra("selphie", "");
+        intent1.putExtra("mode", "gallery");
+        startActivity(intent1);
+    }
+
+
+    private void persistImage(Bitmap bitmap, String name) {
+        File imageFile = new File(name);
+
+        OutputStream os;
+        try {
+            os = new FileOutputStream(imageFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            os.flush();
+            os.close();
+        } catch (Exception e) {
+            Log.e(getClass().getSimpleName(), "Error writing bitmap", e);
+        }
+    }
+
+    public void callApi(File imageFile, Bitmap bitmap) {
+
+        String uriType = "image/png";
+        Bitmap.CompressFormat formatType = Bitmap.CompressFormat.PNG;
+        if (imageFile.getPath().contains("jpeg")) {
+            uriType = "image/jpeg";
+            formatType = Bitmap.CompressFormat.JPEG;
+        } else if (imageFile.getPath().contains("jpg")) {
+            uriType = "image/jpg";
+            formatType = Bitmap.CompressFormat.JPEG;
+        }
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(formatType, 50, stream);
+        byte[] byteArray = stream.toByteArray();
+        //File imageFile = new File(imgaPth);
+        //Uri uri = Uri.fromFile(imageFile);
+        //File file = FileUtils.getFile(this, uri);
+        showDialog();
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse(uriType), byteArray);
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("imageFile", imageFile.getName(), requestBody);
+        // RequestBody.create(MediaType.parse("image/*"), imageFile)
+        Call<EditProfileResponse> response = GetRestAdapter.getRestAdapter(true).uploadProfileImage(filePart);
+        response.enqueue(new Callback<EditProfileResponse>() {
+            @Override
+            public void onResponse(Call<EditProfileResponse> call, retrofit2.Response<EditProfileResponse> response) {
+                hideDialog();
+                if (response != null && response.body() != null) {
+                    if (response.body().getSuccess().equals("true")) {
+                        showToast("Profile Updated Successfully");
+                    } else {
+                        showToast(getActivity().getString(R.string.server_error_msg));
+                    }
+                } else {
+                    showToast(getActivity().getString(R.string.server_error_msg));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EditProfileResponse> call, Throwable t) {
+                hideDialog();
+                showToast(t.getMessage());
+            }
+        });
+
+    }
+
+
+    /**
+     * this method is used to convert image format from bitmap to base64
+     *
+     * @param bitmap image selected
+     * @return
+     */
+    private byte[] convertToByte(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] byteArrayImage = baos.toByteArray();
+
+        return byteArrayImage;
+    }
+
+
+    // Should be called if for some reason the ImageChooserManager is null (Due
+    // to destroying of activity for low memory situations)
+
+    private void reinitializeImageChooser() {
+        imageChooserManager = new ImageChooserManager(this, chooserType,
+                "myfolder", true) {
+            @Override
+            public void onProcessedVideo(ChosenVideo video) {
+
+            }
+
+            @Override
+            public void onProcessedVideos(ChosenVideos videos) {
+
+            }
+        };
+        imageChooserManager.setImageChooserListener(this);
+        imageChooserManager.reinitialize(filePath);
+    }
+
+    public void update() {
+        Fragment fragment = getParentFragment();
+        if (fragment instanceof ProfileFragment) {
+            ProfileFragment profileFragment = (ProfileFragment) fragment;
+            profileFragment.callProfileApi();
+        }
+        manualBackPressed();
+    }
+}

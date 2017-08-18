@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nvcomputers.ten"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- [START gcm_permission] -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- [END gcm_permission] -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <!-- The Aviary SDK doesn't support small screens -->
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="false"
+        android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS" />
+
+    <permission
+        android:name="com.nvcomputers.ten.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.nvcomputers.ten.permission.C2D_MESSAGE" />
+    <!--
+ <permission
+        android:name="com.nvcomputers.ten.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.nvcomputers.ten.permission.C2D_MESSAGE" />
+    -->
+    <!-- android:roundIcon="@mipmap/ic_launcher_round" -->
+    <application
+        android:name="com.nvcomputers.ten.views.TTApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/iclauncher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/MyTheme" >
+
+        <!--
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.nvcomputers.ten" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <service
+            android:name="com.nvcomputers.ten.views.notification.GCMRegistrationIntentService"
+            android:exported="false" />
+        <service
+            android:name="com.nvcomputers.ten.views.notification.GCMPushReceiverService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.nvcomputers.ten.views.notification.GCMTokenRefreshListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.nvcomputers.ten.glide.GlideModuleWithHeaders"
+            android:value="GlideModule" />
+
+        <activity
+            android:name="org.acra.CrashReportDialog"
+            android:excludeFromRecents="true"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleInstance"
+            android:process=":error_report"
+            android:theme="@style/Base.Theme.AppCompat.Dialog" />
+        <activity
+            android:name="com.nvcomputers.ten.views.SplashActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nvcomputers.ten.views.post.CameraUploadActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.nvcomputers.ten.views.home.LandingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.nvcomputers.ten.views.home.TimedPostActivity"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.Splash2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.PhoneVerificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.EmailVerificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.CreatePasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- <activity android:name=".views.home.TimedPostActivity"/> -->
+        <activity
+            android:name="com.nvcomputers.ten.views.contacts.ContactsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.OtpEmailVerifyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.nvcomputers.ten.views.auth.PhoneOtpVerifyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.home.SelectedPostViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.FollowersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.PolicyWebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.TermsWebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.FeedbackWebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.ReportWebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nvcomputers.ten.views.profile.ZoomImageActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.nvcomputers.ten.views.auth.ForgotPasswordActivity" />
+        <activity android:name="com.nvcomputers.ten.views.auth.SignUpPolicyActivity" />
+        <activity android:name="com.nvcomputers.ten.views.home.TimersActivity" />
+        <activity
+            android:name="com.adobe.creativesdk.aviary.AdobeImageEditorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:finishOnTaskLaunch="true"
+            android:screenOrientation="unspecified"
+            android:theme="@style/AdobeImageBaseTheme.Editor" >
+            <intent-filter>
+                <action android:name="aviary.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="aviary.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="https" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="aviary.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+        <!--
+        Cds Service is in charge of sync all the available
+        online DLC contents within the android application.
+        It's required by the Aviary SDK and it will run in a
+        separated process 'aviarycds'
+        -->
+        <service
+            android:name="com.adobe.creativesdk.aviary.internal.cds.CdsService"
+            android:exported="false"
+            android:process=":editor" >
+            <intent-filter>
+                <action android:name="aviary.intent.action.CDS_VERIFY_SUBSCRIPTIONS" />
+                <action android:name="aviary.intent.action.CDS_DOWNLOAD_START" />
+                <action android:name="aviary.intent.action.CDS_RESTORE_USER_ITEMS" />
+                <action android:name="aviary.intent.action.CDS_RESTORE_OWNED_PACKS" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.adobe.creativesdk.aviary.internal.cds.CdsAssetsDownloaderService"
+            android:exported="false"
+            android:process=":editor" >
+            <intent-filter>
+                <action android:name="aviary.intent.action.CDS_DOWNLOAD_EXTRA_ASSETS" />
+            </intent-filter>
+        </service>
+        <!--
+        The CdsReceiver handles the downloaded contents (throught the
+        android DownloadManager)
+        -->
+        <receiver
+            android:name="com.adobe.creativesdk.aviary.internal.cds.CdsReceiver"
+            android:exported="true"
+            android:permission="android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"
+            android:process=":editor" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="aviary.android.cds.intent.action.ACTION_NOTIFICATION_DISMISS" />
+                <action android:name="aviary.android.cds.intent.action.ACTION_DOWNLOAD_COMPLETE_DELAYED" />
+            </intent-filter>
+        </receiver>
+        <!--
+        CDS Content Provider.
+        This manages the internal DLC database
+        Manadatory for the Aviary-SDK.
+        -->
+        <provider
+            android:name="com.adobe.creativesdk.aviary.internal.cds.CdsProvider"
+            android:authorities="com.nvcomputers.ten.CdsProvider"
+            android:exported="false" />
+        <!--
+            Aviary SDK API KEY
+            Required
+        -->
+        <!-- <meta-data android:name="com.aviary.android.feather.v1.API_KEY" android:value="xxx" /> -->
+        <!-- Adobe CreativeSDK sign-in activity -->
+        <activity
+            android:name="com.adobe.creativesdk.foundation.internal.auth.AdobeAuthSignInActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:label="@string/adobe_csdk_creative_cloud"
+            android:multiprocess="true"
+            android:taskAffinity=""
+            android:theme="@style/AdobeCSDKThemeActivity"
+            android:windowSoftInputMode="stateUnchanged|adjustPan|adjustResize" /> <!-- TODO: -->
+        <!--
+            android:theme="@style/AdobeCSDKTheme.DialogWhenLarge.Impl"
+            tools:replace="android:theme"
+        -->
+        <service
+            android:name="com.adobe.creativesdk.aviary.internal.account.AdobeBillingContentService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":editor" />
+
+        <activity
+            android:name="com.adobe.creativesdk.foundation.internal.auth.AdobeAuthContinuableEventActivity"
+            android:exported="false"
+            android:label="@string/adobe_csdk_creative_cloud"
+            android:launchMode="singleInstance"
+            android:multiprocess="true"
+            android:theme="@style/AdobeCSDKThemeActivity"
+            android:windowSoftInputMode="stateUnchanged|adjustPan|adjustResize" />
+        <!--
+        Include this in you app Manifest if you need SSO ( Single sign on) for Adobe Internal clients.
+        <service android:name="com.adobe.creativesdk.foundation.internal.auth.authenticator.AdobeCSDKAdobeIDAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/adobe_csdk_adobeid_authenticator_description" />
+        </service>
+        -->
+        <activity android:name="com.adobe.creativesdk.foundation.internal.base.AdobeTOUHandlerActivity" />
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.nvcomputers.ten" />
+            </intent-filter>
+        </receiver>
+        <!--
+ Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed.
+        -->
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+        <!--
+ FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.nvcomputers.ten.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

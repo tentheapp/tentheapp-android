@@ -1,0 +1,793 @@
+package com.nvcomputers.ten.views.home;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.PopupMenu;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.StringSignature;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.CommentListAdapter;
+import com.nvcomputers.ten.adapter.SuggestionFollowingAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.DeletePostResponse;
+import com.nvcomputers.ten.model.output.GetAllPostCommentOutput;
+import com.nvcomputers.ten.model.output.PostCommentOutput;
+import com.nvcomputers.ten.model.output.PostCountResponse;
+import com.nvcomputers.ten.model.output.RepostPostResponse;
+import com.nvcomputers.ten.model.output.SearchFollowingUserResponse;
+import com.nvcomputers.ten.presenter.DeletePostPresenter;
+import com.nvcomputers.ten.presenter.GetCommentListPresenter;
+import com.nvcomputers.ten.presenter.LikeCommentsCountsPresenter;
+import com.nvcomputers.ten.presenter.PostCommentPresenter;
+import com.nvcomputers.ten.presenter.RepostPostPresenter;
+import com.nvcomputers.ten.presenter.SearchFollowingPresenter;
+import com.nvcomputers.ten.utils.DateTimeUtil;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.ProgressUtility;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.profile.ProfileActivity;
+import com.nvcomputers.ten.views.profile.ZoomImageActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class PostDetailActivity extends PostDetailBaseActivity implements AppCommonCallback, RepostPostPresenter.RepostCallback, DeletePostPresenter.DeletePostCallback,
+        GetCommentListPresenter.CommentsCallback, PostCommentPresenter.CommentCallback, View.OnClickListener,
+        PopupMenu.OnMenuItemClickListener, LikeCommentsCountsPresenter.LikeCommentsCallback, View.OnLongClickListener,
+        TextWatcher, SearchFollowingPresenter.SearchFollowingCallback {
+
+    private boolean isMyPost;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_selected_post_view;
+    }
+
+    @Override
+    protected void initViews() {
+        mContext = this;
+        super.initViews();
+        getDataFromBundle();
+
+        mUserId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID);
+        followingUser = sharedPrefsHelper.get(PreferenceKeys.PREF_FOLLOWING_LIST, "");
+        registerClickListener();
+        setDataOnUi();
+
+        GestureDetector gesture = new GestureDetector(mContext, new GestureListener());
+        GestureRelativeLayout second_layout = (GestureRelativeLayout) findViewById(R.id.second_layout);
+        second_layout.update(gesture);
+        if (likeCommentsCountsPresenter == null){
+            likeCommentsCountsPresenter=new LikeCommentsCountsPresenter(this,this);
+        }
+        likeCommentsCountsPresenter.countsApi(0, postId);
+    }
+
+    private void setDataOnUi() {
+        updateList();
+        String imageTag = sharedPrefsHelper.get(PreferenceKeys.PREF_IMAGE_TAG, "");
+        String localUser = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        Glide.with(PostDetailActivity.this)
+                .load(HttpUtils.getProfileImageURL(localUser))
+                .bitmapTransform(new RoundedCornersTransformation(baseActivity, 15, 12))
+                .error(R.drawable.myprofilelarge)
+                .placeholder(R.drawable.myprofilelarge)
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                .signature(new StringSignature(imageTag))
+                .into(commentUserImage);
+        setHashTag();
+        if (likeCommentsCountsPresenter == null)
+            likeCommentsCountsPresenter = new LikeCommentsCountsPresenter(this, this);
+
+        UsernameTextView.setText(username);
+        Glide.with(PostDetailActivity.this)
+                .load(HttpUtils.getPostImageURL(postId))
+                .into(PostImage);
+        Glide.with(PostDetailActivity.this)
+                .load(HttpUtils.getProfileImageURL(username))
+                .bitmapTransform(new RoundedCornersTransformation(this, 15, 15))
+                .error(R.drawable.myprofilelarge)
+                .placeholder(R.drawable.myprofilelarge)
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                .signature(new StringSignature(imageTag))
+                .into(UserImage);
+
+        hitCommentApi();
+
+        checkPostExpiration();
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                PostDetailActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        checkPostExpiration();
+                    }
+                });
+            }
+        }, 10000, 10000);
+
+        if (singlePost != null) {
+            updatePostData();
+        }
+
+    }
+
+    public void hitCommentApi() {
+        setProgressBar();
+        getcommentList = new ArrayList<>();
+        GetCommentListPresenter presenter = new GetCommentListPresenter(this);
+        presenter.responseCheck(postId);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cancelTimer();
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        String commentText = edit_text_comment.getText().toString();
+        Intent intents = null;
+        switch (v.getId()) {
+            case R.id.topbtn:
+                previousUser();
+                /*if (mTopBtmList != null && mTopBtmList.size() > 0) {
+                    topBtmPosition--;
+                    String user_id = mTopBtmList.get(topBtmPosition).getUserPoster().getIdUser();
+                    mLeftRgtList = mSelectedPostPresenter.leftRightList(mList, user_id);
+                    getDataFromList(mLeftRgtList, 0);
+                    setDataOnUi();
+                }*/
+
+                break;
+            case R.id.btnBottom:
+                nextUser();
+                /*if (mTopBtmList != null && mTopBtmList.size() > 0) {
+                    topBtmPosition++;
+                    String user_id = mTopBtmList.get(topBtmPosition).getUserPoster().getIdUser();
+                    mLeftRgtList = mSelectedPostPresenter.leftRightList(mList, user_id);
+                    getDataFromList(mLeftRgtList, 0);
+                    setDataOnUi();
+                }*/
+                break;
+
+            case R.id.lefttbtn:
+                previousPost();
+               /* if (mLeftRgtList != null && mLeftRgtList.size() > 0) {
+                    leftRightPosition--;
+                    if (leftRightPosition != -1) {
+                        getDataFromList(mLeftRgtList, leftRightPosition);
+                        setDataOnUi();
+                    } else {
+                        leftBtn.setVisibility(View.GONE);
+                    }
+                }*/
+
+                break;
+
+            case R.id.rightbtn:
+                nextPost();
+                /*if (mLeftRgtList != null && mLeftRgtList.size() > 0) {
+                    leftRightPosition++;
+                    if (leftRightPosition < mLeftRgtList.size()) {
+                        getDataFromList(mLeftRgtList, leftRightPosition);
+                        setDataOnUi();
+                    } else {
+                        rightBtn.setVisibility(View.GONE);
+                    }
+                }*/
+
+                break;
+
+            case R.id.clock:
+                intents = new Intent(PostDetailActivity.this, TimersActivity.class);
+                intents.putExtra("postId", postId);
+                startActivity(intents);
+                break;
+
+            case R.id.timeremaining:
+                intents = new Intent(PostDetailActivity.this, TimersActivity.class);
+                intents.putExtra("postId", postId);
+                startActivity(intents);
+                break;
+
+            case R.id.username:
+                if (!mUserId.equals(userId)) {
+                    Intent intent = new Intent(PostDetailActivity.this, ProfileActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                }
+                break;
+
+            case R.id.comment_image:
+                Utilities.hideKeypad(v);
+                if (!Utilities.checkInternet(this)) {
+                    showToast(R.string.no_internet_msg);
+                } else if (DateTimeUtil.checkExpiration(expirationTime)) {
+                    showToast("You can't add comment on expired post.");
+                } else {
+                    /*Intent intent = new Intent(PostDetailActivity.this, CommentsActivity.class);
+                    intent.putExtra("postId", postId);
+                    intent.putExtra("expirationTime", expirationTime);
+                    if (userId.equals(mUserId))
+                        intent.putExtra("isMyPost", true);
+                    else {
+                        intent.putExtra("isMyPost", false);
+                        startActivity(intent);
+                    }*/
+                    if (!TextUtils.isEmpty(commentText)) {
+                        edit_text_comment.setText("");
+                        ProgressUtility.showProgress(mContext, getString(R.string.please_wait_meassge));
+                        PostCommentPresenter presenter = new PostCommentPresenter(this);
+                        presenter.responseCheck(postId, commentText, null);
+                    }
+                }
+                break;
+            case R.id.like:
+                if (!userId.equals(mUserId)) {
+                    if (!Utilities.checkInternet(mContext)) {
+                        showToast(R.string.no_internet_msg);
+                    } else {
+                        if (!singlePost.getLiked()) {
+                            likePost(postId);
+                        }
+                    }
+                }
+                break;
+            case R.id.edit_text_comment:
+                /*Intent intent = new Intent(PostDetailActivity.this, CommentsActivity.class);
+                intent.putExtra("postId", postId);
+                intent.putExtra("expirationTime", expirationTime);
+                if (userId.equals(mUserId)) {
+                    intent.putExtra("isMyPost", true);
+                }else {
+                    intent.putExtra("isMyPost", false);
+                }
+                startActivity(intent);*/
+                break;
+            case R.id.postimage:
+                Intent i = new Intent(PostDetailActivity.this, ZoomImageActivity.class);
+                i.putExtra("image", HttpUtils.getPostImageURL(postId));
+                i.putExtra("username", username);
+                startActivity(i);
+                break;
+            case R.id.image_back:
+
+                finish();
+                break;
+            case R.id.action:
+                showPopup(v);
+                break;
+            case R.id.repost:
+                /*if (singlePost.getUserPoster().getIdUser().equals(userId)) {
+                    return;
+                }
+                if (singlePost.getIsReposted()) {
+                    return;
+                }
+
+                String expTime = DateTimeUtil.getRemainingTimeInMinutes(expirationTime);
+                if (expTime.equals("Exp")) {
+                    return;
+                }
+                repostPost(postId);*/
+                if (singlePost.getUserPoster().getIdUser().equals(mUserId)) {
+                    Utilities.showlongToast(mContext, "You can't re-post your own post.");
+                    return;
+                }
+                if (singlePost.getIsReposted()) {
+                    Utilities.showlongToast(mContext, "You already re-post this post.");
+                    return;
+                }
+                new AlertDialog.Builder(mContext).setTitle("Repost?").setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            RepostImage.setImageResource(R.drawable.refresh);
+                            repostPost(singlePost.getIdPost());
+                        } catch (Exception eee) {
+                            eee.printStackTrace();
+                        } finally {
+                            if (!singlePost.getIsReposted()) {
+                                RepostImage.setImageResource(R.drawable.repost);
+                            }
+                        }
+                    }
+                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
+                break;
+            case R.id.playBtn1:
+                playVideo(singlePost.getVideoUrl());
+                break;
+        }
+    }
+
+    private void repostPost(String postId) {
+        RepostPostPresenter repostPostPresenter = new RepostPostPresenter(this, this);
+        repostPostPresenter.responseCheck(postId);
+    }
+
+    public void showPopup(View v) {
+        String currentUserId = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_ID);
+        popup = new PopupMenu(PostDetailActivity.this, v);
+        popup.setOnMenuItemClickListener(this);
+        MenuInflater inflater = popup.getMenuInflater();
+        if (userId.equals(currentUserId)) {
+            inflater.inflate(R.menu.sameuser_menu, popup.getMenu());
+        } else {
+            inflater.inflate(R.menu.other_user_post_menu, popup.getMenu());
+        }
+        popup.show();
+
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+        ProgressUtility.showProgress(mContext, "Loading...");
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+        ProgressUtility.dismissProgress();
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    public void postCommmentError(Call<PostCommentOutput> call, Throwable t) {
+        showToast(t.getMessage());
+        dismiss();
+    }
+
+    @Override
+    public void postCommmentSuccess(Response<PostCommentOutput> response) {
+        ProgressUtility.dismissProgress();
+        if (response != null && response.body() != null) {
+            if (response.code() == 200) {
+                edit_text_comment.setText("");
+                GetCommentListPresenter presenter = new GetCommentListPresenter(this);
+                presenter.responseCheck(postId);
+                likeCommentsCountsPresenter.countsApi(0, postId);
+            } else {
+                showToast(R.string.no_data_found_msg);
+            }
+
+        } else {
+            showToast(R.string.server_error_msg);
+        }
+    }
+
+
+    @Override
+    public void setAdapter(RecyclerView recyclerView, ArrayList<?> mList) {
+        super.setAdapter(recyclerView, mList);
+        //adapter = new SelectedPostCommentAdapter(this, mList, PostDetailActivity.this);
+        // mCommentsRecyclerView.setAdapter(adapter);
+        if (userId.equals(mUserId))
+            isMyPost = true;
+        else
+            isMyPost = false;
+        super.setAdapter(recyclerView, mList);
+        adapter = new CommentListAdapter(PostDetailActivity.this, mList, postId, isMyPost);
+        mCommentsRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void getCommentListError(Call<GetAllPostCommentOutput> call, Throwable t) {
+        showToast(t.getMessage());
+        dismiss();
+    }
+
+    @Override
+    public void getCommentListSuccess(Response<GetAllPostCommentOutput> response) {
+        dismiss();
+        if (response != null) {
+            GetAllPostCommentOutput body = response.body();
+//            if (body != null) {
+//                getlist = body.getComments();
+//                if (getlist != null) {
+//                    getcommentList = getlist;
+//                    //setAdapter(mCommentsRecyclerView, getlist);
+//                    //text.setVisibility(View.GONE);
+//                } else {
+//                    // text.setVisibility(View.VISIBLE);
+//
+//                }
+//            }
+            if (body != null) {
+                getlist = body.getComments();
+                if (getlist != null && getlist.size() > 0) {
+                    getcommentList = getlist;
+                    mCommentsRecyclerView.setVisibility(View.VISIBLE);
+                    text.setVisibility(View.GONE);
+                } else {
+                    text.setVisibility(View.VISIBLE);
+                    if (expirationTime!=null) {
+                        if (DateTimeUtil.checkExpiration(expirationTime)) {
+                            text.setText("No comments or reactions");
+                        } else {
+                            text.setText("Be the first one to add comment or reaction");
+                        }
+                    }else {
+                        text.setText("No comments or reactions");
+                    }
+                    mCommentsRecyclerView.setVisibility(View.GONE);
+                }
+
+            }
+
+
+
+            else {
+                showToast(R.string.server_error_msg);
+            }
+            setAdapter(mCommentsRecyclerView,getcommentList);
+        } else {
+            showToast(R.string.server_error_msg);
+        }
+
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.deletePost:
+                popup.dismiss();
+                if (!Utilities.checkInternet(this)) {
+                    showToast(R.string.no_internet_msg);
+                } else
+                    hitDeleteApi();
+                break;
+            case R.id.cancel:
+                popup.dismiss();
+                break;
+            case R.id.report_post:
+                showToast("Coming Soon");
+                break;
+        }
+        return false;
+    }
+
+    private void hitDeleteApi() {
+        popup.dismiss();
+        DeletePostPresenter deletePostPresenter = new DeletePostPresenter(this, this);
+        deletePostPresenter.responseCheck(postId);
+    }
+
+    @Override
+    public void repostError(Call<RepostPostResponse> call, Throwable t) {
+
+    }
+
+    @Override
+    public void onRepostSuccess(Response<RepostPostResponse> response) {
+
+    }
+
+    @Override
+    public void deletePostError(Call<DeletePostResponse> call, Throwable t) {
+
+    }
+
+    @Override
+    public void onDeletePostSuccess(Response<DeletePostResponse> response) {
+
+    }
+
+    @Override
+    public void getCounts(int pos, PostCountResponse postCountResponse) {
+        /*int countlike = postCountResponse.getPost().getLikeCount();
+        if (countlike>0){
+            LikeImage.setImageResource(R.drawable.likeselected);
+        }
+        int countComment =postCountResponse.getPost().getCommentCount();
+        if (countComment>0){
+            CommentImage.setImageResource(R.drawable.commentselected);
+        }
+        int countRepost = postCountResponse.getPost().getRepostCount();
+        if (countRepost>0){
+            RepostImage.setImageResource(R.drawable.repost_selected);
+        }
+        likeCount.setText(String.valueOf(countlike));
+        commentCount.setText(String.valueOf(countComment));
+        repostCount.setText(String.valueOf(countRepost));*/
+        if (singlePost != null) {
+            singlePost.setRepostCount(postCountResponse.getPost().getRepostCount());
+            singlePost.setLikeCount(postCountResponse.getPost().getLikeCount());
+            singlePost.setCommentCount(postCountResponse.getPost().getCommentCount());
+            updatePostData();
+        } else {
+            likeCount.setText(postCountResponse.getPost().getLikeCount() + "");
+            commentCount.setText(postCountResponse.getPost().getCommentCount() + "");
+            repostCount.setText(postCountResponse.getPost().getRepostCount() + "");
+        }
+    }
+
+    @Override
+    public void countsError(String error) {
+        showToast(error);
+    }
+
+    private void registerClickListener() {
+
+        findViewById(R.id.title_layout).setOnClickListener(this);
+        leftBtn.setOnClickListener(this);
+        rightBtn.setOnClickListener(this);
+        topBtn.setOnClickListener(this);
+        bottomBtn.setOnClickListener(this);
+        leftScrollBtn.setOnClickListener(this);
+        rightScrollBtn.setOnClickListener(this);
+        //edit_text_comment.setOnClickListener(this);
+        RepostImage.setOnClickListener(this);
+        commentImage.setOnClickListener(this);
+        commentImage.setOnLongClickListener(this);
+        imageBack.setOnClickListener(this);
+        action.setOnClickListener(this);
+        UsernameTextView.setOnClickListener(this);
+        LikeImage.setOnClickListener(this);
+        playBtn.setOnClickListener(this);
+        TimeRemainingTextView.setOnClickListener(this);
+        findViewById(R.id.clock).setOnClickListener(this);
+        edit_text_comment.addTextChangedListener(this);
+    }
+
+    private static final int VIDEO_CODE = 676;
+
+    @Override
+    public boolean onLongClick(View v) {
+        switch (v.getId()) {
+            case R.id.comment_image:
+                Intent intent = new Intent(mContext, VideoCommentsActivity.class);
+                startActivityForResult(intent, VIDEO_CODE);
+                break;
+        }
+        return false;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == VIDEO_CODE) {
+            if (data != null) {
+               /* mVideoPath = data.getStringExtra("recordedPath");
+                ProgressUtility.showProgress(getActivity(), getString(R.string.please_wait_meassge));
+                PostCommentPresenter presenter = new PostCommentPresenter(this);
+                presenter.responseCheck(postId, "Video Comment", mVideoPath);*/
+                String mVideoPath = data.getStringExtra("recordedPath");
+                String mImagePath = data.getStringExtra("imagePath");
+                ProgressUtility.showProgress(mContext, getString(R.string.please_wait_meassge));
+                if (mVideoPath == null || mVideoPath.equals("")) {
+                    PostCommentPresenter presenter = new PostCommentPresenter(this);
+                    presenter.responseCheck(postId, "Image Comment", mImagePath);
+                } else {
+                    PostCommentPresenter presenter = new PostCommentPresenter(this);
+                    presenter.responseCheck(postId, "Video Comment", mVideoPath);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        String comment = edit_text_comment.getText().toString();
+        if (!TextUtils.isEmpty(comment)) {
+            if (comment.contains("@")) {
+                if (comment.length() > 1) {
+                    int index = comment.indexOf("@");
+                    Log.e("index--", index + "");
+                    StringTokenizer stringTokenizer = new StringTokenizer(comment, "@");
+                    String token = null;
+                    while (stringTokenizer.hasMoreTokens()) {
+                        token = stringTokenizer.nextToken();
+                        Log.e("first--", token);
+                    }
+                    if (!token.contains(" ")) {
+                        hitFollowingSuggestionsApi(token, index);
+                        Log.e("last--", token);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+    private void hitFollowingSuggestionsApi(String suggestion, int index) {
+        Log.e("suggesstion--", suggestion);
+        if (Utilities.checkInternet(mContext)) {
+            SearchFollowingPresenter searchFollowingPresenter = new SearchFollowingPresenter(this, this);
+            searchFollowingPresenter.responseCheck(mUserId, suggestion);
+        } else {
+            Utilities.showSmallToast(PostDetailActivity.this, getString(R.string.no_internet_msg));
+        }
+    }
+    @Override
+    public void searchFollowingnError(Call<SearchFollowingUserResponse> call, Throwable t) {
+        Utilities.showMessage(mContext, getString(R.string.server_error_msg));
+    }
+
+    @Override
+    public void onSearchFollowingSuccess(Response<SearchFollowingUserResponse> response) {
+        SearchFollowingUserResponse body = response.body();
+        if (body != null) {
+            List<SearchFollowingUserResponse.Users> usersDataList = body.getUsers();
+            if (mSuggestionDialog == null)
+                showSuggestionDialog();
+
+            if (usersDataList == null || usersDataList.size() == 0) {
+                mSuggestionDialog.dismiss();
+                return;
+            }
+            mSuggestionDialog.dismiss();
+            mSuggestionDialog.show();
+            SuggestionFollowingAdapter followingListAdapter = new SuggestionFollowingAdapter(this, usersDataList);
+            suggestionRV.setAdapter(followingListAdapter);
+        } else {
+            Utilities.showMessage(mContext, getString(R.string.server_error_msg));
+        }
+    }
+
+    public class GestureListener extends GestureDetector.SimpleOnGestureListener {
+
+        private static final int SWIPE_THRESHOLD = 100;
+        private static final int SWIPE_VELOCITY_THRESHOLD = 100;
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            boolean result = false;
+            try {
+                float diffY = e2.getY() - e1.getY();
+                float diffX = e2.getX() - e1.getX();
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                        if (diffX > 0) {
+                            //onSwipeRight();
+                            //Toast.makeText(baseActivity, "right", Toast.LENGTH_SHORT).show();
+                            previousPost();
+                        } else {
+                            //onSwipeLeft();
+                            //Toast.makeText(baseActivity, "left", Toast.LENGTH_SHORT).show();
+                            nextPost();
+                        }
+                        result = true;
+                    }
+                } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                    if (diffY > 0) {
+                        //onSwipeBottom();
+                    } else {
+                        //onSwipeTop();
+                    }
+                    result = true;
+                }
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+            return result;
+        }
+    }
+
+    private void previousUser() {
+        if (mTopBtmList != null && mTopBtmList.size() > 0) {
+            topBtmPosition--;
+            if (topBtmPosition != -1) {
+                Animation anim = AnimationUtils.loadAnimation(mContext, R.anim.down_anim);
+                parentLayout.startAnimation(anim);
+                // parentLayout.animate().translationY(parentLayout.getHeight());
+                String user_id = mTopBtmList.get(topBtmPosition).getUserPoster().getIdUser();
+                mLeftRgtList = mSelectedPostPresenter.leftRightList(mList, user_id);
+                getDataFromList(mLeftRgtList, 0);
+                setDataOnUi();
+            } else {
+                topBtmPosition++;
+            }
+        }
+    }
+
+    private void nextUser() {
+        if (mTopBtmList != null && mTopBtmList.size() > 0) {
+            topBtmPosition++;
+            if (topBtmPosition < mTopBtmList.size()) {
+                Animation anim = AnimationUtils.loadAnimation(mContext, R.anim.up_anim);
+                parentLayout.startAnimation(anim);
+                //parentLayout.animate().translationY(parentLayout.getHeight());
+                String user_id = mTopBtmList.get(topBtmPosition).getUserPoster().getIdUser();
+                mLeftRgtList = mSelectedPostPresenter.leftRightList(mList, user_id);
+                getDataFromList(mLeftRgtList, 0);
+                setDataOnUi();
+            } else {
+                topBtmPosition--;
+            }
+        }
+    }
+
+    private void nextPost() {
+        if (mLeftRgtList != null && mLeftRgtList.size() > 0) {
+            leftRightPosition++;
+            if (leftRightPosition < mLeftRgtList.size()) {
+                Animation anim = AnimationUtils.loadAnimation(mContext, R.anim.left_anim);
+                parentLayout.startAnimation(anim);
+
+                // parentLayout.animate().translationX(parentLayout.getWidth());
+                //activity.overridePendingTransition(R.anim.left_anim, R.anim.right_anim);
+                getDataFromList(mLeftRgtList, leftRightPosition);
+                setDataOnUi();
+            } else {
+                rightBtn.setVisibility(View.GONE);
+                leftRightPosition--;
+            }
+        }
+    }
+
+    private void previousPost() {
+        if (mLeftRgtList != null && mLeftRgtList.size() > 0) {
+            leftRightPosition--;
+            if (leftRightPosition != -1) {
+                Animation anim = AnimationUtils.loadAnimation(mContext, R.anim.right_anim);
+                parentLayout.startAnimation(anim);
+                // parentLayout.animate().translationXBy(-parentLayout.getWidth()).translationX(0);
+                //activity.overridePendingTransition(R.anim.right_anim, R.anim.left_anim);
+                getDataFromList(mLeftRgtList, leftRightPosition);
+                setDataOnUi();
+            } else {
+                leftBtn.setVisibility(View.GONE);
+                leftRightPosition++;
+            }
+        }
+    }
+}

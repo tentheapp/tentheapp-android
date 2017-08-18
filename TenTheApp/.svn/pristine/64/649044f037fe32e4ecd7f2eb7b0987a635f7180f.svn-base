@@ -1,0 +1,200 @@
+package com.nvcomputers.ten.views.home;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.adapter.TimedPostAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.GetUserStatusResponse;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.model.output.NotificationLitResponse;
+import com.nvcomputers.ten.presenter.GetUserStatusPresenter;
+import com.nvcomputers.ten.presenter.NotificationListPresenter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.utils.Utilities;
+import com.nvcomputers.ten.views.profile.ProfileActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
+
+public class TimedPostActivity extends Activity implements AppCommonCallback, NotificationListPresenter.NotificationListCallback, GetUserStatusPresenter.GetUserStatusCallback {
+
+    private RecyclerView timedPostRecyclerView;
+    private TimedPostAdapter mAdapter;
+    private SharedPrefsHelper sharedPrefsHelper;
+    private ProgressBar progressBar;
+    private List<NotificationLitResponse.Notifications> mArrayList = new ArrayList<>();
+    private TimedPostAdapter notificationListAdapter;
+    private int offset = 0, count = 0;
+    int lastSavedPosition = 0;
+    boolean noMoreData = false;
+    int currentPageNumber = 1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+        setContentView(R.layout.activity_timed_post);
+        InitUi();
+
+    }
+
+    private void InitUi() {
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        sharedPrefsHelper = new SharedPrefsHelper(TimedPostActivity.this);
+        ImageView btnopen = (ImageView) findViewById(R.id.cross_imageview);
+        timedPostRecyclerView = (RecyclerView) findViewById(R.id.timedPostRecyclerView);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        //  mLayoutManager.setStackFromEnd(false);
+        timedPostRecyclerView.setLayoutManager(mLayoutManager);
+        btnopen.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                backPressed();
+            }
+        });
+        //get list of notificaitons
+        loadData(0);
+    }
+
+    public void loadData(int listCount) {
+        if (listCount == 0) {
+            currentPageNumber = 1;
+            lastSavedPosition = 0;
+            noMoreData = false;
+            mArrayList = new ArrayList<>();
+            hitNotificationApi(lastSavedPosition);
+        } else {
+            lastSavedPosition = listCount - 1;
+            if (listCount >= 10 && !noMoreData && listCount % 10 == 0) {
+                int value = listCount / 10;
+                currentPageNumber = value + 1;
+                hitNotificationApi(lastSavedPosition);
+            } else {
+                progressBar.setVisibility(View.GONE);
+                //ProgressUtility.dismissProgress();
+            }
+        }
+    }
+
+    private void hitNotificationApi(int offset) {
+        String offSet = String.valueOf(offset);
+        String username = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        String password = sharedPrefsHelper.get(PreferenceKeys.PREF_PASSWORD, "");
+        GetUserStatusPresenter getUserStatusPresenter = new GetUserStatusPresenter(this, this);
+        getUserStatusPresenter.responseCheck(username, password, offSet, "10");
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        backPressed();
+    }
+
+    private void backPressed() {
+        finish();
+        overridePendingTransition(R.layout.timed_post_animation, R.layout.timed_post_animation2);
+        overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+    }
+
+    @Override
+    public void setProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void dismiss() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void notificationError(Call<NotificationLitResponse> call, Throwable t) {
+        Utilities.showMessage(TimedPostActivity.this, getString(R.string.server_error));
+    }
+
+    public void moveToProfile(String username) {
+        Intent intent = new Intent(TimedPostActivity.this, ProfileActivity.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onNotificationSuccess(Response<NotificationLitResponse> response) {
+        NotificationLitResponse body = response.body();
+        if (body != null) {
+            mArrayList = body.getNotifications();
+            if (mArrayList != null && mArrayList.size() > 0) {
+                //mArrayList.addAll(nList);
+                mAdapter = new TimedPostAdapter(TimedPostActivity.this, mArrayList);
+                timedPostRecyclerView.setAdapter(mAdapter);
+            } else {
+                Utilities.showMessage(TimedPostActivity.this, "No Active Posts");
+                mArrayList = new ArrayList<>();
+                mAdapter = new TimedPostAdapter(TimedPostActivity.this, mArrayList);
+                timedPostRecyclerView.setAdapter(mAdapter);
+            }
+        } else {
+            Utilities.showMessage(TimedPostActivity.this, getString(R.string.server_error));
+        }
+
+    }
+
+    @Override
+    public void userStatusError(Call<GetUserStatusResponse> call, Throwable t) {
+        Utilities.showMessage(TimedPostActivity.this, getString(R.string.server_error));
+    }
+
+    @Override
+    public void onUserStatusSuccess(Response<GetUserStatusResponse> response) {
+        GetUserStatusResponse body = response.body();
+        if (body != null) {
+            mArrayList = body.getNotifications();
+            if (mArrayList != null && mArrayList.size() > 0) {
+                //mArrayList.addAll(nList);
+                mAdapter = new TimedPostAdapter(TimedPostActivity.this, mArrayList);
+                timedPostRecyclerView.setAdapter(mAdapter);
+            } else {
+                Utilities.showMessage(TimedPostActivity.this, "No Active Posts");
+                mArrayList = new ArrayList<>();
+                mAdapter = new TimedPostAdapter(TimedPostActivity.this, mArrayList);
+                timedPostRecyclerView.setAdapter(mAdapter);
+            }
+        } else {
+            Utilities.showMessage(TimedPostActivity.this, getString(R.string.server_error));
+        }
+    }
+
+    public void screenNaigations(ArrayList<NewsFeedOutput.Posts> notificationPostList, Bundle bundle, int clickedPosition) {
+        String type = bundle.getString("type");
+
+        String notificationId = bundle.getString("notificationId");
+        //markReadNotification(notificationId);
+        if (type.contains("COMMENT") ||
+                type.contains("LIKE") ||
+                type.contains("FOLLWERSPOST") ||
+                type.contains("MENTIONPOST")) {
+            Intent intent = new Intent(TimedPostActivity.this, PostDetailActivity.class);
+            intent.putParcelableArrayListExtra(PreferenceKeys.PREF_HOME_PAGE_DATA, notificationPostList);
+            intent.putExtra("position", clickedPosition);
+            startActivity(intent);
+        } else if (type.contains("FRIENDREQUEST")) {
+            String name = bundle.getString("username");
+            Intent intent = new Intent(TimedPostActivity.this, ProfileActivity.class);
+            intent.putExtra("username", name);
+            startActivity(intent);
+        } else {
+            //replaceChildFragment(R.id.notification_frame_layout, new ProfileFragment(), bundle);
+        }
+
+    }
+}

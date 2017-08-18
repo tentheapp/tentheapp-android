@@ -1,0 +1,23 @@
+package com.nvcomputers.ten.utils;
+
+/**
+ * Created by rkumar4 on 10/24/2016.
+ */
+
+public class PreferenceKeys {
+    public static final String PREF_USER_ID = "user_id";
+    public static final String PREF_USER_PHONE_NUMBER = "phone_number";
+    public static final String PREF_USER_FIRST_NAME = "first_name";
+    public static final String PREF_USER_NAME = "user_name";
+    public static final String PREF_PASSWORD = "user_password";
+    public static final String PREF_EMAIL_ID = "user_email";
+    public static final String PREF_COUNTRY_ID = "country_code";
+    public static final String PREF_USER_IMAGE = "user_img";
+    public static final String PREF_FOLLOWING_LIST = "following_list";
+    public static final String PREF_HOME_PAGE_DATA = "post_list_data";
+    public static final String PREF_PROFILE_PAGE_DATA = "profile_list_data";
+    public static final String PREF_IMAGE_TAG = "image_tag";
+
+    public static final String PREF_PRIVACY_POLICY = "accept_privacy_policy";
+
+}

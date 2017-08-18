@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:id="@+id/image_view_user"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/tabbar4" />
+
+        <TextView
+            android:id="@+id/text_view_usernm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/image_view_user"
+            android:text="dsd"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/text_view_follow"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/text_view_following"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:alpha="0.8"
+            android:background="@drawable/rounded_btn_green"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Following"
+            android:textColor="@android:color/white" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rl_follow"
+        android:background="@color/light_grey"></View>
+</RelativeLayout>

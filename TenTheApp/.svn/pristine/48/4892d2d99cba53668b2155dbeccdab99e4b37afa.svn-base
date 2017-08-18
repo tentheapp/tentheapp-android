@@ -1,0 +1,78 @@
+package com.nvcomputers.ten.views;
+
+import android.support.multidex.MultiDexApplication;
+
+import com.nvcomputers.ten.R;
+import com.testfairy.TestFairy;
+//import com.testfairy.TestFairy;
+
+import org.acra.ACRA;
+import org.acra.ReportingInteractionMode;
+import org.acra.annotation.ReportsCrashes;
+
+/**
+ * Created by kambojRavi on 4/21/2017.
+ */
+@ReportsCrashes(formKey = "dGVacG0ydVHnaNHjRjVTUTEtb3FPWGc6MQ",
+        mailTo = "rkumar4@seasiainfotech.com,jindaldipanshu@seasiainfotech.com",
+        mode = ReportingInteractionMode.DIALOG,
+        resToastText = R.string.crash_toast_text, // optional, displayed as soon as the crash occurs, before collecting Data which can take a few seconds
+        resDialogText = R.string.crash_dialog_text,
+        resDialogIcon = android.R.drawable.ic_dialog_info, //optional. default is a warning sign
+        resDialogTitle = R.string.crash_dialog_title, // optional. default is your application name
+        resDialogCommentPrompt = R.string.crash_dialog_comment_prompt, // optional. when defined, adds a user text field input with this text resource as a label
+        resDialogOkToast = R.string.crash_dialog_ok_toast // optional. displays a Toast message when the user accepts to send a report.
+
+)
+
+public class TTApplication extends MultiDexApplication {
+    public static String userName = "";
+    public static String password = "";
+
+    /* Be sure to fill in the two strings below. */
+
+    // private static final String CREATIVE_SDK_CLIENT_ID = "08175e99b1a7466aa5e71825a83a013a";
+    //   private static final String CREATIVE_SDK_CLIENT_SECRET = "b6cb8933-e0a1-429a-98d3-f56e10d8691d";
+    //  private static final String CREATIVE_SDK_REDIRECT_URI = "ams+4b29cbc1461f633b112f998e6c4e099123a1a429://adobeid/08175e99b1a7466aa5e71825a83a013a\n";
+    private static final String CREATIVE_SDK_CLIENT_ID = "08175e99b1a7466aa5e71825a83a013a";
+    private static final String CREATIVE_SDK_CLIENT_SECRET = "b6cb8933-e0a1-429a-98d3-f56e10d8691d";
+    private static final String CREATIVE_SDK_REDIRECT_URI = "ams+4b29cbc1461f633b112f998e6c4e099123a1a429://adobeid/08175e99b1a7466aa5e71825a83a013a\n";
+    public static String recordedVideoPath;
+    public static String glideTimer = "1";
+    //public static String recordedVideoThumbPath;
+
+    //    private static final String CREATIVE_SDK_CLIENT_ID = "adfcbbb33f32431d89a629a4efffdd1c";
+    //    private static final String CREATIVE_SDK_CLIENT_SECRET = "e926e7b1-5e81-4451-8660-3c2794386fc9";
+    //    private static final String CREATIVE_SDK_REDIRECT_URI = "ams+de115f6cfca1fe5546f930a2779594de3df44e66://adobeid/adfcbbb33f32431d89a629a4efffdd1c\n";
+    // private static final String[] CREATIVE_SDK_SCOPES       = {"email", "profile", "address"};
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        ACRA.init(this);
+      /*
+        TestFairy.begin(this, "ffce3cd261d4a584b98d34bc5874fac476310a42");*/
+        //AdobeCSDKFoundation.initializeCSDKFoundation(getApplicationContext());
+    }
+
+   /* @Override
+    public String getClientID() {
+        return CREATIVE_SDK_CLIENT_ID;
+    }
+
+    @Override
+    public String getClientSecret() {
+        return CREATIVE_SDK_CLIENT_SECRET;
+    }
+
+    @Override
+    public String[] getAdditionalScopesList() {
+        return new String[0];
+    }
+
+    @Override
+    public String getRedirectURI() {
+        return CREATIVE_SDK_REDIRECT_URI;
+    }*/
+
+}

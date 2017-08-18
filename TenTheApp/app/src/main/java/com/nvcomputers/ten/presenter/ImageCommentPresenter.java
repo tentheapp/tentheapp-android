@@ -1,0 +1,47 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.ImageCommentOutput;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 7/4/2017.
+ */
+
+public class ImageCommentPresenter {
+    private ImageCoomentCallback imageCoomentCallback;
+    private AppCommonCallback screen;
+
+    public ImageCommentPresenter(AppCommonCallback callback, ImageCoomentCallback imageCoomentCallback) {
+        this.screen = callback;
+        this.imageCoomentCallback = imageCoomentCallback;
+    }
+
+    public interface ImageCoomentCallback {
+        void imageCommentError(Call<ImageCommentOutput> call, Throwable t);
+
+        void onImageCommentSuccess(Response<ImageCommentOutput> response);
+    }
+
+    public void responseCheck(String postId) {
+        //screen.setProgressBar();
+        Call<ImageCommentOutput> response = GetRestAdapter.getRestAdapter(true).imageComment(postId);
+        response.enqueue(new Callback<ImageCommentOutput>() {
+            @Override
+            public void onResponse(Call<ImageCommentOutput> call, Response<ImageCommentOutput> response) {
+                //screen.dismiss();
+                imageCoomentCallback.onImageCommentSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<ImageCommentOutput> call, Throwable t) {
+                //screen.dismiss();
+                imageCoomentCallback.imageCommentError(call, t);
+            }
+        });
+    }
+}

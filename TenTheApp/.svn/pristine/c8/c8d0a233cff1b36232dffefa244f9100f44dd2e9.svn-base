@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/abc_item_background_holo_light" />
+
+    <!--<item android:state_pressed="true">-->
+    <!--<shape android:shape="oval">-->
+    <!--<solid android:color="@color/com_adobe_image_white_semi_transparent" />-->
+    <!--</shape>-->
+    <!--</item>-->
+</selector>

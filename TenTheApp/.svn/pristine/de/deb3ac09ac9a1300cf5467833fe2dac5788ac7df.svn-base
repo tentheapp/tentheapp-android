@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.adobe.creativesdk.aviary.widget.AdobeImageBottomBarAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/com_adobe_image_bottombar_height"
+    android:layout_gravity="bottom"
+    android:animateFirstView="true"
+    android:animationCache="true"
+    android:animationDuration="@android:integer/config_longAnimTime"
+    android:elevation="7dp"
+    android:inAnimation="@anim/com_adobe_image_bottombar_in"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:outAnimation="@anim/com_adobe_image_bottombar_out"
+    android:persistentDrawingCache="animation"
+    app:layout_behavior="com.adobe.creativesdk.aviary.widget.AdobeImageBottomBehavior"
+    app:vra_hideBeforeReveal="false">
+
+    <!-- 1st level tools -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimary"
+        android:drawSelectorOnTop="true"
+        android:paddingBottom="0dip"
+        android:paddingTop="0dip"
+        android:theme="@style/AdobeImageWidget.EdgeOverlayDark" />
+
+    <!-- options panel container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSecondary"
+        android:padding="0dip" />
+
+</com.adobe.creativesdk.aviary.widget.AdobeImageBottomBarAnimator>

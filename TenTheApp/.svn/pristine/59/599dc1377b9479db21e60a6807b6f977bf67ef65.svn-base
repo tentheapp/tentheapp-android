@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Panel with a single seekbar -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:clipChildren="false"
+    android:padding="@dimen/com_adobe_image_bottombar_default_panel_padding"
+    android:weightSum="100">
+
+    <include
+        android:id="@+id/IntensitySliderView02"
+        layout="@layout/com_adobe_image_bottombar_slider_tooltip_only"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="@integer/com_adobe_image_seekbar_weight"
+        android:progress="0" />
+</LinearLayout>

@@ -1,0 +1,672 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:2:1-240:12
+	package
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:3:5-34
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:5:5-67
+MERGED from [com.google.android.gms:play-services-gcm:10.0.1] C:\Users\thaparsneh\.android\build-cache\bc71e5a56f50d4b11108409084ba744a83f3b26a\output\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\248a5a30ab064b4f2f4a183fcdeee31b6a70b58c\output\AndroidManifest.xml:21:5-66
+MERGED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:8:5-67
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\thaparsneh\.android\build-cache\57c845232e7f8cc9ba1a315e75deed685b217843\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:6:5-79
+MERGED from [com.localytics.android:library:3.8.0] C:\Users\thaparsneh\.android\build-cache\269ed7c7db5131cb00544bd9f47d2e4e4e9684b6\output\AndroidManifest.xml:11:5-79
+MERGED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:11:5-79
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\thaparsneh\.android\build-cache\57c845232e7f8cc9ba1a315e75deed685b217843\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:6:22-76
+uses-permission#android.permission.READ_CONTACTS
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:7:5-72
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:7:22-69
+uses-permission#android.permission.WRITE_CONTACTS
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:8:5-73
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:8:22-70
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:9:5-75
+MERGED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:12:5-75
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:9:22-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:10:5-80
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:10:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:11:5-81
+MERGED from [TenTheApp:k4l-video-trimmer:unspecified] D:\Workspace\TenTheApp\k4l-video-trimmer\build\intermediates\bundles\default\AndroidManifest.xml:11:5-81
+MERGED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:11:22-78
+uses-permission#android.permission.CAMERA
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:12:5-65
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:12:22-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:13:5-71
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:13:22-68
+uses-permission#android.permission.FLASHLIGHT
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:14:5-69
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:14:22-66
+uses-feature#android.hardware.camera
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:16:5-60
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:16:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:17:5-70
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:17:19-67
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:19:5-82
+MERGED from [com.google.android.gms:play-services-gcm:10.0.1] C:\Users\thaparsneh\.android\build-cache\bc71e5a56f50d4b11108409084ba744a83f3b26a\output\AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\248a5a30ab064b4f2f4a183fcdeee31b6a70b58c\output\AndroidManifest.xml:20:5-81
+MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:19:22-79
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:20:5-68
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\thaparsneh\.android\build-cache\57c845232e7f8cc9ba1a315e75deed685b217843\output\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:20:22-65
+uses-permission#android.permission.SEND_SMS
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:22:5-67
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:22:22-64
+permission#com.nvcomputers.ten.gcm.permission.C2D_MESSAGE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:27:5-29:47
+	android:protectionLevel
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:29:9-44
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:28:9-70
+uses-permission#com.nvcomputers.ten.gcm.permission.C2D_MESSAGE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:31:5-86
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:31:22-83
+application
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:40:5-238:19
+MERGED from [TenTheApp:k4l-video-trimmer:unspecified] D:\Workspace\TenTheApp\k4l-video-trimmer\build\intermediates\bundles\default\AndroidManifest.xml:13:5-14:19
+MERGED from [TenTheApp:FFmpegAndroid:unspecified] D:\Workspace\TenTheApp\FFmpegAndroid\build\intermediates\bundles\default\AndroidManifest.xml:10:5-20
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\thaparsneh\.android\build-cache\c2ba1d4b7417786eefe2eccbdf810bb10bd2094c\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:25.2.0] C:\Users\thaparsneh\.android\build-cache\44ba38136784455602b40f5d8fc2312fd7d75d85\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:transition:25.2.0] C:\Users\thaparsneh\.android\build-cache\90b5f10406f85a9151d63c785632b0845b7c034b\output\AndroidManifest.xml:22:5-20
+MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\thaparsneh\.android\build-cache\c6961079e7ec2c826c3ec780a6a55e65a4288ce7\output\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha9] C:\Users\thaparsneh\.android\build-cache\003d05af02aee68bb15fff5315e5b39eb66fbcf3\output\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-gcm:10.0.1] C:\Users\thaparsneh\.android\build-cache\bc71e5a56f50d4b11108409084ba744a83f3b26a\output\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\248a5a30ab064b4f2f4a183fcdeee31b6a70b58c\output\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\thaparsneh\.android\build-cache\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\output\AndroidManifest.xml:18:5-20:19
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\thaparsneh\.android\build-cache\33c95d4db2409702245a7b0cb489041a8487d7eb\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\thaparsneh\.android\build-cache\c461f5dbf14049f75660f08f737cdd7d75b89016\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\thaparsneh\.android\build-cache\7420ede01e2c81df8faaa708d52ab5f3bdaeb6da\output\AndroidManifest.xml:23:5-20
+MERGED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:17:5-25:19
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\thaparsneh\.android\build-cache\47d2f3f136ee92e84d09d9fc1a2bc33b07c2ecb1\output\AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-core:10.0.1] C:\Users\thaparsneh\.android\build-cache\794cf4bd9a107df9af1f49bedb6db0c4a8674588\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:24:5-33:19
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\thaparsneh\.android\build-cache\57c845232e7f8cc9ba1a315e75deed685b217843\output\AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:28:5-50:19
+MERGED from [com.google.firebase:firebase-common:10.0.1] C:\Users\thaparsneh\.android\build-cache\ba259e1c29b87ba5c586a000c7854194e5ceb452\output\AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] C:\Users\thaparsneh\.android\build-cache\6d73972c2f617c2d5838d6077a9cb4984c599cc4\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\thaparsneh\.android\build-cache\a80c871d2200b44ee97416bcc2a13945c419cd8f\output\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\thaparsneh\.android\build-cache\44ad85126b7195b3360a4354c642599417cf313d\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\thaparsneh\.android\build-cache\4750247abdbe5a6dbe05ea7ded99ec0cbda81c25\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\thaparsneh\.android\build-cache\c36b48ec02b6cf9d83dcd7b6d1ecac5bbe8d340d\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\thaparsneh\.android\build-cache\3f90aea459e014bc9f89d2c9127f3c91840670b2\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\thaparsneh\.android\build-cache\92dfaa9b26de08b43e15c001ad273291d0df7c0f\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\thaparsneh\.android\build-cache\3754d43d2bb7c0024d007544cd8a5022e9d0d992\output\AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:44:9-41
+	android:supportsRtl
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:45:9-35
+	android:allowBackup
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:42:9-35
+	android:icon
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:43:9-42
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:46:9-39
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:41:9-44
+receiver#com.google.android.gms.gcm.GcmReceiver
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:47:9-57:20
+	android:exported
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:49:13-36
+	android:permission
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:50:13-73
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:48:13-66
+intent-filter#com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION+com.nvcomputers.ten
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:51:13-56:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:52:17-81
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:52:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:53:17-86
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:53:25-83
+category#com.nvcomputers.ten
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:55:17-64
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:55:27-61
+service#com.nvcomputers.ten.GCMRegistrationIntentService
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:59:9-61:40
+	android:exported
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:61:13-37
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:60:13-57
+service#com.nvcomputers.ten.GCMPushReceiverService
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:62:9-68:19
+	android:exported
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:64:13-37
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:63:13-51
+intent-filter#com.google.android.c2dm.intent.RECEIVE
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:65:13-67:29
+service#com.nvcomputers.ten.GCMTokenRefreshListenerService
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:69:9-75:19
+	android:exported
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:71:13-37
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:70:13-59
+intent-filter#com.google.android.gms.iid.InstanceID
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:72:13-74:29
+action#com.google.android.gms.iid.InstanceID
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:73:17-80
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:73:25-77
+service#com.amazonaws.mobileconnectors.s3.transferutility.TransferService
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:76:9-78:38
+	android:enabled
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:78:13-35
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:77:13-93
+meta-data#com.nvcomputers.ten.glide.GlideModuleWithHeaders
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:80:9-82:43
+	android:value
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:82:13-40
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:81:13-76
+activity#org.acra.CrashReportDialog
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:84:9-90:66
+	android:process
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:89:13-44
+	android:excludeFromRecents
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:86:13-46
+	android:launchMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:88:13-48
+	android:finishOnTaskLaunch
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:87:13-46
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:90:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:85:13-54
+activity#com.nvcomputers.ten.views.SplashActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:91:9-99:20
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:93:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:92:13-49
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:94:13-98:29
+action#android.intent.action.MAIN
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:95:17-69
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:95:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:97:17-77
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:97:27-74
+activity#com.nvcomputers.ten.views.post.CameraUploadActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:100:9-103:66
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:102:13-49
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:103:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:101:13-60
+activity#com.nvcomputers.ten.views.auth.LoginActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:104:9-108:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:106:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:108:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:107:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:105:13-53
+activity#com.nvcomputers.ten.views.home.LandingActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:109:9-112:55
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:111:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:112:13-52
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:110:13-55
+activity#com.nvcomputers.ten.views.home.TimedPostActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:113:9-116:50
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:115:13-49
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:116:13-47
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:114:13-57
+activity#com.nvcomputers.ten.views.auth.Splash2Activity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:117:9-121:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:119:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:121:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:120:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:118:13-55
+activity#com.nvcomputers.ten.views.auth.SignUpActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:122:9-126:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:124:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:126:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:125:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:123:13-54
+activity#com.nvcomputers.ten.views.auth.PhoneVerificationActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:127:9-131:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:129:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:131:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:130:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:128:13-65
+activity#com.nvcomputers.ten.views.auth.PhoneVerificationForgetPasswordActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:132:9-136:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:134:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:136:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:135:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:133:13-79
+activity#com.nvcomputers.ten.views.auth.EmailVerificationForgetPasswordActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:137:9-141:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:139:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:141:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:140:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:138:13-79
+activity#com.nvcomputers.ten.views.auth.EmailVerificationActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:142:9-146:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:144:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:146:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:145:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:143:13-65
+activity#com.nvcomputers.ten.views.auth.CreatePasswordActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:147:9-151:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:149:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:151:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:150:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:148:13-62
+activity#com.nvcomputers.ten.views.contacts.ContactsActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:154:9-156:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:156:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:155:13-60
+activity#com.nvcomputers.ten.views.auth.OtpEmailVerifyActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:157:9-161:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:159:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:161:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:160:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:158:13-62
+activity#com.nvcomputers.ten.views.auth.PhoneOtpVerifyActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:162:9-166:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:164:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:166:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:165:13-63
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:163:13-62
+activity#com.nvcomputers.ten.views.profile.ProfileActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:167:9-169:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:169:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:168:13-58
+activity#com.nvcomputers.ten.views.profile.NewProfileActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:170:9-172:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:172:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:171:13-61
+activity#com.nvcomputers.ten.views.home.PostDetailActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:173:9-175:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:175:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:174:13-58
+activity#com.nvcomputers.ten.views.profile.FollowersActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:176:9-178:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:178:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:177:13-60
+activity#com.nvcomputers.ten.views.profile.WebViewActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:179:9-181:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:181:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:180:13-58
+activity#com.nvcomputers.ten.views.profile.PolicyWebViewActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:182:9-184:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:184:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:183:13-64
+activity#com.nvcomputers.ten.views.profile.TermsWebViewActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:185:9-187:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:187:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:186:13-63
+activity#com.nvcomputers.ten.views.profile.FeedbackWebViewActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:188:9-190:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:190:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:189:13-66
+activity#com.nvcomputers.ten.views.profile.ReportWebViewActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:191:9-193:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:193:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:192:13-64
+activity#com.nvcomputers.ten.views.profile.ZoomImageActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:194:9-196:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:196:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:195:13-60
+activity#com.nvcomputers.ten.views.auth.ForgotPasswordActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:197:9-199:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:199:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:198:13-62
+activity#com.nvcomputers.ten.views.auth.SignUpPolicyActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:200:9-202:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:202:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:201:13-60
+activity#com.nvcomputers.ten.views.home.TimersActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:203:9-205:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:205:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:204:13-54
+activity#com.nvcomputers.ten.views.search.SearchActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:206:9-208:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:208:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:207:13-56
+activity#com.nvcomputers.ten.views.post.VideoTrimmerActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:209:9-213:46
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:212:13-49
+	android:label
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:211:13-65
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:213:13-43
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:210:13-60
+activity#com.nvcomputers.ten.views.post.GpuImageFiltersActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:214:9-218:46
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:217:13-49
+	android:label
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:216:13-65
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:218:13-43
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:215:13-63
+activity#com.nvcomputers.ten.imagecrop.CropImageActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:219:9-65
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:219:19-62
+activity#com.theartofdev.edmodo.cropper.CropImageActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:220:9-223:59
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:222:13-49
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:223:13-56
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:221:13-76
+activity#com.nvcomputers.ten.views.home.VideoCommentsActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:224:9-226:52
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:226:13-49
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:225:13-61
+activity#com.nvcomputers.ten.views.home.CommentsActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:227:9-231:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:229:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:231:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:230:13-70
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:228:13-56
+activity#com.nvcomputers.ten.views.home.RepostedUserListActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:232:9-236:57
+	android:screenOrientation
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:234:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:236:13-54
+	android:theme
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:235:13-70
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:233:13-64
+activity#com.nvcomputers.ten.views.home.CommentDetailActivity
+ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:237:9-79
+	android:name
+		ADDED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml:237:19-67
+uses-sdk
+INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] C:\Users\thaparsneh\.android\build-cache\fe9a4c30f6335144f7f95dc36b5a3bc2e6f9e2af\output\AndroidManifest.xml:18:5-42
+MERGED from [TenTheApp:k4l-video-trimmer:unspecified] D:\Workspace\TenTheApp\k4l-video-trimmer\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [TenTheApp:FFmpegAndroid:unspecified] D:\Workspace\TenTheApp\FFmpegAndroid\build\intermediates\bundles\default\AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\thaparsneh\.android\build-cache\c2ba1d4b7417786eefe2eccbdf810bb10bd2094c\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:25.2.0] C:\Users\thaparsneh\.android\build-cache\44ba38136784455602b40f5d8fc2312fd7d75d85\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:recyclerview-v7:25.2.0] C:\Users\thaparsneh\.android\build-cache\feeab9d819364c09035dc5b67a07440966f67861\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.2.0] C:\Users\thaparsneh\.android\build-cache\90b5f10406f85a9151d63c785632b0845b7c034b\output\AndroidManifest.xml:20:5-44
+MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] C:\Users\thaparsneh\.android\build-cache\c6961079e7ec2c826c3ec780a6a55e65a4288ce7\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.localytics.android:library:3.8.0] C:\Users\thaparsneh\.android\build-cache\269ed7c7db5131cb00544bd9f47d2e4e4e9684b6\output\AndroidManifest.xml:7:5-9:41
+MERGED from [jp.wasabeef:glide-transformations:2.0.2] C:\Users\thaparsneh\.android\build-cache\69993b1a678c9c67adc81571ad39250053dd37ec\output\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha9] C:\Users\thaparsneh\.android\build-cache\003d05af02aee68bb15fff5315e5b39eb66fbcf3\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-gcm:10.0.1] C:\Users\thaparsneh\.android\build-cache\bc71e5a56f50d4b11108409084ba744a83f3b26a\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\248a5a30ab064b4f2f4a183fcdeee31b6a70b58c\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\thaparsneh\.android\build-cache\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\output\AndroidManifest.xml:17:5-42
+MERGED from [com.theartofdev.edmodo:android-image-cropper:2.3.1] C:\Users\thaparsneh\.android\build-cache\59fa90d9bca87e85b4fed9983ddeb04a353adacf\output\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\thaparsneh\.android\build-cache\33c95d4db2409702245a7b0cb489041a8487d7eb\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\thaparsneh\.android\build-cache\c461f5dbf14049f75660f08f737cdd7d75b89016\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\thaparsneh\.android\build-cache\7420ede01e2c81df8faaa708d52ab5f3bdaeb6da\output\AndroidManifest.xml:21:5-43
+MERGED from [jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1] C:\Users\thaparsneh\.android\build-cache\dab5bb8139226bc7ae2de423acee853af8493736\output\AndroidManifest.xml:8:5-10:41
+MERGED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:5:5-44
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\thaparsneh\.android\build-cache\77461cd874e82845940c7a2a98179f709779c3be\output\AndroidManifest.xml:6:5-8:41
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\thaparsneh\.android\build-cache\47d2f3f136ee92e84d09d9fc1a2bc33b07c2ecb1\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-core:10.0.1] C:\Users\thaparsneh\.android\build-cache\794cf4bd9a107df9af1f49bedb6db0c4a8674588\output\AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\thaparsneh\.android\build-cache\57c845232e7f8cc9ba1a315e75deed685b217843\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-common:10.0.1] C:\Users\thaparsneh\.android\build-cache\ba259e1c29b87ba5c586a000c7854194e5ceb452\output\AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-tasks:10.0.1] C:\Users\thaparsneh\.android\build-cache\6d73972c2f617c2d5838d6077a9cb4984c599cc4\output\AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\thaparsneh\.android\build-cache\a80c871d2200b44ee97416bcc2a13945c419cd8f\output\AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\thaparsneh\.android\build-cache\44ad85126b7195b3360a4354c642599417cf313d\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\thaparsneh\.android\build-cache\4750247abdbe5a6dbe05ea7ded99ec0cbda81c25\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\thaparsneh\.android\build-cache\c36b48ec02b6cf9d83dcd7b6d1ecac5bbe8d340d\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\thaparsneh\.android\build-cache\3f90aea459e014bc9f89d2c9127f3c91840670b2\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\thaparsneh\.android\build-cache\92dfaa9b26de08b43e15c001ad273291d0df7c0f\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\thaparsneh\.android\build-cache\3754d43d2bb7c0024d007544cd8a5022e9d0d992\output\AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.2.0] C:\Users\thaparsneh\.android\build-cache\44ba38136784455602b40f5d8fc2312fd7d75d85\output\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Workspace\TenTheApp\app\src\main\AndroidManifest.xml
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\thaparsneh\.android\build-cache\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\output\AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\thaparsneh\.android\build-cache\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\output\AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\thaparsneh\.android\build-cache\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\output\AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.0.1] C:\Users\thaparsneh\.android\build-cache\8bc21c0b02341cb460ec389ad0016cc6dbfbad2f\output\AndroidManifest.xml:19:19-85
+activity#com.testfairy.activities.ProvideFeedbackActivity
+ADDED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:18:9-21:63
+	android:configChanges
+		ADDED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:20:13-59
+	android:theme
+		ADDED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:21:13-60
+	android:name
+		ADDED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:19:13-76
+activity#com.testfairy.activities.AutoUpdateActivity
+ADDED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:22:9-24:62
+	android:configChanges
+		ADDED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:24:13-59
+	android:name
+		ADDED from [testfairy:testfairy-android-sdk:1.5.3] C:\Users\thaparsneh\.android\build-cache\e1dfe159275cd7159add34442fb4920f6e6c8fd2\output\AndroidManifest.xml:23:13-71
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\thaparsneh\.android\build-cache\57c845232e7f8cc9ba1a315e75deed685b217843\output\AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:25:113-137
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:27:162-184
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:10.0.1] C:\Users\thaparsneh\.android\build-cache\57c845232e7f8cc9ba1a315e75deed685b217843\output\AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.0.1] C:\Users\thaparsneh\.android\build-cache\78bac0e6faca2cb67fc1b1c37a4d16d8b2e149b7\output\AndroidManifest.xml:32:16-87
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:24:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:24:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:24:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:26:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:30:9-36:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:30:85-108
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:30:109-169
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:30:19-84
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:31:13-35:29
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:34:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:34:27-58
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:40:9-119
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:40:93-117
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:40:19-92
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:44:9-48:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:44:83-106
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:44:18-82
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:45:13-47:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:45:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:46:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.0.1] C:\Users\thaparsneh\.android\build-cache\058e8f96e05b187b42f90a77c35c6c7d9a70cd50\output\AndroidManifest.xml:46:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\thaparsneh\.android\build-cache\ba259e1c29b87ba5c586a000c7854194e5ceb452\output\AndroidManifest.xml:6:9-194
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\thaparsneh\.android\build-cache\ba259e1c29b87ba5c586a000c7854194e5ceb452\output\AndroidManifest.xml:6:19-78
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\thaparsneh\.android\build-cache\ba259e1c29b87ba5c586a000c7854194e5ceb452\output\AndroidManifest.xml:6:144-168
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\thaparsneh\.android\build-cache\ba259e1c29b87ba5c586a000c7854194e5ceb452\output\AndroidManifest.xml:6:169-192
+	android:name
+		ADDED from [com.google.firebase:firebase-common:10.0.1] C:\Users\thaparsneh\.android\build-cache\ba259e1c29b87ba5c586a000c7854194e5ceb452\output\AndroidManifest.xml:6:79-143
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\thaparsneh\.android\build-cache\a80c871d2200b44ee97416bcc2a13945c419cd8f\output\AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\thaparsneh\.android\build-cache\a80c871d2200b44ee97416bcc2a13945c419cd8f\output\AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\thaparsneh\.android\build-cache\a80c871d2200b44ee97416bcc2a13945c419cd8f\output\AndroidManifest.xml:20:20-65

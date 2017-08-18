@@ -1,0 +1,48 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.input.ChangePasswordInput;
+import com.nvcomputers.ten.model.output.ChangePasswordResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 5/1/2017.
+ */
+
+public class ChangePasswordPresenter {
+    private ChangePasswordCallback changePasswordCallback;
+    private AppCommonCallback screen;
+
+    public ChangePasswordPresenter(AppCommonCallback callback, ChangePasswordCallback changePasswordCallback) {
+        this.screen = callback;
+        this.changePasswordCallback = changePasswordCallback;
+    }
+
+    public interface ChangePasswordCallback {
+        void changePasswordError(Call<ChangePasswordResponse> call, Throwable t);
+
+        void onchangePasswordSuccess(Response<ChangePasswordResponse> response);
+    }
+
+    public void responseCheck(ChangePasswordInput changePasswordInput) {
+        //screen.setProgressBar();
+        Call<ChangePasswordResponse> response = GetRestAdapter.getRestAdapter(true).changePassword(changePasswordInput);
+        response.enqueue(new Callback<ChangePasswordResponse>() {
+            @Override
+            public void onResponse(Call<ChangePasswordResponse> call, retrofit2.Response<ChangePasswordResponse> response) {
+                //screen.dismiss();
+                changePasswordCallback.onchangePasswordSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<ChangePasswordResponse> call, Throwable t) {
+                //screen.dismiss();
+                changePasswordCallback.changePasswordError(call, t);
+            }
+        });
+    }
+}

@@ -1,0 +1,48 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.output.UpdateTokenResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Thaparsneh on 5/19/2017.
+ */
+
+public class UpdateTokenPresenter {
+    private UpdateTokenCallback updateTokenCallback;
+    private AppCommonCallback screen;
+
+    public UpdateTokenPresenter(AppCommonCallback callback, UpdateTokenCallback updateTokenCallback) {
+        this.screen = callback;
+        this.updateTokenCallback = updateTokenCallback;
+    }
+
+    public interface UpdateTokenCallback {
+        void updateTokenError(Call<UpdateTokenResponse> call, Throwable t);
+
+        void onUpdateTokenSuccess(Response<UpdateTokenResponse> response);
+    }
+
+    public void responseCheck(String token, String type) {
+        screen.setProgressBar();
+        Call<UpdateTokenResponse> response = GetRestAdapter.getRestAdapter(true).updateToken(token, type);
+        response.enqueue(new Callback<UpdateTokenResponse>() {
+            @Override
+            public void onResponse(Call<UpdateTokenResponse> call, Response<UpdateTokenResponse> response) {
+                screen.dismiss();
+                updateTokenCallback.onUpdateTokenSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<UpdateTokenResponse> call, Throwable t) {
+                screen.dismiss();
+                updateTokenCallback.updateTokenError(call, t);
+            }
+        });
+    }
+}
+

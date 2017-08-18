@@ -1,0 +1,48 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.input.ResetForgotPassPhoneInput;
+import com.nvcomputers.ten.model.output.ResetForgotPasswordResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by thaparsneh on 5/2/2017.
+ */
+
+public class ResetForgotPassPhonePresenter {
+    private ResetForgotPassPhoneCallback resetForgotPassPhoneCallback;
+    private AppCommonCallback screen;
+
+    public ResetForgotPassPhonePresenter(AppCommonCallback callback, ResetForgotPassPhoneCallback resetForgotPassPhoneCallback) {
+        this.screen = callback;
+        this.resetForgotPassPhoneCallback = resetForgotPassPhoneCallback;
+    }
+
+    public interface ResetForgotPassPhoneCallback {
+        void resetPasswordPhoneError(Call<ResetForgotPasswordResponse> call, Throwable t);
+
+        void onResetPasswordPhoneSuccess(Response<ResetForgotPasswordResponse> response);
+    }
+
+    public void responseCheck(ResetForgotPassPhoneInput resetForgotPassPhoneInput) {
+        //screen.setProgressBar();
+        Call<ResetForgotPasswordResponse> response = GetRestAdapter.getRestAdapter(true).resetforgotPassPhone(resetForgotPassPhoneInput);
+        response.enqueue(new Callback<ResetForgotPasswordResponse>() {
+            @Override
+            public void onResponse(Call<ResetForgotPasswordResponse> call, retrofit2.Response<ResetForgotPasswordResponse> response) {
+                //screen.dismiss();
+                resetForgotPassPhoneCallback.onResetPasswordPhoneSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<ResetForgotPasswordResponse> call, Throwable t) {
+                //screen.dismiss();
+                resetForgotPassPhoneCallback.resetPasswordPhoneError(call, t);
+            }
+        });
+    }
+}

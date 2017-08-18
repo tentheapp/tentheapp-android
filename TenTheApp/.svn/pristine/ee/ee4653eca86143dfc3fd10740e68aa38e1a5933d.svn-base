@@ -1,0 +1,50 @@
+package com.nvcomputers.ten.presenter;
+
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.AppCommonCallback;
+import com.nvcomputers.ten.model.input.ForgotPasswordPhoneInput;
+import com.nvcomputers.ten.model.output.ForgotPasswordResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by thaparsneh on 5/2/2017.
+ */
+
+public class ForgotPasswordPhonePresenter {
+    private ForgotPassPhoneCallback forgotPassPhoneCallback;
+    private AppCommonCallback screen;
+
+    public ForgotPasswordPhonePresenter(AppCommonCallback callback, ForgotPassPhoneCallback forgotPassPhoneCallback) {
+        this.screen = callback;
+        this.forgotPassPhoneCallback = forgotPassPhoneCallback;
+    }
+
+    public interface ForgotPassPhoneCallback {
+        void forgotPassPhoneError(Call<ForgotPasswordResponse> call, Throwable t);
+
+        void onForgotPassPhoneSuccess(Response<ForgotPasswordResponse> response);
+    }
+
+    public void responseCheck(ForgotPasswordPhoneInput forgotPasswordPhoneInput) {
+        //screen.setProgressBar();
+        Call<ForgotPasswordResponse> response = GetRestAdapter.getRestAdapter(false).phoneforgotPassword(forgotPasswordPhoneInput);
+        response.enqueue(new Callback<ForgotPasswordResponse>() {
+            @Override
+            public void onResponse(Call<ForgotPasswordResponse> call, Response<ForgotPasswordResponse> response) {
+                //screen.dismiss();
+                forgotPassPhoneCallback.onForgotPassPhoneSuccess(response);
+            }
+
+            @Override
+            public void onFailure(Call<ForgotPasswordResponse> call, Throwable t) {
+                //screen.dismiss();
+                forgotPassPhoneCallback.forgotPassPhoneError(call, t);
+            }
+        });
+    }
+}
+
+

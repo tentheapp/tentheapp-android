@@ -1,0 +1,148 @@
+package com.nvcomputers.ten.views.home;
+
+import android.os.Handler;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.utils.PreferenceKeys;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.views.TTApplication;
+import com.nvcomputers.ten.views.core.BaseActivity;
+import com.nvcomputers.ten.views.core.CarouselPagerFragment;
+
+
+public class LandingActivity extends BaseActivity implements View.OnClickListener {
+    private TextView text_tab1, text_tab2, text_tab3, text_tab4, text_tab5;
+    private SharedPrefsHelper mPrefHelper;
+    private CarouselPagerFragment carouselFragment;
+    private boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+
+        if (!carouselFragment.onBackPressed()) {
+            // container Fragment or its associates couldn't handle the back pressed task
+            // delegating the task to super class
+            //super.onBackPressed();
+            // ---it will finish home activity----
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        } else {
+            // carousel handled the back pressed task
+            // do not call super
+            // --- child fragment will pop here---
+        }
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_landing;
+    }
+
+    @Override
+    protected void initViews() {
+
+
+        mPrefHelper = new SharedPrefsHelper(this);
+        TTApplication.userName = mPrefHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+        TTApplication.password = mPrefHelper.get(PreferenceKeys.PREF_PASSWORD, "");
+        GetRestAdapter.retrofitInterface = null;
+
+        text_tab1 = (TextView) findViewById(R.id.text_tab1);
+        text_tab2 = (TextView) findViewById(R.id.text_tab2);
+        text_tab3 = (TextView) findViewById(R.id.text_tab3);
+        text_tab4 = (TextView) findViewById(R.id.text_tab4);
+        text_tab5 = (TextView) findViewById(R.id.text_tab5);
+
+        text_tab1.setOnClickListener(this);
+        text_tab2.setOnClickListener(this);
+        text_tab3.setOnClickListener(this);
+        text_tab4.setOnClickListener(this);
+        text_tab5.setOnClickListener(this);
+
+        text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0selected, 0, 0);
+        if (mSavedInstanceState == null) {
+            // withholding the previously created fragment from being created again
+            // On orientation change, it will prevent fragment recreation
+            // its necessary to reserving the fragment stack inside each tab
+            carouselFragment = new CarouselPagerFragment();
+            replaceFragment(R.id.main_frame_layout, carouselFragment);
+        } else {
+            // restoring the previously created fragment
+            // and getting the reference
+            carouselFragment = (CarouselPagerFragment) getSupportFragmentManager().getFragments().get(0);
+        }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        setDeaultValues();
+        switch (v.getId()) {
+
+            case R.id.text_tab1:
+                text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0selected, 0, 0);
+                carouselFragment.updatePage(0);
+                break;
+
+            case R.id.text_tab2:
+                text_tab2.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar1selected, 0, 0);
+                carouselFragment.updatePage(1);
+                break;
+
+            case R.id.text_tab3:
+                carouselFragment.updatePage(2);
+                break;
+
+            case R.id.text_tab4:
+                text_tab4.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar3selected, 0, 0);
+                carouselFragment.updatePage(3);
+                break;
+
+            case R.id.text_tab5:
+                text_tab5.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar4selected, 0, 0);
+                // IntentHandler.switchActivity(LandingActivity.this, SettingsActivity.class);
+               /* SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this);
+                String mUserName = sharedPrefsHelper.get(PreferenceKeys.PREF_USER_NAME, "");
+                Bundle bundle = new Bundle();
+                bundle.putString("username", mUserName);
+                bundle.putString("screen", "1");
+                addFragment(R.id.main_frame_layout, new ProfileFragment(), bundle);*/
+                carouselFragment.updatePage(4);
+                break;
+        }
+
+    }
+
+    private void setDeaultValues() {
+        text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0, 0, 0);
+        text_tab2.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar1, 0, 0);
+        text_tab4.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar3, 0, 0);
+        text_tab5.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar4, 0, 0);
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    public void setHomePage() {
+        text_tab1.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.tabbar0selected, 0, 0);
+    }
+}

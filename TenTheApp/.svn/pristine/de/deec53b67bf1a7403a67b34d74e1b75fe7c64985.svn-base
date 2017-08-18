@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- The toolbar -->
+<com.adobe.creativesdk.aviary.widget.AdobeImageToolBar android:id="@+id/toolbar"
+    style="?attr/toolbarStyle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:minHeight="?attr/actionBarSize"
+    tools:showIn="@layout/com_adobe_image_main_layout">
+
+    <ViewSwitcher
+        android:id="@+id/com_adobe_image_toolbar_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inAnimation="@anim/com_adobe_image_toolbar_in"
+        android:outAnimation="@anim/com_adobe_image_toolbar_out">
+
+        <!-- default state -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <include layout="@layout/com_adobe_image_auth_profile_button" />
+
+            <com.adobe.android.ui.view.AdobeTextView
+                android:id="@android:id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/feather_edit_your_photo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                app:adobe_fontFamily="?attr/com_adobe_font_bold" />
+
+            <com.adobe.android.ui.view.AdobeButton
+                android:id="@+id/AviaryAppCompatButtonDone"
+                style="@style/AdobeImageWidget.FlatButton.DGray.Transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/feather_save"
+                android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
+
+        <!-- opened state -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextSwitcher
+                android:id="@+id/com_adobe_image_toolbar_text_switcher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:animateFirstView="false" />
+
+            <ProgressBar
+                android:id="@+id/com_adobe_image_toolbar_progress"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:indeterminate="true"
+                android:indeterminateOnly="true"
+                android:maxHeight="@dimen/com_adobe_image_action_bar_progress_height"
+                android:maxWidth="@dimen/com_adobe_image_action_bar_progress_height"
+                android:minHeight="@dimen/com_adobe_image_action_bar_progress_height"
+                android:minWidth="@dimen/com_adobe_image_action_bar_progress_height"
+                android:visibility="invisible" />
+
+            <ImageButton
+                android:id="@+id/AviaryAppCompatButtonApply"
+                style="@style/AdobeImageWidget.FlatButton.DGray.Transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="@string/feather_apply"
+                android:src="@drawable/com_adobe_image_apply_mark" />
+        </LinearLayout>
+
+    </ViewSwitcher>
+
+</com.adobe.creativesdk.aviary.widget.AdobeImageToolBar>

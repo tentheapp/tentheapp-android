@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:showIn="com.adobe.creativesdk.aviary.dialogs.LoginDialogFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0dp"
+        tools:ignore="UselessParent">
+
+
+        <com.adobe.android.ui.view.AdaptiveFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:adobe_layout_dimension="width"
+            app:adobe_layout_dimension_value="66.8%">
+
+            <ImageView
+                android:id="@+id/ImageView06"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:scaleType="centerCrop"
+                android:src="@drawable/com_adobe_image_promo_image" />
+
+            <ImageView
+                android:id="@+id/ImageView07"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="false"
+                android:scaleType="fitXY"
+                android:visibility="gone" />
+        </com.adobe.android.ui.view.AdaptiveFrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="0dp"
+            android:orientation="vertical"
+            android:padding="@dimen/com_adobe_image_promo_content_padding">
+
+            <com.adobe.android.ui.view.AdobeTextView
+                android:id="@+id/AdobeTextView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="3"
+                android:singleLine="false"
+                android:text="@string/feather_create_custom_stickers_with_adobe_capture"
+                android:textAppearance="@style/AdobeImageWidget.TextAppearance.Large"
+                android:textSize="18sp"
+                app:adobe_fontFamily="?attr/com_adobe_font_regular" />
+
+            <com.adobe.android.ui.view.AdobeTextView
+                android:id="@+id/AdobeTextView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginTop="10dip"
+                android:maxLines="8"
+                android:minLines="5"
+                android:scrollbars="vertical"
+                android:textAppearance="@style/AdobeImageWidget.TextAppearance.Body1"
+                android:textColor="?android:attr/textColorSecondary"
+                app:adobe_fontFamily="?attr/com_adobe_font_regular">
+
+                <requestFocus />
+            </com.adobe.android.ui.view.AdobeTextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/com_adobe_image_promo_content_padding"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/AppCompatButton01"
+                    style="@style/AdobeImageWidget.FlatButton.Dark"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="6dip"
+                    android:layout_weight="1"
+                    android:text="@string/feather_signin"
+                    tools:ignore="NestedWeights" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/AppCompatButton02"
+                    style="@style/AdobeImageWidget.FlatButton.Blue"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dip"
+                    android:layout_weight="1"
+                    android:text="@string/feather_signup" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

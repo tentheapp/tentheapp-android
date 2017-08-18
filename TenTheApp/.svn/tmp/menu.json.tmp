@@ -1,0 +1,27 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sameuser_menu.xml",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\menu\\sameuser_menu.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main2.xml",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\menu\\menu_main2.xml"
+    },
+    {
+<<<<<<< .mine
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\crop_image_menu.xml",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\830c28123eb1b4ba611114ee8727d412b77aa6d5\\output\\res\\menu\\crop_image_menu.xml"
+=======
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\crop_image_menu.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\59fa90d9bca87e85b4fed9983ddeb04a353adacf\\output\\res\\menu\\crop_image_menu.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\sameuser_menu.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\src\\main\\res\\menu\\sameuser_menu.xml"
+>>>>>>> .r2952
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\other_user_post_menu.xml",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\menu\\other_user_post_menu.xml"
+    }
+]

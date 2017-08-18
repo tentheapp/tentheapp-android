@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tenBlue"
+	android:id="@+id/parentView">
+    <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/loginGreen"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:elevation="4dp" />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/editText_password"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Password"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundedcorners10"
+        android:layout_centerInParent="true"
+        android:padding="10dp" />
+    <ImageView
+        android:id="@+id/imageview_password"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/like"
+        android:tag="0"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@id/editText_password"
+        android:layout_toRightOf="@id/editText_password"
+        android:visibility="gone" />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/editText_confirmpassword"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Confirm Password"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundedcorners10"
+        android:layout_below="@id/editText_password"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp" />
+    <ImageView
+        android:id="@+id/imageview_confirmpassword"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/like"
+        android:tag="0"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@id/editText_confirmpassword"
+        android:layout_toRightOf="@id/editText_confirmpassword"
+        android:visibility="gone" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@drawable/landing_button"
+        android:text="Register"
+        android:layout_marginTop="20dp"
+        android:id="@+id/button_register"
+        android:layout_below="@id/editText_confirmpassword"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_username"
+        android:hint="Username"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundedcorners10"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="10dp"
+		android:inputType="textNoSuggestions"
+        android:layout_above="@id/editText_password"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/imageview_username"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/like"
+        android:layout_marginLeft="10dp"
+        android:tag="0"
+        android:layout_alignTop="@id/editText_username"
+        android:layout_toRightOf="@id/editText_username"
+        android:visibility="gone" />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_email"
+        android:hint="Email"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@drawable/roundedcorners10"
+        android:padding="10dp"
+		android:inputType="textEmailAddress"
+        android:layout_above="@id/editText_username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+    <ImageView
+        android:id="@+id/imageview_email"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/like"
+        android:layout_marginLeft="10dp"
+        android:tag="0"
+        android:layout_alignTop="@id/editText_email"
+        android:layout_toRightOf="@id/editText_email"
+        android:visibility="gone" />
+</RelativeLayout>

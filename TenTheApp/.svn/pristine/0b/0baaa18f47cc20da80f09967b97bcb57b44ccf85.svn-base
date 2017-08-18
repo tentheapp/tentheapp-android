@@ -1,0 +1,91 @@
+package com.nvcomputers.ten.views.home;
+
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.VideoView;
+
+import com.nvcomputers.ten.adapter.CommentListAdapter;
+import com.nvcomputers.ten.adapter.SuggestionFollowingAdapter;
+import com.nvcomputers.ten.model.output.GetAllPostCommentOutput;
+import com.nvcomputers.ten.model.output.NewsFeedOutput;
+import com.nvcomputers.ten.presenter.LikeCommentsCountsPresenter;
+import com.nvcomputers.ten.presenter.SelectedPostPresenter;
+import com.nvcomputers.ten.utils.SharedPrefsHelper;
+import com.nvcomputers.ten.views.core.BaseActivity;
+
+import java.util.ArrayList;
+import java.util.Timer;
+
+/**
+ * Created by jindaldipanshu on 6/9/2017.
+ */
+
+public class PostDetailBaseActivity extends BaseActivity {
+
+    protected RelativeLayout videoRelative, pofileRelativeLayout;
+    protected ImageView PostImage, UserImage, ClockImageView, LikeImage, RepostImage, CommentImage;
+    protected ImageView commentImage, leftBtn, topBtn, rightBtn, bottomBtn, imageBack, action, playBtn;
+    protected TextView UsernameTextView, TimeRemainingTextView, TimeElapasedTextView, RepostedTextView;
+    protected TextView likeCount, repostCount, commentCount, captionText;
+    protected Button leftScrollBtn, rightScrollBtn;
+    protected PopupMenu popup;
+    protected VideoView videoView;
+    protected ProgressBar progressBar;
+    protected SharedPrefsHelper sharedPrefsHelper;
+    protected Timer timer;
+    ///strings
+    public String userId, postId, likedPostStatus, remainingTime, expirationTime, mUserId, username;
+    public String postCaption, followingUser;
+
+    //Lists
+    protected SelectedPostPresenter mSelectedPostPresenter;
+    protected ArrayList<NewsFeedOutput.Posts> mTopBtmList;
+    protected ArrayList<NewsFeedOutput.Posts> mLeftRgtList;
+    protected ArrayList<NewsFeedOutput.Posts> mList;
+
+    protected int leftRightPosition;
+    protected int topBtmPosition;
+
+    protected NewsFeedOutput.Posts singlePost;
+    protected LikeCommentsCountsPresenter likeCommentsCountsPresenter;
+
+    ///******************************************************************
+
+    protected EditText edit_text_comment;
+    protected ArrayList<GetAllPostCommentOutput.Comments> getlist;
+    protected ArrayList<GetAllPostCommentOutput.Comments> getcommentList;
+    protected TextView text;
+    protected CommentListAdapter adapter;
+    protected Context mContext;
+    protected RelativeLayout swipeBtnslayout;
+    protected ImageButton iv_bottom;
+    protected int listPosition;
+    protected ImageView commentUserImage;
+    protected String localUser;
+
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
+    @Override
+    protected void initViews() {
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+}

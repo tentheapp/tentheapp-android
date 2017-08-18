@@ -1,0 +1,96 @@
+package com.nvcomputers.ten.presenter;
+
+import android.support.v7.app.AppCompatActivity;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.api.GetRestAdapter;
+import com.nvcomputers.ten.interfaces.Core;
+import com.nvcomputers.ten.model.output.FollowingResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+
+/**
+ * This class is used to get users followers List
+ *
+ * @author jindaldipanshu
+ * @version 1.0
+ */
+
+public class FollowersPresenter {
+
+    private FollowersCallback mFollowersCallback;
+    private AppCompatActivity mActivity;
+
+    public FollowersPresenter(FollowersCallback followersCallback, AppCompatActivity activity) {
+        this.mActivity = activity;
+        this.mFollowersCallback = followersCallback;
+    }
+
+    public interface FollowersCallback extends Core {
+
+        void onFollowersSuccess(FollowingResponse followingResponse);
+
+        void onFollowingError(Throwable t);
+
+    }
+
+
+    /**
+     * This method is used to get users  followers List
+     *
+     * @param idUSer:id of user
+     */
+    public void getFollowersResponse(String idUSer,String offset,String count) {
+
+        ///TODO
+        Call<FollowingResponse> response = GetRestAdapter.getRestAdapter(true).getFollowersList(idUSer,offset, count);
+        response.enqueue(new Callback<FollowingResponse>() {
+            @Override
+            public void onResponse(Call<FollowingResponse> call, retrofit2.Response<FollowingResponse> response) {
+                mFollowersCallback.hideDialog();
+                if (response != null && response.body() != null) {
+                    mFollowersCallback.onFollowersSuccess(response.body());
+                } else {
+                    mFollowersCallback.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FollowingResponse> call, Throwable t) {
+                mFollowersCallback.hideDialog();
+                mFollowersCallback.onFollowingError(t);
+            }
+        });
+    }
+
+
+    /**
+     * This method is used to get users  followers List
+     *
+     * @param idUSer:id of user
+     */
+    public void getFollowingResponse(String idUSer,String offset,String count) {
+
+        Call<FollowingResponse> response = GetRestAdapter.getRestAdapter(true).getFollowingList(idUSer, offset, count);
+        response.enqueue(new Callback<FollowingResponse>() {
+            @Override
+            public void onResponse(Call<FollowingResponse> call, retrofit2.Response<FollowingResponse> response) {
+                mFollowersCallback.hideDialog();
+                if (response != null && response.body() != null) {
+                    mFollowersCallback.onFollowersSuccess(response.body());
+                } else {
+                    mFollowersCallback.showToast(R.string.server_error_msg);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FollowingResponse> call, Throwable t) {
+                mFollowersCallback.hideDialog();
+                mFollowersCallback.onFollowingError(t);
+            }
+        });
+    }
+
+
+}

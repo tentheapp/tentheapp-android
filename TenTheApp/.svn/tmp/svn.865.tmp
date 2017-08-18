@@ -1,0 +1,186 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar1.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar1.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\back_arrow_black.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\back_arrow_black.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\white_downicon.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\white_downicon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_arrow_left.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_left.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\forword_arrow_black.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\forword_arrow_black.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\up_arrow_black.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\up_arrow_black.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_arrow_up.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_up.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar4.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar4.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_back_arrow_.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_back_arrow_.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar3selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar3selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar4selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar4selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\crop__ic_cancel.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\crop__ic_cancel.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\white_backicon.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\white_backicon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\myprofilelarge.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\myprofilelarge.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_check_black_24dp.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_check_black_24dp.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\down_arrow_black.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\down_arrow_black.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar0.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar0.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\white_forwordicon.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\white_forwordicon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_refresh.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_refresh.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\status.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\status.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_mute.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_mute.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_search.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_search.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\crop__divider.9.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\crop__divider.9.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\crop__ic_done.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\crop__ic_done.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\settings.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\settings.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\crop__tile.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\crop__tile.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\search.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\search.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\play_video_btn.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\play_video_btn.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\white_upicon.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\white_upicon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_volume.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_volume.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar3.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar3.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_arrow_right.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_right.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\friendrequest.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\friendrequest.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_videocam.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_videocam.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\forword_arrow_gray.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\forword_arrow_gray.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\play_video_icon.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\play_video_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_unmute.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_unmute.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\back_icon.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\back_icon.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar2.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar2.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\back.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\back.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\actions.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\actions.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\refresh.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\refresh.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar1selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar1selected.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_arrow_down.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_down.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\tabbar0selected.png",
+        "source": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\src\\main\\res\\drawable-xhdpi\\tabbar0selected.png"
+    }
+]

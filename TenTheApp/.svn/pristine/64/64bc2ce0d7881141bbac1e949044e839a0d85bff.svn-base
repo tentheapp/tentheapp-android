@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\Workspace\TenTheApp\app\libs\acra-4.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d2613d074b20674c3d05d6d8615292b6172d1366">
+        <dex dex="D:\Workspace\TenTheApp\app\build\intermediates\transforms\dex\debug\folders\1000\2\acra-4.4.0_f1345aedc303935ec64f5ed4b8b304d5f93ffb72\classes.dex" />
+    </item>
+
+</items>

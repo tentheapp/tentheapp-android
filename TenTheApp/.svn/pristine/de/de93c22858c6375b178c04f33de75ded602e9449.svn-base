@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="hello">Hello World, Click Me!</string>
+    <string name="app_name">Ten</string>
+    <!-- <string name="gcm_defaultSenderId">senderId</string>-->
+    <string name="please_wait_meassge">Please wait..</string>
+    <string name="server_error">Oops! Something went wrong.</string>
+    <string name="enter_email">Enter Your Email Address</string>
+    <string name="try_phone_number">Try phone number?</string>
+    <string name="empty_username_error_msg">Please enter valid username</string>
+    <string name="no_internet_msg">No internet connection.</string>
+    <string name="try_email">Try email?</string>
+    <string name="enter_phone">Enter Your Phone Number</string>
+    <string name="via_email">via Email</string>
+    <string name="via_number">via Number</string>
+    <string name="no_data_found_msg">No data found.</string>
+    <string name="server_error_msg">Server error.Please try again.</string>
+    <string name="user_not_found">User does not exist.</string>
+    <string name="password_txt1">You\'ll need a password</string>
+    <string name="password_txt2">Password must be more than 5 characters</string>
+    <string name="sync_contacts">Syncing Contacts</string>
+    <string name="sync_contacts_msg">Do you want to sync contacts?</string>
+    <string name="sync">Sync</string>
+    <string name="skip">Skip</string>
+    <string name="invite">Invite</string>
+
+    <string name="crash_toast_text">Ooooops ! I crashed, but a report has been sent to my developer to help fix the issue !</string>
+    <string name="crash_dialog_title">AKO has crashed</string>
+    <string name="crash_dialog_text">An unexpected error occurred forcing the
+    application to stop. Please help us fix this by sending us error data,
+    all you have to do is click OK.</string>
+    <string name="crash_dialog_comment_prompt">You might add your comments about the problem below:</string>
+    <string name="crash_dialog_ok_toast">Thank you !</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="friended_friended">FRIENDED</string>
+    <string name="friended_none">NONE</string>
+    <string name="friended_rejected">REJECTED</string>
+    <string name="friended_pending">PENDING</string>
+    <string name="friended_self">SELF</string>
+    <string name="clear_notification">Clear Notifications?</string>
+    <string name="clear_notification_message">Are you sure you want to clear these notifications?</string>
+    <string name="clearAll">Clearing Notifications</string>
+    <string name="permision_available_camera">Camera Permission has been granted. Preview can now be opened.</string>
+    <string name="permissions_not_granted">Permissions were not granted.</string>
+    <string name="permission_camera_rationale">Camera permission is needed to show the camera preview.</string>
+
+
+    <string name="page_1">Page 1</string>
+    <string name="page_2">Page 2</string>
+    <string name="page_3">Page 3</string>
+    <string name="page_4">Page 4</string>
+    <string name="page_5">Page 5</string>
+    <string name="unauthorized">Invalid user name or password</string>
+    <string name="title_activity_video_trimmer">VideoTrimmerActivity</string>
+
+
+    <!--crop image strings-->
+    <string name="crop__saving">Saving picture…</string>
+    <string name="crop__wait">Please wait…</string>
+    <string name="crop__pick_error">No image sources available</string>
+    <string name="crop__done">DONE</string>
+    <string name="crop__cancel" tools:ignore="ButtonCase">CANCEL</string>
+    <string name="network_error">Network error.</string>
+
+    <!--s3 data string-->
+    <string name="upload_activity">UploadActivity</string>
+    <string name="download_activity">DownloadActivity</string>
+    <string name="download_selection_activity">Select a file from the bucket</string>
+    <string name="download">Download</string>
+    <string name="manage_download">Manage downloads</string>
+    <string name="upload">Upload</string>
+    <string name="manage_upload">Manage uploads</string>
+    <string name="upload_file">Upload a file</string>
+    <string name="upload_image">Upload an image</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="pause_all">Pause all</string>
+    <string name="cancel_all">Cancel all</string>
+    <string name="refreshing">Refreshing</string>
+    <string name="please_wait">Please wait</string>
+</resources>

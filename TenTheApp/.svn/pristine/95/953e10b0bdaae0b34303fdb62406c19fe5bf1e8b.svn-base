@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.adobe.creativesdk.aviary.widget.AdobeDropDownLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:visibility="invisible">
+
+    <View
+        android:id="@+id/View01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:clickable="true" />
+
+    <ViewSwitcher
+        android:id="@+id/ViewSwitcher01"
+        android:layout_width="@dimen/com_adobe_image_sdk_dropdown_viewswitcher_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <include
+            android:id="@+id/auth_dropdown"
+            layout="@layout/com_adobe_image_auth_dropdown" />
+
+        <include
+            android:id="@+id/signed_dropdown"
+            layout="@layout/com_adobe_image_signed_dropdown" />
+
+    </ViewSwitcher>
+
+</com.adobe.creativesdk.aviary.widget.AdobeDropDownLayout>

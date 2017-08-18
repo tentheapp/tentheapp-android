@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_check_black_24dp.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_check_black_24dp.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_arrow_down.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_arrow_down.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\back.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\back.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_arrow_right.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_arrow_right.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",
+        "source": "C:\\Users\\thaparsneh\\.android\\build-cache\\44ba38136784455602b40f5d8fc2312fd7d75d85\\output\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_videocam.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_videocam.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_back_arrow_.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_back_arrow_.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_arrow_left.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_arrow_left.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_arrow_up.xml",
+        "source": "D:\\Workspace\\TenTheApp\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_arrow_up.xml"
+    }
+]

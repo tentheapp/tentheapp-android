@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_color"
+    tools:context=".views.profile.ProfileActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/profile_scrolleview"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:id="@+id/profile_parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_header"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+
+                <ImageView
+                    android:id="@+id/image_back"
+                    android:layout_width="15dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/back_icon"
+                    android:backgroundTint="@color/tenBlue"
+                    android:padding="5dp" />
+
+
+                <TextView
+                    android:id="@+id/text_view_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text=""
+                    android:textColor="@color/tenBlue"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/image_view_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/settings" />
+
+                <ImageView
+                    android:id="@+id/image_view_report"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/actions" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_1"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_below="@+id/rl_header"
+                android:background="@color/light_grey" />
+
+            <RelativeLayout
+                android:id="@+id/rl_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/view_1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <ImageView
+                    android:id="@+id/image_view_profile"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/myprofilelarge" />
+
+                <TextView
+                    android:id="@+id/tv_to_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/image_view_profile"
+                    android:text="Top time:"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/text_view_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/tv_to_time"
+                    android:alpha="0.8"
+                    android:text="12 m"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_posts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_to_time"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@+id/image_view_profile"
+                    android:text="Posts:"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text_view_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_view_time"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@+id/tv_posts"
+                    android:alpha="0.8"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_followers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_toLeftOf="@+id/text_view_followers"
+                    android:text="Followers"
+                    android:textColor="@color/tenBlue"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text_view_followers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:paddingLeft="5dp"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_to_time"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toLeftOf="@+id/text_view_following"
+                    android:text="Following"
+                    android:textColor="@color/tenBlue"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text_view_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/text_view_time"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="right"
+                    android:paddingLeft="5dp"
+                    android:text=""
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text_view_edit_profile"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/text_view_following"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:alpha="0.8"
+                    android:background="@drawable/rounded_btn_black_filled"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text=" "
+                    android:textColor="@android:color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_parent"
+                android:layout_margin="10dp"
+                android:background="@color/light_grey"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/text_nickName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_nickName"
+                    android:layout_marginLeft="5dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_top_timers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_2">
+
+                <TextView
+                    android:id="@+id/tv_timers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Top Timers"
+                    android:textColor="@color/tenBlue"
+                    android:textSize="17sp" />
+
+                <TextView
+
+                    android:id="@+id/text_view_user_blocked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="User Is Blocked"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"
+                    android:textStyle="italic"
+                    android:visibility="invisible" />
+
+                <ProgressBar
+                    android:id="@+id/pro_bar_profile_top_timers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_top_timers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_timers"
+                    android:layout_alignStart="@+id/tv_timers"
+                    android:layout_below="@+id/tv_timers" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_top_timers"
+                android:layout_margin="10dp"
+                android:text="Posts"
+                android:textColor="@color/tenBlue"
+                android:textSize="17sp" />
+
+
+            <TextView
+                android:id="@+id/text_view_no_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_post"
+                android:layout_centerInParent="true"
+                android:layout_margin="20dp"
+                android:text="No Active  Posts"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                android:textStyle="italic"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/pro_bar_profile_posts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_post" />
+
+            <!--<android.support.v4.widget.NestedScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_posts"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_alignLeft="@+id/tv_post"
+                android:layout_alignStart="@+id/tv_post"
+                android:layout_alignTop="@+id/pro_bar_profile_posts" />
+            <!--</android.support.v4.widget.NestedScrollView>-->
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout><!--<?xml version="1.0" encoding="utf-8"?>--><!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:id="@+id/profile_frame_layout"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="@color/white_color"--><!--tools:context=".views.profile.ProfileActivity">-->
+
+    <!--<RelativeLayout--><!--android:id="@+id/mainLayout"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent">-->
+
+    <!--<ProgressBar--><!--android:id="@+id/pro_bar_profile_posts"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_below="@+id/inner_layout" />-->
+
+    <!--<android.support.v7.widget.RecyclerView--><!--android:id="@+id/recycler_view_posts"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_below="@+id/inner_layout"--><!--android:nestedScrollingEnabled="true"--><!--android:padding="5dp" />--><!--</RelativeLayout>--><!--</FrameLayout>-->

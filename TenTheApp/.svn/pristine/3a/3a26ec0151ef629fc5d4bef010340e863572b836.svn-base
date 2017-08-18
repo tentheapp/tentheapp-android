@@ -1,0 +1,37 @@
+package com.nvcomputers.ten.views.profile;
+
+
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class NewProfileFragment extends BaseFragment {
+
+
+    private RecyclerView mPostsRecyclerView;
+
+    public NewProfileFragment() {
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_profile;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        mPostsRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_posts);
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+}

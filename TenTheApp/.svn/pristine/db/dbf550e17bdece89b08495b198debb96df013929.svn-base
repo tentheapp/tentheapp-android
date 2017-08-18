@@ -1,0 +1,116 @@
+package com.nvcomputers.ten.adapter;
+
+import android.app.Activity;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.nvcomputers.ten.R;
+import com.nvcomputers.ten.model.output.SearchFollowingUserResponse;
+import com.nvcomputers.ten.utils.HttpUtils;
+import com.nvcomputers.ten.views.core.BaseFragment;
+
+import java.util.List;
+import java.util.StringTokenizer;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
+/**
+ * Created by Thaparsneh on 5/23/2017.
+ */
+
+public class SuggestionFollowingAdapter extends RecyclerView.Adapter<SuggestionFollowingAdapter.SuggestionFollowingViewHolder> {
+    private final Activity mActivity;
+    private final List<SearchFollowingUserResponse.Users> followingList;
+    private final BaseFragment baseFragment;
+    private int listCount;
+
+    public SuggestionFollowingAdapter(BaseFragment baseFragment,
+                                      List<SearchFollowingUserResponse.Users> arrayList) {
+        this.mActivity = baseFragment.getBaseActivity();
+        this.baseFragment = baseFragment;
+        this.followingList = arrayList;
+        if (followingList != null) {
+            listCount = followingList.size();
+        }
+    }
+
+    @Override
+    public SuggestionFollowingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.
+                from(parent.getContext()).
+                inflate(R.layout.row_suggestion_following, parent, false);
+        return new SuggestionFollowingAdapter.SuggestionFollowingViewHolder(itemView);
+    }
+
+
+    @Override
+    public void onBindViewHolder(SuggestionFollowingAdapter.SuggestionFollowingViewHolder holder, int position) {
+        SearchFollowingUserResponse.Users data = followingList.get(position);
+        String user_name = data.getUsername();
+        holder.userName.setText(user_name);
+
+        Glide.with(mActivity)
+                .load(HttpUtils.getProfileImageURL(data.getUsername()))
+                .override(90, 90)
+                .bitmapTransform(new RoundedCornersTransformation(mActivity, 15, 15))
+                .into(holder.userImage);
+    }
+
+    @Override
+    public int getItemCount() {
+        return followingList == null ? 0 : followingList.size();
+    }
+
+    public class SuggestionFollowingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private final TextView userName;
+        private final ImageView userImage;
+
+        public SuggestionFollowingViewHolder(View itemView) {
+            super(itemView);
+            userName = (TextView) itemView.findViewById(R.id.followingName);
+            userImage = (ImageView) itemView.findViewById(R.id.followingImg);
+            itemView.findViewById(R.id.inner_layout).setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getLayoutPosition();
+            String comment = "";
+            if (view.getId() == R.id.inner_layout) {
+
+                String name = followingList.get(clickedPosition).getUsername();
+
+                comment = baseFragment.edit_text_comment.getText().toString();
+                String commented = comment.replace("@", " " + name);
+                baseFragment.edit_text_comment.setText(commented);
+
+                if (comment.length() > 1) {
+                    int index = comment.indexOf("@");
+                    StringTokenizer stringTokenizer = new StringTokenizer(comment, "@");
+                    if (index == 0) {
+                        if (stringTokenizer.hasMoreTokens()) {
+                            //String first = stringTokenizer.nextToken();
+                            baseFragment.edit_text_comment.setText(name);
+                            baseFragment.mSuggestionDialog.dismiss();
+                        }
+                    } else {
+                        String first = null;
+                        if (stringTokenizer.hasMoreTokens()) {
+                            first = stringTokenizer.nextToken();
+                        }
+                        if (stringTokenizer.hasMoreTokens()) {
+                            String last = stringTokenizer.nextToken();
+                            baseFragment.edit_text_comment.setText(first + " " + name);
+                            baseFragment.mSuggestionDialog.dismiss();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

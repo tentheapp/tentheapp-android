@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xlarge-xhdpi-v4\\com_adobe_image_promo_image.jpg",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xlarge-xhdpi-v4\\com_adobe_image_promo_image.jpg"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xlarge-xhdpi-v4\\com_adobe_image_promo_header_banner_logged.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xlarge-xhdpi-v4\\com_adobe_image_promo_header_banner_logged.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xlarge-xhdpi-v4\\com_adobe_image_promo_image_packs.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xlarge-xhdpi-v4\\com_adobe_image_promo_image_packs.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioWorkspace\\TenTheApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xlarge-xhdpi-v4\\com_adobe_image_free_logo_button_invisible.png",
+        "source": "C:\\Users\\rkumar4\\.android\\build-cache\\ad83f92df604beff912e87c0e518b539bcf15866\\output\\res\\drawable-xlarge-xhdpi-v4\\com_adobe_image_free_logo_button_invisible.png"
+    }
+]
